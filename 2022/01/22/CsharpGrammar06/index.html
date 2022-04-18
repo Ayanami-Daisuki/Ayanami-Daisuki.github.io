@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/01/22/CsharpGrammar06/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/01/22/CsharpGrammar06/","path":"2022/01/22/CsharpGrammar06/","title":"C#语法基础（六）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C#语法基础（六） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E5%A4%9A%E6%80%81%E7%9B%B8%E5%85%B3"><span class="nav-text">十四、多态相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="nav-text">十五、反编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%BD%E6%95%B0%E4%B8%8E%E7%B1%BB"><span class="nav-text">十六、常见的函数与类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A4%A7%E6%95%B0%E5%A4%84%E7%90%86"><span class="nav-text">(1) 大数处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E6%95%B4%E6%95%B0"><span class="nav-text">Ⅰ. 整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E5%A4%8D%E6%95%B0"><span class="nav-text">Ⅱ. 复数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86"><span class="nav-text">(2) 字符串处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-Split"><span class="nav-text">Ⅰ. Split()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-IndexOf%E5%87%BD%E6%95%B0"><span class="nav-text">Ⅱ. IndexOf函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2-Substring"><span class="nav-text">Ⅲ. Substring()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">(3) 正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9B%86%E5%90%88"><span class="nav-text">(3) 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-List-lt-T-gt"><span class="nav-text">Ⅰ. List&lt;T&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-Dictionary-lt-A-B-gt"><span class="nav-text">Ⅱ. Dictionary&lt;A,B&gt;</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/01/22/CsharpGrammar06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C#语法基础（六） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#语法基础（六）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-22 12:14:54" itemprop="dateCreated datePublished" datetime="2022-01-22T12:14:54+08:00">2022-01-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:05:03" itemprop="dateModified" datetime="2022-04-17T21:05:03+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/01/22/CsharpGrammar06/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议先学习C++基础再进行C#的学习。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="十四、多态相关"><a href="#十四、多态相关" class="headerlink" title="十四、多态相关"></a><strong>十四、多态相关</strong></h2><p>C#中存在如下的关键字：</p>
+<ol>
+<li>new，子类同名函数覆盖父类函数，仅在子类中生效。</li>
+<li>virtual，父类函数声明可以被重写。</li>
+<li>override，子类重写父类函数，在父类中也生效。</li>
+<li>sealed，被此修饰的函数或类将不会被继承。</li>
+<li>abstract，声明类或函数为抽象的。抽象函数只能存在于抽象类中。</li>
+</ol>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>new与override的区别</strong></div>
+
+<div style="color:goldenrod;">
+
+<ul>
+<li>以new关键字覆盖父类函数时，不需要父类声明了函数为virtual。相应地，父类调用这个函数时不会调用子类的new函数。</li>
+<li>要使用override关键字则要求父类要么是抽象类，要么声明了virtual。父类在调用函数时，会调用子类的override函数。</li>
+</ul>
+</div>
+</div>
+
+<p>对于以sealed声明了的类，虽然不能继承这个类，不过有方法能够扩展它。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MainProcess</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> temp = <span class="string">&quot;Beatless&quot;</span>;</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;temp.LengthCount()&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="comment">//此处直接以string类型调用Lacia类中定义的函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Lacia</span>  <span class="comment">//&lt;===static类</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">LengthCount</span>(<span class="params"><span class="keyword">this</span> <span class="built_in">string</span> Input</span>)</span></span><br><span class="line"><span class="function">    <span class="comment">//函数声明中参数加了this</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> Input.Length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>this关键字，用于指明参数中的哪个类是可以通过“.”来直接调用函数的。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>扩展类的条件</strong></div>
+
+<div style="color:goldenrod;">使用这种方法扩展sealed类，必须要将扩展类声明为static。</div>
+</div>
+
+<h2 id="十五、反编译"><a href="#十五、反编译" class="headerlink" title="十五、反编译"></a><strong>十五、反编译</strong></h2><ol>
+<li>在Visual Studio Code中，选择扩展，搜索ilspy，安装下图所示的扩展。<br><img src="/2022/01/22/CsharpGrammar06/1.png" alt="1 &quot;1&quot;" title="2"><br>这个扩展是反编译用的扩展。它可以将已经编译完的.exe或者.dll反编译成C#代码或者中间语言（IL）代码。</li>
+<li>安装完以后，按Shift+Ctrl+P，输入ilspy。<br><img src="/2022/01/22/CsharpGrammar06/2.png" alt="2 &quot;2&quot;" title="2"><br>选择Pick assembly from file system。</li>
+<li>选定你想要反编译的.exe或者.dll文件，打开后在此处查看它。<br><img src="/2022/01/22/CsharpGrammar06/3.png" alt="3 &quot;3&quot;" title="3"><br>在右上角三角播放标志右侧，你可以切换是反编译为C#还是中间语言。</li>
+</ol>
+<h2 id="十六、常见的函数与类"><a href="#十六、常见的函数与类" class="headerlink" title="十六、常见的函数与类"></a><strong>十六、常见的函数与类</strong></h2><h3 id="1-大数处理"><a href="#1-大数处理" class="headerlink" title="(1) 大数处理"></a><strong>(1) 大数处理</strong></h3><h4 id="Ⅰ-整数"><a href="#Ⅰ-整数" class="headerlink" title="Ⅰ. 整数"></a><strong>Ⅰ. 整数</strong></h4><p>可以使用定义在System.Numerics下的类BigInteger。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigInteger temp = BigInteger.Parse(<span class="string">&quot;114514191981081363573948724834236811766972113571366712425316373543202&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;temp&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>BigInteger类能够存储任意的大整数而不会发生溢出，并且内置了加减乘除等运算。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>BigInteger的局限</strong></div>
+
+<div style="color:goldenrod;">BigInteger只能存储整数而不能存储小数与复数。</div>
+</div>
+
+<h4 id="Ⅱ-复数"><a href="#Ⅱ-复数" class="headerlink" title="Ⅱ. 复数"></a><strong>Ⅱ. 复数</strong></h4><p>可以使用定义在System.Numerics下的类Complex。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Complex a = <span class="keyword">new</span>(<span class="number">114</span>, <span class="number">514</span>);</span><br><span class="line">Complex b = <span class="keyword">new</span>(<span class="number">1919</span>, <span class="number">810</span>);</span><br><span class="line">Complex c = a * b;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;c&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>同样，Complex也能存储任意大小的复数。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>Complex的局限</strong></div>
+
+<div style="color:goldenrod;">Complex可以存储小数，但是它的小数精度并不高</div>
+</div>
+
+<h3 id="2-字符串处理"><a href="#2-字符串处理" class="headerlink" title="(2) 字符串处理"></a><strong>(2) 字符串处理</strong></h3><h4 id="Ⅰ-Split"><a href="#Ⅰ-Split" class="headerlink" title="Ⅰ. Split()"></a><strong>Ⅰ. Split()</strong></h4><p>与Python相似，C#的string类定义了一个成员函数Split，用于分割字符串。其返回值是一个string数组。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> HIE = <span class="string">&quot;Kouka,Lacia,Method,Teresa&quot;</span>;</span><br><span class="line"><span class="built_in">string</span>[] HIES = HIE.Split(<span class="string">&#x27;,&#x27;</span>);  <span class="comment">//以逗号为界分割字符串</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">string</span> temp <span class="keyword">in</span> HIES)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;temp&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ⅱ-IndexOf函数"><a href="#Ⅱ-IndexOf函数" class="headerlink" title="Ⅱ. IndexOf函数"></a><strong>Ⅱ. IndexOf函数</strong></h4><p>此函数用于寻找string中的字串的索引值。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> HIE = <span class="string">&quot;Kouka,Lacia,Method,Teresa&quot;</span>;</span><br><span class="line"><span class="built_in">int</span> HIES = HIE.IndexOf(<span class="string">&quot;,L&quot;</span>);</span><br><span class="line">Console.WriteLine(HIES);</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>关于IndexOf</strong></div>
+
+<div style="color:royalblue;">IndexOf有很多重载函数，其功能就不一一介绍了。</div>
+</div>
+
+<h4 id="Ⅲ-Substring"><a href="#Ⅲ-Substring" class="headerlink" title="Ⅲ. Substring()"></a><strong>Ⅲ. Substring()</strong></h4><p>这个函数有两个重载函数。</p>
+<ol>
+<li>Substring(int i,int n)，返回从第i个字符（包含）开始的长度为n的字符串。</li>
+<li>Substring(int i)，返回从第i个字符（包含）开始到结束的字符串。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> HIE = <span class="string">&quot;Kouka,Lacia,Method,Teresa&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> HIES = HIE.Substring(<span class="number">6</span>,<span class="number">5</span>);</span><br><span class="line">Console.WriteLine(HIES);</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>处理字符串的其他函数</strong></div>
+
+<div style="color:royalblue;">关于处理字符串的函数还有许多，此处省略了其中的大部分。关于详细信息，可以查询&nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/api/system.string?view=net-6.0 ">Microsoft官方文档</a>&nbsp;。</div>
+</div>
+
+<h3 id="3-正则表达式"><a href="#3-正则表达式" class="headerlink" title="(3) 正则表达式"></a><strong>(3) 正则表达式</strong></h3><p>想要检查输入的字符串是否符合需求？那就使用正则表达式吧。定义在System.Text.RegularExpress下的类Regex就是可以用正则表达式检测字符串规范的一个类。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Regex checker = <span class="keyword">new</span>(<span class="string">@&quot;^\d+$&quot;</span>);</span><br><span class="line"><span class="keyword">while</span>(checker.IsMatch(Console.ReadLine())==<span class="literal">false</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;不输入数字是吧，那就别想出去.jpg&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>禁用转义字符</strong></div>
+
+<div style="color:royalblue;">之前提到过，以$修饰的字符串，其中的“{}”中的内容将被视为变量，字符串将会把它替换为变量的值。与此相似，以@修饰的字符串，将会禁用其中所有的转义字符。书写Windows路径的时候你可以使用@字符，非常方便。</div>
+</div>
+
+<p>禁用转移字符以后，就可以用正则表达式的方式去解释“\”。</p>
+<p>以下是常见的正则表达式的符号：</p>
+<ol>
+<li>“^”，指示输入的开始</li>
+<li>“\d”，表示单个数字</li>
+<li>“\w”，表示空白</li>
+<li>“[A-Z]”，表示这个字符的取值范围</li>
+<li>“[（任意的字符）]”，表示这个字符能取的值</li>
+<li>“.”，表示任意单个字符</li>
+<li>“$”，表示输入的结束</li>
+<li>“\D”，表示不是数字的任意字符</li>
+<li>“\W”，表示非空白的任意字符</li>
+<li>“[^（任意的字符）]”，这个字符不能取的值</li>
+<li>“.”，表示“.”字符</li>
+<li>“^”，表示“^”字符</li>
+<li>“+”，表示一个或者多个</li>
+<li>“{i}”，表示正好i个字符</li>
+<li>“{i,}”，不少于i个字符</li>
+<li>“{,i}”，不多于i个字符</li>
+<li>“{i,j}”，字符数应在i~j之间</li>
+<li>“?”，有一个字符或者没有字符</li>
+<li>“|”，对两个条件取或。</li>
+</ol>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>没看明白？</strong></div>
+
+<div style="color:royalblue;">关于正则表达式的详细语法，请参见&nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-syntax.html ">菜鸟教程</a>&nbsp;。</div>
+</div>
+
+<h3 id="3-集合"><a href="#3-集合" class="headerlink" title="(3) 集合"></a><strong>(3) 集合</strong></h3><p>类似C++有STL一样，C#中也有很多好用的模板类，它们被称为集合。此处就只讲其常见函数。</p>
+<h4 id="Ⅰ-List-lt-T-gt"><a href="#Ⅰ-List-lt-T-gt" class="headerlink" title="Ⅰ. List&lt;T&gt;"></a><strong>Ⅰ. List&lt;T&gt;</strong></h4><p>其实就是C++的线性表</p>
+<ol>
+<li>Add(T)，添加元素</li>
+<li>Insert(int i,T)，在第i个位置插入元素</li>
+<li>RemoveAt(int i)，删除第i个元素</li>
+<li>Remove(T)，删除与参数值相同的第一个元素</li>
+</ol>
+<h4 id="Ⅱ-Dictionary-lt-A-B-gt"><a href="#Ⅱ-Dictionary-lt-A-B-gt" class="headerlink" title="Ⅱ. Dictionary&lt;A,B&gt;"></a><strong>Ⅱ. Dictionary&lt;A,B&gt;</strong></h4><p>其实就是C++的map</p>
+<ol>
+<li>Add(A,B)，添加键-值对</li>
+<li>Remove(A)，删除键-值对</li>
+<li>Remove(A,out B)，删除键-值对并返回值</li>
+</ol>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>其它的数据结构</strong></div>
+
+<div style="color:royalblue;">当然C#也有自带的堆、队列等类，它们的函数都较为接近，且学过数据结构的同学应该不会对它们感到疑惑。此处不再赘述</div>
+</div>
+
+<div class="note success"><div style="color:green;font-size:1.5em;"><strong>基础知识到此为止</strong></div>
+
+<div style="color:green;">至此C#的基础笔记就到此为止了。这些确实是C#的“基础”，基础得不能再基础了——因为C#还有诸如图形化编程、网络通信、编码、网站设计等高级应用方式。而这个系列的笔记对高级应用几乎只字未提。如果要学习更高级的C#应用方式，那么你应该提前下载Visual Studio，而不是使用VS Code。这个系列的笔记只是个抛砖引玉，还望各位读者指正。</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/01/22/CsharpGrammar06/" title="C#语法基础（六）">https://ayanami-daisuki.github.io/2022/01/22/CsharpGrammar06/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/C-%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> C#语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/21/DasKapital02/" rel="prev" title="资本论笔记（二）">
+                  <i class="fa fa-chevron-left"></i> 资本论笔记（二）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/22/DasKapital03/" rel="next" title="资本论笔记（三）">
+                  资本论笔记（三） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

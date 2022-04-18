@@ -1,0 +1,193 @@
+body {
+  background-color: #696969;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-origin: border-box;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main.main {
+  opacity: 0.95;
+}
+
+.post-block {
+  background: #fff;
+  border-radius: 0px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  padding: 40px;
+}
+
+.nav-link.active {
+  border-bottom-color: #ffd700;
+  color: #ffd700;
+}
+
+.sidebar-toc-active .sidebar-nav-toc,
+.sidebar-overview-active .sidebar-nav-overview {
+  border-bottom-color: #ffd700;
+  color: #ffd700;
+  transition: all 1s ease;
+}
+
+.sidebar-toc-active .sidebar-nav-toc:hover,
+.sidebar-overview-active .sidebar-nav-overview:hover {
+  color: #00f;
+}
+
+.footer {
+  color: #00bfff;
+}
+
+#aplayer {
+  color: #00bfff;
+}
+
+.back-to-top {
+  color: #f00 !important;
+  transition: all 0.25s ease-in-out;
+}
+
+.back-to-top:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px #000;
+  opacity: 1 !important;
+}
+
+ul.nav-tabs {
+  z-index: 10;
+}
+
+div.tabs {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #00bfff;
+  transition-duration: 1s !important;
+}
+
+.site-author-name {
+  transition-duration: 0.5s !important;
+  transition-property: all !important;
+  transition-timing-function: ease !important;
+  color: #00bfff;
+}
+
+.site-author-name:hover {
+  color: #f00;
+}
+
+.links-of-author.site-overview-item {
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.nav {
+  margin-top: 2px !important;
+}
+
+.site-state-item.site-state-posts,
+.site-state-item.site-state-categories,
+.site-state-item.site-state-tags {
+  transition: all 0.25s ease !important;
+  position: relative;
+  top: 0px;
+}
+
+.site-state-item.site-state-posts:hover,
+.site-state-item.site-state-categories:hover,
+.site-state-item.site-state-tags:hover {
+  box-shadow: 0px 0px 2px #000 !important;
+  top: -5px !important;
+}
+
+.links-of-author-item {
+  background: transparent !important;
+  overflow: hidden !important;
+  transition: all ease-out 0.5s !important;
+}
+
+.links-of-author-item:hover {
+  background-color: transparent !important;
+  box-shadow: 0px 0px 2px #000 !important;
+}
+
+.links-of-author-item a {
+  background: transparent !important;
+  transition: all ease-out 0.5s !important;
+}
+
+.links-of-author-item a:hover {
+  background: transparent !important;
+  transform: scale(1.25) !important;
+}
+
+.nav-item {
+  z-index: 1000 !important;
+  padding-left: 5px !important;
+}
+
+.site-state-item-count {
+  transition: all 0.25 ease;
+}
+
+.site-author-image {
+  margin-top: 20px !important;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+}
+
+.site-author-image:hover {
+  box-shadow: 0px 0px 15px #000;
+  transform: scale(1.1);
+  background-color: #f00;
+}
+
+.menu-item {
+  transition: all 0.25s ease !important;
+}
+
+.menu-item:hover {
+  transform: scale(1.025);
+  box-shadow: 0px 0px 10px #000;
+  position: relative !important;
+  z-index: 10000;
+}
+
+code {
+  font: consolas;
+  background-color: #808080;
+}
+
+a.post-title-link {
+  transition: all 0.25s ease-in-out !important;
+}
+
+a.post-title-link:hover {
+  transform: scale(1.25) !important;
+}
+
+.site-brand-container {
+  transition: all 1s ease-in-out !important;
+}
+
+.sidebar-nav li {
+  color: #00bfff;
+}
+
+.sidebar-panel-container::-webkit-scrollbar {
+  width: 3px;
+  height: auto;
+}
+
+.sidebar-panel-container::-webkit-scrollbar-thumb {
+  background: #00bfff;
+}
+
+.sidebar-panel-container::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/01/27/JavaScriptGrammar/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/01/27/JavaScriptGrammar/","path":"2022/01/27/JavaScriptGrammar/","title":"JavaScript基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript基础 | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8F%98%E9%87%8F"><span class="nav-text">二、变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="nav-text">(1) 定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-text">(2) 变量的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%98%BE%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">(3) 显式类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">三、控制流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-text">四、函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">五、面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1"><span class="nav-text">(1) 自定义对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E7%9B%B4%E6%8E%A5%E5%88%9B%E5%BB%BA"><span class="nav-text">Ⅰ. 直接创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">Ⅱ. 构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2-%E5%88%A4%E6%96%AD%E7%B1%BB%E5%9E%8B"><span class="nav-text">Ⅲ. 判断类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A3-%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%90%AB%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="nav-text">Ⅳ. 判断对象是否含有属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95"><span class="nav-text">(2) 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1"><span class="nav-text">Ⅰ. 原型对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E5%AF%B9%E8%B1%A1%E5%AF%BB%E6%89%BE%E5%B1%9E%E6%80%A7%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-text">Ⅱ. 对象寻找属性的机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2-%E6%AD%A3%E7%A1%AE%E5%9C%B0%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="nav-text">Ⅲ. 正确地定义方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-text">(3) 垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%86%85%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-text">(4) 内建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E6%95%B0%E7%BB%84%EF%BC%88Array%EF%BC%89"><span class="nav-text">Ⅰ. 数组（Array）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">数组的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%8E%E5%B1%9E%E6%80%A7"><span class="nav-text">数组的方法与属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E5%87%BD%E6%95%B0%EF%BC%88function%EF%BC%89"><span class="nav-text">Ⅱ. 函数（function）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2-Math"><span class="nav-text">Ⅲ. Math</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/01/27/JavaScriptGrammar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript基础 | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-27 13:33:38" itemprop="dateCreated datePublished" datetime="2022-01-27T13:33:38+08:00">2022-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:00:15" itemprop="dateModified" datetime="2022-04-17T21:00:15+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>19k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/01/27/JavaScriptGrammar/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议至少有学过一门其它编程语言（最好是C/C++/C#）的基础再看本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a><strong>一、简介</strong></h2><p>JavaScript是一门面向对象的解释型语言，这意味着它并不需要经过编译生成可执行文件就可以直接运行。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>解释器</strong></div>
+
+<div style="color:royalblue;">像Python需要一个解释器一样，JavaScript也需要一个解释器。浏览器自带的解释器可以执行.js文件，但如果想直接运行脚本，最好安装Node.js。推荐使用NVM安装Node.js。</div>
+</div>
+
+<p>另外，JavaScript对变量类型的要求也不严格，这一点与Python类似。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>弱类型语言の痛</strong></div>
+
+<div style="color:royalblue;">虽然不需要明确变量类型带来了很多好处，但它致命的坏处就在于你可能会遇到很多由于隐式类型转换带来的令人困惑的错误，尤其是你的代码非常多的时候。</div>
+</div>
+
+<p>在JavaScript中，你能看到很多熟悉的语法，例如for、while、switch等。其中与C&#x2F;C++&#x2F;C#相似的语法本文只会简略提及，而着重于叙述与C&#x2F;C++&#x2F;C#的不相似之处与JavaScript的语法细节。</p>
+<h2 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a><strong>二、变量</strong></h2><p>与C#类似，JavaScript的所有类型均继承自Object。</p>
+<h3 id="1-定义变量"><a href="#1-定义变量" class="headerlink" title="(1) 定义变量"></a><strong>(1) 定义变量</strong></h3><p>JavaScript对变量的类型要求并不严格，因此定义变量时也像Python一样比较随意。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">StringType</span> = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">IntType</span> = <span class="number">114514</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">FloatType</span> = <span class="number">114.514</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用var关键字就能够定义变量，并且解释器会自动帮你判断这个变量属于哪种类型。</p>
+<h3 id="2-变量的类型"><a href="#2-变量的类型" class="headerlink" title="(2) 变量的类型"></a><strong>(2) 变量的类型</strong></h3><div class="tabs" id="variabletypes"><ul class="nav-tabs"><li class="tab active"><a href="#variabletypes-1">string类型</a></li><li class="tab"><a href="#variabletypes-2">number类型</a></li><li class="tab"><a href="#variabletypes-3">boolean类型</a></li><li class="tab"><a href="#variabletypes-4">undefined类型</a></li><li class="tab"><a href="#variabletypes-5">object类型</a></li></ul><div class="tab-content"><div class="tab-pane active" id="variabletypes-1"><p>string类型的变量与C++的string行为基本一致，可以通过variable[i]来特定第i+1个字符。但即便是单个字符也属于字符串类型，没有char类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a[2] is &quot;</span> + (<span class="keyword">typeof</span> (a[<span class="number">2</span>])));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a[2]= &quot;</span> + a[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is string</span><br><span class="line">a = Lacia</span><br><span class="line">type of a[2] is string</span><br><span class="line">a[2]= c</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="variabletypes-2"><p>number类型的变量能够存储整数与浮点数。能存储的最大值为Number.MAX_VALUE，最小值为Number.MIN_VALUE。超出最大值的将被视为Infinity（无限）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="title class_">Number</span>.<span class="property">MAX_VALUE</span>;</span><br><span class="line"><span class="keyword">var</span> b = a + <span class="number">1</span>;  <span class="comment">//让b溢出</span></span><br><span class="line"><span class="keyword">var</span> c = a * <span class="number">2</span>;  <span class="comment">//让c大量溢出</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of b is &quot;</span> + (<span class="keyword">typeof</span> b));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of c is &quot;</span> + (<span class="keyword">typeof</span> c));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c = &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is number</span><br><span class="line">a = 1.7976931348623157e+308</span><br><span class="line">type of b is number</span><br><span class="line">b = 1.7976931348623157e+308  &lt;===没有溢出</span><br><span class="line">type of c is number</span><br><span class="line">c = Infinity</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>为何b没有溢出</strong></div>
+
+<div style="color:royalblue;">上述例子中b的值并没有溢出成为Infinity，是因为b采用了浮点数的计数方式。</div>
+</div>
+
+<p>与C&#x2F;C++一样，JavaScript的浮点数同样存在精度缺陷。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">0.2</span>;</span><br><span class="line"><span class="keyword">var</span> c = a + b;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c = &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 0.1</span><br><span class="line">b = 0.2</span><br><span class="line">c = 0.30000000000000004  &lt;===精度缺陷</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript中还有一种特殊的属于number类型的值，它被定义为NaN（Not a Number）。将不含有数字的string强制转换为number时就会看到这个值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">parseInt</span>(a);  <span class="comment">//此函数下文会详细讲解</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="title class_">NaN</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of b is &quot;</span> + (<span class="keyword">typeof</span> b));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of c is &quot;</span> + (<span class="keyword">typeof</span> c));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c = &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is string</span><br><span class="line">a = Lacia</span><br><span class="line">type of b is number  &lt;===转换成功</span><br><span class="line">b = NaN              &lt;===值为NaN，不是数字</span><br><span class="line">type of c is number</span><br><span class="line">c = NaN</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="variabletypes-3"><p>boolean类型即为C&#x2F;C++&#x2F;C#中的bool类型，仅有true与false两个值，行为也与C&#x2F;C++&#x2F;C#大体一致。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">false</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of b is &quot;</span> + (<span class="keyword">typeof</span> b));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type of a is boolean</span><br><span class="line">a = true</span><br><span class="line">type of b is boolean</span><br><span class="line">b = false</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="variabletypes-4"><p>所有定义了却未初始化或赋值的变量均属于此类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;  <span class="comment">//a未初始化</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line">a = <span class="number">1</span>;  <span class="comment">//对a赋值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is undefined</span><br><span class="line">a = undefined</span><br><span class="line">type of a is number</span><br><span class="line">a = 1</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><div style="color:darkred;font-size:1.5em;"><strong>一定要初始化！</strong></div>
+
+<div style="color:darkred;">undefined的变量是很危险的。你应该时刻注意你的变量有没有初始化。</div>
+</div></div><div class="tab-pane" id="variabletypes-5"><p>所有的类型均继承自object类。object类有一种特殊的值，定义为null（空值）。使用__proto__可以查看变量类型的父类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">114514</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;father of b is &quot;</span> + (<span class="keyword">typeof</span> b.<span class="property">__proto__</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;father of c is &quot;</span> + (<span class="keyword">typeof</span> c.<span class="property">__proto__</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;father of d is &quot;</span> + (<span class="keyword">typeof</span> d.<span class="property">__proto__</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type of a is object</span><br><span class="line">father of b is object</span><br><span class="line">father of c is object</span><br><span class="line">father of d is object</span><br></pre></td></tr></table></figure></div></div></div>
+
+<h3 id="3-显式类型转换"><a href="#3-显式类型转换" class="headerlink" title="(3) 显式类型转换"></a><strong>(3) 显式类型转换</strong></h3><div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>检验变量</strong></div>
+
+<div style="color:goldenrod;">在对变量进行操作前，你应该确保你的变量是正确的类型或正确的值。</div>
+</div>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>关于比较</strong></div>
+
+<div style="color:royalblue;">在JavaScript中，存在“===”与“!==”。它们与“==”和“!=”的功能类似，只不过前者禁止了隐式类型转换，类型不一致时会直接返回false；而后者会做隐式类型转换，转换完之后的值再进行比较。</div>
+</div>
+
+<p>使用typeof关键字可以查询某个变量的类型。上文的代码样例已经描述了如何使用typeof，此处就不再赘述。</p>
+<div class="note danger"><div style="color:darkred;font-size:1.5em;"><strong>NaN的判断</strong></div>
+
+<div style="color:darkred;">NaN是一个特殊的number值，而它是很危险的：用variable == NaN检查变量是否为NaN时永远会返回false。你应该使用isNaN(variable)来检查变量是否为NaN。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="title class_">NaN</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a == NaN is &quot;</span> + (a == <span class="title class_">NaN</span>));  <span class="comment">//反面教材</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;isNaN(a) is &quot;</span> + <span class="built_in">isNaN</span>(a));  <span class="comment">//正面教材</span></span><br></pre></td></tr></table></figure>
+
+<div style="color:darkred;">输出结果为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a == NaN is false  &lt;===“NaN不等于NaN”</span><br><span class="line">isNaN(a) is true</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="tabs" id="variabletypeconvert"><ul class="nav-tabs"><li class="tab active"><a href="#variabletypeconvert-1">转换为string</a></li><li class="tab"><a href="#variabletypeconvert-2">转换为number</a></li><li class="tab"><a href="#variabletypeconvert-3">转换为boolean</a></li></ul><div class="tab-content"><div class="tab-pane active" id="variabletypeconvert-1"><p>有两种方式可以将变量转换为string类型。</p>
+<ol>
+<li>.toString()函数</li>
+<li>String()函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">114514</span>;</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">toString</span>();</span><br><span class="line"><span class="keyword">var</span> c = <span class="title class_">String</span>(a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of b is &quot;</span> + (<span class="keyword">typeof</span> b));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of c is &quot;</span> + (<span class="keyword">typeof</span> c));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c = &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is number</span><br><span class="line">a = 114514</span><br><span class="line">type of b is string</span><br><span class="line">b = 114514</span><br><span class="line">type of c is string</span><br><span class="line">c = 114514</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><div style="color:darkred;font-size:1.5em;"><strong>.toString()是不安全的</strong></div>
+
+<div style="color:darkred;">.toString()存在缺陷。如果变量为null或者undefined，.toString()会直接导致运行时报错。String()虽然是基于.toString()的，但String()会提前检测变量类型与值，如果为null则赋值“null”，如果为undefined则赋值“undefined”。</div>
+</div></div><div class="tab-pane" id="variabletypeconvert-2"><p>有三种方式可以将变量转换为number类型。</p>
+<ol>
+<li>Number()函数：含有非数字的字符、变量为undefined则转换为NaN；空字符串、null转换为0。true转换为1，false转换为0。</li>
+<li>parseInt()函数：遇到第一个非数字字符则停止转换。字符串第一个字符非数字、true和false均转换为NaN。</li>
+<li>parseFloat()函数：遇到除了“.”以外的第一个非数字字符则停止转换，第二次遇到“.”也停止转换。字符串第一个字符非数字也非“.”、true和false均转换为NaN。</li>
+</ol></div><div class="tab-pane" id="variabletypeconvert-3"><p>仅有一种方式能将变量转换为number类型。</p>
+<ul>
+<li>Boolean()函数：仅有0、NaN、null和空字符串会被转换为false，其余全为true。</li>
+</ul></div></div></div>
+
+<h2 id="三、控制流"><a href="#三、控制流" class="headerlink" title="三、控制流"></a><strong>三、控制流</strong></h2><p>不论是for、while还是switch、if，其基础语法均与C&#x2F;C++一致，也存在continue与break。不过JavaScript的for还可以用类似C#的foreach的语法，不过却略有不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Name</span> = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> output = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> temp <span class="keyword">in</span> <span class="title class_">Name</span>)</span><br><span class="line">&#123;</span><br><span class="line">    output += <span class="title class_">String</span>(temp);  <span class="comment">//直接使用temp</span></span><br><span class="line">    <span class="comment">//将输出加到一个字符串内再输出</span></span><br><span class="line">    <span class="comment">//因为屑JavaScript没有不换行的输出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(output);</span><br><span class="line">output = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> temp <span class="keyword">in</span> <span class="title class_">Name</span>)</span><br><span class="line">&#123;</span><br><span class="line">    output += <span class="title class_">String</span>(<span class="title class_">Name</span>[temp]);  <span class="comment">//使用temp作为索引</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(output);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">01234   &lt;===输出的并非Name中的字符</span><br><span class="line">Lacia</span><br></pre></td></tr></table></figure>
+
+<p>不难看出temp只是Name的单个字符的索引值，而非Name内的字符。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>关于temp值的异常现象</strong></div>
+
+<div style="color:royalblue;">关于为什么直接使用temp不会输出Name中的字符，面向对象章节将会解释。</div>
+</div>
+
+<p>本文假定读者有学习过其它编程语言的基础，关于控制流此处就不再过多赘述。</p>
+<h2 id="四、函数"><a href="#四、函数" class="headerlink" title="四、函数"></a><strong>四、函数</strong></h2><p>JavaScript中函数也属于一种类型——function类。因此函数也具有一些对象的特征。关于这部分将在面向对象章节中的方法一节详述。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));  <span class="comment">//查看a的类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);  <span class="comment">//尝试直接输出a</span></span><br><span class="line"><span class="title function_">a</span>();  <span class="comment">//调用函数</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is function   &lt;===a为function类</span><br><span class="line">a = function a()   &lt;===输出了a的定义</span><br><span class="line">&#123;</span><br><span class="line">    console.log(&quot;Hello, world!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">Hello, world!   &lt;===成功调用函数</span><br></pre></td></tr></table></figure>
+
+<p>另一种定义函数的方式则有点像定义变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>当然你也可以在定义函数时在括号内写入参数，但请记得不要写变量类型——这是JavaScript，不是C&#x2F;C++。</p>
+<p>JavaScript定义函数的其它基础部分也与C&#x2F;C++没有什么太大的差异，此处也不过多赘述。</p>
+<h2 id="五、面向对象"><a href="#五、面向对象" class="headerlink" title="五、面向对象"></a><strong>五、面向对象</strong></h2><p>JavaScript中存在this。学过C&#x2F;C++&#x2F;C#的应该已经明白了。this指针（但JavaScript里不存在指针，此处仅仅是借用C&#x2F;C++&#x2F;C#中的概念）指向的是调用当前函数或方法的对象。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>面向对象与JavaScript的环境</strong></div>
+
+<div style="color:royalblue;">在面向对象的编程思想中，变量被称为对象；对象的成员函数被称为方法；对象的成员变量被称为属性。在JavaScript中，用户编写的脚本将由运行环境定义的一个对象调用。在定义变量时，其实就是在给调用这段代码的对象添加属性。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;this = &quot;</span> + <span class="variable language_">this</span>);  <span class="comment">//请注意这里会将this隐式转换为string类型</span></span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">在Node.js环境下运行，结果为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">this = [object Object]   &lt;===调用代码的对象名为Object，属于object类</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">将代码嵌入html</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;this = &quot;</span> + <span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">使用浏览器打开，查看控制台的输出</div>
+
+<p><img src="/2022/01/27/JavaScriptGrammar/1.png" alt="1 1" title="1"></p>
+<div style="color:royalblue;">调用代码的对象名为Window，属于object类。</div>
+</div>
+
+<p>JavaScript中的对象有三种类型</p>
+<ol>
+<li>内建对象，JavaScript标准下定义的对象，符合该标准的环境都自带，如Math、Function、String等。</li>
+<li>宿主对象，由运行环境提供的对象，如浏览器提供了一个Window对象。</li>
+<li>自定义对象：由用户定义的对象。</li>
+</ol>
+<h3 id="1-自定义对象"><a href="#1-自定义对象" class="headerlink" title="(1) 自定义对象"></a><strong>(1) 自定义对象</strong></h3><h4 id="Ⅰ-直接创建"><a href="#Ⅰ-直接创建" class="headerlink" title="Ⅰ. 直接创建"></a><strong>Ⅰ. 直接创建</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span>,  <span class="comment">//请注意使用的是“:”而非“=”，是“,”而非“;”</span></span><br><span class="line">    <span class="title class_">Age</span>: <span class="number">17</span>,</span><br><span class="line">    <span class="title class_">Type</span>: <span class="string">&quot;Type-005&quot;</span>  <span class="comment">//最后一项可以不加“,”，加了也是正确的语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>要想追加、删除或查询对象中的属性，可以直接使用如下代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a.<span class="property">NewItem0</span> = <span class="number">114514</span>;  <span class="comment">//新增属性NewItem0</span></span><br><span class="line">a[<span class="string">&quot;NewItem1&quot;</span>] = <span class="number">1919810</span>;  <span class="comment">//新增属性NewItem1，不推荐使用这种方式</span></span><br><span class="line"><span class="keyword">delete</span> a.<span class="property">Type</span>;  <span class="comment">//删除Type属性</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&quot;NewItem0&quot;</span> <span class="keyword">in</span> a;  <span class="comment">//如果NewItem0是a已有的属性则返回true，否则返回false</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="string">&quot;Type&quot;</span> <span class="keyword">in</span> a;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;NewItem0 in a is &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Type in a is &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = [object Object]</span><br><span class="line">&#123; Name: &#x27;Lacia&#x27;, Age: 17, NewItem0: 114514, NewItem1: 1919810 &#125;  &lt;===输出了a的所有属性及其值</span><br><span class="line">NewItem0 in a is true     &lt;===属性NewItem0被添加进了对象a中</span><br><span class="line">Type in a is false     &lt;===Type属性被删除了</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>JavaScript对象的特点</strong></div>
+
+<div style="color:royalblue;">JavaScript中对象的属性与值类似于C++的STL中的map、C#与Python的字典。属性名只能有一个同名，值则可以任意。在添加新的属性与检查属性时，属性名需要打双引号，以字符串的形式传入，代表这是一个属性名；或者将属性名保存至变量中，直接传入变量。使用for in循环时，临时变量的值将会是属性名而非其值。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span>,</span><br><span class="line">    <span class="title class_">Age</span>: <span class="number">17</span>,</span><br><span class="line">    <span class="title class_">Type</span>: <span class="string">&quot;Type-005&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> temp <span class="keyword">in</span> a)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(temp);  <span class="comment">//直接输出temp</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Name     &lt;===输出了a的属性名</span><br><span class="line">Age</span><br><span class="line">Type</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>调用对象内的属性的语法与C++&#x2F;C#一致，此处不再赘述。</p>
+<h4 id="Ⅱ-构造函数"><a href="#Ⅱ-构造函数" class="headerlink" title="Ⅱ. 构造函数"></a><strong>Ⅱ. 构造函数</strong></h4><p>利用上文提到的this指针、与JavaScript的关键字new，就能创建一个新的对象。一般构造函数的名字，就是该类的名字。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params">name,age,type</span>)  <span class="comment">//构造函数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Age</span> = age;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Lacia</span> = <span class="keyword">new</span> <span class="title function_">HIE</span>(<span class="string">&quot;Lacia&quot;</span>, <span class="number">17</span>, <span class="string">&quot;Type-005&quot;</span>);</span><br><span class="line"><span class="comment">//新建对象</span></span><br></pre></td></tr></table></figure>
+
+<p>新建对象的方式非常像C#。具体过程为：</p>
+<ol>
+<li>new关键字，给Lacia创建一个新的空对象。</li>
+<li>HIE()构造函数，Lacia将会调用它。</li>
+<li>HIE()中的this指针，指向了调用这个代码的对象——Lacia。</li>
+<li>使用this指针为Lacia新建对象。</li>
+</ol>
+<h4 id="Ⅲ-判断类型"><a href="#Ⅲ-判断类型" class="headerlink" title="Ⅲ. 判断类型"></a><strong>Ⅲ. 判断类型</strong></h4><p>判断某个对象是否属于某个类，可以用instanceof关键字。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">temp</span> = <span class="number">114514</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title function_">HIE</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a <span class="keyword">instanceof</span> <span class="variable constant_">HIE</span>);</span><br><span class="line"><span class="comment">//判断a是否为HIE的一个对象（实例）</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ⅳ-判断对象是否含有属性"><a href="#Ⅳ-判断对象是否含有属性" class="headerlink" title="Ⅳ. 判断对象是否含有属性"></a><strong>Ⅳ. 判断对象是否含有属性</strong></h4><p>判断对象中是否有属性，可以使用hasOwnProperty()方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">temp</span> = <span class="number">114514</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title function_">HIE</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="title function_">hasOwnProperty</span>(<span class="string">&quot;temp&quot;</span>));</span><br><span class="line"><span class="comment">//检查对象a是否含有属性temp</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="title function_">hasOwnProperty</span>(<span class="string">&quot;Name&quot;</span>));</span><br><span class="line"><span class="comment">//检查对象a是否含有属性Name</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">true  &lt;===含有属性temp</span><br><span class="line">false  &lt;===不含属性Name</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><div style="color:darkred;font-size:1.5em;"><strong>不要使用in关键字或检查undefined</strong></div>
+
+<div style="color:darkred;">虽然未定义的属性，其值确实为undefined；用in关键字检查也会返回false。但是定义在原型对象中却没定义在对象中的属性不会返回undefined，in关键字也会返回true。关于原型对象，下面即将介绍。</div>
+</div>
+
+<h3 id="2-方法"><a href="#2-方法" class="headerlink" title="(2) 方法"></a><strong>(2) 方法</strong></h3><p>有属性（成员变量），自然也就有方法（成员函数）。根据上文的描述，不难推测出方法可以有如下的添加方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种方式：像属性一样添加</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Call</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">a.<span class="property">Call</span> = <span class="title class_">Call</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种方式：通过构造函数添加</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Constructor0</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Call</span> = <span class="title class_">Call</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="title class_">Constructor0</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//第三种方式：构造函数内定义</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Constructor1</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Call</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="title class_">Constructor1</span>();</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><div style="color:darkred;font-size:1.5em;"><strong>没有正确答案</strong></div>
+
+<div style="color:darkred;">以上三种方式均不合适。第一种方式每新建一个对象就得添加一次；第二种方式将方法的定义放在了外部，污染了变量名/函数名空间；第三种方式每创建一个变量就得创建一个新的函数，浪费内存空间。下文将详述解决方法</div>
+</div>
+
+<h4 id="Ⅰ-原型对象"><a href="#Ⅰ-原型对象" class="headerlink" title="Ⅰ. 原型对象"></a><strong>Ⅰ. 原型对象</strong></h4><p>要想解决方法的问题，首先要理解原型对象。<br>JavaScript的function类中，含有一个名为prototype的属性，这个属性指向了函数的原型对象：如果将这个函数作为构造函数新建对象，那么新建对象的原型对象就是函数的原型对象。</p>
+<div style="color:red;">原型对象只有一个。</div>
+
+<pre class="mermaid">
+classDiagram
+对象1 --|&gt; 原型对象 : __proto__
+对象2 --|&gt; 原型对象 : __proto__
+对象3 --|&gt; 原型对象 : __proto__
+构造函数 --|&gt; 原型对象 : prototype
+构造函数 .. 对象1
+构造函数 .. 对象2
+构造函数 .. 对象3
+class 构造函数{
+    prototype
+}
+class 原型对象
+class 对象1{
+    __proto__
+}
+class 对象2{
+    __proto__
+}
+class 对象3{
+    __proto__
+}
+</pre>
+
+<p>上面的图很好地解释了原型对象、对象、构造函数的关系。不论对象有多少个，原型对象和构造函数只有一个，对象的__proto__属性永远指向原型对象，构造函数的prototype属性永远指向原型对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Constructor</span>(<span class="params"></span>)  <span class="comment">//构造函数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">temp</span> = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Constructor</span>();  <span class="comment">//新建对象a</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="title class_">Constructor</span>();  <span class="comment">//新建对象b</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">__proto__</span> == <span class="title class_">Constructor</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"><span class="comment">//a的原型对象与构造函数的原型对象是否为同一个？</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">__proto__</span> == b.<span class="property">__proto__</span>);</span><br><span class="line"><span class="comment">//a的原型对象与b的原型对象是否为同一个？</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">true</span><br><span class="line">true   &lt;===均为同一个</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ⅱ-对象寻找属性的机制"><a href="#Ⅱ-对象寻找属性的机制" class="headerlink" title="Ⅱ. 对象寻找属性的机制"></a><strong>Ⅱ. 对象寻找属性的机制</strong></h4><p>当对象寻找属性的时候，首先会访问自身的属性列表。如果自身的属性列表不存在此属性，那么就在原型对象属性列表中寻找。原型对象的属性列表中不存在，那么就会在原型对象的原型对象中寻找。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Constructor</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">temp</span> = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Constructor</span>();</span><br><span class="line"><span class="title class_">Constructor</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Item</span> = <span class="number">114514</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.Item = &quot;</span> + a.<span class="property">Item</span>);</span><br><span class="line"><span class="comment">//只在原型对象中定义了Item</span></span><br><span class="line">a.<span class="property">Item</span> = <span class="string">&quot;1919810&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.Item = &quot;</span> + a.<span class="property">Item</span>);</span><br><span class="line"><span class="comment">//在a中定义了Item，输出时不会访问到原型对象中的Item</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b.Item = &quot;</span> + b.<span class="property">Item</span>);</span><br><span class="line"><span class="comment">//b中未定义Item，仍然访问原型中的Item</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a.Item = 114514  &lt;===原型对象中的Item</span><br><span class="line">a.Item = 1919810  &lt;===a的Item</span><br><span class="line">b.Item = 114514  &lt;===原型对象中的Item并未被覆盖</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>原型对象的原型对象</strong></div>
+
+<div style="color:royalblue;">原型对象也存在原型对象</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Constructor</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">temp</span> = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Constructor</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">__proto__</span>.<span class="property">__proto__</span>);</span><br><span class="line"><span class="comment">//查看原型对象的原型对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Constructor</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">__proto__</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">__proto__</span>.<span class="property">__proto__</span> == <span class="title class_">Constructor</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">__proto__</span>);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">[Object: null prototype] &#123;&#125;</span><br><span class="line">[Object: null prototype] &#123;&#125;</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+</div>
+
+<h4 id="Ⅲ-正确地定义方法"><a href="#Ⅲ-正确地定义方法" class="headerlink" title="Ⅲ. 正确地定义方法"></a><strong>Ⅲ. 正确地定义方法</strong></h4><p>知道了原型对象，那么也就方便定义方法了。<br>单刀直入地讲，就是将方法定义到原型对象中。当执行对象的方法时，在成员本身中没有找到这个函数名，就会到原型对象中寻找。原型对象只有一个，因此也就不存在浪费内存的问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params">name,age</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Age</span> = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable constant_">HIE</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Speak</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;My name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span> + <span class="string">&quot;, and I&#x27;m &quot;</span> + <span class="variable language_">this</span>.<span class="property">Age</span> + <span class="string">&quot;years old.&quot;</span>);</span><br><span class="line">&#125;;<span class="comment">//将方法定义到原型对象中</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Lacia</span> = <span class="keyword">new</span> <span class="title function_">HIE</span>(<span class="string">&quot;Lacia&quot;</span>, <span class="number">17</span>);</span><br><span class="line"><span class="title class_">Lacia</span>.<span class="title class_">Speak</span>();</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">My name is Lacia, and I&#x27;m 17years old.</span><br></pre></td></tr></table></figure>
+
+<p>对于一些需要共享某个属性的、属于同一类的自定义对象，也可以将属性定义到原型对象中。比如这个用类创建了多少个对象等。</p>
+<h3 id="3-垃圾回收"><a href="#3-垃圾回收" class="headerlink" title="(3) 垃圾回收"></a><strong>(3) 垃圾回收</strong></h3><p>与Java、C#类似，JavaScript创建的对象占用的内存空间并不会自动回收。但浏览器已经非常智能化了，只要你给对象赋值null，浏览器就知道这个是不需要的变量，会自动清理它所占用的内存空间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="literal">null</span>;  <span class="comment">//垃圾回收</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-内建对象"><a href="#4-内建对象" class="headerlink" title="(4) 内建对象"></a><strong>(4) 内建对象</strong></h3><p>只要是符合相应标准的环境，就都会存在相应的内建对象。</p>
+<h4 id="Ⅰ-数组（Array）"><a href="#Ⅰ-数组（Array）" class="headerlink" title="Ⅰ. 数组（Array）"></a><strong>Ⅰ. 数组（Array）</strong></h4><h5 id="数组的创建"><a href="#数组的创建" class="headerlink" title="数组的创建"></a><strong>数组的创建</strong></h5><p>与C&#x2F;C++&#x2F;C#的数组概念很接近，但JavaScript的数组能存储任意类型的值，包括函数。它的使用方式像Python一样非常简单。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];  <span class="comment">//创建数组</span></span><br><span class="line">a[<span class="number">1</span>] = <span class="number">114.514</span>;  <span class="comment">//a[0]没有赋值</span></span><br><span class="line">a[<span class="number">2</span>] = <span class="number">1919810</span>;</span><br><span class="line">a[<span class="number">3</span>] = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;type of a is &quot;</span> + (<span class="keyword">typeof</span> a));</span><br><span class="line"><span class="comment">//查看a的类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a[2] = &quot;</span> + a[<span class="number">2</span>]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a[0] = &quot;</span> + a[<span class="number">0</span>]);  <span class="comment">//检查a[0]的值</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">type of a is object   &lt;===a为object类型</span><br><span class="line">a = ,114.514,1919810,Lacia</span><br><span class="line">a[2] = 1919810</span><br><span class="line">a[0] = undefined   &lt;===a[0]的值为undefined</span><br></pre></td></tr></table></figure>
+
+<p>也可以在创建的时候就进行初始化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114.514</span>, <span class="string">&quot;Lacia&quot;</span>];  <span class="comment">//创建时初始化</span></span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>另一种创建方式</strong></div>
+
+<div style="color:royalblue;">Array也存在构造函数，你也可以用构造函数来创建Array对象。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Array</span>();  <span class="comment">//创建空数组</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="title class_">Array</span>(<span class="number">10</span>);  <span class="comment">//创建长度为10的空数组</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="title class_">Array</span>(<span class="number">10</span>, <span class="number">20</span>);  <span class="comment">//创建数组并初始化为[10,20]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c = &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a =</span><br><span class="line">b = ,,,,,,,,,   &lt;===undefined的值将不会输出，因此只有逗号</span><br><span class="line">c = 10,20</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">虽然并不推荐这种创建方法，但还是需要知道这样写也能创建一个Array对象。</div>
+</div>
+
+<h5 id="数组的方法与属性"><a href="#数组的方法与属性" class="headerlink" title="数组的方法与属性"></a><strong>数组的方法与属性</strong></h5><p>数组对象也是通过构造函数构造的，因此数组的构造函数具有prototype属性，数组对象具有__proto__属性。上文已经阐述过这些概念了，此处不再赘述。</p>
+<div class="tabs" id="arraymethods"><ul class="nav-tabs"><li class="tab active"><a href="#arraymethods-1">length</a></li><li class="tab"><a href="#arraymethods-2">push(···)</a></li><li class="tab"><a href="#arraymethods-3">pop()</a></li><li class="tab"><a href="#arraymethods-4">unshift(···)</a></li><li class="tab"><a href="#arraymethods-5">shift()</a></li><li class="tab"><a href="#arraymethods-6">forEach(function)</a></li><li class="tab"><a href="#arraymethods-7">slice(i,j)</a></li><li class="tab"><a href="#arraymethods-8">splice(i,j,···)</a></li><li class="tab"><a href="#arraymethods-9">contact(···)</a></li><li class="tab"><a href="#arraymethods-10">join(string)</a></li><li class="tab"><a href="#arraymethods-11">reverse()</a></li><li class="tab"><a href="#arraymethods-12">sort(function)</a></li><li class="tab"><a href="#arraymethods-13">filter(function)</a></li></ul><div class="tab-content"><div class="tab-pane active" id="arraymethods-1"><p>在JavaScript中，数组的长度为数组中所有元素索引值的最大值，即：最后一个元素的序号+1（从0开始计数）。</p>
+<p>length属性为数组的长度，且这个值可以被修改。如果大于原值，则会在数组末尾增加undefined的元素；如果小于原值，则会将数组末尾多余的元素全部删除。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line">a[<span class="number">10</span>] = <span class="number">114514</span>;  <span class="comment">//未定义0~9的元素</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a[0] = &quot;</span> + a[<span class="number">0</span>]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a[10] = &quot;</span> + a[<span class="number">10</span>]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.length = &quot;</span> + a.<span class="property">length</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a[0] = undefined</span><br><span class="line">a[10] = 114514</span><br><span class="line">a.length = 11    &lt;===length的值不是数组中有多少元素</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>永远向末尾添加元素</strong></div>
+
+<div style="color:royalblue;">最好不要让数组中存在undefined的元素。你可以巧妙地利用length属性以向数组中添加元素。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line">a[a.<span class="property">length</span>] = <span class="number">114514</span>;</span><br><span class="line">a[a.<span class="property">length</span>] = <span class="number">1919810</span>;</span><br><span class="line">a[a.<span class="property">length</span>] = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514,1919810,Lacia</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">当然也有其它方式能够永远向数组末尾添加元素——使用push()方法。</div>
+</div></div><div class="tab-pane" id="arraymethods-2"><p>向原数组末尾添加一个或多个元素，并返回添加元素后数组的长度。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">push</span>(<span class="number">114514</span>, <span class="number">19.19</span>, <span class="string">&quot;Lacia&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = Method,Kouka,114514,19.19,Lacia</span><br><span class="line">b = 5</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-3"><p>删除原数组的最后一个元素，并返回这个元素的值。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114514</span>, <span class="number">19.19</span>, <span class="string">&quot;Lacia&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">pop</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514,19.19</span><br><span class="line">b = Lacia</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-4"><p>向原数组开头添加一个或多个元素，并返回添加元素后数组的长度。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">unshift</span>(<span class="number">114514</span>, <span class="number">19.19</span>, <span class="string">&quot;Lacia&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514,19.19,Lacia,Method,Kouka</span><br><span class="line">b = 5</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-5"><p>删除原数组的第一个元素，并返回这个元素的值。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114514</span>, <span class="number">19.19</span>, <span class="string">&quot;Lacia&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">shift</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 19.19,Lacia</span><br><span class="line">b = 114514</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-6"><p>将数组中的每个元素都分别作为参数之一，调用作为参数的function函数。有多少个非undefined的元素，就调用多少次。<br>function函数参数的顺序为(元素，元素的索引值，原数组)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114514</span>, <span class="number">19.19</span>, <span class="string">&quot;Lacia&quot;</span>];</span><br><span class="line">a[<span class="number">10</span>] = <span class="number">2</span>;   <span class="comment">//索引值为3~9的元素未定义</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a, b, c</span>)  <span class="comment">//定义要作为参数的函数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a + <span class="string">&quot;, b = &quot;</span> + b + <span class="string">&quot;, c = &quot;</span> + c);</span><br><span class="line">&#125;</span><br><span class="line">a.<span class="title function_">forEach</span>(fun);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514, b = 0, c = 114514,19.19,Lacia,,,,,,,,2</span><br><span class="line">a = 19.19, b = 1, c = 114514,19.19,Lacia,,,,,,,,2</span><br><span class="line">a = Lacia, b = 2, c = 114514,19.19,Lacia,,,,,,,,2</span><br><span class="line">a = 2, b = 10, c = 114514,19.19,Lacia,,,,,,,,2</span><br><span class="line">//函数只调用了4次，而非调用11次</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-7"><p>返回原数组中，从索引值为i（包含）到索引值为j（不包含）的元素组成的数组。参数j省略时则默认取到数组尾部最后一个元素。<br>像Python一样，i、j的值可以为负数。-1代表最后一个元素，-2代表倒数第二个元素，以此类推。</p>
+<div style="color:red;">不会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114514</span>, <span class="number">1919810</span>, <span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">slice</span>(<span class="number">1</span>, -<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">b = 1919810,Lacia,Method</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-8"><p>删除原数组中从索引为i的元素（包含）以及其之后的一共j个元素，并将它们返回。j为0时则不删除，返回空数组。<br>在这之后向原数组中从索引为i之前的位置插入新的元素。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114514</span>, <span class="number">1919810</span>, <span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="number">114</span>);</span><br><span class="line"><span class="comment">//删除索引为1的元素和其之后的元素，一共删2个</span></span><br><span class="line"><span class="comment">//也就是删除第2和第3个元素</span></span><br><span class="line"><span class="comment">//并在第二个元素之前插入后续的参数</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514,A,B,114,Method,Kouka</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-9"><p>将原数组与作为参数的元素或数组连接成新的数组，并返回。</p>
+<div style="color:red;">不会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">114</span>, <span class="number">514</span>];</span><br><span class="line"><span class="keyword">var</span> c = [<span class="number">1919</span>, <span class="number">810</span>];</span><br><span class="line"><span class="keyword">var</span> d = a.<span class="title function_">concat</span>(b, c, <span class="number">114514</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;d = &quot;</span> + d);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = Lacia,Method,Kouka</span><br><span class="line">d = Lacia,Method,Kouka,114,514,1919,810,114514</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-10"><p>将原数组的元素转换为字符串并拼接在一起，元素之间以string连接，并返回。<br>默认以“,”连接。</p>
+<div style="color:red;">不会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114</span>, <span class="number">514</span>, <span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.<span class="title function_">join</span>(<span class="string">&quot;|&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> c = a.<span class="title function_">join</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c = &quot;</span> + c);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">b = 114|514|Lacia|Method|Kouka</span><br><span class="line">c = 114514LaciaMethodKouka</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-11"><p>反转原数组。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114</span>, <span class="number">514</span>, <span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Method&quot;</span>, <span class="string">&quot;Kouka&quot;</span>];</span><br><span class="line">a.<span class="title function_">reverse</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = Kouka,Method,Lacia,514,114</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-12"><p>对原数组进行排序。默认以字符串、Unicode字符顺序来排序。<br>可以传入一个函数参数来修改其排序行为。作为参数的函数有两个参数，前者的索引值比后者小。如果函数返回值为正数则交换两个元素的位置，如果为负数则不交换两个元素的位置。等于0时默认不交换。</p>
+<div style="color:red;">会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">114</span>, <span class="number">514</span>, <span class="number">1919</span>, <span class="number">810</span>, <span class="number">114514</span>, <span class="number">1919810</span>];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun0</span>(<span class="params">a, b</span>)  <span class="comment">//从小到大排序</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params">a, b</span>)  <span class="comment">//从大到小排序</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> b - a;</span><br><span class="line">&#125;</span><br><span class="line">a.<span class="title function_">sort</span>(fun0);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line">a.<span class="title function_">sort</span>(fun1);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114,514,810,1919,114514,1919810</span><br><span class="line">a = 1919810,114514,1919,810,514,114</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraymethods-13"><p>该方法对数组内的元素进行过滤，返回过滤的结果。传入的参数是一个函数。作为参数的函数应当有一个参数，它是数组内的元素，其返回值是 <code>boolean</code> 类型，为 <code>true</code> 则会保留该元素，为 <code>false</code> 则不保留。</p>
+<div style="color:red;">不会影响原数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个数组，其存储的元素是对象</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">HIE</span> = [</span><br><span class="line">    &#123; <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span>, <span class="title class_">Type</span>: <span class="string">&quot;Type-005&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="title class_">Name</span>: <span class="string">&quot;Kouka&quot;</span>, <span class="title class_">Type</span>: <span class="string">&quot;Type-001&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="title class_">Name</span>: <span class="string">&quot;Method&quot;</span>, <span class="title class_">Type</span>: <span class="string">&quot;Type-004&quot;</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行过滤</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="variable constant_">HIE</span>.<span class="title function_">filter</span>(<span class="keyword">function</span> (<span class="params">element</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 若名字中含有字符“a”则保留</span></span><br><span class="line">    <span class="comment">// string类型的方法，indexOf()，传入一个子串</span></span><br><span class="line">    <span class="comment">// 若不含子串则返回-1，否则返回第一个子串的开始索引</span></span><br><span class="line">    <span class="keyword">if</span> (element.<span class="property">Name</span>.<span class="title function_">indexOf</span>(<span class="string">&quot;a&quot;</span>) !== -<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;temp =&quot;</span>, temp);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;HIE =&quot;</span>, <span class="variable constant_">HIE</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">temp = [</span><br><span class="line">  &#123; Name: &#x27;Lacia&#x27;, Type: &#x27;Type-005&#x27; &#125;,</span><br><span class="line">  &#123; Name: &#x27;Kouka&#x27;, Type: &#x27;Type-001&#x27; &#125;</span><br><span class="line">]</span><br><span class="line">HIE = [</span><br><span class="line">  &#123; Name: &#x27;Lacia&#x27;, Type: &#x27;Type-005&#x27; &#125;,</span><br><span class="line">  &#123; Name: &#x27;Kouka&#x27;, Type: &#x27;Type-001&#x27; &#125;,</span><br><span class="line">  &#123; Name: &#x27;Method&#x27;, Type: &#x27;Type-004&#x27; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>可以看到原数组并未被改变，并且成功过滤掉了姓名中不含有“a”的元素。</p></div></div></div>
+
+<h4 id="Ⅱ-函数（function）"><a href="#Ⅱ-函数（function）" class="headerlink" title="Ⅱ. 函数（function）"></a><strong>Ⅱ. 函数（function）</strong></h4><p>上文已经说明了，在JavaScript中，函数也是一种类。因此函数对象也有方法。</p>
+<div class="tabs" id="functionmethods"><ul class="nav-tabs"><li class="tab active"><a href="#functionmethods-1">call(object,···)</a></li><li class="tab"><a href="#functionmethods-2">apply(object,Array)</a></li><li class="tab"><a href="#functionmethods-3">arguments</a></li></ul><div class="tab-content"><div class="tab-pane active" id="functionmethods-1"><p>函数对象不传参数直接调用call()时，与直接调用函数没有差异。<br>call()方法的第一个参数为对象。函数执行时，将会设置为由这个对象调用函数。之后的参数为函数本身的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =</span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Name</span>: <span class="string">&quot;Method&quot;</span>,</span><br><span class="line">    <span class="title class_">Speak</span>: <span class="keyword">function</span> (<span class="params">a, b</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;my name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a + <span class="string">&quot;, b = &quot;</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//Speak函数为对象a的方法，定义在对象a下</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123; <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span> &#125;;</span><br><span class="line">a.<span class="property">Speak</span>.<span class="title function_">call</span>(b, <span class="number">114</span>, <span class="number">514</span>);</span><br><span class="line"><span class="comment">//将Speak方法的调用对象修改为b</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">my name is Lacia   &lt;===输出的Name值为b的值“Lacia”</span><br><span class="line">a = 114, b = 514</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="functionmethods-2"><p>apply()与call()的功能一致，不过参数有所不同。Array为原函数的参数所构成的数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =</span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Name</span>: <span class="string">&quot;Method&quot;</span>,</span><br><span class="line">    <span class="title class_">Speak</span>: <span class="keyword">function</span> (<span class="params">a, b</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;my name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a + <span class="string">&quot;, b = &quot;</span> + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123; <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span> &#125;;</span><br><span class="line">a.<span class="property">Speak</span>.<span class="title function_">apply</span>(b, [<span class="number">114</span>, <span class="number">514</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">my name is Lacia</span><br><span class="line">a = 114, b = 514</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="functionmethods-3"><p>arguments是一个类似数组但不是数组的对象。它保存了所有传进函数的参数。</p>
+<p>同时它本身也有两个属性：①length，保存了参数个数；②callee，指向函数对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a, b</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;参数个数为：&quot;</span> + <span class="variable language_">arguments</span>.<span class="property">length</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> temp <span class="keyword">in</span> <span class="variable language_">arguments</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>[temp]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>.<span class="property">callee</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="number">114</span>, <span class="number">514</span>, <span class="number">1919</span>, <span class="number">810</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">参数个数为：4</span><br><span class="line">114</span><br><span class="line">514</span><br><span class="line">1919</span><br><span class="line">810</span><br><span class="line">[Function: fun]</span><br></pre></td></tr></table></figure></div></div></div>
+
+<h4 id="Ⅲ-Math"><a href="#Ⅲ-Math" class="headerlink" title="Ⅲ. Math"></a><strong>Ⅲ. Math</strong></h4><p>Math本身就是一个对象，不是一个类，也没有构造函数。与它的名字相符，这个对象中的方法就是专门用来处理数学运算的。</p>
+<p>Math中保存了一些数学上常用的常量。</p>
+<ul>
+<li>PI，圆周率π</li>
+<li>E，自然常数</li>
+<li>······</li>
+</ul>
+<p>Math中还含有很多常用的数学函数，其中某些函数名称在C&#x2F;C++中也很常见。</p>
+<ul>
+<li>abs()，求绝对值</li>
+<li>ceil()，将小数向上取整</li>
+<li>floor()，将小数向下取整</li>
+<li>round()，将小数四舍五入</li>
+<li>random()，产生0~1之间的随机数</li>
+<li>max()，返回多个数的最大值</li>
+<li>min()，返回多个数的最小值</li>
+<li>pow(i,j)，返回i的j次方</li>
+<li>sqrt()，开方</li>
+<li>······</li>
+</ul>
+<p>此外还有一些Math的属性与方法，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-obj-math.html">菜鸟教程</a></p>
+<div class="note success"><div style="color:green;font-size:1.5em;"><strong>基础知识到此为止</strong></div>
+
+<div style="color:green;">JavaScript还能再更深入的学习。但如果只是写网页行为的话，目前的知识储备已经足够了。当然JavaScript不止能写网页行为，不过至于这部分的知识，本文就不再深入。</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/01/27/JavaScriptGrammar/" title="JavaScript基础">https://ayanami-daisuki.github.io/2022/01/27/JavaScriptGrammar/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/JavaScript%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> JavaScript基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/23/DasKapital05/" rel="prev" title="资本论笔记（五）">
+                  <i class="fa fa-chevron-left"></i> 资本论笔记（五）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/29/WebDevelop/" rel="next" title="HTML5+CSS3基础">
+                  HTML5+CSS3基础 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

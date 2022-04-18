@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/03/02/JavaGrammar01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/03/02/JavaGrammar01/","path":"2022/03/02/JavaGrammar01/","title":"Java基础（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java基础（一） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">二、基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Hello-world"><span class="nav-text">(1) Hello, world!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-text">(2) 基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">(3) 类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-text">(4) 标准输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">(5) 控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF"><span class="nav-text">1. 条件分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="nav-text">2. 循环控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="nav-text">(6) 随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%95%B0%E7%BB%84"><span class="nav-text">(7) 数组</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/03/02/JavaGrammar01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java基础（一） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-02 17:15:58" itemprop="dateCreated datePublished" datetime="2022-03-02T17:15:58+08:00">2022-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:01:58" itemprop="dateModified" datetime="2022-04-17T21:01:58+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/03/02/JavaGrammar01/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议至少有学过一门其它编程语言（最好是C#或C++）的基础再看本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h2><p><del>屑</del>数据库实验要用Java，C#泛型委托高速它不香吗？（无奈）</p>
+<p>本来没有学Java的打算，但是为了将来挣dollar嘛，不寒碜。总之Java是一门跨平台且永远向下兼容的语言。跨平台意味着它能被广泛运用，而向下兼容则是双刃剑——Python放弃了兼容旧版本，新版本简化设计轻装上阵，却招致了骂声一片；C++坚持兼容旧版本，甚至要兼容一部分C语言，导致积重难返，同样遭到诟病。是利是弊，全看程序员个人见解。</p>
+<p>学过C++的同学能在Java中看见不少C++的影子，而学过C#的同学则可能会惊呼C#竟是Java++。<del>为什么不是惊呼Java是C#++？因为Java比C#早。</del></p>
+<p>Java环境的安装很简单，百度搜JDK就完事了，此处不做赘述。</p>
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a><strong>二、基础语法</strong></h2><h3 id="1-Hello-world"><a href="#1-Hello-world" class="headerlink" title="(1) Hello, world!"></a><strong>(1) Hello, world!</strong></h3><p>Java语言的文件后缀名为 <code>.java</code> 。新建一个 <code>.txt</code> 文件，修改后缀名后就可以直接开始些Java了。</p>
+<p>与C#不同，Java不需要 <code>dotnet new console</code>、 <code>main()</code> 函数不需要首字母大写、包含主函数的类不需要放在命名空间中、输出至控制台不需要引用包或头文件。所以最经典的Hello, world!程序结构如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 与C#一样，Java的主函数应当放在某个类中</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 该函数作用相当于printf()+换行或者Console.WriteLine()</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>Java的类名与主函数的参数</strong></div>
+
+<div style="color:goldenrod;">上述代码的类名，即 <code>class</code> 关键字之后的 <code>MainProgram</code> 这个名字，应当与你的 <code>.java</code> 文件的文件名一致，否则编译将会失败。</div>
+
+<div style="color:goldenrod;">另外，Java的主函数必须要写上参数 <code>String[] args</code> ，也就是环境变量，不能像C++/C#一样省略。</div>
+</div>
+
+<p>编译Java文件，使用如下命令：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java</span></span><br></pre></td></tr></table></figure>
+
+<p>编译完后当前目录将会生成一个 <code>.class</code> 文件。要执行该程序，应当使用如下命令：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">java MainProgram</span></span><br></pre></td></tr></table></figure>
+
+<p>不需要带后缀名。输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">java MainProgram</span></span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-基本类型"><a href="#2-基本类型" class="headerlink" title="(2) 基本类型"></a><strong>(2) 基本类型</strong></h3><p>Java中的基本数据类型和C++&#x2F;C#几乎一致，主要有：</p>
+<ul>
+<li>数值型<ul>
+<li><code>byte</code> ，占1个字节</li>
+<li><code>short</code> ，占2个字节</li>
+<li><code>int</code> ，占4个字节</li>
+<li><code>long</code> ，占8个字节</li>
+</ul>
+</li>
+<li>浮点型<ul>
+<li><code>float</code> ，占4个字节</li>
+<li><code>double</code> ，占8个字节</li>
+</ul>
+</li>
+<li>字符型<ul>
+<li><code>char</code> ，占<span style="color:red;">2</span>个字节</li>
+</ul>
+</li>
+<li>布尔型<ul>
+<li><code>boolean</code> ，占1个字节</li>
+</ul>
+</li>
+</ul>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>Java中的 <code>char</code> </strong></div>
+
+<div style="color:goldenrod;">与C#一样，Java的 <code>char</code> 类型占用2个字节，目的是为了兼容更多字符。你可以试试分别在C++和Java/C#中使用单个 <code>char</code> 来保存单个汉字。Java/C#能够成功保存，而C++不行。<del>果然C#是J++。</del></div>
+</div>
+
+<h3 id="3-类型转换"><a href="#3-类型转换" class="headerlink" title="(3) 类型转换"></a><strong>(3) 类型转换</strong></h3><p>Java中的类型转换基本与C++一致，有显式类型转换与隐式类型转换。在Java中，一般低精度转高精度、少字节数类型转多字节数类型可以使用隐式类型转换。但更推荐采用显式类型转换。</p>
+<p>显式类型转换语法与C++一致，结构为 <code>(类型名)变量</code> 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">114.5141919</span>;</span><br><span class="line"><span class="type">float</span> <span class="variable">b</span> <span class="operator">=</span> (<span class="type">float</span>) a;</span><br><span class="line">System.out.printf(<span class="string">&quot;a = %f\n&quot;</span>, a);</span><br><span class="line">System.out.printf(<span class="string">&quot;b = %f\n&quot;</span>, b);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a = 114.514192</span><br><span class="line">b = 114.514191</span><br></pre></td></tr></table></figure>
+
+<p>上述代码也说明了Java中的浮点数同样存在精度缺陷。</p>
+<h3 id="4-标准输入输出流"><a href="#4-标准输入输出流" class="headerlink" title="(4) 标准输入输出流"></a><strong>(4) 标准输入输出流</strong></h3><p>上文的代码中已经简单展示了Java的标准输出流。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">格式化字符串</th>
+<th align="center">自带换行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>System.out.println()</code></td>
+<td align="center">不支持</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center"><code>System.out.print()</code></td>
+<td align="center">不支持</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>System.out.printf()</code></td>
+<td align="center">支持格式化字符串</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>虽然标准输出流和C#&#x2F;C++大同小异，但很遗憾，Java的标准输入流要比标准输出流更复杂。首先，为了使用标准输入流，需要引用 <code>java.util.Scanner</code> 包。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br></pre></td></tr></table></figure>
+
+<p>和Python一样，这句代码写在第一行。接下来的代码有C#基础的同学应该能直接理解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Scanner</span> <span class="variable">InputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"><span class="type">String</span> <span class="variable">temp</span> <span class="operator">=</span> InputStream.next();</span><br><span class="line">InputStream.close();</span><br><span class="line">System.out.printf(<span class="string">&quot;temp = %s\n&quot;</span>, temp);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">1145141919810测试文字いいよ来いよ     &lt;===这是输入</span><br><span class="line">temp = 1145141919810测试文字いいよ来いよ</span><br></pre></td></tr></table></figure>
+
+<p>只学过C++而没学过C#的同学可能会因 <code>new</code> 关键字而感到迷惑，但这里就先搁置。上述代码可以这么理解：将标准输入流 <code>System.in</code> 传入一个对象（也可以叫变量） <code>InputStream</code> 中。这个对象将会指向标准输入流。利用这个对象的类封装的函数，从标准输入流中读取输入。</p>
+<p><code>Scanner</code> 类中大致有如下的函数可以用于读取：</p>
+<ul>
+<li><code>nextInt()</code> ，读取下一个 <code>int</code> 型变量能容纳的整型</li>
+<li><code>next()</code> ，读取下一个字符串</li>
+<li><code>nextLine()</code> ，读取下一行，返回值为 <code>String</code> 类型<br>······</li>
+</ul>
+<p>还有很多此类函数，从VS Code的自动补全插件中就能窥见不少。</p>
+<p><img src="/2022/03/02/JavaGrammar01/1.png" alt="1 1" title="1"></p>
+<p>这个函数的功能可以举一反三，从函数名直接看出，此处就不再赘述。</p>
+<h3 id="5-控制流"><a href="#5-控制流" class="headerlink" title="(5) 控制流"></a><strong>(5) 控制流</strong></h3><h4 id="1-条件分支"><a href="#1-条件分支" class="headerlink" title="1. 条件分支"></a><strong>1. 条件分支</strong></h4><p>Java的 <code>if</code> 语句和C#&#x2F;C++一致。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (temp &lt; <span class="number">5</span>)</span><br><span class="line">    System.out.println(<span class="string">&quot;temp &lt; 5&quot;</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (temp &lt; <span class="number">10</span>)</span><br><span class="line">    System.out.println(<span class="string">&quot;temp &lt; 5&quot;</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    System.out.println(<span class="string">&quot;temp &gt;= 10&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp &gt;= 10</span><br></pre></td></tr></table></figure>
+
+<p>关于 <code>if</code> 语句，此处不再赘述。</p>
+<p><code>switch</code> 与C&#x2F;C++一致，此处也不做赘述。不过，在使用 <code>switch</code> 时要记得加 <code>break</code> 关键字。Java可不像Go一样只会执行第一个符合条件的 <code>case</code> ！</p>
+<h4 id="2-循环控制"><a href="#2-循环控制" class="headerlink" title="2. 循环控制"></a><strong>2. 循环控制</strong></h4><p>Java的 <code>for</code> 循环、 <code>while</code> 循环语法与C&#x2F;C++一致，包括 <code>break</code> 与 <code>continue</code> 。此处就只做演示不做赘述。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for 循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (i == <span class="number">4</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    System.out.printf(<span class="string">&quot;i = %d\n&quot;</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;分割线&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// while 循环</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">5</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">2</span>) &#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == <span class="number">4</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    System.out.printf(<span class="string">&quot;i = %d\n&quot;</span>, i);</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">i = 0</span><br><span class="line">i = 1</span><br><span class="line">i = 3</span><br><span class="line">分割线</span><br><span class="line">i = 0</span><br><span class="line">i = 1</span><br><span class="line">i = 3</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-随机数"><a href="#6-随机数" class="headerlink" title="(6) 随机数"></a><strong>(6) 随机数</strong></h3><p>要产生随机数，得先引入 <code>java.util.Random</code> 包。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br></pre></td></tr></table></figure>
+
+<p><code>Random</code> 类的使用方法与 <code>Scanner</code> 类似：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">Generator</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">System.out.printf(<span class="string">&quot;Random integer = %d\n&quot;</span>, Generator.nextInt(<span class="number">114514</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Random integer = 94072</span><br></pre></td></tr></table></figure>
+
+<p>与 <code>Scanner</code> 类似， <code>Random</code> 也有 <code>nextFloat()</code> 之类的函数。但 <code>Random</code> 没有返回值为 <code>String</code> 类型的函数，毕竟这是个产生随机数的类。</p>
+<h3 id="7-数组"><a href="#7-数组" class="headerlink" title="(7) 数组"></a><strong>(7) 数组</strong></h3><p>与C#一样，Java没有指针（准确地说，是极力避免使用指针，一般情况下不会用到指针）。因此，不能使用指针与 <code>new</code> 来动态创建数组。不过实际上Java和C#都很好地解决了动态创建数组的问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>[] temp = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">6</span>];</span><br><span class="line">temp[<span class="number">0</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">temp[<span class="number">1</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">temp[<span class="number">2</span>] = <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line">temp[<span class="number">3</span>] = <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line">temp[<span class="number">4</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">temp[<span class="number">5</span>] = <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">char</span> i : temp) &#123;</span><br><span class="line">    System.out.print(i);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114514</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>Java的 <code>for in</code> 循环</strong></div>
+
+<div style="color:royalblue;">与C#的 <code>foreach</code> 循环、Python的 <code>for in</code> 循环类似，但细节上有所差别。简而言之，就是上述代码中的 <code>for</code> 循环中定义了一个临时变量 <code>i</code> ，该变量依次会遍历可迭代变量 <code>temp</code> 中的每一个元素。当然，Java的数组也可以使用一般的 <code>for</code> 与 <code>while</code> 循环来遍历：</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; temp.length; i++) &#123;</span><br><span class="line">    System.out.print(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>看到上述代码，各位同学应该也大致能理解为什么Java极力避免指针，并且有奇怪的 <code>new</code> 关键字用法——因为Java中很多类型都是“指针”，或者严格一点地讲，都是引用类型。在程序运行时，实际上保存在栈中的并不是变量的值，而是一个指向存放在堆中的变量真正值的地址。要粗暴一点理解的话，就是这玩意分明是个指针，但语法和编译器强制要求它不加 <code>*</code> 运算符。<del>但就是因为“删掉”了指针，导致堆中空间的释放只能依靠虚拟机维护的垃圾收集器，而垃圾收集器又做得不够好，所以你才会被诟病啊Java！</del></p>
+<p>可以做一个简单实验来验证Java中变量的真面目是“指针”。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>[] temp = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">6</span>];</span><br><span class="line">temp[<span class="number">0</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">temp[<span class="number">1</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">temp[<span class="number">2</span>] = <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line">temp[<span class="number">3</span>] = <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line">temp[<span class="number">4</span>] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">temp[<span class="number">5</span>] = <span class="string">&#x27;4&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">char</span>[] a = temp;</span><br><span class="line">a[<span class="number">2</span>] = <span class="string">&#x27;?&#x27;</span>;   <span class="comment">//修改数组a中的值，但不动temp</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">char</span> i : temp) &#123;</span><br><span class="line">    System.out.print(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">System.out.println();</span><br><span class="line">System.out.print(<span class="string">&quot;a 的地址 = &quot;</span>+ a + <span class="string">&quot; \n&quot;</span>);</span><br><span class="line">System.out.print(<span class="string">&quot;temp 的地址 = &quot;</span>+ temp +<span class="string">&quot;\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">11?514</span><br><span class="line">a 的地址 = [C@13221655</span><br><span class="line">temp 的地址 = [C@13221655   &lt;===地址完全一致</span><br></pre></td></tr></table></figure>
+
+<p>因此，在你定义数组时若还未确定数组长度，可以使用 <code>null</code> 来初始化数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>[] temp = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/03/02/JavaGrammar01/" title="Java基础（一）">https://ayanami-daisuki.github.io/2022/03/02/JavaGrammar01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> Java语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/01/SQLGrammar/" rel="prev" title="SQL基础">
+                  <i class="fa fa-chevron-left"></i> SQL基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/03/JavaGrammar02/" rel="next" title="Java基础（二）">
+                  Java基础（二） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

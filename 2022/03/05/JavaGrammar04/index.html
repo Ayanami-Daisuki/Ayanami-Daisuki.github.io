@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/03/05/JavaGrammar04/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/03/05/JavaGrammar04/","path":"2022/03/05/JavaGrammar04/","title":"Java基础（四）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java基础（四） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%B3%9B%E5%9E%8B"><span class="nav-text">六、泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A3%B0%E6%98%8E%E6%B3%9B%E5%9E%8B%E7%B1%BB"><span class="nav-text">(1) 声明泛型类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A3%B0%E6%98%8E%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="nav-text">(2) 声明泛型方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%A3%B0%E6%98%8E%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="nav-text">(3) 声明泛型接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%B1%BB%E5%9E%8B%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="nav-text">(4) 类型通配符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%BC%82%E5%B8%B8"><span class="nav-text">七、异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Throwable-%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">(1) Throwable 类的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-try-catch"><span class="nav-text">(2) try catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-throws-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">(3) throws 关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="nav-text">(4) 自定义异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E6%96%87%E4%BB%B6%E6%B5%81"><span class="nav-text">八、文件流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-File"><span class="nav-text">(1) File</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%96%B0%E5%BB%BA"><span class="nav-text">1. 新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%B7%AF%E5%BE%84%E6%A3%80%E6%9F%A5"><span class="nav-text">2. 路径检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%B7%AF%E5%BE%84%E8%8E%B7%E5%8F%96"><span class="nav-text">3. 路径获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%88%A0%E9%99%A4"><span class="nav-text">4. 删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%97%E8%8A%82%E6%B5%81"><span class="nav-text">(2) 字节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-FileOutputStream"><span class="nav-text">1. FileOutputStream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-FileInputStream"><span class="nav-text">2. FileInputStream</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AD%97%E8%8A%82%E7%BC%93%E5%86%B2%E6%B5%81"><span class="nav-text">(3) 字节缓冲流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-BufferedOutputStream"><span class="nav-text">1. BufferedOutputStream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-BufferedInputStream"><span class="nav-text">2. BufferedInputStream</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AD%97%E8%8A%82%E6%89%93%E5%8D%B0%E6%B5%81"><span class="nav-text">(4) 字节打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AD%97%E7%AC%A6%E6%B5%81"><span class="nav-text">(5) 字符流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-OutputStreamWriter"><span class="nav-text">1. OutputStreamWriter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-InputStreamReader"><span class="nav-text">2 InputStreamReader</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%AD%97%E7%AC%A6%E7%BC%93%E5%86%B2%E6%B5%81"><span class="nav-text">(6) 字符缓冲流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-BufferedWriter"><span class="nav-text">1. BufferedWriter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-BufferedReader"><span class="nav-text">1. BufferedReader</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%AD%97%E7%AC%A6%E6%89%93%E5%8D%B0%E6%B5%81"><span class="nav-text">(7) 字符打印流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%86%8D%E6%8E%A2%E6%A0%87%E5%87%86%E6%B5%81"><span class="nav-text">九、再探标准流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E6%B5%81"><span class="nav-text">(1) 标准输入流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-text">(2) 标准输出流</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/03/05/JavaGrammar04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java基础（四） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础（四）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-05 17:15:39" itemprop="dateCreated datePublished" datetime="2022-03-05T17:15:39+08:00">2022-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:01:27" itemprop="dateModified" datetime="2022-04-17T21:01:27+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/03/05/JavaGrammar04/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议至少有学过一门其它编程语言（最好是C#或C++）的基础再看本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="六、泛型"><a href="#六、泛型" class="headerlink" title="六、泛型"></a><strong>六、泛型</strong></h2><p>本来泛型应该更早讲的，但本文默认读者是至少会C++的，所以就放到后面来讲。不要觉得泛型很难很晦涩，因为你已经完整地接触了Java的泛型了。有C++基础的人只需要一句话就能理解泛型——泛型类就是类模板。</p>
+<p>与C++的类模板不同的是，Java的泛型只允许传入引用类型。这是因为Java的泛型底层是用向上向下转型和类型检查实现的。<del>隔壁C#真泛型用着多爽啊，Java你得给劲儿啊</del></p>
+<h3 id="1-声明泛型类"><a href="#1-声明泛型类" class="headerlink" title="(1) 声明泛型类"></a><strong>(1) 声明泛型类</strong></h3><p>Java声明泛型类相比C++要简单一点，不需要使用 <code>template</code> 关键字：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T Value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setValue</span><span class="params">(T Value)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.Value = Value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.Value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的类就是一个泛型类。</p>
+<h3 id="2-声明泛型方法"><a href="#2-声明泛型方法" class="headerlink" title="(2) 声明泛型方法"></a><strong>(2) 声明泛型方法</strong></h3><p>下述代码在非泛型类中声明了一个泛型方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title function_">Trash</span><span class="params">(T temp)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-声明泛型接口"><a href="#3-声明泛型接口" class="headerlink" title="(3) 声明泛型接口"></a><strong>(3) 声明泛型接口</strong></h3><p>下述代码声明了一个泛型接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Trash</span>&lt;T&gt; &#123;</span><br><span class="line">    T <span class="title function_">fun1</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">fun2</span><span class="params">(T a)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-类型通配符"><a href="#4-类型通配符" class="headerlink" title="(4) 类型通配符"></a><strong>(4) 类型通配符</strong></h3><p><code>?</code> 关键字在泛型中代表任意的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;?&gt; temp = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>上述写法是成立的，并且可以在 <code>?</code> 关键字后面追加 <code>extends</code> 关键字或 <code>super</code> 关键字。<br>追加 <code>extends</code> 关键字时，表示位于此处的类型必须是某类或其子类；追加 <code>super</code> 关键字时，表示位于此处的类型必须是某类或其父类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;? <span class="keyword">extends</span> <span class="title class_">String</span>&gt; a = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Number类是Integer类的父类</span></span><br><span class="line">Collection&lt;? <span class="built_in">super</span> Integer&gt; b = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;Number&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>其实重点不在 <code>?</code> 上，而在于可以使用  <code>extends</code> 关键字或 <code>super</code> 关键字限制类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Number</span>&gt; T <span class="title function_">Trash</span><span class="params">(T temp)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的泛型方法限制了传入的类型必须为 <code>Number</code> 类型或其子类。请注意，接口的底层实现也是类，这意味着你可以用 <code>extends</code> 关键字来限制传入的类必须实现什么接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个类型限制比较绕</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;? <span class="built_in">super</span> T&gt;&gt; T <span class="title function_">Trash</span><span class="params">(T temp)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先别急着往下看，想想这是做了什么限制</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的类型限制为：类型 <code>T</code> 必须实现了能与其本身或父类作比较的接口。</p>
+<h2 id="七、异常"><a href="#七、异常" class="headerlink" title="七、异常"></a><strong>七、异常</strong></h2><p>Java将异常包装成了类，所有的异常类都直接或间接地继承自 <code>Throwable</code> 类。<code>Throwable</code> 类的子类有<code>Error</code> 类和 <code>Exception</code> 类。</p>
+<pre class="mermaid">
+graph TD
+
+A(&lt;code&gt;Throwable&lt;&#x2F;code&gt; 类) --&gt;|派生| B(&lt;code&gt;Error&lt;&#x2F;code&gt; 类)
+A --&gt;|派生| C(&lt;code&gt;Exception&lt;&#x2F;code&gt; 类)
+C --&gt;|派生| D(运行时异常)
+C --&gt;|派生| E(编译时异常)
+D --&gt;|派生| F(数不清的异常类型)
+
+</pre>
+
+<p>其中，需要程序员专门编写代码来处理的是运行时异常。编译时异常是编译就通不过，程序员必须要修改错误代码，而运行时异常是一些非法输入（例如计算a÷b，输入的b等于0）或者意想不到的问题。</p>
+<h3 id="1-Throwable-类的方法"><a href="#1-Throwable-类的方法" class="headerlink" title="(1) Throwable 类的方法"></a><strong>(1) <code>Throwable</code> 类的方法</strong></h3><p><code>Throwable</code> 类中定义了一些常用的方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>getMessage()</code></td>
+<td align="center">无</td>
+<td align="center">返回异常原因</td>
+<td align="center"><code>String</code></td>
+</tr>
+<tr>
+<td align="center"><code>toString()</code></td>
+<td align="center">无</td>
+<td align="center">转换为 <code>String</code> 类型</td>
+<td align="center"><code>String</code></td>
+</tr>
+<tr>
+<td align="center"><code>printStackTrace()</code></td>
+<td align="center">无</td>
+<td align="center">打印详细的异常信息</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>它们的输出信息略有差别：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getMessage()：</span><br><span class="line">Index 3 out of bounds for length 3</span><br><span class="line"></span><br><span class="line">toString()：</span><br><span class="line">java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3</span><br><span class="line"></span><br><span class="line">printStackTrace()：</span><br><span class="line">java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3</span><br><span class="line">        at MainProgram.main(MainProgram.java:5)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-try-catch"><a href="#2-try-catch" class="headerlink" title="(2) try catch"></a><strong>(2) <code>try catch</code></strong></h3><p>Java中也有 <code>try catch</code> 语句，它用于执行可能会出现异常的代码，并处理出现的异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] a = <span class="keyword">new</span> <span class="title class_">int</span>[] &#123; <span class="number">114</span>, <span class="number">514</span>, <span class="number">1919</span> &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这段代码将会引发异常：数组越界</span></span><br><span class="line">    System.out.println(a[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;发生异常！&quot;</span>);</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">发生异常！</span><br><span class="line">java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>上述的程序并没有在数组越界时中断执行，并且输出了相关的程序异常信息。根据异常信息，就可以进一步细化异常处理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    System.out.println(a[<span class="number">3</span>]);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;数组越界，请检查索引&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;发生异常！&quot;</span>);</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">数组越界，请检查索引</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>可以在 <code>catch</code> 块后追加 <code>finally</code> 关键字。不论异常是否发生，在处理完异常以后均会执行 <code>finally</code> 块中的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    System.out.println(a[<span class="number">3</span>]);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;数组越界，请检查索引&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;发生异常！&quot;</span>);</span><br><span class="line">    System.out.println(e);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;114514&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">数组越界，请检查索引</span><br><span class="line">114514</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-throws-关键字"><a href="#3-throws-关键字" class="headerlink" title="(3) throws 关键字"></a><strong>(3) <code>throws</code> 关键字</strong></h3><p><code>throws</code> 关键字用于将异常抛出给调用这个方法的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 异常将在这里进行处理</span></span><br><span class="line">        Test();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;数组越界，请检查索引&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;发生异常！&quot;</span>);</span><br><span class="line">        System.out.println(e);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// throws关键字将异常扔给调用该方法的方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> <span class="keyword">throws</span> ArrayIndexOutOfBoundsException &#123;</span><br><span class="line">    <span class="type">int</span>[] a = <span class="keyword">new</span> <span class="title class_">int</span>[] &#123; <span class="number">114</span>, <span class="number">514</span>, <span class="number">1919</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这行代码将引发异常</span></span><br><span class="line">    System.out.println(a[<span class="number">3</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-自定义异常"><a href="#4-自定义异常" class="headerlink" title="(4) 自定义异常"></a><strong>(4) 自定义异常</strong></h3><p>自定义的异常类需要继承自 <code>Exception</code> 类或 <code>RuntimeException</code> 类，并且该类必须定义无参构造函数和一个带参构造函数，大致框架如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 继承自RuntimeException类，也就是运行时异常类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> <span class="keyword">extends</span> <span class="title class_">RuntimeException</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">(String a)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当你想引发自定义异常时，使用如下语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">A</span>(<span class="string">&quot;报错信息&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>请注意区分 <code>throw</code> 和 <code>throws</code> 关键字的区别。 <code>throw</code> 关键字一定会抛出一个异常，且只能在方法内使用；而 <code>throws</code> 关键字需要写在方法名之后，且不一定真的会发生异常。</p>
+<h2 id="八、文件流"><a href="#八、文件流" class="headerlink" title="八、文件流"></a><strong>八、文件流</strong></h2><p>文件流涉及的类较多，没必要全都记牢。当你需要理解内容，但不清楚继承关系时，再回来看下面的继承图吧。</p>
+<p>首先是关于字节流的继承图。</p>
+<pre class="mermaid">
+graph TD
+
+A(Object) --&gt;|派生| B(InputStream)
+A --&gt;|派生| D(File)
+A --&gt;|派生| C(OutputStream)
+B --&gt;|派生| E(FileInputStream)
+B --&gt;|派生| F(FilterInputStream)
+C --&gt;|派生| G(FileOutputStream)
+C --&gt;|派生| H(FilterOutputStream)
+F --&gt;|派生| I(BufferedInputStream)
+H --&gt;|派生| J(BufferedOutputStream)
+H --&gt;|派生| L(PrintStream)
+
+</pre>
+
+<p>下图是关于字符流的继承图。</p>
+<pre class="mermaid">
+graph TD
+
+A(Object) --&gt;|派生| L(Reader)
+A --&gt;|派生| K(Writer)
+L --&gt;|派生| N(InputStreamReader)
+K --&gt;|派生| M(OutputStreamWriter)
+N --&gt;|派生| O(FileReader)
+M --&gt;|派生| P(FileWriter)
+L --&gt;|派生| Q(BufferedReader)
+K --&gt;|派生| R(BufferedWriter)
+K --&gt;|派生| B(PrintWriter)
+
+</pre>
+
+<p>在使用文件流方法之前，应当引入 <code>java.io.IOException</code> 包，并在方法名后加上 <code>throws IOException</code> 关键字：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="comment">// 你的代码</span></span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-File"><a href="#1-File" class="headerlink" title="(1) File"></a><strong>(1) <code>File</code></strong></h3><p>Java把文件的路径封装为了 <code>File</code> 类。该类定义在 <code>java.io.File</code> 包中。该类有三个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">File(String 路径 )</span><br><span class="line"></span><br><span class="line">File(String 父路径, String 子路径)</span><br><span class="line"></span><br><span class="line">File(File 父路径, String 子路径)</span><br></pre></td></tr></table></figure>
+
+<p>在实例化对象时，父路径会和子路径进行拼接。该路径不一定需要指向一个实际存在的文件或目录。目录可以是相对路径，也可以是绝对路径。</p>
+<h4 id="1-新建"><a href="#1-新建" class="headerlink" title="1. 新建"></a><strong>1. 新建</strong></h4><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>createNewFile()</code></td>
+<td align="center">无</td>
+<td align="center">创建新文件，存在则不创建</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>mkdir()</code></td>
+<td align="center">无</td>
+<td align="center">新建文件夹，若父文件夹不存在则不创建</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>mkdirs()</code></td>
+<td align="center">无</td>
+<td align="center">新建文件夹，若父文件夹不存在也一起新建</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+</tbody></table>
+<h4 id="2-路径检查"><a href="#2-路径检查" class="headerlink" title="2. 路径检查"></a><strong>2. 路径检查</strong></h4><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>isDirectory()</code></td>
+<td align="center">无</td>
+<td align="center">检查路径是否为目录</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>isFile()</code></td>
+<td align="center">无</td>
+<td align="center">检查路径是否为文件</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>exists()</code></td>
+<td align="center">无</td>
+<td align="center">检查路径是否真实存在</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+</tbody></table>
+<h4 id="3-路径获取"><a href="#3-路径获取" class="headerlink" title="3. 路径获取"></a><strong>3. 路径获取</strong></h4><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>getAbsolutePath()</code></td>
+<td align="center">无</td>
+<td align="center">返回此路径的绝对路径</td>
+<td align="center"><code>String</code></td>
+</tr>
+<tr>
+<td align="center"><code>getPath()</code></td>
+<td align="center">无</td>
+<td align="center">返回封装的路径</td>
+<td align="center"><code>String</code></td>
+</tr>
+<tr>
+<td align="center"><code>getName()</code></td>
+<td align="center">无</td>
+<td align="center">返回指向的文件或文件夹名</td>
+<td align="center"><code>String</code></td>
+</tr>
+<tr>
+<td align="center"><code>list()</code></td>
+<td align="center">无</td>
+<td align="center">返回该文件夹下所有的文件与文件夹名</td>
+<td align="center"><code>String[]</code></td>
+</tr>
+<tr>
+<td align="center"><code>listFiles()</code></td>
+<td align="center">无</td>
+<td align="center">返回该文件夹下所有的文件与文件夹名</td>
+<td align="center"><code>File[]</code></td>
+</tr>
+</tbody></table>
+<h4 id="4-删除"><a href="#4-删除" class="headerlink" title="4. 删除"></a><strong>4. 删除</strong></h4><p>删除的常见方法就一个。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>delete</code></td>
+<td align="center">无</td>
+<td align="center">删除指向的文件或文件夹</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+</tbody></table>
+<h3 id="2-字节流"><a href="#2-字节流" class="headerlink" title="(2) 字节流"></a><strong>(2) 字节流</strong></h3><p>字节流以字节为单位向文件中写入数据（即写入ASCII码而非字符本身）。与字节流相关的类有 <code>FileOutputStream</code> 类与 <code>FileInputStream</code> 类。</p>
+<h4 id="1-FileOutputStream"><a href="#1-FileOutputStream" class="headerlink" title="1. FileOutputStream"></a><strong>1. <code>FileOutputStream</code></strong></h4><p><code>FileOutputStream</code> 定义在 <code>java.io.FileOutputStream</code> 包内。它有两个常用构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream(String 路径, <span class="type">boolean</span> 追加)</span><br><span class="line"></span><br><span class="line">FileOutputStream(File 对象, <span class="type">boolean</span> 追加)</span><br></pre></td></tr></table></figure>
+
+<p>如果不存在指定的文件，则会创建它。当传入的 <code>boolean</code> 值为 <code>true</code> 时，将不会清空已有文件中的内容，写入的内容将追加到文件末尾。该参数可以省略（用重载实现），默认为 <code>false</code> 。该类中有如下常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>int</code></td>
+<td align="center">写入一个字符</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>byte[]</code></td>
+<td align="center">将 <code>byte[]</code> 中的数据全部写入文件</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>byte[]</code> 、起始位置、写入长度</td>
+<td align="center">从起始索引开始，将 <code>byte[]</code> 中的数据写入文件</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>close()</code></td>
+<td align="center">无</td>
+<td align="center">释放文件资源</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>其中，第2个方法搭配 <code>String</code> 类的 <code>getBytes()</code> 方法可以做到写入指定的字符。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">FileOutputStream</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;test.txt&quot;</span>);</span><br><span class="line">temp.write(<span class="string">&quot;1145141919810&quot;</span>.getBytes());</span><br><span class="line">temp.close();</span><br></pre></td></tr></table></figure>
+
+<p>上述代码将会在源代码的文件夹下创建一个名为 <code>test.txt</code> 的文件，并向其中写入文本“1145141919810”。</p>
+<h4 id="2-FileInputStream"><a href="#2-FileInputStream" class="headerlink" title="2. FileInputStream"></a><strong>2. <code>FileInputStream</code></strong></h4><p><code>FileInputStream</code> 定义在 <code>java.io.FileInputStream</code> 包内。它有两个常用构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream(String 路径)</span><br><span class="line"></span><br><span class="line">FileInputStream(File 对象)</span><br></pre></td></tr></table></figure>
+
+<p>当指定的文件不存在时将引发异常。该类中有如下常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>read()</code></td>
+<td align="center">无</td>
+<td align="center">读取一个字节</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>read()</code></td>
+<td align="center"><code>byte[]</code></td>
+<td align="center">读取字符，最多读取 <code>byte[]</code> 的长度个字符</td>
+<td align="center"><code>int</code> （读取的字节数）</td>
+</tr>
+<tr>
+<td align="center"><code>read()</code></td>
+<td align="center"><code>byte[]</code> 、起始位置、写入长度</td>
+<td align="center">读取字符到起始位置处</td>
+<td align="center"><code>int</code> （读取的字节数）</td>
+</tr>
+<tr>
+<td align="center"><code>close()</code></td>
+<td align="center">无</td>
+<td align="center">释放文件资源</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>需要注意的是，当读取到文件结束符时将会返回-1。</p>
+<h3 id="3-字节缓冲流"><a href="#3-字节缓冲流" class="headerlink" title="(3) 字节缓冲流"></a><strong>(3) 字节缓冲流</strong></h3><p>字节缓冲流采用了缓冲区，底层实现是 <code>byte[]</code> 数组，实际上是对字节流进行了包装。与字节流不同的是，字节流每次使用读取都会进行系统调用，而为此进行的上下文切换的开销是很大的。而带缓冲区的字节流，可以只用一次系统调用就将缓冲区内的数据全部处理完毕。对于大文件的处理，应当优先考虑字节缓冲流。</p>
+<p>与字节缓冲流相关的类有 <code>BufferedOutputStream</code> 类与 <code>BufferedInputStream</code> 类。</p>
+<h4 id="1-BufferedOutputStream"><a href="#1-BufferedOutputStream" class="headerlink" title="1. BufferedOutputStream"></a><strong>1. <code>BufferedOutputStream</code></strong></h4><p><code>BufferedOutputStream</code> 类定义在 <code>java.io.BufferedOutputStream</code> 包中。它的构造函数为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BufferedOutputStream(OutputStream 对象, <span class="type">int</span> 缓冲区字节大小)</span><br></pre></td></tr></table></figure>
+
+<p>其中，缓冲区大小可以省略，默认为8192字节； <code>OutputStream</code> 对象不一定非要是 <code>OutputStream</code> 类的对象，可以利用多态来传入 <code>FileOutputStream</code> 对象。该类的常用方法与 <code>FileOutputStream</code> 类一致，此处不再赘述。</p>
+<h4 id="2-BufferedInputStream"><a href="#2-BufferedInputStream" class="headerlink" title="2. BufferedInputStream"></a><strong>2. <code>BufferedInputStream</code></strong></h4><p><code>BufferedInputStream</code> 类定义在 <code>java.io.BufferedInputStream</code> 包中。它的构造函数为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BufferedInputStream(InputStream 对象, <span class="type">int</span> 缓冲区字节大小)</span><br></pre></td></tr></table></figure>
+
+<p>其中，缓冲区大小可以省略，默认为8192字节； <code>InputStream</code> 对象不一定非要是 <code>InputStream</code> 类的对象，可以利用多态来传入 <code>FileInputStream</code> 对象。该类的常用方法与 <code>FileInputStream</code> 类一致，此处不再赘述。</p>
+<h3 id="4-字节打印流"><a href="#4-字节打印流" class="headerlink" title="(4) 字节打印流"></a><strong>(4) 字节打印流</strong></h3><p>字节打印流的类为 <code>PrintStream</code> ，它只能用于输出。它的构造函数相对较多：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PrintStream(String 路径, String 编码格式)</span><br><span class="line">PrintStream(File 对象, String 编码格式)</span><br><span class="line">PrintStream(OutputStream 对象, <span class="type">boolean</span> 自动刷新)</span><br></pre></td></tr></table></figure>
+
+<p>其中，编码格式可以省略，默认将采用运行Java程序的平台采用的编码方式。常用的选项有 <code>"UTF-8"</code> 和 <code>"GBK"</code> 。关于自动刷新，详见下文的“流的刷新”。构造函数可以接受 <code>OutputStream</code> 对象，说明该类可以用于包装字节流。</p>
+<p>该类不仅有字节流的常用方法，还有很熟悉的、与标准输流出一致的方法（因为它就是标准输出流的类，下文将进一步解释）：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">格式化字符串</th>
+<th align="center">自动换行</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>println()</code></td>
+<td align="center">不支持</td>
+<td align="center">有</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>print()</code></td>
+<td align="center">不支持</td>
+<td align="center">无</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>printf()</code></td>
+<td align="center">支持格式化字符串</td>
+<td align="center">无</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>上述方法与打印到控制台的 <code>System.out.println()</code> 等标准输出流方法的功能完全一致，只不过标准输出流是输出到控制台，而上述方法是输出到文件。</p>
+<h3 id="5-字符流"><a href="#5-字符流" class="headerlink" title="(5) 字符流"></a><strong>(5) 字符流</strong></h3><p>字符流是传输字符的，它不是直接写入ASCII码，而是将内容转换为ASCII码再写入（即底层实现还是字节流，<span style="color:red;">字符流类是字节流类的包装类</span>）。与字符流相关的类有 <code>OutputStreamWriter</code> 类与 <code>InputStreamReader</code> 类。</p>
+<h4 id="1-OutputStreamWriter"><a href="#1-OutputStreamWriter" class="headerlink" title="1. OutputStreamWriter"></a><strong>1. <code>OutputStreamWriter</code></strong></h4><p><code>OutputStreamWriter</code> 类定义在 <code>java.io.OutputStreamWriter</code> 包内。它有一个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OutputStreamWriter(OutputStream 对象, String 编码格式)</span><br></pre></td></tr></table></figure>
+
+<p>该类中有如下常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>int</code></td>
+<td align="center">写入一个字符</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>char[]</code></td>
+<td align="center">将 <code>char[]</code> 中的数据写入文件</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>char[]</code> 、起始位置、写入长度</td>
+<td align="center">从起始索引开始，将 <code>char[]</code> 中的数据写入文件</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>String</code></td>
+<td align="center">将 <code>String</code> 中的数据写入文件</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>write()</code></td>
+<td align="center"><code>String</code> 、起始位置、写入长度</td>
+<td align="center">从起始索引开始，将 <code>String</code> 中的数据写入文件</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>flush()</code></td>
+<td align="center">无</td>
+<td align="center">刷新流（立即执行写入）</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>close()</code></td>
+<td align="center">无</td>
+<td align="center">释放文件资源</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>流的刷新</strong></div>
+
+<div style="color:royalblue;"><code>OutputStreamWriter</code> 类其实也维护了一个缓冲区。所有的写入操作并不会立即得到执行，而是先写入缓冲区内，将字符转换为字节并等待写入。该类中有一个名为 <code>flush()</code> 的方法，可以刷新流（即立即执行写入）。当然你也可以不手动刷新流，因为 <code>close()</code> 方法会先刷新流再释放文件资源。</div>
+</div>
+
+<h4 id="2-InputStreamReader"><a href="#2-InputStreamReader" class="headerlink" title="2 InputStreamReader"></a><strong>2 <code>InputStreamReader</code></strong></h4><p><code>InputStreamReader</code> 类定义在 <code>java.io.InputStreamReader</code> 包内。它有一个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader(InputStream 对象, String 编码格式)</span><br></pre></td></tr></table></figure>
+
+<p>其中，编码格式可以省略。该类中有如下常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>read() </code></td>
+<td align="center">无</td>
+<td align="center">读取一个字符</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>read()</code></td>
+<td align="center"><code>char[]</code></td>
+<td align="center">读取一串字符，并返回读取的字符数</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>close()</code></td>
+<td align="center">无</td>
+<td align="center">释放文件资源</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<h3 id="6-字符缓冲流"><a href="#6-字符缓冲流" class="headerlink" title="(6) 字符缓冲流"></a><strong>(6) 字符缓冲流</strong></h3><p>字符缓冲流采用了缓冲区，实际上是对字符流进行了包装，这使得它频繁读写的效率比字符流高。与字节缓冲流相关的类有 <code>BufferedWriter</code> 类与 <code>BufferedReader</code> 类。</p>
+<h4 id="1-BufferedWriter"><a href="#1-BufferedWriter" class="headerlink" title="1. BufferedWriter"></a><strong>1. <code>BufferedWriter</code></strong></h4><p><code>BufferedWriter</code> 类定义在 <code>java.io.BufferedWriter</code> 包内。它有一个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter(Writer 对象, <span class="type">int</span> 缓冲区大小)</span><br></pre></td></tr></table></figure>
+
+<p>其中，缓冲区大小可以省略。由与字节流相关类都是继承自 <code>Writer</code> 类，因此大多数字节写入流相关类都可以用于初始化 <code>BufferedWriter</code> 类。该类的常用方法不仅包含了 <code>OutputStreamWriter</code> 类的常用方法，还有一个特有方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>newLine()</code></td>
+<td align="center">无</td>
+<td align="center">写入当前系统的换行符</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>换行符</strong></div>
+
+<div style="color:royalblue;">在不同的操作系统中，换行符是不一样的。在Windows环境下换行符是 <code>\r\n</code> ，在Linux环境下是 <code>\n</code> ，在macOS环境下是 <code>\r</code> 。</div>
+</div>
+
+<h4 id="1-BufferedReader"><a href="#1-BufferedReader" class="headerlink" title="1. BufferedReader"></a><strong>1. <code>BufferedReader</code></strong></h4><p><code>BufferedReader</code> 类定义在 <code>java.io.BufferedReader</code> 包内。它有一个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader(Reader 对象, <span class="type">int</span> 缓冲区大小)</span><br></pre></td></tr></table></figure>
+
+<p>其中，缓冲区大小可以省略。由与字节流相关类都是继承自 <code>Reader</code> 类，因此大多数字节读取流相关类都可以用于初始化 <code>BufferedReader</code> 类。该类的常用方法不仅包含了 <code>InputStreamReader</code> 类的常用方法，还有一个特有方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>readLine()</code></td>
+<td align="center">无</td>
+<td align="center">读取一行字符串</td>
+<td align="center"><code>String</code></td>
+</tr>
+</tbody></table>
+<h3 id="7-字符打印流"><a href="#7-字符打印流" class="headerlink" title="(7) 字符打印流"></a><strong>(7) 字符打印流</strong></h3><p>字节打印流的类为 <code>PrintWriter</code> ，与字节打印流相似，字符打印流也只能用于输出。由于其隶属于字符流，因此当该类的输出方法也不会立即执行，需要刷新流。</p>
+<p>该类的常用方法与 <code>PrintStream</code> 基本一致（但没有自动刷新的参数），此处不再赘述。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>字符打印流与字节打印流的区别</strong></div>
+
+<div style="color:royalblue;">在实际使用中，感觉上二者并没有差别，但二者的底层实现不一样。首先来看字符打印流 <code>PrintWriter</code> 类的源码片段：</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接传入文件路径的构造函数</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">PrintWriter</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> FileNotFoundException &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// this代表该类，因此此处会跳转到另一个构造函数</span></span><br><span class="line">    <span class="built_in">this</span>(<span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(  <span class="comment">// 字符缓冲流</span></span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(  <span class="comment">//字符流</span></span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(fileName)</span><br><span class="line">            )</span><br><span class="line">        ), <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 真正发挥作用的构造函数</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">PrintWriter</span><span class="params">(Writer out, <span class="type">boolean</span> autoFlush)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(out);</span><br><span class="line">    <span class="built_in">this</span>.out = out;</span><br><span class="line">    <span class="built_in">this</span>.autoFlush = autoFlush;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">可以看到 <code>PrintWriter</code> 类实际上是层层包装了其它类，最终实际上是直接包装了字符缓冲流，这意味着它维护了一个缓冲区。接下来看字节打印流 <code>PrintStream</code> 的源代码片段：</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接传入文件路径的构造函数</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">PrintStream</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> FileNotFoundException &#123;</span><br><span class="line">    <span class="built_in">this</span>(<span class="literal">false</span>, <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(fileName));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 真正发挥作用的构造函数，它是private的</span></span><br><span class="line"><span class="keyword">private</span> <span class="title function_">PrintStream</span><span class="params">(<span class="type">boolean</span> autoFlush, OutputStream out)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(out);</span><br><span class="line">    <span class="built_in">this</span>.autoFlush = autoFlush;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用于输出字符</span></span><br><span class="line">    <span class="built_in">this</span>.charOut = <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(<span class="built_in">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用于输出文本（字符串）</span></span><br><span class="line">    <span class="built_in">this</span>.textOut = <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(charOut);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">可以看到 <code>PrintStream</code> 类也维护了一个缓冲区，但它还有一个没有使用缓冲区的字符流，无缓冲区字符流用于输出字符，而带缓冲区字符流是用于输出字符串的。实际上字节打印流的底层实现还是字符流。</div>
+</div>
+
+<h2 id="九、再探标准流"><a href="#九、再探标准流" class="headerlink" title="九、再探标准流"></a><strong>九、再探标准流</strong></h2><p>之前曾经提到过Java的标准输入输出流，以及如何打印到控制台和从控制台读取输入。在有了文件流的基础以后，进一步理解标准流就不是那么困难了。</p>
+<p>在 <code>System</code> 类中，有两个 <code>static</code> 成员变量 <code>in</code> 和 <code>out</code> 。前者为 <code>InputStream</code> 类型，代表标准输入流；后者是 <code>PrintStream</code> 类型，代表标准输出流。</p>
+<h3 id="1-标准输入流"><a href="#1-标准输入流" class="headerlink" title="(1) 标准输入流"></a><strong>(1) 标准输入流</strong></h3><p>利用文件流中提到的类，可以将标准输入流打包为一个字符缓冲流：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BufferedReader</span> <span class="variable">cout</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in));</span><br></pre></td></tr></table></figure>
+
+<p>这里再次整理一下各个类的关系（因为我都有点混乱）： <code>System.in</code> 是一个 <code>InputStream</code> 类型的对象，属于字节流，因此可以用隶属于字节流的 <code>InputStreamReader</code> 类型对象包装它；而字节流又可以被字节缓冲流包装。因此上述代码就是将标准输入流包装为字符缓冲流的过程。</p>
+<p>但是并不推荐自己包装标准输入流，因为Java已经提供了一个包装类—— <code>Scanner</code> 类。当然，也可以直接使用 <code>InputStream</code> 内置的 <code>read()</code> 方法进行读取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span>[] Input = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">4096</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">Length</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取读取的字节数</span></span><br><span class="line">    Length = System.in.read(Input);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException Error) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;发生错误&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.printf(<span class="string">&quot;共输入 %d 个字节\n&quot;</span>, Length);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Length; i++) &#123;</span><br><span class="line">    System.out.print((<span class="type">char</span>) Input[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114514 | 义已逝，吾亦死 | いいよ、来いよ</span><br><span class="line">共输入 42 个字节</span><br><span class="line">114514 | ?￥???????￡?￠?? | ??????????????</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>字符与字符串</strong></div>
+
+<div style="color:royalblue;">使用 <code>read()</code> 方法读取的数据为 <code>byte[]</code> 类型。即整型数组。直接输出会输出为ASCII码，而采用显式类型转换为 <code>char</code> 类型虽然能正确输出英文与数字，但其他语言则由于占据至少2个字符而不支持。要想能打印汉字，得把 <code>byte[]</code> 数组转换为 <code>String</code> 类型，并设置编码方式为 <code>"GBK"</code> 。</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 利用String类型的构造函数</span></span><br><span class="line"><span class="type">String</span> <span class="variable">Output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(Input, <span class="number">0</span>, Length, <span class="string">&quot;GBK&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.printf(<span class="string">&quot;共输入 %d 个字节\n&quot;</span>, Output.length());</span><br><span class="line">System.out.println(<span class="string">&quot;Output = &quot;</span> + Output);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">114514 | 义已逝，吾亦死 | いいよ、来いよ</span><br><span class="line">共输入 28 个字符</span><br><span class="line">Output = 114514 | 义已逝，吾亦死 | いいよ、来いよ</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">请注意，<code>read()</code> 方法会读取换行符，而输出的时候又加了一个换行符，因此会出现一个空行。</div>
+</div>
+
+<h3 id="2-标准输出流"><a href="#2-标准输出流" class="headerlink" title="(2) 标准输出流"></a><strong>(2) 标准输出流</strong></h3><p>标准输出流的类和标准输入流的类不是“兄弟类”（Java似乎并没有兄弟类的概念，此处兄弟类是指父类是同一个类的类）。标准输出流 <code>System.in</code> 的类型是 <code>PrintStream</code> ，回顾如下的继承图：</p>
+<pre class="mermaid">
+graph TD
+
+A(Object) --&gt;|派生| B(InputStream)
+A --&gt;|派生| C(OutputStream)
+C --&gt;|派生| D(FilterOutputStream)
+D --&gt;|派生| E(PrintStream)
+
+</pre>
+
+<p><code>PrintStream</code> 类就是上文讲到的字节打印流的类。可以抽象理解成Java把控制台也看做是一种文件，对其进行打印输出。这也是为什么 <code>System.out</code> 可以直接使用 <code>printf()</code> 而 <code>System.in</code> 却没有 <code>scanf()</code> ，因为前者已经包装完毕了而后者还未包装。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/03/05/JavaGrammar04/" title="Java基础（四）">https://ayanami-daisuki.github.io/2022/03/05/JavaGrammar04/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> Java语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/04/JavaGrammar03/" rel="prev" title="Java基础（三）">
+                  <i class="fa fa-chevron-left"></i> Java基础（三）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/07/JavaGrammar05/" rel="next" title="Java基础（五）">
+                  Java基础（五） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

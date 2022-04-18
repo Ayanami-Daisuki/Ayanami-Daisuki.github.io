@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/02/15/PythonGrammar01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/02/15/PythonGrammar01/","path":"2022/02/15/PythonGrammar01/","title":"Python基础（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python基础（一） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">二、基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%98%E9%87%8F"><span class="nav-text">(1) 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-text">(2) 标准输出流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%A0%87%E5%87%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">1. 标准格式化字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%86%85%E6%8F%92%E5%BC%8F%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">2. 内插式格式化字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%BB%93%E6%9D%9F%E7%AC%A6"><span class="nav-text">3. 结束符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E6%B5%81"><span class="nav-text">(3) 标准输入流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%98%BE%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">(4) 显式类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">(5) 算数运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">三、控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-if"><span class="nav-text">(1) if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-while"><span class="nav-text">(2) while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-for-in"><span class="nav-text">(3) for in</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B"><span class="nav-text">四、复杂类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%88%87%E7%89%87"><span class="nav-text">五、切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-text">六、字符串函数</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/02/15/PythonGrammar01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python基础（一） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python基础（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-15 18:47:59" itemprop="dateCreated datePublished" datetime="2022-02-15T18:47:59+08:00">2022-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 20:57:29" itemprop="dateModified" datetime="2022-04-17T20:57:29+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/02/15/PythonGrammar01/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议至少有学过一门其它编程语言的基础再看本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h2><p>Python语法很简单，以至于我从没系统地学过Python。所以今天打算系统性地边学边做笔记。</p>
+<p>Python是一门在由C编写的解释器上运行的解释型语言，这意味着它的性能上限要比C&#x2F;C++低很多。但是Python的好处在于它只需要很少的代码就能实现很强大的功能，并且拥有强大的开源库，就像Linux的shell一样，只需要简短的语句就能安装需要的库，站在巨人的肩上。而C&#x2F;C++的开源库相对较少，配置起来相对麻烦，更要命的是C&#x2F;C++需要冗长的代码才能实现Python很短的代码就能实现的功能。</p>
+<p>Python环境推荐使用Anaconda进行安装。</p>
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a><strong>二、基础语法</strong></h2><p>Python不需要以 <code>;</code> 分隔语句，因为Python的解释器会将每一行代码看作一条语句，也因此，Python不能在同一行写多条语句。</p>
+<h3 id="1-变量"><a href="#1-变量" class="headerlink" title="(1) 变量"></a><strong>(1) 变量</strong></h3><p>Python的变量不需要写类型名，但这不代表Python中不存在变量类型，因为解释器会自己推断变量的类型。不过与JavaScript不同的是，Python好歹会报错，而JavaScript中由隐式类型转换引起的错误则真的令人困惑。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">114514</span></span><br><span class="line">j = <span class="number">114.514</span></span><br><span class="line">k = <span class="string">&quot;114514&quot;</span></span><br><span class="line">m = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>上述的代码中，i为 <code>int</code> 类型，j为 <code>float</code> 类型，k为 <code>str</code>（string的简写）类型，m为 <code>bool</code> 类型。这些类型是Python中的基础数据类型。</p>
+<p>在Python中，每个变量都至少有三个属性：</p>
+<ul>
+<li>id，它是变量存放的内存地址。使用内置函数 <code>id()</code> 可以获取它。</li>
+<li>type，它是变量的类型。使用内置函数 <code>type()</code> 可以获取它。</li>
+<li>value，它是变量的值。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;type of i is&quot;</span>, <span class="built_in">type</span>(i))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;type of j is&quot;</span>, <span class="built_in">type</span>(j))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;type of k is&quot;</span>, <span class="built_in">type</span>(k))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;type of m is&quot;</span>, <span class="built_in">type</span>(m))</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">type of i is &lt;class &#x27;int&#x27;&gt;</span><br><span class="line">type of j is &lt;class &#x27;float&#x27;&gt;</span><br><span class="line">type of k is &lt;class &#x27;str&#x27;&gt;</span><br><span class="line">type of m is &lt;class &#x27;bool&#x27;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Python中的变量不像C&#x2F;C++一旦规定了类型就不能再次更改。Python中的变量不但随时都能根据赋值的类型而转变类型，而且不会有溢出，并且可以使用 <code>del</code> 关键字来直接删除变量占用的内存，就像C++可以使用 <code>delete</code> 来清除指针指向的空间一样。</p>
+<h3 id="2-标准输出流"><a href="#2-标准输出流" class="headerlink" title="(2) 标准输出流"></a><strong>(2) 标准输出流</strong></h3><p>在Python中，可以使用内建函数 <code>print()</code> 来输出至控制台。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, world!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-标准格式化字符串"><a href="#1-标准格式化字符串" class="headerlink" title="1. 标准格式化字符串"></a><strong>1. 标准格式化字符串</strong></h4><p>与C&#x2F;C++的 <code>printf()</code> 函数有点相似，Python的 <code>print()</code> 也支持格式化字符串，但语法细节略有差异：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lacia = <span class="string">&quot;Lacia&quot;</span></span><br><span class="line">Age = <span class="number">17</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Her name is %s and is %d years old&quot;</span> % (Lacia, Age))</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">Her name is Lacia and is 17 years old</span><br></pre></td></tr></table></figure>
+
+<p>参数与格式化字符串之间需要用 <code>%</code> 分隔。这种方式也可以用于赋值字符串。格式化字符串的控制符与C&#x2F;C++&#x2F;C#等语言一致，此处不再赘述。</p>
+<p>但不同之处在于，Python内置了基本类型向字符串类型的隐式类型转换。因此可以用 <code>%s</code> 来格式化输出非字符串基本类型变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">114</span></span><br><span class="line">j = <span class="number">114.514</span></span><br><span class="line">k = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i = %s, j = %s, k = %s&quot;</span> % (i, j, k))</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = 114, j = 114.514, k = True</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-内插式格式化字符串"><a href="#2-内插式格式化字符串" class="headerlink" title="2. 内插式格式化字符串"></a><strong>2. 内插式格式化字符串</strong></h4><p>这一点与C#略微相似，但是需要在内插式格式化字符串前写上 <code>f</code> 以标记它是内插式的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name = <span class="string">&quot;Lacia&quot;</span></span><br><span class="line">Age = <span class="number">17</span></span><br><span class="line"><span class="type">Type</span> = <span class="string">&quot;Type-005&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;I&#x27;m <span class="subst">&#123;Name&#125;</span>, <span class="subst">&#123;Age&#125;</span> years old and type is <span class="subst">&#123;<span class="type">Type</span>&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">I&#x27;m Lacia, 17 years old and type is Type-005</span><br></pre></td></tr></table></figure>
+
+<p>与标准格式化字符串一样，这种方式也可以用于赋值字符串，此处不再赘述。</p>
+<h4 id="3-结束符"><a href="#3-结束符" class="headerlink" title="3. 结束符"></a><strong>3. 结束符</strong></h4><p>Python的 <code>print()</code> 函数有一个参数 <code>end</code> ，它默认是 <code>\n</code>，因此 <code>print()</code> 函数默认会换行。用户可以自定义这个参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, world!&quot;</span>, end=<span class="string">&quot;!&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Test Message.&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">Hello, world!!Test Message.</span><br></pre></td></tr></table></figure>
+
+<p>要想不输出+结束符，那么将 <code>end</code> 参数设置为 <code>""</code> （空字符串）即可。</p>
+<h3 id="3-标准输入流"><a href="#3-标准输入流" class="headerlink" title="(3) 标准输入流"></a><strong>(3) 标准输入流</strong></h3><p>Python的输入很简单：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="built_in">input</span>(<span class="string">&quot;Give some input: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i, <span class="string">&quot;, type of i is&quot;</span>, <span class="built_in">type</span>(i))</span><br><span class="line"><span class="comment">#检查i的类型</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">Give some input: 114514</span><br><span class="line">i = 114514 , type of i is &lt;class &#x27;str&#x27;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>input()</code> 函数内的参数为向控制台的输出，该参数可忽略。该函数从控制台接收的输入，全部为 <code>str</code> 类型，因此要对输入的数据做处理，必须使用类型转换。</p>
+<h3 id="4-显式类型转换"><a href="#4-显式类型转换" class="headerlink" title="(4) 显式类型转换"></a><strong>(4) 显式类型转换</strong></h3><div class="tabs" id="typeconvert"><ul class="nav-tabs"><li class="tab active"><a href="#typeconvert-1"><code>int()</code></a></li><li class="tab"><a href="#typeconvert-2"><code>float()</code></a></li><li class="tab"><a href="#typeconvert-3"><code>str()</code></a></li><li class="tab"><a href="#typeconvert-4"><code>eval()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="typeconvert-1"><p><code>int()</code> 函数可以将其他数据类型转换为 <code>int</code> 型变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="built_in">int</span>(<span class="string">&quot;16&quot;</span>, base=<span class="number">10</span>)   <span class="comment">#此处不指定也行，默认为10进制</span></span><br><span class="line">j = <span class="built_in">int</span>(<span class="string">&quot;FF&quot;</span>, base=<span class="number">16</span>)   <span class="comment">#指定源数据为16进制</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i, <span class="string">&quot;, type of i is&quot;</span>, <span class="built_in">type</span>(i))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j, <span class="string">&quot;, type of j is&quot;</span>, <span class="built_in">type</span>(j))</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = 16 , type of i is &lt;class &#x27;int&#x27;&gt;</span><br><span class="line">j = 255 , type of j is &lt;class &#x27;int&#x27;&gt;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>请检查你的待转换变量</strong></div>
+
+<div style="color:goldenrod;">如果待转换的变量不能转换为 <code>int</code> 型变量，将会引发程序异常，并且linter无法察觉这种错误。</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="built_in">int</span>(<span class="string">&quot;114514sodayo&quot;</span>, base=<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i, <span class="string">&quot;, type of i is&quot;</span>, <span class="built_in">type</span>(i))</span><br></pre></td></tr></table></figure>
+
+<div style="color:goldenrod;">报错信息为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;D:\Files\Document\Visual Studio Code\Python\Hello.py&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    i = int(&quot;114514sodayo&quot;, base=10)</span><br><span class="line">ValueError: invalid literal for int() with base 10: &#x27;114514sodayo&#x27;</span><br></pre></td></tr></table></figure>
+</div></div><div class="tab-pane" id="typeconvert-2"><p><code>float()</code> 函数可以将其他数据类型转换为 <code>float</code> 型变量。</p>
+<p>基本用法与 <code>int()</code> 基本一致，但无法设置源数据的进制，源数据必须为10进制的，</p></div><div class="tab-pane" id="typeconvert-3"><p><code>str()</code> 函数可以将其他数据类型转换为 <code>str</code> 型变量。</p>
+<p>Python中基本上所有的数据类型都能转换为 <code>str</code> 类型。</p></div><div class="tab-pane" id="typeconvert-4"><p><code>eval()</code> 函数会自动检测给定的字符串，并试图将其转换为非字符串类型。它也同样存在与 <code>int()</code> 一样的问题。</p></div></div></div>
+
+<h3 id="5-算数运算符"><a href="#5-算数运算符" class="headerlink" title="(5) 算数运算符"></a><strong>(5) 算数运算符</strong></h3><p>Python中没有 <code>++</code> 、 <code>--</code> 运算符。与C&#x2F;C++相同的运算符此处不再赘述。</p>
+<ul>
+<li><code>//</code>，整除运算</li>
+<li><code>**</code>，指数运算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">9</span></span><br><span class="line">j = <span class="number">4</span></span><br><span class="line">k = i / j</span><br><span class="line">m = i // j</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;k =&quot;</span>, k, <span class="string">&quot;, m =&quot;</span>, m, <span class="string">&quot;, i**j =&quot;</span>, i**j)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">k = 2.25 , m = 2 , i**j = 6561</span><br></pre></td></tr></table></figure>
+
+<p>在Python中，<code>int</code> 型变量相除时，会将其自动隐式类型转换为 <code>float</code> 类型，因此不论是否整除，结果均为 <code>float</code> 类型。</p>
+<p>Python中不允许 <code>int</code> 型变量与 <code>str</code> 型变量相加，但当 <code>str</code> 型变量与 <code>int</code> 型变量相乘时，会将 <code>str</code> 复制X次。X为 <code>int</code> 型变量的值，返回值类型为 <code>str</code> 。这个特性是通过运算符的重载实现的。</p>
+<h2 id="三、控制流"><a href="#三、控制流" class="headerlink" title="三、控制流"></a><strong>三、控制流</strong></h2><p>Python中没有 <code>&#123;&#125;</code>，区分代码是否在函数或者控制流等语句块内，是用缩进来控制的。Python的一个缩进默认是4个空格，缩进相同的代码会被解释器认为处于同一代码块中。</p>
+<h3 id="1-if"><a href="#1-if" class="headerlink" title="(1) if"></a><strong>(1) <code>if</code></strong></h3><p>Python并没有采用 <code>else if</code> 的写法，而是使用了 <code>elif</code> 。<del>C++人狂怒。</del></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">114514</span></span><br><span class="line"><span class="keyword">if</span> i &lt; <span class="number">1919</span>:   <span class="comment">#记得一定要写冒号！</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;810!&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;114514&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> i == <span class="number">1919810</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;1919810!&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;114514&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;1145141919810&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">1145141919810</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>逻辑运算符</strong></div>
+
+<div style="color:royalblue;">在Python中， <code>114 &lt;= i &lt;= 514</code> 这种写法是符合规范的，并且Python中没有 <code>||</code> 和 <code>&&</code> 运算符，而是以 <code>or</code> 和 <code>and</code> 来代替。</div>
+</div>
+
+<p><code>if</code> 还可以简写，作为三目运算符：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">114514</span></span><br><span class="line">j = <span class="number">191810</span></span><br><span class="line">k = i <span class="keyword">if</span> i &gt; j <span class="keyword">else</span> j</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;k =&quot;</span>, k)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">k = 191810</span><br></pre></td></tr></table></figure>
+
+<p>上述代码功能为：当 <code>i > j</code> 成立时，k赋值为i；否则赋值为j。</p>
+<h3 id="2-while"><a href="#2-while" class="headerlink" title="(2) while"></a><strong>(2) <code>while</code></strong></h3><p>语法细节上虽然与C&#x2F;C++不同，但是大体框架上是一致的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="number">0</span>:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = 1</span><br><span class="line">i = 2</span><br><span class="line">i = 3</span><br><span class="line">i = 4</span><br></pre></td></tr></table></figure>
+
+<p>Python中 <code>break</code> 、 <code>continue</code> 的使用也与C&#x2F;C++几乎一致，但Python的 <code>while</code> 可以搭配 <code>else</code> 。</p>
+<p>当 <code>while</code> 是因不满足循环进行条件而退出时，会执行 <code>else</code> 内的语句。而如果是因为 <code>break</code> 导致的退出，则不会执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Yes&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上述代码相当于C&#x2F;C++的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">5</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (i &gt;= <span class="number">10</span>)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Yes&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-for-in"><a href="#3-for-in" class="headerlink" title="(3) for in"></a><strong>(3) <code>for in</code></strong></h3><p>Python中的 <code>for in</code> 循环与C&#x2F;C++的 <code>for</code> 循环有很大差异。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">temp = <span class="string">&quot;114514&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> temp:</span><br><span class="line">    <span class="built_in">print</span>(i, end=<span class="string">&quot;||&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">1||1||4||5||1||4||</span><br></pre></td></tr></table></figure>
+
+<p><code>for in</code> 循环能遍历可迭代对象（能用形如 <code>[i]</code> 的索引查找元素的对象）中的所有元素。其中比较常见的有字符串、元组、列表、字典等。这些将在下文讲述。</p>
+<p>要想让 <code>for in</code> 执行与 <code>while</code> 类似的功能，可以使用 <code>range()</code> 函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = 0</span><br><span class="line">i = 1</span><br><span class="line">i = 2</span><br><span class="line">i = 3</span><br><span class="line">i = 4</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、复杂类型"><a href="#四、复杂类型" class="headerlink" title="四、复杂类型"></a><strong>四、复杂类型</strong></h2><p>Python中没有数组，但有三种内置的复杂数据类型：</p>
+<ul>
+<li>元组</li>
+<li>列表</li>
+<li>字典</li>
+</ul>
+<p>它们都能通过索引来查找位于其中的元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义元组</span></span><br><span class="line">i = (<span class="number">114</span>, <span class="number">514</span>, <span class="number">19.19</span>, <span class="string">&quot;810&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义列表</span></span><br><span class="line">j = [<span class="number">114</span>, <span class="number">514</span>, <span class="number">19.19</span>, <span class="string">&quot;810&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义字典</span></span><br><span class="line">k = &#123;<span class="number">1</span>: <span class="number">114</span>, <span class="number">2</span>: <span class="number">514</span>, <span class="number">3</span>: <span class="number">19.19</span>, <span class="number">1919</span>: <span class="string">&quot;810&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;k =&quot;</span>, k)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i[1] =&quot;</span>, i[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j[2] =&quot;</span>, j[<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;k[1919] =&quot;</span>, k[<span class="number">1919</span>])</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = (114, 514, 19.19, &#x27;810&#x27;)</span><br><span class="line">j = [114, 514, 19.19, &#x27;810&#x27;]</span><br><span class="line">k = &#123;1: 114, 2: 514, 3: 19.19, 1919: &#x27;810&#x27;&#125;</span><br><span class="line">i[1] = 514</span><br><span class="line">j[2] = 19.19</span><br><span class="line">k[1919] = 810</span><br></pre></td></tr></table></figure>
+
+<p>Python中的字典有点像C++的 <code>map</code> ，存储了一对键值对，键不允许重复但值可以，索引时根据键寻找值。</p>
+<p>可迭代对象可以使用如下函数转换为复杂类型：</p>
+<ul>
+<li><code>tuple()</code>，转换为元组</li>
+<li><code>list()</code>，转换为列表</li>
+<li><code>dict()</code>，转换为字典</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;114514&quot;</span></span><br><span class="line">i = <span class="built_in">tuple</span>(i)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = (&#x27;1&#x27;, &#x27;1&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;1&#x27;, &#x27;4&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>关于 <code>dict()</code> 的详细使用说明，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/python/python-func-dict.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<h2 id="五、切片"><a href="#五、切片" class="headerlink" title="五、切片"></a><strong>五、切片</strong></h2><p>此切片非Go的 <code>slice</code> 切片，而是截取某些可迭代的对象的一部分。语法大致为：</p>
+<p><code>对象[开始:结束:步长]</code></p>
+<p>其中对象为可迭代对象，开始是从第几个元素开始截取（包含），结束为截取到第几个元素为止（不包含），步长是截取时，取出某个元素后，再把“指针”向后移多少个元素。</p>
+<p>不写开始，默认为0；不写结束，默认截取至尾部（包含）；步长可以忽略，不写步长，默认为1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;123456789&quot;</span></span><br><span class="line">j = i[<span class="number">0</span> : <span class="built_in">len</span>(i) : <span class="number">2</span>]</span><br><span class="line">k = i[<span class="number">4</span>:]</span><br><span class="line">m = i[:-<span class="number">2</span>]   <span class="comment">#截取至倒数第2个元素（不包含）</span></span><br><span class="line">n = i[<span class="built_in">len</span>(i) : <span class="number">0</span> : -<span class="number">2</span>]  <span class="comment">#从后往前截取</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;k =&quot;</span>, k)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;m =&quot;</span>, m)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n =&quot;</span>, n)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">j = 13579</span><br><span class="line">k = 56789</span><br><span class="line">m = 1234567</span><br><span class="line">n = 97531</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、字符串函数"><a href="#六、字符串函数" class="headerlink" title="六、字符串函数"></a><strong>六、字符串函数</strong></h2><p>在Python中最常见的数据类型是 <code>str</code> 。因此有必要掌握一些常见的操作字符串的函数。</p>
+<div class="tabs" id="stringfunction"><ul class="nav-tabs"><li class="tab active"><a href="#stringfunction-1"><code>find()</code></a></li><li class="tab"><a href="#stringfunction-2"><code>index()</code></a></li><li class="tab"><a href="#stringfunction-3"><code>count()</code></a></li><li class="tab"><a href="#stringfunction-4"><code>replace()</code></a></li><li class="tab"><a href="#stringfunction-5"><code>split()</code></a></li><li class="tab"><a href="#stringfunction-6"><code>join()</code></a></li><li class="tab"><a href="#stringfunction-7"><code>startswith()</code></a></li><li class="tab"><a href="#stringfunction-8"><code>endswith()</code></a></li><li class="tab"><a href="#stringfunction-9"><code>isalpha()</code></a></li><li class="tab"><a href="#stringfunction-10"><code>isdigit()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="stringfunction-1"><p><code>find()</code> 函数用于查找字符串的子串。它有3个参数：子串、开始查找的下标（可忽略）、结束查找的下标（可忽略）,返回值为 <code>int</code> 类型，代表子串第一次出现的位置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;1145141919810&quot;</span></span><br><span class="line">j = i.find(<span class="string">&quot;98&quot;</span>)</span><br><span class="line">k = i.find(<span class="string">&quot;111&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j, <span class="string">&quot;, k =&quot;</span>, k)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">j = 9 , k = -1</span><br></pre></td></tr></table></figure>
+
+<p><code>find()</code> 函数会从左向右查找，如果想从右向左查找，可以使用 <code>rfind()</code> 。</p></div><div class="tab-pane" id="stringfunction-2"><p><code>index()</code> 与 <code>find()</code> 功能一致，参数也一致。但当未找到子串时，<code>index()</code> 会直接引发报错而 <code>find()</code> 则会返回-1。</p>
+<p><code>index()</code> 函数会从左向右查找，如果想从右向左查找，可以使用 <code>rindex()</code> 。</p>
+<p>该函数也可以用于其它可迭代对象。</p></div><div class="tab-pane" id="stringfunction-3"><p><code>count()</code> 与 <code>find()</code> 参数一致，其返回值为子串出现的次数。如果没有子串则返回0。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;1145141919810&quot;</span></span><br><span class="line">j = i.count(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">j = 6</span><br></pre></td></tr></table></figure>
+
+<p>该函数也可以用于其它可迭代对象。</p></div><div class="tab-pane" id="stringfunction-4"><p><code>replace()</code> 函数用于替换子串。它有3个参数：待替换的子串，用于替换的字符串，替换次数（可忽略）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;114514 1919 810 114514 114514&quot;</span></span><br><span class="line">j = i.replace(<span class="string">&quot;114514&quot;</span>, <span class="string">&quot;inm&quot;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">j = inm 1919 810 inm 114514</span><br></pre></td></tr></table></figure>
+
+<p>如果替换次数大于了子串出现的次数， <code>replace()</code> 将会忽略剩余的替换次数，也不会有报错发生。</p></div><div class="tab-pane" id="stringfunction-5"><p><code>split()</code> 函数用于分隔字符串，返回值是一个列表。它的参数有2个：作为分割符的字符串、分隔次数（可忽略）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;Lacia and Kouka and Method&quot;</span></span><br><span class="line">j = i.split(<span class="string">&quot; and &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">j = [&#x27;Lacia&#x27;, &#x27;Kouka&#x27;, &#x27;Method&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>可以看出 <code>split()</code> 函数在分隔时会丢弃分隔符。</p></div><div class="tab-pane" id="stringfunction-6"><p><code>join()</code> 函数与 <code>split()</code> 函数功能相反。参数为列表或元组，其中的所有元素会被调用这个函数的字符串按顺序连接。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [<span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Kouka&quot;</span>, <span class="string">&quot;Method&quot;</span>]</span><br><span class="line">j = <span class="string">&quot;, &quot;</span>.join(i)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;j =&quot;</span>, j)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">j = Lacia, Kouka, Method</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="stringfunction-7"><p><code>startswith()</code> 用于判断字符串是否以指定的字符串开头。参数为字符串，返回值为 <code>True</code> 或 <code>False</code> 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="string">&quot;1145141919810&quot;</span></span><br><span class="line">i = i.startswith(<span class="string">&quot;114&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;i =&quot;</span>, i)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = True</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="stringfunction-8"><p><code>endswith()</code> 用于判断字符串是否以指定的字符串结尾。参数与返回值均与 <code>startswith()</code> 一致。</p></div><div class="tab-pane" id="stringfunction-9"><p><code>isalpha()</code> 函数用于判断字符串是否均由字母组成。它没有参数，返回值为 <code>True</code> 或 <code>False</code> 。</p></div><div class="tab-pane" id="stringfunction-10"><p><code>isdigit()</code> 函数用于判断字符串是否均由数字组成。它没有参数，返回值为 <code>True</code> 或 <code>False</code> 。</p></div></div></div>
+
+<p>关于更多字符串的函数，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/python/python-strings.html ">菜鸟教程</a>&amp;nbsp;。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/02/15/PythonGrammar01/" title="Python基础（一）">https://ayanami-daisuki.github.io/2022/02/15/PythonGrammar01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/12/jQueryGrammar/" rel="prev" title="jQuery基础">
+                  <i class="fa fa-chevron-left"></i> jQuery基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/17/PythonGrammar02/" rel="next" title="Python基础（二）">
+                  Python基础（二） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

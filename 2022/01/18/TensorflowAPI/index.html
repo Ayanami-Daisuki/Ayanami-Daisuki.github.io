@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/01/18/TensorflowAPI/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/01/18/TensorflowAPI/","path":"2022/01/18/TensorflowAPI/","title":"Tensorflow 2.7.0 部分API"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Tensorflow 2.7.0 部分API | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Const-value-dtype-x3D-shape-x3D-name-x3D-%E2%80%9DConst%E2%80%9D"><span class="nav-text">Const(value, dtype&#x3D;, shape&#x3D;, name&#x3D;”Const”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variable-value-name-x3D-dtype-x3D-shape-x3D-trainable-x3D"><span class="nav-text">Variable(value, name&#x3D;, dtype&#x3D;, shape&#x3D;, trainable&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GradientTape-persistent-x3D-False-watch-accessed-variables-x3D-True"><span class="nav-text">GradientTape(persistent&#x3D;False, watch_accessed_variables&#x3D;True)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GradientTape-gradient-target-sources"><span class="nav-text">GradientTape.gradient(target, sources)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GradientTape-watch-tensor"><span class="nav-text">GradientTape.watch(tensor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convert-to-tensor-value-dtype-x3D-name-x3D"><span class="nav-text">convert_to_tensor(value, dtype&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zeros-shape-dtype-x3D-name-x3D"><span class="nav-text">zeros(shape, dtype&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ones-shape-dtype-x3D-name-x3D"><span class="nav-text">ones(shape, dtype&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fill-dims-value-name-x3D"><span class="nav-text">fill(dims, value, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random-normal-shape-mean-x3D-0-stddev-x3D-1-dtype-x3D-seed-x3D-name-x3D"><span class="nav-text">random.normal(shape, mean&#x3D;0, stddev&#x3D;1, dtype&#x3D;, seed&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random-truncated-normal-shape-mean-x3D-0-stddev-x3D-1-dtype-x3D-seed-x3D-name-x3D"><span class="nav-text">random.truncated_normal(shape, mean&#x3D;0, stddev&#x3D;1, dtype&#x3D;, seed&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random-uniform-shape-minval-x3D-0-maxval-x3D-None-dtype-x3D-seed-x3D-name-x3D"><span class="nav-text">random.uniform(shape, minval&#x3D;0, maxval&#x3D;None, dtype&#x3D;, seed&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cast-x-dtype-name-x3D-None"><span class="nav-text">cast(x, dtype, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-min-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D"><span class="nav-text">reduce_min(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-max-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D"><span class="nav-text">reduce_max(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-sum-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D"><span class="nav-text">reduce_sum(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#add-x-y-name-x3D-None"><span class="nav-text">add(x, y, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#subtract-x-y-name-x3D-None"><span class="nav-text">subtract(x, y, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiply-x-y-name-x3D-None"><span class="nav-text">multiply(x, y, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#divide-x-y-name-x3D-None"><span class="nav-text">divide(x, y, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#square-x-name-x3D-None"><span class="nav-text">square(x, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pow-x-y-name-x3D-None"><span class="nav-text">pow(x, y, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqrt-x-name-x3D-None"><span class="nav-text">sqrt(x, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matmul-a-b-transpose-a-x3D-False-transpose-b-x3D-False-adjoint-a-x3D-False-adjoint-b-x3D-False-a-is-sparse-x3D-False-b-is-sparse-x3D-False-output-type-x3D-name-x3D"><span class="nav-text">matmul(a, b, transpose_a&#x3D;False, transpose_b&#x3D;False, adjoint_a&#x3D;False, adjoint_b&#x3D;False, a_is_sparse&#x3D;False, b_is_sparse&#x3D;False, output_type&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-Dataset-from-tensor-slices-tensors-name-x3D-None"><span class="nav-text">data.Dataset.from_tensor_slices(tensors, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enumerate-list"><span class="nav-text">enumerate(list)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#one-hot-indices-depth-on-value-x3D-off-value-x3D-axis-x3D-None-dtype-x3D-name-x3D"><span class="nav-text">one_hot(indices, depth, on_value&#x3D;, off_value&#x3D;, axis&#x3D;None, dtype&#x3D;, name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-softmax-logits-axis-x3D-None-name-x3D-None"><span class="nav-text">nn.softmax(logits, axis&#x3D;None, name&#x3D;None)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-Tensor-assign-sub-value"><span class="nav-text">tf.Tensor.assign_sub(value)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#argmax-input-axis-x3D-output-type-x3D"><span class="nav-text">argmax(input, axis&#x3D;, output_type&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorSliceDataset-batch-value"><span class="nav-text">TensorSliceDataset.batch(value)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#where-condition-x-x3D-y-x3D"><span class="nav-text">where(condition, x&#x3D;, y&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-models-Sequential-Network"><span class="nav-text">keras.models.Sequential([Network])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-Dense-units-activation-x3D-kernel-regularizer-x3D"><span class="nav-text">keras.layers.Dense(units, activation&#x3D;, kernel_regularizer&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-Conv2D-filters-x3D-%EF%BC%8Ckernel-size-x3D-%EF%BC%8Cstrides-x3D-%EF%BC%8Cpadding-x3D-activation-x3D"><span class="nav-text">keras.layers.Conv2D(filters&#x3D;，kernel_size&#x3D;，strides&#x3D;，padding&#x3D;, activation&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-LSTM-units-input-shape-x3D-activation-x3D"><span class="nav-text">keras.layers.LSTM(units, input_shape&#x3D;, activation&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-optimizers-SGD-lr-x3D-momentum-x3D"><span class="nav-text">keras.optimizers.SGD(lr&#x3D;, momentum&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-optimizers-Adagrad-lr-x3D"><span class="nav-text">keras.optimizers.Adagrad(lr&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-optimizers-Adadelta-lr-x3D"><span class="nav-text">keras.optimizers.Adadelta(lr&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-optimizers-Adam-lr-x3D-beta-1-x3D-0-9-beta-2-x3D-0-999"><span class="nav-text">keras.optimizers.Adam(lr&#x3D;, beta_1&#x3D;0.9, beta_2&#x3D;0.999)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-losses-MeanSquaredError"><span class="nav-text">keras.losses.MeanSquaredError()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-losses-SparseCategoricalCrossentropy-from-logits-x3D-False"><span class="nav-text">keras.losses.SparseCategoricalCrossentropy(from_logits&#x3D;False)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-compile-optimizer-x3D-%EF%BC%8Closs-x3D-%EF%BC%8Cmetrics-x3D"><span class="nav-text">model.compile(optimizer&#x3D;，loss&#x3D;，metrics&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-fit-x-y-batch-size-x3D-epochs-x3D-verbose-x3D-callbacks-x3D-validation-split-x3D-validation-data-x3D"><span class="nav-text">model.fit(x, y, batch_size&#x3D;, epochs&#x3D;, verbose&#x3D;, callbacks&#x3D;, validation_split&#x3D;, validation_data&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-summary"><span class="nav-text">model.summary()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-BatchNormalization"><span class="nav-text">keras.layers.BatchNormalization()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-MaxPool2D-pool-size-x3D-strides-x3D-padding-x3D"><span class="nav-text">keras.layers.MaxPool2D(pool_size&#x3D;, strides&#x3D;, padding&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-AveragePooling2D-pool-size-x3D-strides-x3D-padding-x3D"><span class="nav-text">keras.layers.AveragePooling2D(pool_size&#x3D;, strides&#x3D;, padding&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-Dropout-rate-x3D"><span class="nav-text">keras.layers.Dropout(rate&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-load-weights-path"><span class="nav-text">model.load_weights(path)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-callbacks-ModelCheckpoint-filepath-x3D-monitor-x3D-mode-x3D-save-freq-x3D-save-weights-only-x3D-save-best-only-x3D"><span class="nav-text">keras.callbacks.ModelCheckpoint(filepath&#x3D;, monitor&#x3D;, mode&#x3D;, save_freq&#x3D;,save_weights_only&#x3D;,save_best_only&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-Activation-name-x3D"><span class="nav-text">keras.layers.Activation(name&#x3D;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras-layers-SimpleRNN-units-activation-x3D-return-sequences-x3D"><span class="nav-text">keras.layers.SimpleRNN(units, activation&#x3D;, return_sequences&#x3D;)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/01/18/TensorflowAPI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Tensorflow 2.7.0 部分API | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tensorflow 2.7.0 部分API
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-18 11:20:59" itemprop="dateCreated datePublished" datetime="2022-01-18T11:20:59+08:00">2022-01-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 20:56:14" itemprop="dateModified" datetime="2022-04-17T20:56:14+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/01/18/TensorflowAPI/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要理解机器学习原理以及Python基础。</div>
+</div>
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>请确认版本</strong></div>
+
+<div style="color:goldenrod;">此笔记适用于Tensorflow 2.7.0版本。</div>
+</div>
+
+<span id="more"></span>
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>特殊标志</strong></div>
+
+<div style="color:goldenrod;">除非以<span style="color:blue;">蓝色</span>特殊标识，否则均为加上"tensorflow."即可引用的函数。</div>
+</div>
+
+<h2 id="Const-value-dtype-x3D-shape-x3D-name-x3D-”Const”"><a href="#Const-value-dtype-x3D-shape-x3D-name-x3D-”Const”" class="headerlink" title="Const(value, dtype&#x3D;, shape&#x3D;, name&#x3D;”Const”)"></a><strong>Const(value, dtype&#x3D;, shape&#x3D;, name&#x3D;”Const”)</strong></h2><p>功能：创建一个tf.Tensor型的变量。</p>
+<p>value：value：设定变量值。<br>可以为数字、字符串、列表、元组。</p>
+<p>dtype&#x3D;：设定变量类型。<br>默认数字为int32或float32，字符串为string。可忽略。</p>
+<p>shape&#x3D;：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。可忽略。</p>
+<p>name&#x3D;：设定变量内置名称。<br>仅支持字符串。可忽略。</p>
+<h2 id="Variable-value-name-x3D-dtype-x3D-shape-x3D-trainable-x3D"><a href="#Variable-value-name-x3D-dtype-x3D-shape-x3D-trainable-x3D" class="headerlink" title="Variable(value, name&#x3D;, dtype&#x3D;, shape&#x3D;, trainable&#x3D;)"></a><strong>Variable(value, name&#x3D;, dtype&#x3D;, shape&#x3D;, trainable&#x3D;)</strong></h2><p>功能：创建一个tf.Variable型的变量。</p>
+<p>value：设定变量值。<br>可以为数字、字符串、列表、元组。</p>
+<p>name&#x3D;：设定变量内置名称。<br>仅支持字符串。可忽略。</p>
+<p>dtype&#x3D;：设定变量类型。<br>默认数字为int32或float32，字符串为string。可忽略。</p>
+<p>shape&#x3D;：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。可忽略。</p>
+<p>trainable&#x3D;：设定变量可否训练。<br>仅支持True、False和None。可忽略。</p>
+<p>返回值：一个tf.Variable型的变量。</p>
+<h2 id="GradientTape-persistent-x3D-False-watch-accessed-variables-x3D-True"><a href="#GradientTape-persistent-x3D-False-watch-accessed-variables-x3D-True" class="headerlink" title="GradientTape(persistent&#x3D;False, watch_accessed_variables&#x3D;True)"></a><strong>GradientTape(persistent&#x3D;False, watch_accessed_variables&#x3D;True)</strong></h2><p>功能：创建一个梯度带类型的变量。</p>
+<p>persistent&#x3D;：设定是否要持续求导。<br>False则调用gradient()后释放，即不可第二次调用gradient()。</p>
+<p>watch_accessed_variables&#x3D;：是否自动追踪可训练变量。<br>False则需手动指定变量。</p>
+<p>返回值：一个梯度带类型的变量。</p>
+<h2 id="GradientTape-gradient-target-sources"><a href="#GradientTape-gradient-target-sources" class="headerlink" title="GradientTape.gradient(target, sources)"></a><strong><span style="color:blue;">GradientTape</span>.gradient(target, sources)</strong></h2><p>功能：求指定函数对指定变量的偏导数。</p>
+<p>target：要求偏导数的函数。</p>
+<p>sources：要求偏导数的变量。<br>对单个变量求偏导数时直接写变量名，对多个倒数求偏导数时写列表。</p>
+<p>返回值：若sources为变量则返回一个tf.Tensor型变量，若sources为列表则返回一个由tf.Tensor型变量组成的列表。</p>
+<h2 id="GradientTape-watch-tensor"><a href="#GradientTape-watch-tensor" class="headerlink" title="GradientTape.watch(tensor)"></a><strong><span style="color:blue;">GradientTape</span>.watch(tensor)</strong></h2><p>功能：设定要追踪的变量。</p>
+<p>tensor：要追踪的变量。<br>只追踪一个变量时直接写变量名，追踪多个变量时需以列表形式填入。</p>
+<p>无返回值。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>使用样例</strong></div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x=tensorflow.Variable(<span class="number">5</span>, dtype=tensorflow.float32, trainable=<span class="literal">True</span>)</span><br><span class="line">y=tensorflow.Variable(<span class="number">7</span>, dtype=tensorflow.float32, trainable=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">with</span> tensorflow.GradientTape() <span class="keyword">as</span> temp:</span><br><span class="line"><span class="comment">#这里使用默认的设置</span></span><br><span class="line">    temp.watch([x, y])</span><br><span class="line">    <span class="comment">#指定要关注x与y</span></span><br><span class="line">    z=x*x*x*y*y+x*x*y+x+<span class="number">1</span></span><br><span class="line">    <span class="comment">#z=x³y²+x²y+x+1，相当于z=f(x,y)，z即为需要求导的函数</span></span><br><span class="line">result=temp.gradient(z, [x, y])   <span class="comment">#求导</span></span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">其结果应该为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&lt;tf.Tensor: shape=(), dtype=float32, numpy=3746.0&gt;, &lt;tf.Tensor: shape=(), dtype=float32, numpy=1775.0&gt;]</span><br></pre></td></tr></table></figure>
+</div>
+
+<h2 id="convert-to-tensor-value-dtype-x3D-name-x3D"><a href="#convert-to-tensor-value-dtype-x3D-name-x3D" class="headerlink" title="convert_to_tensor(value, dtype&#x3D;, name&#x3D;)"></a><strong>convert_to_tensor(value, dtype&#x3D;, name&#x3D;)</strong></h2><p>功能：将变量转换为tf.Tensor型变量。</p>
+<p>value：设置需要转变的变量。<br>可以是值、列表或者元组。</p>
+<p>dtype&#x3D;：设置变量的值的格式。<br>常用float32。<em>（因为要求导数，对小数运算有需求）</em> 可忽略。</p>
+<p>name&#x3D;：设置变量的内置名称。<br>可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="zeros-shape-dtype-x3D-name-x3D"><a href="#zeros-shape-dtype-x3D-name-x3D" class="headerlink" title="zeros(shape, dtype&#x3D;, name&#x3D;)"></a><strong>zeros(shape, dtype&#x3D;, name&#x3D;)</strong></h2><p>功能：产生全0的tf.Tensor型的变量。</p>
+<p>shape：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。</p>
+<p>dtype&#x3D;：设置值的类型。<br>默认为float32。可忽略。</p>
+<p>name&#x3D;：设置内置名称。<br>仅支持字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="ones-shape-dtype-x3D-name-x3D"><a href="#ones-shape-dtype-x3D-name-x3D" class="headerlink" title="ones(shape, dtype&#x3D;, name&#x3D;)"></a><strong>ones(shape, dtype&#x3D;, name&#x3D;)</strong></h2><p>功能：产生全1的tf.Tensor型的变量。</p>
+<p>shape：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。</p>
+<p>dtype&#x3D;：设置值的类型。<br>默认为float32。可忽略。</p>
+<p>name&#x3D;：设置内置名称。<br>仅支持字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="fill-dims-value-name-x3D"><a href="#fill-dims-value-name-x3D" class="headerlink" title="fill(dims, value, name&#x3D;)"></a><strong>fill(dims, value, name&#x3D;)</strong></h2><p>功能：产生值均为某一指定值的tf.Tensor型的变量。</p>
+<p>dims：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。</p>
+<p>value：指定填充变量所有维度的值。</p>
+<p>name&#x3D;：设置内置名称。<br>仅支持字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="random-normal-shape-mean-x3D-0-stddev-x3D-1-dtype-x3D-seed-x3D-name-x3D"><a href="#random-normal-shape-mean-x3D-0-stddev-x3D-1-dtype-x3D-seed-x3D-name-x3D" class="headerlink" title="random.normal(shape, mean&#x3D;0, stddev&#x3D;1, dtype&#x3D;, seed&#x3D;, name&#x3D;)"></a><strong>random.normal(shape, mean&#x3D;0, stddev&#x3D;1, dtype&#x3D;, seed&#x3D;, name&#x3D;)</strong></h2><p>功能：产生指定维度数的正态分布的随机的tf.Tensor型的变量</p>
+<p>shape：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。</p>
+<p>mean&#x3D;：指定产生的随机数的平均值。<br>默认为0。可忽略。</p>
+<p>stddev&#x3D;：指定产生的随机数的标准差。<br>默认为1。可忽略。</p>
+<p>dtype&#x3D;：指定产生的随机数的类型。<br>默认为float32。可忽略。</p>
+<p>seed&#x3D;：指定产生随机数的种子。<br>可忽略。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="random-truncated-normal-shape-mean-x3D-0-stddev-x3D-1-dtype-x3D-seed-x3D-name-x3D"><a href="#random-truncated-normal-shape-mean-x3D-0-stddev-x3D-1-dtype-x3D-seed-x3D-name-x3D" class="headerlink" title="random.truncated_normal(shape, mean&#x3D;0, stddev&#x3D;1, dtype&#x3D;, seed&#x3D;, name&#x3D;)"></a><strong>random.truncated_normal(shape, mean&#x3D;0, stddev&#x3D;1, dtype&#x3D;, seed&#x3D;, name&#x3D;)</strong></h2><p>功能：产生指定维度数的正态分布的随机的tf.Tensor型的变量，其值的分布范围限定在$(μ-2σ，μ+2σ)$</p>
+<p>shape：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。</p>
+<p>mean&#x3D;：指定产生的随机数的平均值。<br>默认为0。可忽略。</p>
+<p>stddev&#x3D;：指定产生的随机数的标准差。<br>默认为1。可忽略。</p>
+<p>dtype&#x3D;：指定产生的随机数的类型。<br>默认为float32。可忽略。</p>
+<p>seed&#x3D;：指定产生随机数的种子。<br>可忽略。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="random-uniform-shape-minval-x3D-0-maxval-x3D-None-dtype-x3D-seed-x3D-name-x3D"><a href="#random-uniform-shape-minval-x3D-0-maxval-x3D-None-dtype-x3D-seed-x3D-name-x3D" class="headerlink" title="random.uniform(shape, minval&#x3D;0, maxval&#x3D;None, dtype&#x3D;, seed&#x3D;, name&#x3D;)"></a><strong>random.uniform(shape, minval&#x3D;0, maxval&#x3D;None, dtype&#x3D;, seed&#x3D;, name&#x3D;)</strong></h2><p>功能：产生指定维度数的均匀分布的随机的tf.Tensor型的变量。</p>
+<p>shape：指定每个维度变量个数。<br>仅支持列表。格式为[第一维度，第二维度，第三维度，······]。</p>
+<p>minval&#x3D;：指定产生的随机数的最小值。<br>默认为0。可忽略。</p>
+<p>maxval&#x3D;：指定产生的随机数的最大值。<br>默认为1。可忽略。</p>
+<p>dtype&#x3D;：指定产生的随机数的类型。<br>默认为float32。可忽略。</p>
+<p>seed&#x3D;：指定产生随机数的种子。<br>可忽略。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="cast-x-dtype-name-x3D-None"><a href="#cast-x-dtype-name-x3D-None" class="headerlink" title="cast(x, dtype, name&#x3D;None)"></a><strong>cast(x, dtype, name&#x3D;None)</strong></h2><p>功能：将tf.Tensor型的变量x内的值强制转换为指定类型。</p>
+<p>x：需要转换的tf.Tensor型的变量。</p>
+<p>dtype：转换后的值的类型。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="reduce-min-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D"><a href="#reduce-min-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D" class="headerlink" title="reduce_min(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)"></a><strong>reduce_min(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)</strong></h2><p>功能：返回tf.Tensor型的变量input_tensor的指定维度中的最小值。</p>
+<p>input_tensor：指定tf.Tensor型的变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>axis&#x3D;：指定是第几个维度。<br>可以不指定，不指定则全维度参与。默认为None，即不指定。</p>
+<p>keepdims&#x3D;：指定是否保留维度信息。<br>默认不保留。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="reduce-max-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D"><a href="#reduce-max-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D" class="headerlink" title="reduce_max(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)"></a><strong>reduce_max(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)</strong></h2><p>功能：返回tf.Tensor型的变量input_tensor的指定维度中的最大值。</p>
+<p>input_tensor：指定tf.Tensor型的变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>axis&#x3D;：指定是第几个维度。<br>可以不指定，不指定则全维度参与。默认为None，即不指定。</p>
+<p>keepdims&#x3D;：指定是否保留维度信息。<br>默认不保留。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="reduce-sum-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D"><a href="#reduce-sum-input-tensor-axis-x3D-None-keepdims-x3D-False-name-x3D" class="headerlink" title="reduce_sum(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)"></a><strong>reduce_sum(input_tensor, axis&#x3D;None, keepdims&#x3D;False, name&#x3D;)</strong></h2><p>功能：返回tf.Tensor型的变量input_tensor的指定维度中的和。</p>
+<p>input_tensor：指定tf.Tensor型的变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>axis&#x3D;：指定是第几个维度。<br>可以不指定，不指定则全维度参与。默认为None，即不指定。</p>
+<p>keepdims&#x3D;：指定是否保留维度信息。<br>默认不保留。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="add-x-y-name-x3D-None"><a href="#add-x-y-name-x3D-None" class="headerlink" title="add(x, y, name&#x3D;None)"></a><strong>add(x, y, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的加法。两个变量的维度需一致，对应位置的元素做运算。</p>
+<p>x：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>y：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="subtract-x-y-name-x3D-None"><a href="#subtract-x-y-name-x3D-None" class="headerlink" title="subtract(x, y, name&#x3D;None)"></a><strong>subtract(x, y, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的减法。两个变量的维度需一致，对应位置的元素做运算。</p>
+<p>x：指定的tf.Tensor型变量，被减数。<br>可以由列表、元组隐式转换得到。</p>
+<p>y：指定的tf.Tensor型变量，减数。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="multiply-x-y-name-x3D-None"><a href="#multiply-x-y-name-x3D-None" class="headerlink" title="multiply(x, y, name&#x3D;None)"></a><strong>multiply(x, y, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的乘法。两个变量的维度需一致，对应位置的元素做运算。</p>
+<p>x：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>y：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="divide-x-y-name-x3D-None"><a href="#divide-x-y-name-x3D-None" class="headerlink" title="divide(x, y, name&#x3D;None)"></a><strong>divide(x, y, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的乘法。两个变量的维度需一致，对应位置的元素做运算。</p>
+<p>x：指定的tf.Tensor型变量，被除数。<br>可以由列表、元组隐式转换得到。</p>
+<p>y：指定的tf.Tensor型变量，除数。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="square-x-name-x3D-None"><a href="#square-x-name-x3D-None" class="headerlink" title="square(x, name&#x3D;None)"></a><strong>square(x, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的平方运算。每个元素单独运算。</p>
+<p>x：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="pow-x-y-name-x3D-None"><a href="#pow-x-y-name-x3D-None" class="headerlink" title="pow(x, y, name&#x3D;None)"></a><strong>pow(x, y, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的次方运算。两个变量的维度需一致，对应位置的元素做运算。</p>
+<p>x：指定的tf.Tensor型变量，底数。<br>可以由列表、元组隐式转换得到。</p>
+<p>y：指定的tf.Tensor型变量，指数。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="sqrt-x-name-x3D-None"><a href="#sqrt-x-name-x3D-None" class="headerlink" title="sqrt(x, name&#x3D;None)"></a><strong>sqrt(x, name&#x3D;None)</strong></h2><p>功能：tf.Tensor型变量的算数平方根运算。每个元素单独运算。</p>
+<p>x：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="matmul-a-b-transpose-a-x3D-False-transpose-b-x3D-False-adjoint-a-x3D-False-adjoint-b-x3D-False-a-is-sparse-x3D-False-b-is-sparse-x3D-False-output-type-x3D-name-x3D"><a href="#matmul-a-b-transpose-a-x3D-False-transpose-b-x3D-False-adjoint-a-x3D-False-adjoint-b-x3D-False-a-is-sparse-x3D-False-b-is-sparse-x3D-False-output-type-x3D-name-x3D" class="headerlink" title="matmul(a, b, transpose_a&#x3D;False, transpose_b&#x3D;False, adjoint_a&#x3D;False, adjoint_b&#x3D;False, a_is_sparse&#x3D;False, b_is_sparse&#x3D;False, output_type&#x3D;, name&#x3D;)"></a><strong>matmul(a, b, transpose_a&#x3D;False, transpose_b&#x3D;False, adjoint_a&#x3D;False, adjoint_b&#x3D;False, a_is_sparse&#x3D;False, b_is_sparse&#x3D;False, output_type&#x3D;, name&#x3D;)</strong></h2><p>功能：tf.Tensor型的变量进行矩阵乘法。输入的变量维度需符合矩阵乘法要求。</p>
+<p>a：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>b：指定的tf.Tensor型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>transpose_a&#x3D;：指定a需不需要先转置。</p>
+<p>transpose_a&#x3D;：指定b需不需要先转置。</p>
+<p>adjoint_a&#x3D;：指定a需不需要先共轭和转置。</p>
+<p>adjoint_b&#x3D;：指定b需不需要先共轭和转置。</p>
+<p>a_is_sparse&#x3D;：指定a是否为稀疏矩阵。</p>
+<p>b_is_sparse&#x3D;：指定b是否为稀疏矩阵。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="data-Dataset-from-tensor-slices-tensors-name-x3D-None"><a href="#data-Dataset-from-tensor-slices-tensors-name-x3D-None" class="headerlink" title="data.Dataset.from_tensor_slices(tensors, name&#x3D;None)"></a><strong>data.Dataset.from_tensor_slices(tensors, name&#x3D;None)</strong></h2><p>功能：将数据集中的输入与标签一一配对后并返回。</p>
+<p>tensors：指定输入与标签。<br>可以用[输入，标签]或者(输入,标签)的形式给定。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个TensorSliceDataset型变量。</p>
+<h2 id="enumerate-list"><a href="#enumerate-list" class="headerlink" title="enumerate(list)"></a><strong><span style="color:blue;">enumerate(list)</span></strong></h2><p>功能：返回列表list中的序号和元素，常用于for in循环。</p>
+<p>list：给定的列表。</p>
+<p>返回值：一个[(序号0，元素0)，······(序号n，元素n)]形式的列表（或元组）。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>使用样例</strong></div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]):</span><br><span class="line"><span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">返回值应该为</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(0, 4)</span><br><span class="line">(1, 3)</span><br><span class="line">(2, 2)</span><br><span class="line">(3, 1)</span><br></pre></td></tr></table></figure>
+</div>
+
+<h2 id="one-hot-indices-depth-on-value-x3D-off-value-x3D-axis-x3D-None-dtype-x3D-name-x3D"><a href="#one-hot-indices-depth-on-value-x3D-off-value-x3D-axis-x3D-None-dtype-x3D-name-x3D" class="headerlink" title="one_hot(indices, depth, on_value&#x3D;, off_value&#x3D;, axis&#x3D;None, dtype&#x3D;, name&#x3D;)"></a><strong>one_hot(indices, depth, on_value&#x3D;, off_value&#x3D;, axis&#x3D;None, dtype&#x3D;, name&#x3D;)</strong></h2><p>功能：执行分类。tf.Tensor型变量按每个维度中的第$i$个元素元素值为$x_i$，然后将返回列表第$i$行的第$x_i$个元素置1，其余全置0。</p>
+<p>indices：指定的tf.Tensor类型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>depth：指定分类的个数。<br>即返回的列表中的每个列表的长度。</p>
+<p>on_value：指定命中值。<br>默认为1。可忽略。</p>
+<p>off_value：指定未命中值。<br>默认为0。可忽略。</p>
+<p>axis&#x3D;：指定分类后对齐的轴。<br>具体结果不好描述建议动手试验，查看输出的shape。</p>
+<p>dtype&#x3D;：指定输出变量的类型。<br>默认为float32。可忽略。</p>
+<p>name&#x3D;：指定变量的内置名称。<br>仅接受字符串。可忽略。</p>
+<p>返回值：一个tf.Tensor型变量。</p>
+<h2 id="nn-softmax-logits-axis-x3D-None-name-x3D-None"><a href="#nn-softmax-logits-axis-x3D-None-name-x3D-None" class="headerlink" title="nn.softmax(logits, axis&#x3D;None, name&#x3D;None)"></a><strong>nn.softmax(logits, axis&#x3D;None, name&#x3D;None)</strong></h2><p>功能：将传入的tf.Tensor型变量（一维）中的值做处理使得其占比不变而和永远为1。即算出概率。</p>
+<p>logits：指定的tf.Tensor类型变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>axis&#x3D;：好像没啥作用。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="tf-Tensor-assign-sub-value"><a href="#tf-Tensor-assign-sub-value" class="headerlink" title="tf.Tensor.assign_sub(value)"></a><strong><span style="color:blue;">tf.Tensor</span>.assign_sub(value)</strong></h2><p>功能：对应元素自减。<br>调用函数的tf.Tensor型的变量需为可训练的，输入的值为自减的值，类似于subtract()函数。</p>
+<p>value：指定的tf.Tensor类型变量。<br>可以由列表、元组或者值隐式转换得到。其形状应和调用函数的tf.Tensor型的变量一致。</p>
+<h2 id="argmax-input-axis-x3D-output-type-x3D"><a href="#argmax-input-axis-x3D-output-type-x3D" class="headerlink" title="argmax(input, axis&#x3D;, output_type&#x3D;)"></a><strong>argmax(input, axis&#x3D;, output_type&#x3D;)</strong></h2><p>功能：返回tf.Tensor型的变量沿指定维度最大值的序号。</p>
+<p>input：指定的tf.Tensor型的变量。<br>可以由列表、元组隐式转换得到。</p>
+<p>axis&#x3D;：指定的维度。<br>若不指定则默认为0。</p>
+<p>output_type&#x3D;：指定输出的值的类型。<br>默认为int64。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="TensorSliceDataset-batch-value"><a href="#TensorSliceDataset-batch-value" class="headerlink" title="TensorSliceDataset.batch(value)"></a><strong><span style="color:blue;">TensorSliceDataset</span>.batch(value)</strong></h2><p>功能：将数据集每value组打包为一个数据包。<br>常接在Dataset.from_tensor_slices()后。</p>
+<p>value：指定多少组打包为一个数据包。</p>
+<p>返回值：一个TensorSliceDataset型变量。</p>
+<h2 id="where-condition-x-x3D-y-x3D"><a href="#where-condition-x-x3D-y-x3D" class="headerlink" title="where(condition, x&#x3D;, y&#x3D;)"></a><strong>where(condition, x&#x3D;, y&#x3D;)</strong></h2><p>功能：条件的为真返回x，条件为假返回y。<br>若为张量则按元素比较，condition[i]为真返回x[i]，condition[i]为假返回y[i]。</p>
+<p>x&#x3D;：指定变量。</p>
+<p>y&#x3D;：指定变量。</p>
+<p>返回值：一个tf.Tensor型的变量。</p>
+<h2 id="keras-models-Sequential-Network"><a href="#keras-models-Sequential-Network" class="headerlink" title="keras.models.Sequential([Network])"></a><strong>keras.models.Sequential([Network])</strong></h2><p>功能：生成网络的结构。</p>
+<p>Network：指定网络结构。<br>一个结构包含了很多层。<br>请注意这个结构必须放在列表中，再传入函数。</p>
+<p>返回值：一个容器。</p>
+<h2 id="keras-layers-Dense-units-activation-x3D-kernel-regularizer-x3D"><a href="#keras-layers-Dense-units-activation-x3D-kernel-regularizer-x3D" class="headerlink" title="keras.layers.Dense(units, activation&#x3D;, kernel_regularizer&#x3D;)"></a><strong>keras.layers.Dense(units, activation&#x3D;, kernel_regularizer&#x3D;)</strong></h2><p>功能：生成全连接层。</p>
+<p>units：指定该层的结点数。</p>
+<p>activation&#x3D;：指定该层的激活函数。<br>值需为字符串。通常有’relu’，’sigmoid’和’tanh’。</p>
+<p>kernel_regularizer&#x3D;：指定正则化方式。<br>一般会指定为keras.regularizer.l1()或keras.regularizer.l2()。</p>
+<p>返回值：一个神经网络层。</p>
+<h2 id="keras-layers-Conv2D-filters-x3D-，kernel-size-x3D-，strides-x3D-，padding-x3D-activation-x3D"><a href="#keras-layers-Conv2D-filters-x3D-，kernel-size-x3D-，strides-x3D-，padding-x3D-activation-x3D" class="headerlink" title="keras.layers.Conv2D(filters&#x3D;，kernel_size&#x3D;，strides&#x3D;，padding&#x3D;, activation&#x3D;)"></a><strong>keras.layers.Conv2D(filters&#x3D;，kernel_size&#x3D;，strides&#x3D;，padding&#x3D;, activation&#x3D;)</strong></h2><p>功能：生成卷积层。</p>
+<p>filters&#x3D;：指定卷积核个数。</p>
+<p>kernel_size&#x3D;：指定卷积核大小。<br>正方形卷积核直接输入数字，其它则以(长,宽)的模式输入。<br>不推荐长方形卷积核。</p>
+<p>strides&#x3D;：指定步长。</p>
+<p>padding&#x3D;：指定填充方式。<br>值需为字符串。通常有’valid’（不填充）和’same’（全0填充）。</p>
+<p>activation&#x3D;：指定该层的激活函数。<br>值需为字符串。通常有’relu’，’sigmoid’和’tanh’。</p>
+<p>返回值：一个神经网络层。</p>
+<h2 id="keras-layers-LSTM-units-input-shape-x3D-activation-x3D"><a href="#keras-layers-LSTM-units-input-shape-x3D-activation-x3D" class="headerlink" title="keras.layers.LSTM(units, input_shape&#x3D;, activation&#x3D;)"></a><strong>keras.layers.LSTM(units, input_shape&#x3D;, activation&#x3D;)</strong></h2><p>功能：生成LSTM（循环）层。</p>
+<p>units：指定循环核个数。</p>
+<p>input_shape&#x3D;：指定输入形状。</p>
+<p>activation&#x3D;：指定该层的激活函数。<br>值需为字符串。通常有’relu’，’sigmoid’和’tanh’。</p>
+<p>返回值：一个神经网络层。</p>
+<h2 id="keras-optimizers-SGD-lr-x3D-momentum-x3D"><a href="#keras-optimizers-SGD-lr-x3D-momentum-x3D" class="headerlink" title="keras.optimizers.SGD(lr&#x3D;, momentum&#x3D;)"></a><strong>keras.optimizers.SGD(lr&#x3D;, momentum&#x3D;)</strong></h2><p>功能：生成一个优化器（optimizer）。</p>
+<p>lr&#x3D;：设置学习率。<br>学习率在0~1之间，建议使用默认值。</p>
+<p>momentum&#x3D;：设置动量。<br>工作原理为逐渐减小学习率以更准确符合模型。其值需&gt;0。建议使用默认值。</p>
+<p>返回值：一个优化器（optimizer）。</p>
+<h2 id="keras-optimizers-Adagrad-lr-x3D"><a href="#keras-optimizers-Adagrad-lr-x3D" class="headerlink" title="keras.optimizers.Adagrad(lr&#x3D;)"></a><strong>keras.optimizers.Adagrad(lr&#x3D;)</strong></h2><p>功能：生成一个优化器（optimizer）。</p>
+<p>lr&#x3D;：设置学习率。<br>学习率在0~1之间，建议使用默认值。</p>
+<p>返回值：一个优化器（optimizer）。</p>
+<h2 id="keras-optimizers-Adadelta-lr-x3D"><a href="#keras-optimizers-Adadelta-lr-x3D" class="headerlink" title="keras.optimizers.Adadelta(lr&#x3D;)"></a><strong>keras.optimizers.Adadelta(lr&#x3D;)</strong></h2><p>功能：生成一个优化器（optimizer）。</p>
+<p>lr&#x3D;：设置学习率。<br>学习率在0~1之间，建议使用默认值。</p>
+<p>返回值：一个优化器（optimizer）。</p>
+<h2 id="keras-optimizers-Adam-lr-x3D-beta-1-x3D-0-9-beta-2-x3D-0-999"><a href="#keras-optimizers-Adam-lr-x3D-beta-1-x3D-0-9-beta-2-x3D-0-999" class="headerlink" title="keras.optimizers.Adam(lr&#x3D;, beta_1&#x3D;0.9, beta_2&#x3D;0.999)"></a><strong>keras.optimizers.Adam(lr&#x3D;, beta_1&#x3D;0.9, beta_2&#x3D;0.999)</strong></h2><p>功能：生成一个优化器（optimizer）。</p>
+<p>lr&#x3D;：设置学习率。<br>学习率在0~1之间，建议使用默认值。</p>
+<p>beta_1&#x3D;：不明参数。<br>其值应接近于1但小于1。</p>
+<p>beta_2&#x3D;：不明参数。<br>其值应接近于1但小于1。</p>
+<p>返回值：一个优化器（optimizer）。</p>
+<h2 id="keras-losses-MeanSquaredError"><a href="#keras-losses-MeanSquaredError" class="headerlink" title="keras.losses.MeanSquaredError()"></a><strong>keras.losses.MeanSquaredError()</strong></h2><p>功能：生成一个采用均方差的loss函数。</p>
+<p>返回值：采用均方差的loss函数。</p>
+<h2 id="keras-losses-SparseCategoricalCrossentropy-from-logits-x3D-False"><a href="#keras-losses-SparseCategoricalCrossentropy-from-logits-x3D-False" class="headerlink" title="keras.losses.SparseCategoricalCrossentropy(from_logits&#x3D;False)"></a><strong>keras.losses.SparseCategoricalCrossentropy(from_logits&#x3D;False)</strong></h2><p>功能：生成一个采用SparseCategoricalCrossentropy的loss函数。</p>
+<p>from_logits&#x3D;：设置是否为原始输出。<br>即：最后一层没有使用sigmoid作为激活函数，得到的输出就是原始输出，填True；否则应填False。</p>
+<p>返回值：采用均方差的loss函数。</p>
+<h2 id="model-compile-optimizer-x3D-，loss-x3D-，metrics-x3D"><a href="#model-compile-optimizer-x3D-，loss-x3D-，metrics-x3D" class="headerlink" title="model.compile(optimizer&#x3D;，loss&#x3D;，metrics&#x3D;)"></a><strong><span style="color:blue;">model</span>.compile(optimizer&#x3D;，loss&#x3D;，metrics&#x3D;)</strong></h2><p>功能：定义网络的各种参数。</p>
+<p>optimizer&#x3D;：指定优化器<br>可以使用默认的’sgd’，’adagrad’，’adadelta’和’adam’。也可以通过调用上述优化器函数来自定义这些优化器。</p>
+<p>loss&#x3D;：设置loss函数。<br>可以使用默认的’mse’和’sparse_categorical_crossentropy’等。也可以选择自定义。</p>
+<p>metrics&#x3D;：设置评测指标。<br>请根据选择的loss函数选择合适的评测指标。评测指标为列表，列表内为字符串。候选项有<br>[‘accuracy’]，[‘categorical_accuracy’]和[‘sparse_categorical_accuracy’]等。</p>
+<p>无返回值。</p>
+<h2 id="model-fit-x-y-batch-size-x3D-epochs-x3D-verbose-x3D-callbacks-x3D-validation-split-x3D-validation-data-x3D"><a href="#model-fit-x-y-batch-size-x3D-epochs-x3D-verbose-x3D-callbacks-x3D-validation-split-x3D-validation-data-x3D" class="headerlink" title="model.fit(x, y, batch_size&#x3D;, epochs&#x3D;, verbose&#x3D;, callbacks&#x3D;, validation_split&#x3D;, validation_data&#x3D;)"></a><strong><span style="color:blue;">model</span>.fit(x, y, batch_size&#x3D;, epochs&#x3D;, verbose&#x3D;, callbacks&#x3D;, validation_split&#x3D;, validation_data&#x3D;)</strong></h2><p>功能：训练模型。</p>
+<p>x：训练用的数据。<br>应该与y的形状一致。</p>
+<p>y：训练用的标签。<br>应该与x的形状一致。</p>
+<p>batch_size&#x3D;：将数据集多少组打一包进行训练。</p>
+<p>epochs&#x3D;：设置数据集训练多少次。</p>
+<p>verbose&#x3D;：指定是否显示日志。<br>0：不显示日志<br>1：输出进度条<br>2：每个epoch结束后给出信息。</p>
+<p>callback&#x3D;：指定回调函数用于保存模型。<br>该参数由tensorflow.keras.callbacks.ModelCheckpoint()函数返回。</p>
+<p>validation_split&#x3D;：指定从训练集中划分多少作为测试集。<br>值应该在0~1之间。与validation_data参数冲突。</p>
+<p>validation_data&#x3D;：指定测试集。<br>传入格式应该为(测试数据,测试标签)。</p>
+<p>返回值：模型训练结束后的格式。</p>
+<h2 id="model-summary"><a href="#model-summary" class="headerlink" title="model.summary()"></a><strong>model.summary()</strong></h2><p>功能：打印模型的网络结构。</p>
+<p>无返回值。</p>
+<h2 id="keras-layers-BatchNormalization"><a href="#keras-layers-BatchNormalization" class="headerlink" title="keras.layers.BatchNormalization()"></a><strong>keras.layers.BatchNormalization()</strong></h2><p>功能：生成一个批标准化层。</p>
+<p>返回值：一个神经网络层。</p>
+<h2 id="keras-layers-MaxPool2D-pool-size-x3D-strides-x3D-padding-x3D"><a href="#keras-layers-MaxPool2D-pool-size-x3D-strides-x3D-padding-x3D" class="headerlink" title="keras.layers.MaxPool2D(pool_size&#x3D;, strides&#x3D;, padding&#x3D;)"></a><strong>keras.layers.MaxPool2D(pool_size&#x3D;, strides&#x3D;, padding&#x3D;)</strong></h2><p>功能：生成一个最大池化层。</p>
+<p>pool_size&#x3D;：指定池化核大小。</p>
+<p>strides&#x3D;：指定步长。</p>
+<p>padding&#x3D;：指定填充方式。<br>值需为字符串。通常有’valid’（不填充）和’same’（全0填充）。</p>
+<p>返回值：一个神经网络层。</p>
+<h2 id="keras-layers-AveragePooling2D-pool-size-x3D-strides-x3D-padding-x3D"><a href="#keras-layers-AveragePooling2D-pool-size-x3D-strides-x3D-padding-x3D" class="headerlink" title="keras.layers.AveragePooling2D(pool_size&#x3D;, strides&#x3D;, padding&#x3D;)"></a><strong>keras.layers.AveragePooling2D(pool_size&#x3D;, strides&#x3D;, padding&#x3D;)</strong></h2><p>功能：生成一个平均池化层。</p>
+<p>pool_size&#x3D;：指定池化核大小。</p>
+<p>strides&#x3D;：指定步长。</p>
+<p>padding&#x3D;：指定填充方式。<br>值需为字符串。通常有’valid’（不填充）和’same’（全0填充）。</p>
+<p>返回值：一个神经网络层。</p>
+<h2 id="keras-layers-Dropout-rate-x3D"><a href="#keras-layers-Dropout-rate-x3D" class="headerlink" title="keras.layers.Dropout(rate&#x3D;)"></a><strong>keras.layers.Dropout(rate&#x3D;)</strong></h2><p>功能：按照给定的概率临时舍弃部分神经元。</p>
+<p>rate&#x3D;：指定舍弃的概率。<br>其值应在0~1之间。建议为0.2。</p>
+<p>无返回值。</p>
+<h2 id="model-load-weights-path"><a href="#model-load-weights-path" class="headerlink" title="model.load_weights(path)"></a><strong>model.load_weights(path)</strong></h2><p>功能：读取模型</p>
+<p>path：指定模型所在的路径。</p>
+<p>无返回值。</p>
+<h2 id="keras-callbacks-ModelCheckpoint-filepath-x3D-monitor-x3D-mode-x3D-save-freq-x3D-save-weights-only-x3D-save-best-only-x3D"><a href="#keras-callbacks-ModelCheckpoint-filepath-x3D-monitor-x3D-mode-x3D-save-freq-x3D-save-weights-only-x3D-save-best-only-x3D" class="headerlink" title="keras.callbacks.ModelCheckpoint(filepath&#x3D;, monitor&#x3D;, mode&#x3D;, save_freq&#x3D;,save_weights_only&#x3D;,save_best_only&#x3D;)"></a><strong>keras.callbacks.ModelCheckpoint(filepath&#x3D;, monitor&#x3D;, mode&#x3D;, save_freq&#x3D;,save_weights_only&#x3D;,save_best_only&#x3D;)</strong></h2><p>功能：生成回调函数以保存模型训练后的参数。</p>
+<p>filepath&#x3D;：指定模型保存路径。</p>
+<p>monitor&#x3D;：指定需要监视的值。<br>一般指定’val_loss’，即测试集的loss。</p>
+<p>mode&#x3D;：指定什么情况下保存模型。<br>指定是变大保存还是变小保存。<br>函数会根据monitor的值自动指定，可忽略此选项。</p>
+<p>save_freq&#x3D;：指定保存频率。<br>这个频率是step的频率，要想每个epoch保存一次，请填写’epoch’。</p>
+<p>save_weights_only&#x3D;：指定是否只保存参数。<br>若为False，则会将神经网络的结构一并保存。若为True则只保存参数。</p>
+<p>save_best_only&#x3D;：指定是否指保存最佳结果。</p>
+<h2 id="keras-layers-Activation-name-x3D"><a href="#keras-layers-Activation-name-x3D" class="headerlink" title="keras.layers.Activation(name&#x3D;)"></a><strong>keras.layers.Activation(name&#x3D;)</strong></h2><p>功能：生成激活函数。</p>
+<p>name&#x3D;：指定激活函数的名称。</p>
+<p>返回值：一个激活函数。</p>
+<h2 id="keras-layers-SimpleRNN-units-activation-x3D-return-sequences-x3D"><a href="#keras-layers-SimpleRNN-units-activation-x3D-return-sequences-x3D" class="headerlink" title="keras.layers.SimpleRNN(units, activation&#x3D;, return_sequences&#x3D;)"></a><strong>keras.layers.SimpleRNN(units, activation&#x3D;, return_sequences&#x3D;)</strong></h2><p>功能：生成一个循环计算层。</p>
+<p>units：指定记忆体数量。</p>
+<p>activation&#x3D;：指定该层的激活函数。<br>值需为字符串。通常有’relu’，’sigmoid’和’tanh’。</p>
+<p>return_sequences&#x3D;：指定是否每个时刻都输出结果。</p>
+<p>返回值：一个神经网络层。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/01/18/TensorflowAPI/" title="Tensorflow 2.7.0 部分API">https://ayanami-daisuki.github.io/2022/01/18/TensorflowAPI/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/Python-API/" rel="tag"><i class="fa fa-tag"></i> Python API</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/18/ConvolutionalNeuralNetworkPrinciple/" rel="prev" title="卷积神经网络原理">
+                  <i class="fa fa-chevron-left"></i> 卷积神经网络原理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/18/CsharpGrammar02/" rel="next" title="C#语法基础（二）">
+                  C#语法基础（二） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

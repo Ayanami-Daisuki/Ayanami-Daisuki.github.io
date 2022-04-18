@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/01/19/CsharpGrammar03/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/01/19/CsharpGrammar03/","path":"2022/01/19/CsharpGrammar03/","title":"C#语法基础（三）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C#语法基础（三） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">六、控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="nav-text">(1) 模式匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-switch"><span class="nav-text">(2) switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-foreach"><span class="nav-text">(3) foreach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">六、类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B0%E5%80%BC%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">(1) 数值的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-text">(2) 字符串的转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81try-catch%E4%B8%8Echecked"><span class="nav-text">七、try catch与checked</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-try-catch"><span class="nav-text">(1) try catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-checked%E4%B8%8Euncheckd"><span class="nav-text">(2) checked与uncheckd</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/01/19/CsharpGrammar03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C#语法基础（三） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#语法基础（三）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-19 09:27:15" itemprop="dateCreated datePublished" datetime="2022-01-19T09:27:15+08:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:05:44" itemprop="dateModified" datetime="2022-04-17T21:05:44+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/01/19/CsharpGrammar03/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议先学习C++基础再进行C#的学习。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="六、控制流"><a href="#六、控制流" class="headerlink" title="六、控制流"></a><strong>六、控制流</strong></h2><p>C#的语法与C++基本一致。你完全可以用C&#x2F;C++的控制流来控制C#的程序运行而不会产生任何报错。因为C#是在C&#x2F;C++的控制流基础之上新增了一些语法。</p>
+<h3 id="1-模式匹配"><a href="#1-模式匹配" class="headerlink" title="(1) 模式匹配"></a><strong>(1) 模式匹配</strong></h3><p>先看例子</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">object</span> Name = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(Name <span class="keyword">is</span> <span class="built_in">string</span> temp)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;Hello, <span class="subst">&#123;temp&#125;</span>!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的if语句的条件在C&#x2F;C++的语法规则下会显得很奇怪，这就是C#新增加的特性。</p>
+<p>“is”关键字的用法是</p>
+<div style="color:red;">已定义的变量名 is 类型 未定义的变量名</div>
+
+<p>它的含义是，如果已定义的变量名的值是属于这个类型的，那么就将它的值赋给未定义的变量名，未定义的变量名会作为这个类型的局部变量在if块内生效，然后执行if内的语句。</p>
+<p>运行上述代码，if语句检测Name的值是否属于string类型。因为Name的值是字符串，符合属于string类型的条件，所以将Name的值“Lacia”赋给temp，并使temp在if块内生效。</p>
+<p>如果尝试在if块外部使用temp，编译器将会报错：</p>
+<p><img src="/2022/01/19/CsharpGrammar03/1.png" alt="1 &quot;1&quot;" title="1"></p>
+<p>可以看到if块外的temp被划了红色横线，表明出现了错误。</p>
+<p>模式匹配也可以用于switch语句，并且可以更加精确地匹配：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Name = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="keyword">switch</span> (Name)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">string</span> temp <span class="keyword">when</span> Name.Length == <span class="number">5</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;Hello, <span class="subst">&#123;temp&#125;</span>!&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以在关键字when后面追加条件以实现对多个条件测检测。</p>
+<h3 id="2-switch"><a href="#2-switch" class="headerlink" title="(2) switch"></a><strong>(2) switch</strong></h3><p>在C#中你可以按照传统的C&#x2F;C++风格的使用switch，也可以使用C#新加的关于switch的语法：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Name = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> ReturnValue = Name <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">string</span> temp <span class="keyword">when</span> Name.Length == <span class="number">5</span></span><br><span class="line">        =&gt; <span class="string">$&quot;She is <span class="subst">&#123;temp&#125;</span>.&quot;</span>,  <span class="comment">//此处为逗号</span></span><br><span class="line">    _  <span class="comment">//以下划线代表默认值，即原来的default</span></span><br><span class="line">        =&gt; <span class="string">&quot;A stranger.&quot;</span></span><br><span class="line">&#125;;  <span class="comment">//注意这里有个分号</span></span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;ReturnValue&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>新的switch去掉了case以及条件之后的冒号，“&#x3D;&gt;”代表的是将后面的值作为返回值，赋值给ReturnValue。</p>
+<p>程序的打印结果应该为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br><span class="line">She is Lacia.</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-foreach"><a href="#3-foreach" class="headerlink" title="(3) foreach"></a><strong>(3) foreach</strong></h3><p>虽然C&#x2F;C++也有类似的循环语法，不过C#的foreach给我的感觉却更接近Python。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> Name0 = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line">List&lt;<span class="built_in">char</span>&gt; Name1 = <span class="keyword">new</span> List&lt;<span class="built_in">char</span>&gt;(<span class="string">&quot;Kouka&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">char</span> temp <span class="keyword">in</span> Name0)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">$&quot;<span class="subst">&#123;temp&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.Write(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">char</span> temp <span class="keyword">in</span> Name1)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">$&quot;<span class="subst">&#123;temp&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>foreach循环就是新定义一个变量，这个变量会按顺序遍历“in”关键字之后的可迭代容器内的所有变量。实际上编译器在翻译foreach时会将它转换成下面的伪代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IEnumerator&lt;<span class="built_in">char</span>&gt; temp = Name.GetEnumerator();</span><br><span class="line"><span class="keyword">while</span>(temp.MoveNext())</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">$&quot;<span class="subst">&#123;temp.Current&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这也就意味着，你在foreach内对temp的值的修改会报错。因为temp.Current是只读不可写的。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>关于IEnumerator</strong></div>
+
+<div style="color:royalblue;">上述代码的运行过程非常类似于C++的链表的遍历。这意味着要想使用foreach，容器的类必须定义了GetEnumerator()成员函数，并且返回的IEnumerator变量也必须拥有MoveNext()成员函数与Current成员变量。</div>
+</div>
+
+<p>上述代码的运行结果应该为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br><span class="line">Lacia</span><br><span class="line">Kouka</span><br></pre></td></tr></table></figure>
+
+<p>或许你的代码会显示如下警告</p>
+<p><img src="/2022/01/19/CsharpGrammar03/2.png" alt="2 &quot;2&quot;" title="2"></p>
+<p>这是因为C# 9.0以上的语法规则允许使用下面的更简化的new表达式：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="built_in">char</span>&gt; Name1 = <span class="keyword">new</span>(<span class="string">&quot;Kouka&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>编译与运行同样正常。</p>
+<h2 id="六、类型转换"><a href="#六、类型转换" class="headerlink" title="六、类型转换"></a><strong>六、类型转换</strong></h2><h3 id="1-数值的转换"><a href="#1-数值的转换" class="headerlink" title="(1) 数值的转换"></a><strong>(1) 数值的转换</strong></h3><p>在C&#x2F;C++中，直接将double型变量的值赋给int型变量是不会报错的（虽然很大程度上这是取决于你的编译器的）。而C#则对此做了更严格的规范。</p>
+<p><img src="/2022/01/19/CsharpGrammar03/3.png" alt="3 &quot;3&quot;" title="3"></p>
+<p>C#不允许这种可能会丢失信息的隐式类型转换。我们必须显式地告诉编译器我们能接受这种信息丢失：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span> a = <span class="number">114.514</span>;</span><br><span class="line"><span class="built_in">int</span> b = (<span class="built_in">int</span>)a;</span><br></pre></td></tr></table></figure>
+
+<p>通过显式地标记强制类型转换，才能使代码编译通过。</p>
+<p>C#还提供了另一种类型转换的方式：定义在System命名空间下的Convert静态类。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span> a = <span class="number">114.514</span>;</span><br><span class="line"><span class="built_in">int</span> b = Convert.ToInt32(a);</span><br></pre></td></tr></table></figure>
+
+<p>可以尝试分别运行上述两种类型转换的代码。</p>
+<p>你可以发现使用(int)强制类型转换的结果是114，而使用Convert类提供的ToInt32()函数的转换结果是115。这是因为，前者省略了小数而后者采取了四舍五入取整。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>ToInt32()的取整规则</strong></div>
+
+<div style="color:royalblue;">Convert.ToInt32()函数取整规则是小于0.5则舍弃，大于0.5则进位，等于0.5就取决于整数部分。整数部分为奇数就进位，整数部分为偶数就舍弃。</div>
+</div>
+
+<h3 id="2-字符串的转换"><a href="#2-字符串的转换" class="headerlink" title="(2) 字符串的转换"></a><strong>(2) 字符串的转换</strong></h3><div class="tabs" id="converttostring"><ul class="nav-tabs"><li class="tab active"><a href="#converttostring-1">从数字到字符串</a></li><li class="tab"><a href="#converttostring-2">BASE64</a></li><li class="tab"><a href="#converttostring-3">从字符串到数字</a></li></ul><div class="tab-content"><div class="tab-pane active" id="converttostring-1"><p>C#在C++的面向对象思想上更进了一步。C#中常见的变量类型都继承自System命名空间下的Object类。因此它们都可以调用Object中定义好的成员函数ToString()。</p></div><div class="tab-pane" id="converttostring-2"><p>当然，Convert类也贴心地定义了ToBase64String()与FromBase64String()函数。它们能够执行将字符串以BASE64编码和从BASE64解码的功能。</p></div><div class="tab-pane" id="converttostring-3"><p>部分类型提供了Parse()函数，例如</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> a = <span class="built_in">int</span>.Parse(<span class="string">&quot;114514&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但Parse()函数是危险的，因为如果提供的字符串不是纯数字组成的字符串，虽然编译能够通过，但运行时程序就会崩溃。</p>
+<p>解决方式有两种，一种是将Parse()放在try块内，另一种就是使用TryParse：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> a = Console.ReadLine();  <span class="comment">//[1]此处或许会出现警告</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">int</span>.TryParse(a,<span class="keyword">out</span> <span class="built_in">int</span> b))   <span class="comment">//[2]</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;b&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note default"><div style="color:dimgray;font-size:1.5em;"><strong>代码的注释</strong></div>
+
+<div style="color:dimgray;">
+[1] 出现警告的原因是因为在.csproj文件里声明了Nullable属性是enable的。即使用了可空引用类型，而变量a并未显式声明为空类型。解决方法有两种：1. 将a的类型修改为“string?”；2. 将Nullable属性设置为disable。<br>
+[2] out关键字是代表了传入函数的这个参数也是输出的一部分。类似的关键字还有ref，ref更接近C++中的引用符号“&”。而out允许在其后定义新的变量以接收返回值，ref则不允许，因为ref关键字的参数很有可能要参与运算。
+</div>
+</div>
+
+<p>TryParse()函数返回值是bool型变量。如果转换成功则返回true，并将结果赋给out关键字后的变量；如果失败则返回false。</p>
+<p>Convert类下也提供了丰富的关于string类型转换的函数，但是它们很多都和Parse一样，存在编译正常而运行出错的可能性。一定要检查你的输入，或设置异常解决方案。</p></div></div></div>
+
+<h2 id="七、try-catch与checked"><a href="#七、try-catch与checked" class="headerlink" title="七、try catch与checked"></a><strong>七、try catch与checked</strong></h2><h3 id="1-try-catch"><a href="#1-try-catch" class="headerlink" title="(1) try catch"></a><strong>(1) try catch</strong></h3><p>在C#中，异常也具有类型。所有的异常类型均继承自System命名空间下的Exception类。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> NumberString = Console.ReadLine();</span><br><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> Number = <span class="built_in">int</span>.Parse(NumberString);</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;Number&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(Exception temp)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;temp.GetType()&#125;</span>,<span class="subst">&#123;temp.Message&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码至少存在两种潜在异常。一种是NumberString不可被转换为int，另一种则是NumberString转换为数字以后的值大于了int能表示的最大数值，造成了溢出。</p>
+<p>try块在出现异常以后将由catch块进行处理。由于Exception类是所有异常类型的父类，所以所有的异常都能进入catch块内。其中temp.GetType()能够查看异常的所属类，而temp.Message则查看具体的出错信息。</p>
+<p>分别测试上述两种异常，报错如下：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br><span class="line">Lacia</span><br><span class="line">System.FormatException,Input string was not in a correct format.</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br><span class="line">1145141919810</span><br><span class="line">System.OverflowException,Value was either too large or too small for an Int32.</span><br></pre></td></tr></table></figure>
+
+<p>可以看到前者的异常属于FormatException类，而后者的异常属于OverflowException类。因此可以对异常进行进一步的处理：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> Number = <span class="built_in">int</span>.Parse(NumberString);</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;Number&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (OverflowException)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;在？数字为什么这么大？&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (FormatException)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;在？为什么输入字符？&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(Exception temp)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;temp.GetType()&#125;</span>,<span class="subst">&#123;temp.Message&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此处可以交换OverflowException与FormatException的位置，但这并不代表所有的异常类型都能够交换位置。具体的顺序与异常类型的继承顺序有关。关于这点之后再讲。</p>
+<h3 id="2-checked与uncheckd"><a href="#2-checked与uncheckd" class="headerlink" title="(2) checked与uncheckd"></a><strong>(2) checked与uncheckd</strong></h3><p>运行下面的代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> a = <span class="built_in">int</span>.MaxValue - <span class="number">1</span>;</span><br><span class="line">a++;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;a&#125;</span>&quot;</span>);</span><br><span class="line">a++;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;a&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以发现你的输出突然变为了负值。这说明发生了溢出现象。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>溢出</strong></div>
+
+<div style="color:royalblue;">造成这种现象的原因网上已经有很多说明，C#的这种现象与C/C+等编程语言的溢出现象如出一辙，此处不再赘述。</div>
+</div>
+
+<p>运行代码时你会发现编译器既没有在编译时提出警告，运行时程序也未抛出异常。这是因为C#默认忽略了你的溢出错误。要想检查溢出，可以采用：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">checked</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> a = <span class="built_in">int</span>.MaxValue - <span class="number">1</span>;</span><br><span class="line">    a++;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;a&#125;</span>&quot;</span>);</span><br><span class="line">    a++;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;a&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再次执行dotnet run命令。你会发现编译成功，并且实现了第一次自加。但在第二次自加的时候，程序抛出了异常信息并退出。</p>
+<p>checked块内的溢出会被视为错误。因此若要显式地检查溢出，不妨试试checked块。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>checked无法处理异常</strong></div>
+
+<div style="color:goldenrod;">要处理溢出异常还是得靠try catch。但是记得要把checked块放在try块内，显式地检查溢出，因为try块会忽略这种自加型的异常。</div>
+</div>
+
+<p>要想完全忽略溢出，可以使用unchecked。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> b = <span class="built_in">int</span>.MaxValue + <span class="number">1</span>;  <span class="comment">//编译器报错</span></span><br><span class="line"><span class="keyword">unchecked</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> a = <span class="built_in">int</span>.MaxValue + <span class="number">1</span>;  <span class="comment">//编译器忽略了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在uncheck块内的代码，不仅运行时不会有溢出提示，就连编译器都不检查你赋值的时候有没有溢出了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/01/19/CsharpGrammar03/" title="C#语法基础（三）">https://ayanami-daisuki.github.io/2022/01/19/CsharpGrammar03/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/C-%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> C#语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/18/CsharpGrammar02/" rel="prev" title="C#语法基础（二）">
+                  <i class="fa fa-chevron-left"></i> C#语法基础（二）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/19/CsharpGrammar04/" rel="next" title="C#语法基础（四）">
+                  C#语法基础（四） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

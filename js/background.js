@@ -1,0 +1,1 @@
+window.addEventListener("load",function(){var a=["/img/bg0.jpg","/img/bg1.jpg"];var b=document.querySelector("body");b.style.backgroundImage="url("+a[Math.floor(Math.random()*2)]+")"});

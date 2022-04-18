@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/03/07/JavaGrammar05/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/03/07/JavaGrammar05/","path":"2022/03/07/JavaGrammar05/","title":"Java基础（五）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java基础（五） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-text">十、多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%90%AF%E5%8A%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-text">(1) 启动多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BA%BF%E7%A8%8B%E5%90%8D%E7%A7%B0"><span class="nav-text">(2) 线程名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BA%BF%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-text">(3) 线程优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">(4) 常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Runnable-%E6%8E%A5%E5%8F%A3"><span class="nav-text">(5) Runnable 接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-text">(6) 线程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-synchronized"><span class="nav-text">1. synchronized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Lock-%E6%8E%A5%E5%8F%A3"><span class="nav-text">2. Lock 接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="nav-text">十一、网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-UDP%E9%80%9A%E4%BF%A1"><span class="nav-text">(1) UDP通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-DatagramPacket-%E7%B1%BB"><span class="nav-text">1. DatagramPacket 类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-DatagramSocket-%E7%B1%BB"><span class="nav-text">2. DatagramSocket 类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%80%E7%A7%8DUDP%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">3. 一种UDP的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-TCP%E9%80%9A%E4%BF%A1"><span class="nav-text">(2) TCP通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Socket"><span class="nav-text">1. Socket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ServerSocket"><span class="nav-text">2. ServerSocket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%80%E7%A7%8DTCP%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">3. 一种TCP的实现</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/03/07/JavaGrammar05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java基础（五） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础（五）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-07 16:35:32" itemprop="dateCreated datePublished" datetime="2022-03-07T16:35:32+08:00">2022-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:01:15" itemprop="dateModified" datetime="2022-04-17T21:01:15+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/03/07/JavaGrammar05/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">
+[1] 建议至少有学过一门其它编程语言（最好是C#或C++）的基础再看本文。<br>
+[2] 本文默认读者有操作系统基础。
+</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="十、多线程"><a href="#十、多线程" class="headerlink" title="十、多线程"></a><strong>十、多线程</strong></h2><p>在Java中，与多线程相关的类是 <code>Thread</code> 类。与C#相比，Java的好处是不用担心主线程结束时，会一并结束未执行完毕的子线程。</p>
+<h3 id="1-启动多线程"><a href="#1-启动多线程" class="headerlink" title="(1) 启动多线程"></a><strong>(1) 启动多线程</strong></h3><p><code>Thread</code> 类没有被 <code>final</code> 关键字修饰，因此它可以被程序员的自定义类继承。在 <code>Thread</code> 类中，有两个方法与多线程相关：</p>
+<ul>
+<li><code>run()</code> ，等待多线程执行的方法</li>
+<li><code>start()</code> ，以 <code>run()</code> 方法为入口，开始执行新的线程</li>
+</ul>
+<p>程序员只需要重写 <code>run()</code> 方法即可。但当要开启多线程时，应该调用 <code>start()</code> 方法，直接调用 <code>run()</code> 方法不会创建新的线程。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Trash</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Trash</span>();</span><br><span class="line">        temp.start();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">500</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;主线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Trash</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">500</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述的代码由于输出过多且多线程会导致每次输出不一致，此处就不展示输出结果。</p>
+<h3 id="2-线程名称"><a href="#2-线程名称" class="headerlink" title="(2) 线程名称"></a><strong>(2) 线程名称</strong></h3><p>Java的 <code>Thread</code> 类中有一个 <code>String</code> 类型的成员变量，变量名为 <code>name</code> 。它是 <code>private</code> 的，因此不能在子类中访问，但有 <code>getName()</code> 和 <code>setName()</code> 方法，分别能获取和写入线程名。即便不手动写入线程名，构造函数也会为其自动分配。</p>
+<p>想设置线程名称，可以在创建完对象以后再调用 <code>setName()</code> 方法；也可以直接在构造函数中传入线程名，但这要求自定义的类有带参构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Trash</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带参构造函数</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Trash</span><span class="params">(String Name)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(Name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-线程优先级"><a href="#3-线程优先级" class="headerlink" title="(3) 线程优先级"></a><strong>(3) 线程优先级</strong></h3><p>Java允许高优先级的线程抢占CPU。 <code>Thread</code> 类中有一个用于标记线程优先级的 <code>private</code> 的 <code>int</code> 型成员变量 <code>priority</code> 。它与 <code>name</code> 一样，有配套的 <code>getPriority()</code> 和 <code>setPriority()</code> 方法。</p>
+<p>线程默认的优先级是5。虽然线程的优先级是用 <code>int</code> 型变量标记的，但它的取值范围比 <code>int</code> 的取值范围要小，其最小值是 <code>MIN_PRIORITY</code> ，最大值是 <code>MAX_PRIORITY</code> ，它们都定义在 <code>Thread</code> 类中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;最小优先级 = &quot;</span> + Thread.MIN_PRIORITY);</span><br><span class="line">System.out.println(<span class="string">&quot;最大优先级 = &quot;</span> + Thread.MAX_PRIORITY);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">最小优先级 = 1</span><br><span class="line">最大优先级 = 10</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>Thread</code> 类的源代码中也能看到其定义：</p>
+<p><img src="/2022/03/07/JavaGrammar05/1.png" alt="1 1" title="1"></p>
+<p>线程优先级越高，其获得CPU时间片的概率越高。</p>
+<h3 id="4-常用方法"><a href="#4-常用方法" class="headerlink" title="(4) 常用方法"></a><strong>(4) 常用方法</strong></h3><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+<th align="center"><code>static</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>sleep()</code></td>
+<td align="center"><code>long</code></td>
+<td align="center">让线程休眠，单位为毫秒</td>
+<td align="center">无</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>sleep()</code></td>
+<td align="center"><code>long</code> ， <code>int</code></td>
+<td align="center">让线程休眠，单位为毫秒和纳秒</td>
+<td align="center">无</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>join()</code></td>
+<td align="center">无</td>
+<td align="center">等待该线程执行完毕</td>
+<td align="center">无</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center"><code>currentThread()</code></td>
+<td align="center">无</td>
+<td align="center">返回当前线程的对象</td>
+<td align="center"><code>Thread</code></td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>setDaemon()</code></td>
+<td align="center"><code>boolean</code></td>
+<td align="center">是否将该线程设置为守护线程</td>
+<td align="center">无</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>守护线程</strong></div>
+
+<div style="color:royalblue;">Java虚拟机会在还有非守护线程的时候保持运行，当没有线程或剩余的线程全为守护线程时，Java虚拟机会自动退出，即程序结束运行。Java中的子线程默认是非守护线程，通过这种方式来让子线程在主线程结束以后依然保持运行。而C#默认的方案是进程不会等待子线程执行结束。</div>
+</div>
+
+<p>此外，如果想要终止线程，建议在自定义类中增加一个flag，并在 <code>run()</code> 方法内检测该flag，通过改变flag来控制线程退出。当然也可以使用 <code>Thread</code> 类定义的 <code>stop()</code> 方法，但该方法是不安全的。</p>
+<h3 id="5-Runnable-接口"><a href="#5-Runnable-接口" class="headerlink" title="(5) Runnable 接口"></a><strong>(5) <code>Runnable</code> 接口</strong></h3><p>自定义的类可以不继承自 <code>Thread</code> 类而实现多线程，但它必须实现 <code>Runnable</code> 接口。该接口只声明了一个名为 <code>run()</code> 的方法。只需要将该类的对象传入 <code>Thread</code> 对象的构造函数即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建Thread对象，并设置线程名称</span></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Trash</span>(), <span class="string">&quot;114514&quot;</span>);</span><br><span class="line">        temp.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Trash</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Trash</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置线程名称也可以用下述方式</span></span><br><span class="line">        Thread.currentThread().setName(<span class="string">&quot;垃圾线程&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">500</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为Java不允许多继承，因此当你不得不继承其它类而又必须实现多线程时，不妨考虑考虑实现 <code>Runnable</code> 接口。</p>
+<h3 id="6-线程同步"><a href="#6-线程同步" class="headerlink" title="(6) 线程同步"></a><strong>(6) 线程同步</strong></h3><p>使用多线程时，程序员经常会面临多个线程同时读写一个变量的问题。为了解决这个问题，就需要使用线程同步。使用线程同步时，<span style="color:red;">建议使用实现 <code>Runnable</code> 接口的方式来实现多线程。</span></p>
+<h4 id="1-synchronized"><a href="#1-synchronized" class="headerlink" title="1. synchronized"></a><strong>1. <code>synchronized</code></strong></h4><p><code>synchronized</code> 关键字有两种使用方式。下面是第一种，直接括住关键区：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Trash</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Trash</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建4个线程</span></span><br><span class="line">        <span class="comment">// 每个线程都会尝试访问并修改同一个数据</span></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(temp);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(temp);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(temp);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(temp);</span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line">        c.start();</span><br><span class="line">        d.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请注意这里是实现Runnable接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Trash</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 互斥锁，它是Object类型的</span></span><br><span class="line">    <span class="comment">// 这意味着所有的类都可以作为互斥锁</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Object</span> <span class="variable">mutex</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 会同时被4个线程尝试访问并修改的数据</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">25</span>; j++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 语法有点像if语句</span></span><br><span class="line">            <span class="comment">// synchronized块内的代码为关键区</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Trash.mutex) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;i = &quot;</span> + Trash.i);</span><br><span class="line">                Trash.i++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码输出过长，此处就不做展示。输出结果应该是从0逐次递增，直至输出到99。</p>
+<p>第二种方式是作为方法的修饰符，被修饰的方法内的所有语句都是关键区。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">25</span>; j++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行synchronized方法</span></span><br><span class="line">        CriticalArea();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 该方法内的所有语句均为关键区</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">CriticalArea</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;i = &quot;</span> + Trash.i);</span><br><span class="line">    Trash.i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述两种线程同步的代码的输出结果是一致的。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>为什么不推荐继承自 <code>Thread</code> 类</strong></div>
+
+<div style="color:royalblue;">继承自 <code>Thread</code> 类意味着你在使用多线程的时候，需要创建多个不同的自定义对象；而实现 <code>Runnable</code> 接口则只需要一个自定义对象，但需要多个线程对象。不同之处在于，自定义对象是复数个的时候，互斥锁和共享资源都需要使用 <code>static</code> 修饰，因为不同的对象无法互相访问对方的数据。</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建了多个自定义对象</span></span><br><span class="line">        <span class="type">Trash</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Trash</span>();</span><br><span class="line">        <span class="type">Trash</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Trash</span>();</span><br><span class="line">        <span class="type">Trash</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Trash</span>();</span><br><span class="line">        <span class="type">Trash</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Trash</span>();</span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line">        c.start();</span><br><span class="line">        d.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义类继承自Thread类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Trash</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不同的对象访问同一数据，只能用static修饰符</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">25</span>; j++) &#123;</span><br><span class="line">            CriticalArea();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 非static方法</span></span><br><span class="line">    <span class="comment">// 此处的synchronized关键字将无效</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">CriticalArea</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;i = &quot;</span> + Trash.i);</span><br><span class="line">        Trash.i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">部分输出见下图：</div>
+
+<p><img src="/2022/03/07/JavaGrammar05/2.png" alt="2 2" title="2"></p>
+<div style="color:royalblue;">可以看见 <code>synchronized</code> 关键字并没有生效，线程并没有同步。实际上，把 <code>synchronized</code> 用于修饰方法时也使用了一个互斥锁，这个锁就是 <code>this</code> ，即该对象。这就是为什么不建议继承自 <code>Thread</code> 类。但是要继承自 <code>Thread</code> 类也不是不可以，只是需要用 <code>static</code> 修饰被 <code>synchronized</code> 修饰的方法。</div>
+</div>
+
+<h4 id="2-Lock-接口"><a href="#2-Lock-接口" class="headerlink" title="2. Lock 接口"></a><strong>2. <code>Lock</code> 接口</strong></h4><p><code>Lock</code> 接口也可以用于实现线程同步。该接口声明的方法中，有两个常用方法：</p>
+<ul>
+<li><code>lock()</code> ，获得锁</li>
+<li><code>unlock()</code> ，释放锁</li>
+</ul>
+<p>它们都没有参数，也没有返回值。 <code>ReentrantLock</code> 类是一个实现了 <code>Lock</code> 接口的类。本文默认读者有操作系统基础，关于这种互斥锁的使用方式此处不再赘述。</p>
+<h2 id="十一、网络通信"><a href="#十一、网络通信" class="headerlink" title="十一、网络通信"></a><strong>十一、网络通信</strong></h2><p>网络通信三要素：</p>
+<ul>
+<li>IP地址</li>
+<li>端口</li>
+<li>协议</li>
+</ul>
+<p>Java为这三个要素都做了类（悲），由于涉及的类过多，此处就不做详解，有具体需要请查询&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。</p>
+<p>Java不仅做了相关的类，还做了各种相关的异常，这些异常全都被 <code>throws</code> 出了其内置的方法，最终会让程序员处理。由于异常过多，这里不作说明，只简单说明如何在学习时绕过这些异常，不触发因为没有抛出异常而造成的报错：</p>
+<ul>
+<li>使用 <code>try catch</code> 块<br>把 <code>catch</code> 块的参数写成 <code>Exception</code> 类型即可。</li>
+<li><code>throws</code> 异常<br>在函数名后写上 <code>throws Exception</code> 即可。</li>
+</ul>
+<p>注意上述两种方式的异常并没有得到处理，仅仅是装成处理了的样子，该引发运行时程序异常中止时还是会引发。</p>
+<h3 id="1-UDP通信"><a href="#1-UDP通信" class="headerlink" title="(1) UDP通信"></a><strong>(1) UDP通信</strong></h3><h4 id="1-DatagramPacket-类"><a href="#1-DatagramPacket-类" class="headerlink" title="1. DatagramPacket 类"></a><strong>1. <code>DatagramPacket</code> 类</strong></h4><p><code>DatagramPacket</code> 类定义在 <code>java.net.DatagramPacket</code> 包下。该类用于打包要发送的数据或用于接收数据。它有两个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于包装要发送的数据</span></span><br><span class="line">DatagramPacket(<span class="type">byte</span>[] 数据, <span class="type">int</span> 起始索引, <span class="type">int</span> 数据长度, InetAddress 目标地址, <span class="type">int</span> 目标端口)</span><br><span class="line">DatagramPacket(<span class="type">byte</span>[] 数据, <span class="type">int</span> 数据长度, InetAddress 目标地址, <span class="type">int</span> 目标端口)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于接收数据</span></span><br><span class="line">DatagramPacket(<span class="type">byte</span>[] 数据, <span class="type">int</span> 数据长度)</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>InetAddress</code> 类</strong></div>
+
+<div style="color:royalblue;"><code>InetAddress</code> 类定义在 <code>java.net.InetAddress</code> 包中，它是一个用于存储IP地址的类。该类只有一个 <code>private</code> 的构造函数，这意味着不能使用构造函数来创建该类的对象。常用的创建该类对象的方法有：</div>
+
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>getByName()</code></td>
+<td align="center"><code>String</code> （域名）</td>
+<td align="center">生成一个 <code>InetAddress</code> 对象</td>
+<td align="center"><code>InetAddress</code></td>
+</tr>
+<tr>
+<td align="center"><code>getByAddress()</code></td>
+<td align="center"><code>byte[]</code> （IP地址）</td>
+<td align="center">生成一个 <code>InetAddress</code> 对象</td>
+<td align="center"><code>InetAddress</code></td>
+</tr>
+<tr>
+<td align="center"><code>getByAddress()</code></td>
+<td align="center">域名，IP地址</td>
+<td align="center">生成一个 <code>InetAddress</code> 对象</td>
+<td align="center"><code>InetAddress</code></td>
+</tr>
+<tr>
+<td align="center"><code>getData()</code></td>
+<td align="center">无</td>
+<td align="center">返回数据</td>
+<td align="center"><code>bytes[]</code></td>
+</tr>
+</tbody></table>
+<div style="text-align:center;color:red;">※域名可以直接写IP地址</div>
+
+<div style="color:royalblue;">它们都是 <code>static</code> 的。</div>
+</div>
+
+<h4 id="2-DatagramSocket-类"><a href="#2-DatagramSocket-类" class="headerlink" title="2. DatagramSocket 类"></a><strong>2. <code>DatagramSocket</code> 类</strong></h4><p>在Java中， <code>DatagramSocket</code> 是一个实现了UDP协议的类，它定义在 <code>java.net.DatagramSocket</code> 类中。它既可以发送数据，也可以接收数据。它有如下常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DatagramSocket()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定要监听的端口</span></span><br><span class="line">DatagramSocket(<span class="type">int</span> 端口)</span><br></pre></td></tr></table></figure>
+
+<p>这里只介绍 <code>DatagramSocket</code> 类最基础的方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>send()</code></td>
+<td align="center"><code>InetAddress</code> 对象</td>
+<td align="center">发送数据包</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>receive()</code></td>
+<td align="center"><code>InetAddress</code> 对象</td>
+<td align="center">指定用于接收数据的数据包，阻塞式</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>close()</code></td>
+<td align="center">无</td>
+<td align="center">关闭这个Socket</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<h4 id="3-一种UDP的实现"><a href="#3-一种UDP的实现" class="headerlink" title="3. 一种UDP的实现"></a><strong>3. 一种UDP的实现</strong></h4><p>功能：子线程开始监听11451端口后，主线程开始接收来自控制台的输入，并将其打包发送到本机的11451端口。子线程接收到信息后将会打印该信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 子线程开始</span></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">Server</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Receiver</span>());</span><br><span class="line">        Server.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 接收控制台输入</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">Input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">byte</span>[] Information = Input.nextLine().getBytes();</span><br><span class="line">        Input.close();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打包数据</span></span><br><span class="line">        <span class="type">DatagramPacket</span> <span class="variable">Request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(Information,</span><br><span class="line">                Information.length,</span><br><span class="line">                InetAddress.getByName(<span class="string">&quot;127.0.0.1&quot;</span>),</span><br><span class="line">                <span class="number">11451</span>);</span><br><span class="line">        <span class="type">DatagramSocket</span> <span class="variable">Client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 发送数据</span></span><br><span class="line">        Client.send(Request);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 结束</span></span><br><span class="line">        Client.close();</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending Finished.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Receiver</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 子线程不能直接throws错误，必须使用try块</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 监听11451端口</span></span><br><span class="line">            <span class="type">DatagramSocket</span> <span class="variable">Listener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>(<span class="number">11451</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 设置大小为4KB的接收缓冲区</span></span><br><span class="line">            <span class="type">DatagramPacket</span> <span class="variable">Request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(<span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">4096</span>], <span class="number">4096</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 开始监听</span></span><br><span class="line">            Listener.receive(Request);</span><br><span class="line">            System.out.println(<span class="string">&quot;Server Accept: &quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Request.getData()));</span><br><span class="line">            Listener.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Something is wrong.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-TCP通信"><a href="#2-TCP通信" class="headerlink" title="(2) TCP通信"></a><strong>(2) TCP通信</strong></h3><p>Java中与TCP相关的类有两个： <code>Socket</code> 类和 <code>ServerSocket</code> 类。前者用于客户端发送 &#x2F; 接收信息，后者用于服务端处理请求。</p>
+<h4 id="1-Socket"><a href="#1-Socket" class="headerlink" title="1. Socket"></a><strong>1. <code>Socket</code></strong></h4><p>该类定义在 <code>java.net.Socket</code> 包内。该类有两个常用的构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket(String 域名, <span class="type">int</span> 端口)</span><br><span class="line">Socket(InetAddress 对象, <span class="type">int</span> 端口)</span><br></pre></td></tr></table></figure>
+
+<p><code>Socket</code> 类的常用方法如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>getOutputStream()</code></td>
+<td align="center">无</td>
+<td align="center">返回一个输出流</td>
+<td align="center"><code>OutputStream</code></td>
+</tr>
+<tr>
+<td align="center"><code>getInputStream()</code></td>
+<td align="center">无</td>
+<td align="center">返回一个输入流</td>
+<td align="center"><code>InputStream</code></td>
+</tr>
+</tbody></table>
+<p>这两个方法可用于发送和接收数据，返回的流可以通过之前的方式向其中写入数据 &#x2F; 读取其中的数据。</p>
+<h4 id="2-ServerSocket"><a href="#2-ServerSocket" class="headerlink" title="2. ServerSocket"></a><strong>2. <code>ServerSocket</code></strong></h4><p>该类定义在 <code>java.net.ServerSocket</code> 包下。这里就极简介绍下这个类的关键方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line">ServerSocket(<span class="type">int</span> 端口号)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>accept()</code></td>
+<td align="center">无</td>
+<td align="center">接收TCP请求，并返回一个套接字对象</td>
+<td align="center"><code>Socket</code></td>
+</tr>
+</tbody></table>
+<p><code>accept()</code> 方法是阻塞的，未接收到请求的时候程序将一直阻塞于此。有了 <code>Socket</code> 对象以后，就可以直接与发起TCP的客户端进行数据传输。</p>
+<h4 id="3-一种TCP的实现"><a href="#3-一种TCP的实现" class="headerlink" title="3. 一种TCP的实现"></a><strong>3. 一种TCP的实现</strong></h4><p>功能：子线程开始监听11451端口后，主线程开始接收来自控制台的输入，并将其打包发送到本机的11451端口。子线程接收到信息后将会打印该信息，并向主线程发送“Information from server.”。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建子线程</span></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">Server</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Receiver</span>());</span><br><span class="line">        Server.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置套接字</span></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">Client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Socket</span>(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">11451</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 生成发送与接收信息的输出与输入流</span></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">Put</span> <span class="operator">=</span> Client.getOutputStream();</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">Get</span> <span class="operator">=</span> Client.getInputStream();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 接收键盘输入</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">KeyboardInput</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;Waiting for input :&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转换为byte[]数组方便发送</span></span><br><span class="line">        <span class="type">byte</span>[] Information = KeyboardInput.nextLine().getBytes();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 发送信息</span></span><br><span class="line">        Put.write(Information, <span class="number">0</span>, Information.length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 变量重新赋值，变成缓冲区</span></span><br><span class="line">        Information = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">4096</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 接收数据并打印</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">Length</span> <span class="operator">=</span> Get.read(Information, <span class="number">0</span>, <span class="number">4096</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Client got information : &quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Information, <span class="number">0</span>, Length));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 善后处理</span></span><br><span class="line">        KeyboardInput.close();</span><br><span class="line">        Get.close();</span><br><span class="line">        Put.close();</span><br><span class="line">        Client.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Receiver</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建服务端</span></span><br><span class="line">            <span class="type">ServerSocket</span> <span class="variable">Listener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">11451</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 等候来自主线程的TCP连接</span></span><br><span class="line">            <span class="type">Socket</span> <span class="variable">Server</span> <span class="operator">=</span> Listener.accept();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取输入与输出流</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">Get</span> <span class="operator">=</span> Server.getInputStream();</span><br><span class="line">            <span class="type">OutputStream</span> <span class="variable">Put</span> <span class="operator">=</span> Server.getOutputStream();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 设置缓冲区，并接收数据</span></span><br><span class="line">            <span class="type">byte</span>[] Buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">4096</span>];</span><br><span class="line">            <span class="type">int</span> <span class="variable">Length</span> <span class="operator">=</span> Get.read(Buffer, <span class="number">0</span>, <span class="number">4096</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 打印数据，并发回确认信息</span></span><br><span class="line">            System.out.println(<span class="string">&quot;Server got information : &quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Buffer, <span class="number">0</span>, Length));</span><br><span class="line">            Buffer = <span class="string">&quot;Information from server.&quot;</span>.getBytes();</span><br><span class="line">            Put.write(Buffer, <span class="number">0</span>, Buffer.length);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 善后处理</span></span><br><span class="line">            Put.close();</span><br><span class="line">            Get.close();</span><br><span class="line">            Listener.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Something is wrong.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><div style="color:green;font-size:1.5em;"><strong>基础知识到此为止</strong></div>
+
+<div style="color:green;">至此Java的基础部分就结束了。请注意，本文对lambda表达式、反射以及GUI编程只字未提，也并未涉及Java的一个重要框架Spring。</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/03/07/JavaGrammar05/" title="Java基础（五）">https://ayanami-daisuki.github.io/2022/03/07/JavaGrammar05/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> Java语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/05/JavaGrammar04/" rel="prev" title="Java基础（四）">
+                  <i class="fa fa-chevron-left"></i> Java基础（四）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/11/JavaScriptAdvanced/" rel="next" title="JavaScript进阶">
+                  JavaScript进阶 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

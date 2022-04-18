@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/03/04/JavaGrammar03/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/03/04/JavaGrammar03/","path":"2022/03/04/JavaGrammar03/","title":"Java基础（三）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java基础（三） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%B1%BB"><span class="nav-text">四、一些常见类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-String"><span class="nav-text">(1) String</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-text">1. 底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">2. 构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text">3. 字符串的比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%B4%A2%E5%BC%95"><span class="nav-text">4. 索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-StringBuilder"><span class="nav-text">(2) StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Math"><span class="nav-text">(3) Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-System"><span class="nav-text">(4) System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Object"><span class="nav-text">(5) Object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-toString"><span class="nav-text">1. toString()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-equals"><span class="nav-text">2. equals()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Arrays"><span class="nav-text">(6) Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-text">(7) 基本类型包装类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-ArrayList-lt-T-gt"><span class="nav-text">(8) ArrayList&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-LinkedList-lt-T-gt"><span class="nav-text">(9) LinkedList&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-HashSet-lt-T-gt"><span class="nav-text">(10) HashSet&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-LinkedHashSet-lt-T-gt"><span class="nav-text">(11) LinkedHashSet&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-TreeSet-lt-T-gt"><span class="nav-text">(12) TreeSet&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-HashMap-lt-K-V-GT"><span class="nav-text">(13) HashMap&lt;K, V&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-Collections"><span class="nav-text">(14) Collections</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E6%8E%A5%E5%8F%A3"><span class="nav-text">五、一些常见接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Iterator-lt-T-gt-%EF%BC%88%E8%BF%AD%E4%BB%A3%E5%99%A8%EF%BC%89"><span class="nav-text">(1) Iterator&lt;T&gt; （迭代器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Collection-lt-T-gt-%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89"><span class="nav-text">(2) Collection&lt;T&gt; （集合）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ListIterator-lt-T-gt-%EF%BC%88%E5%88%97%E8%A1%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%EF%BC%89"><span class="nav-text">(3) ListIterator&lt;T&gt; （列表迭代器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-List-lt-T-gt-%EF%BC%88%E5%88%97%E8%A1%A8%EF%BC%89"><span class="nav-text">(4) List&lt;T&gt; （列表）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Set-lt-T-gt"><span class="nav-text">(5) Set&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Comparable-lt-T-gt-%EF%BC%88%E8%87%AA%E7%84%B6%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">(6) Comparable&lt;T&gt; （自然排序）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Comparator-lt-T-gt-%EF%BC%88%E6%AF%94%E8%BE%83%E5%99%A8%EF%BC%89"><span class="nav-text">(7) Comparator&lt;T&gt; （比较器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Map-lt-K-V-gt"><span class="nav-text">(8) Map&lt;K, V&gt;</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/03/04/JavaGrammar03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java基础（三） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础（三）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-04 23:31:07" itemprop="dateCreated datePublished" datetime="2022-03-04T23:31:07+08:00">2022-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:01:34" itemprop="dateModified" datetime="2022-04-17T21:01:34+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/03/04/JavaGrammar03/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议至少有学过一门其它编程语言（最好是C#或C++）的基础再看本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="四、一些常见类"><a href="#四、一些常见类" class="headerlink" title="四、一些常见类"></a><strong>四、一些常见类</strong></h2><p>一些Java库中的类不允许创建对象，但它又是非 <code>abstract</code> 的。其底层原理是用 <code>private</code> 关键字修饰了无参构造函数，并且没有定义有参构造函数。使用 <code>private</code> 关键字修饰构造函数，意味着其它类无权访问构造函数，因此也就不能创建对象。</p>
+<h3 id="1-String"><a href="#1-String" class="headerlink" title="(1) String"></a><strong>(1) <code>String</code></strong></h3><h4 id="1-底层实现"><a href="#1-底层实现" class="headerlink" title="1. 底层实现"></a><strong>1. 底层实现</strong></h4><p><code>String</code> 类型的底层是用 <code>byte[]</code> 数组实现的。字符串类型的值一旦被赋值后就不能对其进行修改，但可以重新赋值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="string">&quot;114514&quot;</span>;</span><br><span class="line">temp = <span class="string">&quot;1919810&quot;</span>;</span><br><span class="line">temp[<span class="number">1</span>] = <span class="string">&#x27;4&#x27;</span>;   <span class="comment">// 这一行会报错</span></span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br></pre></td></tr></table></figure>
+
+<p>删掉报错的行以后输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp = 1919810</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2. 构造函数"></a><strong>2. 构造函数</strong></h4><p><code>String</code> 有三个常用构造函数：</p>
+<ul>
+<li><code>String()</code> ，创建空字符串</li>
+<li><code>String(char[])</code> ，字符数组转字符串</li>
+<li><code>String(byte[])</code> ， <code>byte[]</code> 数组转字符串</li>
+</ul>
+<h4 id="3-字符串的比较"><a href="#3-字符串的比较" class="headerlink" title="3. 字符串的比较"></a><strong>3. 字符串的比较</strong></h4><p>上文已经阐述了在Java中变量分为引用类型和值类型。当使用 <code>==</code> 运算符判断两个变量是否相等时，会判断这个变量在栈中的值是否相等。这意味着，对于引用类型的变量，它判断的不是真实值是否一致，而是判断它们是否指向同一地址。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;114514&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;114514&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="keyword">new</span> <span class="title class_">char</span>[] &#123; <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;4&#x27;</span> &#125;);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line">System.out.println(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line">System.out.println(<span class="string">&quot;c = &quot;</span> + c);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;a == b is &quot;</span> + (a == b));</span><br><span class="line">System.out.println(<span class="string">&quot;a == c is &quot;</span> + (a == c));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a = 114514</span><br><span class="line">b = 114514</span><br><span class="line">c = 114514</span><br><span class="line">a == b is true</span><br><span class="line">a == c is false</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>Java中的字符串常量</strong></div>
+
+<div style="color:royalblue;">对于上述代码中的 <code>"114514"</code> 这种直接书写的字符串，一般称之为字符串常量。在Java中，所有用相同字符串常量赋值的 <code>String</code> 型变量都会指向同一个地址，这个地址就是该字符串的首地址。</div>
+</div>
+
+<p>上述代码证明了在Java中对于像 <code>String</code> 这样的引用类型，不能使用 <code>==</code> 来作比较。所以Java的 <code>String</code> 类中有一个 <code>equals()</code> 方法，它可以用于检测两个字符串是否相等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;114514&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="keyword">new</span> <span class="title class_">char</span>[] &#123; <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;4&#x27;</span> &#125;);</span><br><span class="line">System.out.println(<span class="string">&quot;a.equals(b) is &quot;</span> + a.equals(b));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a.equals(b) is true</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-索引"><a href="#4-索引" class="headerlink" title="4. 索引"></a><strong>4. 索引</strong></h4><p>Java中的 <code>String</code> 不能使用形如 <code>str[i]</code> 的方式来获取第i个字符。<del>C++人和C#人极度不适。</del>作为补偿，<code>String</code> 类中有一个 <code>charAt()</code> 方法用于获取第i个字符。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;114514&quot;</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;a.charAt(3) is &quot;</span> + a.charAt(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a.charAt(3) is 5</span><br></pre></td></tr></table></figure>
+
+<p>该方法搭配 <code>String</code> 类中的 <code>length()</code> 方法（用于获取该字符串的长度），即可实现遍历字符串中的每一个字符。</p>
+<p>Java的 <code>String</code> 也支持使用 <code>+</code> 运算符进行拼接。但请注意该拼接的底层实现并不是运算符重载（Java不支持运算符重载），而是一个语法糖。关于 <code>String</code> 类的更多方法，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-string.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<h3 id="2-StringBuilder"><a href="#2-StringBuilder" class="headerlink" title="(2) StringBuilder"></a><strong>(2) <code>StringBuilder</code></strong></h3><p><code>StringBuilder</code> 类为可变字符串类型。 <code>String</code> 类型不可被更改，因此在进行拼接时会使用新的内存地址，将拼接后的值放在新的地址中并让变量指向该地址。而 <code>StringBuilder</code> 类则会保持变量指向的地址不变。</p>
+<div class="tabs" id="stringbuilder"><ul class="nav-tabs"><li class="tab active"><a href="#stringbuilder-1">构造函数</a></li><li class="tab"><a href="#stringbuilder-2"><code>append()</code></a></li><li class="tab"><a href="#stringbuilder-3"><code>reverse()</code></a></li><li class="tab"><a href="#stringbuilder-4"><code>String</code> 与 <code>StringBuilder</code> 互转</a></li></ul><div class="tab-content"><div class="tab-pane active" id="stringbuilder-1"><p><code>StringBuilder</code> 的常用构造函数有以下两个：</p>
+<ul>
+<li><code>StringBuilder()</code> ，创建空的 <code>StringBuilder</code> 变量。</li>
+<li><code>StringBuilder(String)</code> ，以 <code>String</code> 类型的变量初始化 <code>StringBuilder</code> 变量。</li>
+</ul></div><div class="tab-pane" id="stringbuilder-2"><p><code>append()</code> 方法为 <code>StringBuilder</code> 类中的方法。该方法的功能为拼接字符串，并且返回变量本身。学过数据结构的同学应该察觉到了 <code>StringBuilder</code> 底层应该是用一个类似于C++的STL容器来实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;114514&quot;</span>);</span><br><span class="line"></span><br><span class="line">temp.append(<span class="string">&quot;19&quot;</span>).append(<span class="keyword">new</span> <span class="title class_">char</span>[] &#123; <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;9&#x27;</span> &#125;);</span><br><span class="line"><span class="type">StringBuilder</span> <span class="variable">a</span> <span class="operator">=</span> temp.append(<span class="number">810</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br><span class="line">System.out.println(<span class="string">&quot;a == temp is &quot;</span> + (a == temp));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a = 1145141919810</span><br><span class="line">temp = 1145141919810</span><br><span class="line">a == temp is true</span><br></pre></td></tr></table></figure>
+
+<p>很明显， <code>append()</code> 方法会修改原对象，并且返回的对象与原对象指向了同一地址。</p></div><div class="tab-pane" id="stringbuilder-3"><p><code>reverse()</code> 方法为 <code>StringBuilder</code> 类中的方法，其功能为反转字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;114514&quot;</span>);</span><br><span class="line">temp.reverse();</span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为;</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp = 415411</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="stringbuilder-4"><p><code>String</code> 类型转换为 <code>StringBuilder</code> 类型可以直接使用 <code>StringBuilder</code> 类的构造函数。而 <code>StringBuilder</code> 类型转换为 <code>String</code> 类型，则可以使用 <code>toString()</code> 方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;114514&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> temp.toString();</span><br><span class="line">System.out.println(<span class="string">&quot;a = &quot;</span> + a);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a = 114514</span><br></pre></td></tr></table></figure></div></div></div>
+
+<p>关于更多 <code>StringBuilder</code> 类的方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-stringbuffer.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<h3 id="3-Math"><a href="#3-Math" class="headerlink" title="(3) Math"></a><strong>(3) <code>Math</code></strong></h3><p><code>Math</code> 类中定义了很多常用的数学运算方法，这些方法都是 <code>static</code> 的，因此不需要用 <code>Math</code> 类创建实例对象也可以调用。这里只例举一些常见的：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>abs()</code></td>
+<td align="center">整型或浮点型</td>
+<td align="center">返回绝对值</td>
+<td align="center"><code>int</code> 、 <code>long</code> 或浮点型</td>
+</tr>
+<tr>
+<td align="center"><code>ceil()</code></td>
+<td align="center">浮点型</td>
+<td align="center">向上取整</td>
+<td align="center"><code>double</code></td>
+</tr>
+<tr>
+<td align="center"><code>floor()</code></td>
+<td align="center">浮点型</td>
+<td align="center">向下取整</td>
+<td align="center"><code>double</code></td>
+</tr>
+<tr>
+<td align="center"><code>round()</code></td>
+<td align="center">浮点型</td>
+<td align="center">四舍五入取整</td>
+<td align="center"><code>int</code> 或 <code>long</code></td>
+</tr>
+<tr>
+<td align="center"><code>min()</code></td>
+<td align="center">2个类型相同的整型或浮点型</td>
+<td align="center">返回最小值</td>
+<td align="center"><code>int</code> 、 <code>long</code> 或浮点型</td>
+</tr>
+<tr>
+<td align="center"><code>max()</code></td>
+<td align="center">2个类型相同的整型或浮点型</td>
+<td align="center">返回最大值</td>
+<td align="center"><code>int</code> 、 <code>long</code> 或浮点型</td>
+</tr>
+<tr>
+<td align="center"><code>pow()</code></td>
+<td align="center">2个 <code>double</code> 类型</td>
+<td align="center">次方运算</td>
+<td align="center"><code>double</code></td>
+</tr>
+<tr>
+<td align="center"><code>random()</code></td>
+<td align="center">无</td>
+<td align="center">返回∈ [0,1) 的随机数</td>
+<td align="center"><code>double</code></td>
+</tr>
+</tbody></table>
+<p>关于更多 <code>Math</code> 类方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-number.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<h3 id="4-System"><a href="#4-System" class="headerlink" title="(4) System"></a><strong>(4) <code>System</code></strong></h3><p><code>System</code> 类之前在讲标准输入输出流的时候就已经接触过了。与 <code>Math</code> 类一样，该类的成员都是 <code>static</code> 的。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>exit()</code></td>
+<td align="center"><code>int</code></td>
+<td align="center">结束线程，非0参数表示异常</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>currentTimeMillis()</code></td>
+<td align="center">无</td>
+<td align="center">返回当前系统时间（毫秒）</td>
+<td align="center"><code>long</code></td>
+</tr>
+</tbody></table>
+<p><code>System</code> 中还有如下 <code>static</code> 的成员变量：</p>
+<table>
+<thead>
+<tr>
+<th align="center">成员变量名</th>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>err</code></td>
+<td align="center"><code>PrintStream</code></td>
+<td align="center">标准错误流</td>
+</tr>
+<tr>
+<td align="center"><code>in</code></td>
+<td align="center"><code>InputStream</code></td>
+<td align="center">标准输入流</td>
+</tr>
+<tr>
+<td align="center"><code>out</code></td>
+<td align="center"><code>PrintStream</code></td>
+<td align="center">标准输出流</td>
+</tr>
+</tbody></table>
+<p>Java中的 <code>PrintStream</code> 类里有可以直接向控制台输出的方法，而 <code>InputStream</code> 类中虽然有直接读取输入的方法，但是不好用且可能会造成缓冲区溢出，在使用它们之前必须使用 <code>throws IOException</code> 关键字。因此还是建议使用 <code>Scanner</code> 类。</p>
+<h3 id="5-Object"><a href="#5-Object" class="headerlink" title="(5) Object"></a><strong>(5) <code>Object</code></strong></h3><p><code>Object</code> 是<del>万物起源</del>所有类的直接或间接的父类。它有两个常用的非 <code>static</code> 的方法。说这两个方法“常用”并不是代表程序员经常要用 <code>Object</code> 类下的这两个方法，而是经常要重写或者调用重写后的这两个方法。</p>
+<h4 id="1-toString"><a href="#1-toString" class="headerlink" title="1. toString()"></a><strong>1. <code>toString()</code></strong></h4><p>定义在 <code>Object</code> 类下的 <code>toString()</code> 方法并不是 <code>abstract</code> 的。程序员可以通过重写 <code>toString()</code> 方法来自定义该类的输出行为。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">        <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">B</span>();</span><br><span class="line"></span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重写toString()方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;114514&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114514</span><br><span class="line">B@1f32e575</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，<code>B</code> 类型的对象输出的是 <code>类名@地址</code> ，而 <code>A</code> 类型的对象则是输出了 <code>toString()</code> 中返回的字符串。</p>
+<p>上述行为的底层原理就是多态，在键入 <code>System.out.println()</code> 时，IntelliCode就已经给出了很关键的信息：</p>
+<p><img src="/2022/03/04/JavaGrammar03/1.png" alt="1 1" title="1"></p>
+<p>可以看到选中的 <code>println</code> 方法，其参数为 <code>Object</code> 类型。传入的参数将会被隐式类型转换为 <code>Object</code> 类，并在类中调用 <code>Object</code> 类型的 <code>toString()</code> 方法。由于子类重写了父类的该方法，因此调用的时候将会调用子类的 <code>toString()</code> 方法。</p>
+<h4 id="2-equals"><a href="#2-equals" class="headerlink" title="2. equals()"></a><strong>2. <code>equals()</code></strong></h4><p>之前提到过， <code>String</code> 类型不能使用 <code>==</code> 来判断是否相等，必须使用 <code>equals()</code> 方法。该方法也和 <code>toString()</code> 方法一样，是重写的父类方法。</p>
+<p>对于程序员自定义的类，调用 <code>equals()</code> 方法时会调用父类 <code>Object</code> 的方法，而父类的方法是用 <code>==</code> 来判断是否相等的。因此，如果希望能判断自定义类的对象是否相等，程序员必须重写 <code>equals()</code> 方法。</p>
+<h3 id="6-Arrays"><a href="#6-Arrays" class="headerlink" title="(6) Arrays"></a><strong>(6) <code>Arrays</code></strong></h3><p><code>Arrays</code> 类定义在 <code>java.util.Arrays</code> 包中，它的的成员均为 <code>static</code> 的，其中有一些常见的用于数组的操作。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>sort()</code></td>
+<td align="center">数组</td>
+<td align="center">快速排序</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>equals()</code></td>
+<td align="center">2个同类型数组</td>
+<td align="center">判断相等</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>binarySearch()</code></td>
+<td align="center">数组，元素</td>
+<td align="center">返回元素在数组中的索引</td>
+<td align="center"><code>int</code></td>
+</tr>
+</tbody></table>
+<p><code>Arrays</code> 类还有许多方法和重载的方法，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。<del>怎么不一开始就上官方文档？因为全是英文看得我都头疼，有中文理解能快不少。</del></p>
+<h3 id="7-基本类型包装类"><a href="#7-基本类型包装类" class="headerlink" title="(7) 基本类型包装类"></a><strong>(7) 基本类型包装类</strong></h3><p>Java中的基本数据类型并不是类，因此也就没有继承自 <code>Object</code> 。而Java自身又提供了对基本类型的封装类，也就是将基本数据类型打包成继承自 <code>Object</code> 的类。</p>
+<table>
+<thead>
+<tr>
+<th align="center">基本类型</th>
+<th align="center">封装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>byte</code></td>
+<td align="center"><code>Byte</code></td>
+</tr>
+<tr>
+<td align="center"><code>short</code></td>
+<td align="center"><code>Short</code></td>
+</tr>
+<tr>
+<td align="center"><code>int</code></td>
+<td align="center"><code>Integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>long</code></td>
+<td align="center"><code>Long</code></td>
+</tr>
+<tr>
+<td align="center"><code>float</code></td>
+<td align="center"><code>Float</code></td>
+</tr>
+<tr>
+<td align="center"><code>double</code></td>
+<td align="center"><code>Double</code></td>
+</tr>
+<tr>
+<td align="center"><code>char</code></td>
+<td align="center"><code>Character</code></td>
+</tr>
+<tr>
+<td align="center"><code>boolean</code></td>
+<td align="center"><code>Boolean</code></td>
+</tr>
+</tbody></table>
+<p>这些包装类中封装了不少关于类型转换等功能的方法。关于这些包装类的成员，此处不做赘述，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。</p>
+<h3 id="8-ArrayList-lt-T-gt"><a href="#8-ArrayList-lt-T-gt" class="headerlink" title="(8) ArrayList&lt;T&gt;"></a><strong>(8) <code>ArrayList&lt;T&gt;</code></strong></h3><p>就像C++中有STL容器一样，Java也有一些好用的容器，比如 <code>ArrayList</code> ，它类似于C#的 <code>List</code> 和C++的 <code>vector</code> ，<span style="color:red;">其底层实现为数组，即顺序表</span>。在使用 <code>ArrayList</code> 之前，应当导入 <code>java.util.ArrayList</code> 包。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br></pre></td></tr></table></figure>
+
+<p>声明一个存放 <code>StringBuilder</code> 对象的 <code>ArrayList</code> 对象，并初始化的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;StringBuilder&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>类型推断</strong></div>
+
+<div style="color:royalblue;">上述代码中，在 <code>new</code> 关键字之后的 <code>ArrayList<></code> 可以不用写类型，编译器会自动推断。但隔壁C#已经做到只需要 <code>new</code> 关键字了。</div>
+</div>
+
+<p>与C++的 <code>vector</code> 类似， <code>ArrayList</code> 也有不少内置的方法。</p>
+<div class="tabs" id="arraylistfunction"><ul class="nav-tabs"><li class="tab active"><a href="#arraylistfunction-1"><code>add()</code></a></li><li class="tab"><a href="#arraylistfunction-2"><code>remove()</code></a></li><li class="tab"><a href="#arraylistfunction-3"><code>set()</code></a></li><li class="tab"><a href="#arraylistfunction-4"><code>get()</code></a></li><li class="tab"><a href="#arraylistfunction-5"><code>contains()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="arraylistfunction-1"><p><code>add()</code> 方法的功能为向 <code>ArrayList</code> 对象中添加一个元素。<br>该方法有一个重载。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意这里初始化时的类型是Integer而不是int</span></span><br><span class="line">ArrayList&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//当参数只有一个时</span></span><br><span class="line"><span class="comment">//返回值为boolean类型，指示是否添加成功</span></span><br><span class="line">System.out.println(temp.add(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//当参数有两个时，第一个参数为插入位置</span></span><br><span class="line"><span class="comment">//无返回值</span></span><br><span class="line">temp.add(<span class="number">0</span>);</span><br><span class="line">temp.add(<span class="number">0</span>, <span class="number">8</span>);  <span class="comment">//在第0个元素前插入“8”</span></span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">true</span><br><span class="line">temp = [8, 1, 0]</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>数组越界</strong></div>
+
+<div style="color:goldenrod;">当使用两个参数的 <code>add()</code> 时，应当注意插入位置不能越界，否则将会引发程序异常。</div>
+</div></div><div class="tab-pane" id="arraylistfunction-2"><p><code>remove()</code> 方法的功能为删除 <code>ArrayList</code> 对象中的某个元素。它有一个重载。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="number">114</span>);</span><br><span class="line">temp.add(<span class="number">514</span>);</span><br><span class="line">temp.add(<span class="number">1919</span>);</span><br><span class="line">temp.add(<span class="number">810</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一种：删除第i个元素</span></span><br><span class="line"><span class="comment">// 返回值为该元素的值</span></span><br><span class="line">System.out.println(<span class="string">&quot;temp.remove(1) = &quot;</span> + temp.remove(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种： 删除指定值的元素，此处使用了显式类型转换</span></span><br><span class="line"><span class="comment">// 返回值为boolean类型，指示是否删除成功</span></span><br><span class="line"><span class="comment">// 有多个相同元素时，只会删除索引值最小的元素</span></span><br><span class="line">System.out.println(<span class="string">&quot;temp.remove(1919) = &quot;</span> + temp.remove((Integer) <span class="number">1919</span>));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp.remove(1) = 514</span><br><span class="line">temp.remove(1919) = true</span><br><span class="line">temp = [114, 810]</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraylistfunction-3"><p><code>set()</code> 方法用于修改某个元素的值。该方法有两个参数：待修改的元素索引，指定的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="number">114</span>);</span><br><span class="line">temp.add(<span class="number">514</span>);</span><br><span class="line">temp.add(<span class="number">1919</span>);</span><br><span class="line">temp.add(<span class="number">810</span>);</span><br><span class="line"></span><br><span class="line">temp.set(<span class="number">1</span>, <span class="number">114514</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp = [114, 114514, 1919, 810]</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraylistfunction-4"><p><code>get()</code> 方法用于获取 <code>ArrayList</code> 对象的第i个元素。Java的 <code>ArrayList</code> 对象<span style="color:red;">不能</span>通过类似于数组的索引方式来获取元素<del>而C++和C#都支持</del>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="number">114</span>);</span><br><span class="line">temp.add(<span class="number">514</span>);</span><br><span class="line">temp.add(<span class="number">1919</span>);</span><br><span class="line">temp.add(<span class="number">810</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;temp[2] = &quot;</span> + temp.get(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp[2] = 1919</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="arraylistfunction-5"><p><code>contains()</code> 方法用于判断某个元素是否在 <code>ArrayList</code> 对象中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="number">114</span>);</span><br><span class="line">temp.add(<span class="number">514</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;114 in temp is &quot;</span> + temp.contains(<span class="number">114</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114 in temp is true</span><br></pre></td></tr></table></figure></div></div></div>
+
+<p>下面还有一些功能很简单的方法：</p>
+<ul>
+<li><code>clear()</code> ，清空元素</li>
+<li><code>isEmpty()</code> ，如果为空则返回 <code>true</code> ，否则返回 <code>false</code></li>
+<li><code>size()</code> ，返回元素个数</li>
+</ul>
+<p>关于更多 <code>ArrayList</code> 类的方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-arraylist.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<h3 id="9-LinkedList-lt-T-gt"><a href="#9-LinkedList-lt-T-gt" class="headerlink" title="(9) LinkedList&lt;T&gt;"></a><strong>(9) <code>LinkedList&lt;T&gt;</code></strong></h3><p><code>LinkedList</code> 类定义在 <code>java.util.LinkedList</code> 包内，它与 <code>ArrayList</code> 差异不大，但其底层实现是链表。 <code>LinkedList</code> 中有一些独有的方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>addFirst()</code></td>
+<td align="center">元素</td>
+<td align="center">在表头插入指定元素</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>addLast()</code></td>
+<td align="center">元素</td>
+<td align="center">在表尾新增指定元素</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>getFirst()</code></td>
+<td align="center">无</td>
+<td align="center">返回表头元素</td>
+<td align="center">元素</td>
+</tr>
+<tr>
+<td align="center"><code>getLast()</code></td>
+<td align="center">无</td>
+<td align="center">返回表尾元素</td>
+<td align="center">元素</td>
+</tr>
+<tr>
+<td align="center"><code>removeFirst()</code></td>
+<td align="center">无</td>
+<td align="center">删除表头元素并返回</td>
+<td align="center">元素</td>
+</tr>
+<tr>
+<td align="center"><code>removeLast()</code></td>
+<td align="center">无</td>
+<td align="center">删除表尾元素并返回</td>
+<td align="center">元素</td>
+</tr>
+</tbody></table>
+<h3 id="10-HashSet-lt-T-gt"><a href="#10-HashSet-lt-T-gt" class="headerlink" title="(10) HashSet&lt;T&gt;"></a><strong>(10) <code>HashSet&lt;T&gt;</code></strong></h3><p><code>HashSet</code> 类定义在 <code>java.util.HashSet</code> 包内。它的常见方法如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>add()</code></td>
+<td align="center">元素</td>
+<td align="center">添加元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>remove()</code></td>
+<td align="center">元素</td>
+<td align="center">删除指定的元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>clear()</code></td>
+<td align="center">无</td>
+<td align="center">清空集合</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>contains()</code></td>
+<td align="center">元素</td>
+<td align="center">判断集合是否包含元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>isEmpty</code></td>
+<td align="center">无</td>
+<td align="center">判断集合是否为空</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>size()</code></td>
+<td align="center">无</td>
+<td align="center">返回集合中元素个数</td>
+<td align="center"><code>int</code></td>
+</tr>
+</tbody></table>
+<p><code>HashSet</code> 的底层实现是哈希表。这意味着，存储于 <code>HashSet</code> 对象内的元素是乱序且唯一的。</p>
+<h3 id="11-LinkedHashSet-lt-T-gt"><a href="#11-LinkedHashSet-lt-T-gt" class="headerlink" title="(11) LinkedHashSet&lt;T&gt;"></a><strong>(11) <code>LinkedHashSet&lt;T&gt;</code></strong></h3><p><code>LinkedHashSet</code> 类定义在 <code>java.util.LinkedHashSet</code> 包内。它基于链表和哈希表，存储于 <code>HashSet</code> 对象中的元素不仅有序，而且唯一。它定义的常用的方法与 <code>HashSet</code> 一致，此处不再赘述。</p>
+<h3 id="12-TreeSet-lt-T-gt"><a href="#12-TreeSet-lt-T-gt" class="headerlink" title="(12) TreeSet&lt;T&gt;"></a><strong>(12) <code>TreeSet&lt;T&gt;</code></strong></h3><p><code>TreeSet</code> 类定义在 <code>java.util.TreeSet</code> 包内。它的元素同样有序且唯一，但排序方式可以采用默认的自然排序，或自定义排序方式。它和上述的“Set家族”类差异体现在构造函数上。</p>
+<ul>
+<li>无参构造函数，采用自然排序</li>
+<li>带参构造函数，根据给定的比较器进行排序</li>
+</ul>
+<p>关于比较器，下文的“一些常见接口”一章将会详述。</p>
+<h3 id="13-HashMap-lt-K-V-GT"><a href="#13-HashMap-lt-K-V-GT" class="headerlink" title="(13) HashMap&lt;K, V&GT;"></a><strong>(13) <code>HashMap&lt;K, V&GT;</code></strong></h3><p><code>HashMap</code> 类定义在 <code>java.util.HashMap</code> 包内，其中， <code>K</code> 为键的类型， <code>V</code> 为值的类型。该类与C++的 <code>map</code> 、Python的字典类似。它有如下的常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>put()</code></td>
+<td align="center">键，值</td>
+<td align="center">创建新键值对</td>
+<td align="center">值</td>
+</tr>
+<tr>
+<td align="center"><code>remove()</code></td>
+<td align="center">键</td>
+<td align="center">删除指定的键值对</td>
+<td align="center">值</td>
+</tr>
+<tr>
+<td align="center"><code>clear()</code></td>
+<td align="center">无</td>
+<td align="center">删除所有键值对</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>containsKey()</code></td>
+<td align="center">键</td>
+<td align="center">判断是否含有指定键</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>containsValue()</code></td>
+<td align="center">值</td>
+<td align="center">判断是否含有指定值</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>isEmpty()</code></td>
+<td align="center">无</td>
+<td align="center">判断对象是否为空</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>size()</code></td>
+<td align="center">无</td>
+<td align="center">返回键值对个数</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>get()</code></td>
+<td align="center">键</td>
+<td align="center">返回键对应的值</td>
+<td align="center">值或 <code>null</code></td>
+</tr>
+<tr>
+<td align="center"><code>keySet()</code></td>
+<td align="center">无</td>
+<td align="center">返回所有的键</td>
+<td align="center"><code>Set&lt;K&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>values()</code></td>
+<td align="center">无</td>
+<td align="center">返回所有的值</td>
+<td align="center"><code>Collection&lt;V&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>entrySet()</code></td>
+<td align="center">无</td>
+<td align="center">返回所有的键值对</td>
+<td align="center"><code>Set&lt;Map.Entry&lt;K, V&gt;&gt;</code></td>
+</tr>
+</tbody></table>
+<p>其中， <code>Map.Entry&lt;K, V&gt;</code> 是一个接口，该接口声明了如下两个常用方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>getKey()</code></td>
+<td align="center">无</td>
+<td align="center">返回键</td>
+<td align="center">键</td>
+</tr>
+<tr>
+<td align="center"><code>getValue</code></td>
+<td align="center">无</td>
+<td align="center">返回值</td>
+<td align="center">值</td>
+</tr>
+</tbody></table>
+<p>可以使用上述两个方法，搭配 <code>entrySet()</code> 方法，以遍历 <code>HashMap</code> 对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;Integer, String&gt; temp = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">temp.put(<span class="number">114</span>, <span class="string">&quot;いいよ&quot;</span>);</span><br><span class="line">temp.put(<span class="number">514</span>, <span class="string">&quot;来いよ&quot;</span>);</span><br><span class="line">temp.put(<span class="number">1919</span>, <span class="string">&quot;行く行く&quot;</span>);</span><br><span class="line">temp.put(<span class="number">810</span>, <span class="string">&quot;入れ&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取所有键值对</span></span><br><span class="line">Set&lt;Map.Entry&lt;Integer, String&gt;&gt; a = temp.entrySet();</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用增强型for循环遍历Set对象</span></span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;Integer, String&gt; i : a) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Key = &quot;</span> + i.getKey() + <span class="string">&quot;, Value = &quot;</span> + i.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Key = 114, Value = いいよ</span><br><span class="line">Key = 514, Value = 来いよ</span><br><span class="line">Key = 810, Value = 入れ</span><br><span class="line">Key = 1919, Value = 行く行く</span><br></pre></td></tr></table></figure>
+
+<p>可以看到键值对的遍历顺序不是插入顺序，说明该类是乱序存储的。从命名也能看出，这是个基于哈希表实现的类。</p>
+<p>当然，也可以用 <code>getKey()</code> 方法，只获取所有键，遍历键的同时使用 <code>get()</code> 方法来获取其对应值。此处就不做代码实例了。</p>
+<h3 id="14-Collections"><a href="#14-Collections" class="headerlink" title="(14) Collections"></a><strong>(14) <code>Collections</code></strong></h3><p><code>Collections</code> 类定义在 <code>java.util.Collections</code> 包中。该类的所有成员均为 <code>static</code> 的，其中大多数为针对容器的一些方法。该类不允许有实例对象。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>sort()</code></td>
+<td align="center">列表</td>
+<td align="center">升序排序列表</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>reverse()</code></td>
+<td align="center">列表</td>
+<td align="center">反转列表中元素顺序</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>shuffle</code></td>
+<td align="center">列表</td>
+<td align="center">随机洗切列表中的元素</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">······</td>
+<td align="center">······</td>
+<td align="center">······</td>
+<td align="center">······</td>
+</tr>
+</tbody></table>
+<p>关于更多 <code>Collections</code> 类的方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。</p>
+<h2 id="五、一些常见接口"><a href="#五、一些常见接口" class="headerlink" title="五、一些常见接口"></a><strong>五、一些常见接口</strong></h2><p>Java是纯面向对象语言，多态又是面向对象的特色，在创建类似于C++ STL的对象时，建议采用接口作为类型，以某一具体类作为实现，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;String&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>其中， <code>Collection</code> 是一个接口，而 <code>ArrayList</code> 是一个实现了该接口的类。</p>
+<h3 id="1-Iterator-lt-T-gt-（迭代器）"><a href="#1-Iterator-lt-T-gt-（迭代器）" class="headerlink" title="(1) Iterator&lt;T&gt; （迭代器）"></a><strong>(1) <code>Iterator&lt;T&gt;</code> （迭代器）</strong></h3><p><code>Iterator</code> 接口定义在 <code>java.util.Iterator</code> 包内。它声明的常见的方法如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>hasNext()</code></td>
+<td align="center">无</td>
+<td align="center">判断是否有下一个元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>next</code></td>
+<td align="center">无</td>
+<td align="center">返回下一个元素，并让“指针”后移</td>
+<td align="center">元素</td>
+</tr>
+<tr>
+<td align="center"><code>remove()</code></td>
+<td align="center">无</td>
+<td align="center">删除当前元素</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>一般情况下，实现了 <code>Iterator</code> 接口的类会封装为 <code>private</code> 的内部类，只能通过 <code>iterator()</code> 方法获取。接下来就会讲如何应用迭代器。</p>
+<h3 id="2-Collection-lt-T-gt-（集合）"><a href="#2-Collection-lt-T-gt-（集合）" class="headerlink" title="(2) Collection&lt;T&gt; （集合）"></a><strong>(2) <code>Collection&lt;T&gt;</code> （集合）</strong></h3><p><code>Collection</code> （集合）接口定义在 <code>java.util.Collection</code> 包内。应当注意它与 <code>Collections</code> 类的区别。它声明的常见的方法如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>add()</code></td>
+<td align="center">元素</td>
+<td align="center">添加元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>remove()</code></td>
+<td align="center">元素</td>
+<td align="center">删除指定的元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>clear()</code></td>
+<td align="center">无</td>
+<td align="center">清空集合</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>contains()</code></td>
+<td align="center">元素</td>
+<td align="center">判断集合是否包含元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>isEmpty</code></td>
+<td align="center">无</td>
+<td align="center">判断集合是否为空</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>size()</code></td>
+<td align="center">无</td>
+<td align="center">返回集合中元素个数</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>iterator()</code></td>
+<td align="center">无</td>
+<td align="center">返回一个迭代器</td>
+<td align="center"><code>Iterator&lt;T&gt;</code></td>
+</tr>
+</tbody></table>
+<p>使用迭代器遍历集合的操作非常简单：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;String&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="string">&quot;114&quot;</span>);</span><br><span class="line">temp.add(<span class="string">&quot;514&quot;</span>);</span><br><span class="line">temp.add(<span class="string">&quot;1919&quot;</span>);</span><br><span class="line">temp.add(<span class="string">&quot;810&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取迭代器</span></span><br><span class="line">Iterator&lt;String&gt; i = temp.iterator();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历</span></span><br><span class="line"><span class="keyword">while</span> (i.hasNext()) &#123;</span><br><span class="line">    System.out.println(i.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114</span><br><span class="line">514</span><br><span class="line">1919</span><br><span class="line">810</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>增强型 <code>for</code> 循环</strong></div>
+
+<div style="color:royalblue;">之前有提到过Java的数组能用类似Python的 <code>for in</code> 循环。实际上，只要是实现了 <code>Iterator</code> 接口的类，就都能使用 <code>for in</code> 循环（准确的说法应该是增强型 <code>for</code> 循环）。</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String i : temp) &#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114</span><br><span class="line">514</span><br><span class="line">1919</span><br><span class="line">810</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">其底层原理是 <code>Iterator</code> 接口声明了一个特殊的方法。可以粗暴地认为，该方法重载了 <code>for</code> 循环。</div>
+</div>
+
+<h3 id="3-ListIterator-lt-T-gt-（列表迭代器）"><a href="#3-ListIterator-lt-T-gt-（列表迭代器）" class="headerlink" title="(3) ListIterator&lt;T&gt; （列表迭代器）"></a><strong>(3) <code>ListIterator&lt;T&gt;</code> （列表迭代器）</strong></h3><p><code>ListIterator</code> 接口定义在 <code>java.util.ListIterator</code> 包内，它继承自 <code>Iterator</code> 接口。它新增了如下方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>previous</code></td>
+<td align="center">无</td>
+<td align="center">返回上一个元素，并让“指针”前移</td>
+<td align="center">元素</td>
+</tr>
+<tr>
+<td align="center"><code>hasPrevious</code></td>
+<td align="center">无</td>
+<td align="center">判断是否有上一个元素</td>
+<td align="center"><code>boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>add()</code></td>
+<td align="center">元素</td>
+<td align="center">在当前位置插入元素</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<h3 id="4-List-lt-T-gt-（列表）"><a href="#4-List-lt-T-gt-（列表）" class="headerlink" title="(4) List&lt;T&gt; （列表）"></a><strong>(4) <code>List&lt;T&gt;</code> （列表）</strong></h3><p><code>List</code> 接口定义在 <code>java.util.List</code> 包内，它继承自 <code>Collection</code> 接口。实现了该接口的常见类有 <code>ArrayList</code> 和 <code>LinkedList</code> 。该接口新增的方法有：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>add()</code></td>
+<td align="center"><code>int</code> ，元素</td>
+<td align="center">在指定位置插入元素</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>remove()</code></td>
+<td align="center"><code>int</code></td>
+<td align="center">删除指定位置的元素</td>
+<td align="center">删除的元素值</td>
+</tr>
+<tr>
+<td align="center"><code>set()</code></td>
+<td align="center"><code>int</code> ，元素</td>
+<td align="center">修改指定位置的元素</td>
+<td align="center">被修改的元素值</td>
+</tr>
+<tr>
+<td align="center"><code>get()</code></td>
+<td align="center"><code>int</code></td>
+<td align="center">返回指定位置的元素</td>
+<td align="center">元素</td>
+</tr>
+<tr>
+<td align="center"><code>listIterator()</code></td>
+<td align="center">无</td>
+<td align="center">返回一个列表迭代器</td>
+<td align="center"><code>ListIterator&lt;T&gt;</code></td>
+</tr>
+</tbody></table>
+<p>列表迭代器能够对列表进行增加操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="string">&quot;114&quot;</span>);</span><br><span class="line">temp.add(<span class="string">&quot;514&quot;</span>);</span><br><span class="line">temp.add(<span class="string">&quot;1919&quot;</span>);</span><br><span class="line">temp.add(<span class="string">&quot;810&quot;</span>);</span><br><span class="line"></span><br><span class="line">ListIterator&lt;String&gt; i = temp.listIterator();</span><br><span class="line"><span class="keyword">while</span> (i.hasNext()) &#123;</span><br><span class="line">    System.out.println(i.next());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向当前位置添加元素</span></span><br><span class="line">    i.add(<span class="string">&quot;?&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">114</span><br><span class="line">514</span><br><span class="line">1919</span><br><span class="line">810</span><br><span class="line">temp = [114, ?, 514, ?, 1919, ?, 810, ?]</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Set-lt-T-gt"><a href="#5-Set-lt-T-gt" class="headerlink" title="(5) Set&lt;T&gt;"></a><strong>(5) <code>Set&lt;T&gt;</code></strong></h3><p><code>Set</code> 接口定义在 <code>java.util.Set</code> 包内，它继承自 <code>Collection</code> 接口，在其基础之上追加了一个新功能：不允许重复元素。<code>Set</code> 接口没有在 <code>Collection</code> 接口的基础上新增什么常用的方法，这里就不做赘述。但实现了 <code>Set</code> 接口的类，遍历时元素的输出顺序一般为乱序，典型的类有 <code>HashSet</code> 、 <code>LinkedHashSet</code> 和 <code>TreeSet</code>。</p>
+<h3 id="6-Comparable-lt-T-gt-（自然排序）"><a href="#6-Comparable-lt-T-gt-（自然排序）" class="headerlink" title="(6) Comparable&lt;T&gt; （自然排序）"></a><strong>(6) <code>Comparable&lt;T&gt;</code> （自然排序）</strong></h3><p><code>Comparable</code> 接口只声明了一个方法： <code>compareTo()</code> 。该方法的声明如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(T o)</span></span><br></pre></td></tr></table></figure>
+
+<p>该方法的目的是实现两个对象之间的比较。<br>若返回0，则认为两个对象相等；<br>若返回正数，则认为参数对象较大；<br>若返回负数，则认为调用方法的对象较大。</p>
+<h3 id="7-Comparator-lt-T-gt-（比较器）"><a href="#7-Comparator-lt-T-gt-（比较器）" class="headerlink" title="(7) Comparator&lt;T&gt; （比较器）"></a><strong>(7) <code>Comparator&lt;T&gt;</code> （比较器）</strong></h3><p><code>Comparator</code> 接口声明了很多方法，但常用的就一个： <code>compare()</code> 。该方法的声明如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">compare</span><span class="params">(T o1, T o2)</span></span><br></pre></td></tr></table></figure>
+
+<p>该方法的目的也是实现两个对象之间的比较。<br>若返回0，则认为两个对象相等；<br>若返回正数，则认为前者较大；<br>若返回负数，则认为后者较大。</p>
+<p>在使用 <code>Comparator</code> 接口时，通常使用匿名内部类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TreeSet&lt;Lacia&gt; temp = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Lacia&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Lacia a, Lacia b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="comment">// 你的判断代码</span></span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="keyword">return</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>只需要重写 <code>compare()</code> 方法即可。</p>
+<h3 id="8-Map-lt-K-V-gt"><a href="#8-Map-lt-K-V-gt" class="headerlink" title="(8) Map&lt;K, V&gt;"></a><strong>(8) <code>Map&lt;K, V&gt;</code></strong></h3><p><code>Map</code> 接口定义在 <code>java.util.Map</code> 包内。其中， <code>K</code> 为键的类型， <code>V</code> 为值的类型。该类型声明的方法中，常用的方法与上文中 <code>HashMap</code> 类的常用方法一致（因为 <code>HashMap</code> 类实现了该接口）。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/03/04/JavaGrammar03/" title="Java基础（三）">https://ayanami-daisuki.github.io/2022/03/04/JavaGrammar03/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> Java语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/03/JavaGrammar02/" rel="prev" title="Java基础（二）">
+                  <i class="fa fa-chevron-left"></i> Java基础（二）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/05/JavaGrammar04/" rel="next" title="Java基础（四）">
+                  Java基础（四） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

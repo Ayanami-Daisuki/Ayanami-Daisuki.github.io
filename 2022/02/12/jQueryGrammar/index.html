@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/02/12/jQueryGrammar/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/02/12/jQueryGrammar/","path":"2022/02/12/jQueryGrammar/","title":"jQuery基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>jQuery基础 | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-text">一、简介与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">二、基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%8E%B7%E5%8F%96%E6%A0%87%E7%AD%BE%E5%AF%B9%E8%B1%A1"><span class="nav-text">(1) 获取标签对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9B%B4%E6%94%B9%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F"><span class="nav-text">(2) 更改标签样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-window-onload"><span class="nav-text">(3) window.onload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%A7%A3%E5%86%B3-%E5%86%B2%E7%AA%81"><span class="nav-text">(4) 解决 $ 冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%A0%B8%E5%BF%83%E5%87%BD%E6%95%B0"><span class="nav-text">三、核心函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">四、常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BA%8B%E4%BB%B6"><span class="nav-text">五、事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0%E4%BA%8B%E4%BB%B6"><span class="nav-text">(1) 添加事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%A0%E9%99%A4%E4%BA%8B%E4%BB%B6"><span class="nav-text">(2) 删除事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="nav-text">(3) 事件冒泡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91"><span class="nav-text">(4) 自动触发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">(5) 命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="nav-text">(6) 事件委托</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%8A%A8%E7%94%BB"><span class="nav-text">六、动画</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/02/12/jQueryGrammar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="jQuery基础 | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jQuery基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-12 21:15:44" itemprop="dateCreated datePublished" datetime="2022-02-12T21:15:44+08:00">2022-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 20:59:49" itemprop="dateModified" datetime="2022-04-17T20:59:49+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/02/12/jQueryGrammar/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有CSS基础，并且建议最好学过JavaScript。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、简介与安装"><a href="#一、简介与安装" class="headerlink" title="一、简介与安装"></a><strong>一、简介与安装</strong></h2><p>jQuery是JavaScript的一个库，它提供了比JavaScript更方便快捷的DOM操作，让程序员能够以像写CSS一样写JavaScript，大大减少了代码量，并且提高了可读性。</p>
+<p>jQuery可以在官网直接下载，也可以使用Node.js下载。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install jquery</span></span><br></pre></td></tr></table></figure>
+
+<p>本体在 <code>/node_modules/jquery/dist</code> 文件夹里。文件名中含有 <code>min</code> 字样的 <code>.js</code> 文件是压缩过的jQuery库，它大小更小但是不便于阅读，适合用于网页。不带 <code>min</code> 字样的就是方便程序员阅读的未压缩的版本。</p>
+<p>将你选好的jQuery库引入到HTML文件中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/jQuery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;Hello.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中， <code>Hello.js</code> 是用户自定义的JavaScript，它必须在jQuery之后引入，否则会报错。</p>
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a><strong>二、基础语法</strong></h2><h3 id="1-获取标签对象"><a href="#1-获取标签对象" class="headerlink" title="(1) 获取标签对象"></a><strong>(1) 获取标签对象</strong></h3><p>在未引入jQuery的情况下，要获取标签对象需要使用非常长的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;ID&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> j = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#D&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的第一种获取方式非常长，并且需要根据查找标签的方式更换函数名。第二种获取方式是JavaScript吸收了jQuery的优点以后新添加的特性。但它们都不如jQuery简洁：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];  <span class="comment">//以CSS的方式书写标签对象</span></span><br></pre></td></tr></table></figure>
+
+<p>对没错，你只需要使用 <code>$</code> ，并且在其后的括号中以CSS查找标签的方式书写你要获取的标签即可。需要添加 <code>[0]</code> 是因为只要查找到了标签对象，就会以数组的形式返回结果。</p>
+<h3 id="2-更改标签样式"><a href="#2-更改标签样式" class="headerlink" title="(2) 更改标签样式"></a><strong>(2) 更改标签样式</strong></h3><p>JavaScript更改标签的样式需要使用 <code>.style</code> ，并且更改的时候还要留意需要转换为字符串。而引入jQuery以后，只需要以如下方式书写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">$(i).<span class="title function_">css</span>(&#123;</span><br><span class="line">    <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">$(<span class="string">&quot;body&quot;</span>).<span class="title function_">css</span>(&#123;</span><br><span class="line">    <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-window-onload"><a href="#3-window-onload" class="headerlink" title="(3) window.onload"></a><strong>(3) <code>window.onload</code></strong></h3><p>在JavaScript中， <code>window.onload</code> 方法只能被定义一次。后定义的方法将覆盖先定义的方法。为了解决这个问题需要使用 <code>window.addEventListener("load", Function)</code> 。引入jQuery后，你只需要一段简短的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码便能实现 <code>window.addEventListener("load", Function)</code> 的功能。你只需要在注释处写上你的代码即可。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>二者的区别</strong></div>
+
+<div style="color:royalblue;">jQuery的这种方法会让函数在DOM加载完后、图片加载完之前被调用，而 <code>addEventListener()</code> 则会让函数在所有资源加载完以后再被调用。</div>
+</div>
+
+<h3 id="4-解决-冲突"><a href="#4-解决-冲突" class="headerlink" title="(4) 解决 $ 冲突"></a><strong>(4) 解决 <code>$</code> 冲突</strong></h3><p>有时候你需要引入的JavaScript脚本不止一个。而后引入的JavaScript中如果将 <code>$</code> 符号用作变量名、函数名或者其他用途，则会造成冲突。为了解决这种冲突，jQuery提供了以其他符号替代 <code>$</code> 的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//必须在其它所有的代码之前声明</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">RES</span>=jQuery.<span class="title function_">noConflict</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title function_">RES</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="title function_">RES</span>(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="title function_">RES</span>(i).<span class="title function_">css</span>(&#123;</span><br><span class="line">        <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">        <span class="comment">//其余的“CSS”代码</span></span><br><span class="line">        <span class="comment">//······</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//其余的代码</span></span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、核心函数"><a href="#三、核心函数" class="headerlink" title="三、核心函数"></a><strong>三、核心函数</strong></h2><p>看完上述的代码，有JavaScript基础的同学应该已经明白了。jQuery库中定义了一个函数 <code>$()</code> ，它就是jQuery的核心函数。由于JavaScript并不限制变量的类型，因此什么鬼都能往这个函数里传。但只有如下类型的参数会有效：</p>
+<ul>
+<li>函数。jQuery库将会把函数添加到DOM加载完后执行的队列中。</li>
+<li>字符串。<ol>
+<li>字符串为选择器。jQuery库将会解析这个选择器，并返回标签对象数组。</li>
+<li>字符串为HTML代码。jQuery库将会解析HTML代码，并返回这个标签对象。你可以通过这种方式来动态地向网页中插入标签。</li>
+</ol>
+</li>
+<li>DOM标签对象。jQuery库会将这个对象封装为数组并返回。</li>
+</ul>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>jQuery对象</strong></div>
+
+<div style="color:royalblue;">其实说返回数组是不太准确的，准确地说是返回一个jQuery对象。只不过这个对象有数字的索引，是个伪数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="title function_">RES</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">可以在浏览器的控制台中看到：</div>
+
+<p><img src="/2022/02/12/jQueryGrammar/1.png" alt="1 1" title="1"></p>
+<div style="color:royalblue;">这里选中了8个 <code>div</code> 标签对象，并且可以通过数字索引来获取其中的对象。</div>
+</div>
+
+<p>jQuery的核心函数 <code>$()</code> 还定义了一些其他的方法。这些方法都必须通过 <code>$</code> 对象来调用。</p>
+<div class="tabs" id="corefunction"><ul class="nav-tabs"><li class="tab active"><a href="#corefunction-1"><code>map()</code></a></li><li class="tab"><a href="#corefunction-2"><code>trim()</code></a></li><li class="tab"><a href="#corefunction-3"><code>isWindow()</code></a></li><li class="tab"><a href="#corefunction-4"><code>isArray()</code></a></li><li class="tab"><a href="#corefunction-5"><code>isFunction()</code></a></li><li class="tab"><a href="#corefunction-6"><code>holdReady()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="corefunction-1"><p>与 <code>each()</code> 方法相似，但它的返回值与函数参数略有不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = &#123; <span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">3</span>: <span class="number">114514</span>, <span class="number">4</span>: <span class="number">1919810</span>, <span class="attr">length</span>: <span class="number">5</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> j = $.<span class="title function_">map</span>(i, <span class="keyword">function</span> (<span class="params">Index, Value</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Index</span>, <span class="title class_">Value</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//允许返回值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Index</span> + <span class="string">&quot;&quot;</span> + <span class="title class_">Value</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(j);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/02/12/jQueryGrammar/3.png" alt="3 3" title="3"></p></div><div class="tab-pane" id="corefunction-2"><p>jQuery提供的 <code>trim()</code> 方法可以删除字符串中两端的空格，并返回。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="string">&quot;  114  514   1919   810  &quot;</span>;</span><br><span class="line"><span class="keyword">var</span> j = $.<span class="title function_">trim</span>(i);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;i =&quot;</span>, i);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;j =&quot;</span>, j);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/02/12/jQueryGrammar/4.png" alt="4 4" title="4"></p></div><div class="tab-pane" id="corefunction-3"><p><code>isWindow()</code> 方法用于判断传入的参数是否为 <code>window</code> 对象，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-4"><p><code>isArray()</code> 方法用于判断传入的参数是否为 <code>Array</code> 对象，即真数组，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-5"><p><code>isFunction()</code> 方法用于判断传入的参数是否为函数，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-6"><p><code>holdReady()</code> 方法用于控制 <code>$(document).ready()</code> 里的代码运行。传入 <code>true</code> 后，其中的代码将被挂起，直到某处运行 <code>$.holdReady(false)</code> 。</p></div></div></div>
+
+<h2 id="四、常用方法"><a href="#四、常用方法" class="headerlink" title="四、常用方法"></a><strong>四、常用方法</strong></h2><p>jQuery的设计理念就是更少的代码做更多的事，因此它将一些JavaScript的操作复杂的方法给封装成了简单易用的方法，这些方法定义在jQuery对象下，因此必须使用jQuery对象来调用。</p>
+<div class="tabs" id="usefulfunction"><ul class="nav-tabs"><li class="tab active"><a href="#usefulfunction-1"><code>attr()</code></a></li><li class="tab"><a href="#usefulfunction-2"><code>removeAttr()</code></a></li><li class="tab"><a href="#usefulfunction-3"><code>eq()</code></a></li><li class="tab"><a href="#usefulfunction-4"><code>prop()</code></a></li><li class="tab"><a href="#usefulfunction-5"><code>removeProp()</code></a></li><li class="tab"><a href="#usefulfunction-6"><code>addClass()</code></a></li><li class="tab"><a href="#usefulfunction-7"><code>removeClass()</code></a></li><li class="tab"><a href="#usefulfunction-8"><code>toggleClass()</code></a></li><li class="tab"><a href="#usefulfunction-9"><code>html()</code></a></li><li class="tab"><a href="#usefulfunction-10"><code>text()</code></a></li><li class="tab"><a href="#usefulfunction-11"><code>val()</code></a></li><li class="tab"><a href="#usefulfunction-12"><code>css()</code></a></li><li class="tab"><a href="#usefulfunction-13"><code>siblings()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="usefulfunction-1"><p><code>attr()</code> 方法是JavaScript中 <code>getAttribute()</code> 方法、 <code>setAttribute()</code> 方法的封装。它用于获取或修改jQuery对象中的标签对象的属性结点。</p>
+<p>当只传入一个参数时，jQuery库会将其解析为标签对象的属性结点名，并返回其值。<span style="color:red;">若jQuery对象中有多个标签对象，则只会返回第一个标签对象的属性结点值。若该属性结点未定义则返回 <code>undefined</code> 。</span></p>
+<p>当传入两个参数时，第一个参数被解析为属性结点名，第二个参数被解析为要修改成什么值， <span style="color:red;">并且会修改所有jQuery对象中的标签对象。</span></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>($(<span class="string">&quot;div&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;class&quot;</span>));</span><br><span class="line"><span class="comment">//打印第一个div标签的class属性值</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;Proletarian&quot;</span>);</span><br><span class="line"><span class="comment">//将所有div标签的class属性值修改为Proletarian</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-2"><p>与 <code>attr()</code> 方法相反，它的作用是删除jQuery对象中所有标签对象的指定属性结点。可以使用 <code>&nbsp;</code> （空格）分隔你要删除的属性结点名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">removeAttr</span>(<span class="string">&quot;class id&quot;</span>);</span><br><span class="line"><span class="comment">//删除所有div标签的class和id属性</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-3"><p>该方法用于获取jQuery对象中的第i个标签对象，并把这个标签对象封装为jQuery对象再返回。 <code>eq()</code> 方法的参数只有一个，该参数是从0开始的索引。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>).<span class="title function_">eq</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> j = $($(<span class="string">&quot;div&quot;</span>)[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-4"><p>要理解 <code>prop()</code> 方法，必须先理属性和属性结点。在JavaScript中，对象（变量）的成员变量叫做属性，而HTML的标签的属性，则被叫做属性结点。也就是说，JavaScript获取的HTML标签对象不仅有属性结点，还有额外的属性。 <code>prop()</code> 方法能修改或新增对象属性，也能修改或新增HTML标签对象的属性结点。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>二者的区别</strong></div>
+
+<div style="color:royalblue;"><code>prop()</code> 方法的适用范围更广。在获取属性时建议使用 <code>prop()</code> 方法，在返回诸如 <code>checked</code> 等属性结点值时， <code>prop()</code> 方法会返回 <code>true</code> 或者 <code>false</code> ，而<code>attr()</code> 方法会返回 <code>checked</code> 或者 <code>undefined</code> 。</div>
+</div></div><div class="tab-pane" id="usefulfunction-5"><p>与 <code>prop()</code> 方法相反，它的作用是删除jQuery对象中所有标签对象的指定属性。可以使用 <code>&nbsp;</code> （空格）分隔你要删除的属性。</p></div><div class="tab-pane" id="usefulfunction-6"><p><code>addClass()</code> 方法用于添加标签对象的类名。 <code>prop()</code> 方法与 <code>attr()</code> 方法都只能修改或新增类名而不能实现添加，因此如果要添加类名只能使用 <code>addClass()</code> 方法。</p>
+<p>用 <code>&nbsp;</code> （空格）分隔你想要添加的多个类名。</p></div><div class="tab-pane" id="usefulfunction-7"><p>与 <code>addClass()</code> 方法相反， <code>removeClass()</code> 方法用于删除标签对象的类名。</p>
+<p>用 <code>&nbsp;</code> （空格）分隔你想要删除的多个类名。</p></div><div class="tab-pane" id="usefulfunction-8"><p>当标签对象存在 <code>toggleClass()</code> 的参数中的类名时，则删除类名；不存在时则添加类名。</p></div><div class="tab-pane" id="usefulfunction-9"><p><code>html()</code> 方法用于获取或修改标签对象中的文本，相当于获取或修改标签对象的  <code>innerHTML</code> 属性。它可以新增子标签。当不写参数时则返回 <code>innerHTML</code> 属性值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">i.<span class="title function_">html</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码作用为向 <code>&lt;div&gt;</code> 标签中插入 <code>&lt;p&gt;</code> 标签，并且 <code>&lt;p&gt;</code> 标签内的文本为114514。</p></div><div class="tab-pane" id="usefulfunction-10"><p><code>html()</code> 方法用于获取或修改标签对象中的文本，相当于获取或修改标签对象的  <code>innerText</code> 属性。它不能新增子标签，只能修改内部文本。当不写参数时则返回 <code>innerText</code> 属性值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">i.<span class="title function_">html</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码作用为将 <code>&lt;div&gt;</code> 标签中的文本修改为&lt;p&gt;114514&lt;/p&gt;，不会新增 <code>&lt;p&gt;</code> 标签。</p></div><div class="tab-pane" id="usefulfunction-11"><p><code>val()</code> 方法用于获取或修改标签对象的 <code>value</code> 属性。不写参数时将会返回 <code>value</code> 属性值，否则将会把 <code>value</code> 属性值修改为参数值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">i.<span class="title function_">val</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码将 <code>input</code> 标签（即输入框）中的文本设置为&lt;p&gt;114514&lt;&#x2F;p&gt;。</p></div><div class="tab-pane" id="usefulfunction-12"><p>上文已经粗略地提到了 <code>css()</code> 方法的用法。它还能获取jQuery对象中的第一个标签对象的CSS属性值，只需要传入属性名即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>).<span class="title function_">eq</span>(<span class="number">5</span>).<span class="title function_">css</span>(<span class="string">&quot;width&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码用于获取第6个 <code>&lt;div&gt;</code> 标签的width属性值。</p></div><div class="tab-pane" id="usefulfunction-13"><p>当不传入参数时， <code>siblings()</code> 方法将会返回当前jQuery对象中标签对象的所有兄弟标签；如果要传入参数，参数的格式应该与CSS的选择器一致，此时将返回符合选择器条件的兄弟元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;li.selected&quot;</span>).<span class="title function_">siblings</span>(<span class="string">&quot;.active&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码选中了含有selected类名的 <code>&lt;li&gt;</code> 标签的含有active类名的兄弟标签。</p></div></div></div>
+
+<p>关于更多jQuery的API，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://jquery.cuishifeng.cn/ ">jQuery API 中文文档</a>&amp;nbsp;。</p>
+<h2 id="五、事件"><a href="#五、事件" class="headerlink" title="五、事件"></a><strong>五、事件</strong></h2><h3 id="1-添加事件"><a href="#1-添加事件" class="headerlink" title="(1) 添加事件"></a><strong>(1) 添加事件</strong></h3><p>当然，jQuery也简化了 <code>addEventListener()</code> 方法。可以直接使用jQuery对象下的 <code>on()</code> 方法来绑定事件，用法与 <code>addEventListener()</code> 方法一致，并且也可以写多个事件，事件之间不会相互覆盖。</p>
+<p>但还有更简洁的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>jQuery为每一个事件都做了相应的方法。上述的代码作用为向id为test的标签添加一个点击事件，点击标签时将弹出信息“Hello, world!”。类似的方法还有 <code>mouseenter()</code> 、 <code>mouseover()</code> 、 <code>mouseleave()</code> 等，此处不再赘述。</p>
+<h3 id="2-删除事件"><a href="#2-删除事件" class="headerlink" title="(2) 删除事件"></a><strong>(2) 删除事件</strong></h3><p>要解除绑定，可以使用 <code>off()</code> 方法。它有三种模式：</p>
+<ul>
+<li>不传入参数。那么将会清除绑定的全部事件。</li>
+<li>传入一个参数。将参数解析为事件类型，清楚该类型绑定的全部事件。</li>
+<li>传入两个参数。将第一个参数解析为事件类型，第二个参数解析为绑定的函数名，清除该事件类型下绑定的该函数。</li>
+</ul>
+<h3 id="3-事件冒泡"><a href="#3-事件冒泡" class="headerlink" title="(3) 事件冒泡"></a><strong>(3) 事件冒泡</strong></h3><p>当你为子标签和父标签都绑定了事件时，尤其是点击这种事件，在你点击子标签后，父子标签的事件往往都会被触发，这种情况一般被称为事件冒泡。为了阻止事件冒泡，可以在编写子标签的函数时以如下方式书写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">i</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">j</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>默认事件</strong></div>
+
+<div style="color:royalblue;">上述的代码中，第一种方式不仅会打断事件冒泡，还会打断默认事件。默认事件即标签默认会触发的事件，例如 <code>&lt;a&gt;</code> 标签点击后默认会跳转到链接地址，使用第一种方法添加点击事件以后将打断跳转，而第二种方法则不会。如果只想打断默认事件，可以使用如下方式：</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">j</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    event.<span class="title function_">preventDefault</span>();   <span class="comment">//仅打断默认事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<h3 id="4-自动触发"><a href="#4-自动触发" class="headerlink" title="(4) 自动触发"></a><strong>(4) 自动触发</strong></h3><p>如果要自动触发某事件，可以使用 <code>trigger()</code>方法 或者 <code>triggerHandler()</code> 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">trigger</span>(<span class="string">&quot;click&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">triggerHandler</span>(<span class="string">&quot;click&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码在执行时均会立即触发所有 <code>&lt;div&gt;</code> 标签的点击事件。但区别在于， <code>trigger()</code> 方法会触发事件冒泡与默认事件，而 <code>triggerHandler()</code> 方法不会触发事件冒泡和默认事件。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>特殊的 <code>&lt;a&gt;</code> 标签</strong></div>
+
+<div style="color:goldenrod;">使用 <code>trigger()</code> 方法触发 <code>&lt;a&gt;</code> 标签的点击事件时，不会触发点击超链接跳转的默认事件。这是特殊情况。如果你需要触发跳转的默认事件，请在 <code>&lt;a&gt;</code> 标签内添加子标签，使用 <code>trigger()</code> 方法触发子标签的点击事件。</div>
+</div>
+
+<p>使用 <code>trigger()</code>方法 和 <code>on()</code> 方法进行搭配，就可以实现自定义事件。</p>
+<h3 id="5-命名空间"><a href="#5-命名空间" class="headerlink" title="(5) 命名空间"></a><strong>(5) 命名空间</strong></h3><p>如果想让某一类型的某一个事件能够被单独地使用 <code>trigger()</code> 方法触发，可以使用事件的命名空间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click.RES&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;RES&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click.Lacia&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Lacia&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">trigger</span>(<span class="string">&quot;click.RES&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码给id为test的标签绑定了两个点击事件。点击时， <code>click.RES</code> 事件与 <code>click.Lacia</code> 事件均会出发。但当DOM加载完毕时， <code>$("#test").trigger("click.RES");</code> 只会触发 <code>click.RES</code> 事件。</p>
+<h3 id="6-事件委托"><a href="#6-事件委托" class="headerlink" title="(6) 事件委托"></a><strong>(6) 事件委托</strong></h3><p>利用事件冒泡的特性，可以将子标签的事件委托给父标签监听。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">delegate</span>(<span class="string">&quot;button&quot;</span>, <span class="string">&quot;click&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码将 <code>&lt;button&gt;</code> 子标签的点击事件委托给id为test的父标签监听。当点击按钮时，控制台中返回的标签将会是 <code>&lt;button&gt;</code> 标签。利用委托，就可以把动态生成的子标签的所有事件全部交给父标签监听，而不必在新增时挨个重新设置子标签的事件。</p>
+<h2 id="六、动画"><a href="#六、动画" class="headerlink" title="六、动画"></a><strong>六、动画</strong></h2><p>由于CSS3已经追加了强大的动画功能，因此使用JavaScript写动画已经不再是最佳选择。但仍有一些动画无可避免地必须使用JavaScript编写。</p>
+<p>jQuery将动画封装成了 <code>animate()</code> 方法。该方法有4个参数：</p>
+<ol>
+<li>第1个参数与CSS或者 <code>css()</code> 方法的写法一致。在这个参数内改变的属性将自带动画效果；</li>
+<li>第2个参数控制动画的时长，需传入 <code>number</code> 型变量，单位是ms。</li>
+<li>第3个参数为动画的执行模式。有 <code>"linear"</code> 、 <code>"swing"</code> 选项。前者为匀速，后者相当于CSS的 <code>ease-in-out</code> 。</li>
+<li>第4个参数为动画结束后执行的函数。</li>
+</ol>
+<p>写在同一个 <code>animate()</code> 方法里的动画会同时执行，而写在不同的 <code>animate()</code> 方法内的动画则会按照调用的先后顺序依次执行，并且 <code>animate()</code> 方法可以链式调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码在将 <code>&lt;div&gt;</code> 标签的大小变为100×100像素之后，紧接着会将其大小扩大到500×500。两次动画时长均为0.5s，并且动画之间没有间隔。要想推迟第二个动画的执行，可以使用 <code>delay()</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>).<span class="title function_">delay</span>(<span class="number">1000</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>delay()</code> 方法的参数为延时时间，单位为ms。上述代码的第二个动画将会在第一个动画结束以后推迟1s执行。</p>
+<p>要想停止动画，可以使用 <code>stop()</code> 方法。该方法接受两个 <code>bool</code> 参数：</p>
+<ol>
+<li>第1个参数控制是否清空当前动画队列；</li>
+<li>第2个参数控制打断动画后，是否变为该动画的完成状态。</li>
+</ol>
+<p>当不传入参数时默认为 <code>false，false</code> ，即打断当前动画但不影响后续动画的执行。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/02/12/jQueryGrammar/" title="jQuery基础">https://ayanami-daisuki.github.io/2022/02/12/jQueryGrammar/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/JavaScript%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> JavaScript库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/11/GoGrammar02/" rel="prev" title="Go基础（二）">
+                  <i class="fa fa-chevron-left"></i> Go基础（二）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/15/PythonGrammar01/" rel="next" title="Python基础（一）">
+                  Python基础（一） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

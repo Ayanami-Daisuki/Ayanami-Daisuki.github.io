@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/03/01/SQLGrammar/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/03/01/SQLGrammar/","path":"2022/03/01/SQLGrammar/","title":"SQL基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SQL基础 | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81SQL%E7%AE%80%E4%BB%8B"><span class="nav-text">一、SQL简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">二、基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-DDL"><span class="nav-text">(1) DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5"><span class="nav-text">1. 基础语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">2. 数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="nav-text">3. 属性操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-DML"><span class="nav-text">(2) DML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-DQL"><span class="nav-text">(3) DQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-WHERE"><span class="nav-text">1. WHERE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-text">2. 聚合函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GROUP-BY-%E4%B8%8E-HAVING"><span class="nav-text">3. GROUP BY 与 HAVING</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-ORDER-BY"><span class="nav-text">4. ORDER BY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-LIMIT"><span class="nav-text">5. LIMIT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-DQL%E7%9A%84%E7%BC%96%E5%86%99%E9%A1%BA%E5%BA%8F%E4%B8%8E%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-text">6. DQL的编写顺序与执行顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-DCL"><span class="nav-text">(4) DCL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-text">三、函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-text">(1) 字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%95%B0%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-text">(2) 数值函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-text">(3) 日期函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-text">四、控制流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%BA%A6%E6%9D%9F"><span class="nav-text">五、约束</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/03/01/SQLGrammar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SQL基础 | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SQL基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-01 12:19:01" itemprop="dateCreated datePublished" datetime="2022-03-01T12:19:01+08:00">2022-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 20:56:28" itemprop="dateModified" datetime="2022-04-17T20:56:28+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">SQL语法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/03/01/SQLGrammar/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">本文采用MySQL作为数据库服务器。建议至少有一门编程语言的学习经验再阅读本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、SQL简介"><a href="#一、SQL简介" class="headerlink" title="一、SQL简介"></a><strong>一、SQL简介</strong></h2><p>SQL全称为结构化查询语言（<span style="color:red;">S</span>tructured <span style="color:red;">Q</span>uery <span style="color:red;">L</span>anguage）。它主要用于数据库的管理。SQL语法相对简单，并且数据库大多都对各种主要编程语言提供了接口以方便用字符串形式的SQL语言来管理数据库。</p>
+<p>数据库的安装此处不做赘述。</p>
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a><strong>二、基础语法</strong></h2><p>安装完MySQL后，需要开启SQL服务并登录到MySQL服务器。在安装时应该已经设置了root权限的密码，此处便可以直接使用root用户登录。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">net start SQL   &lt;===需要管理员权限</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">mysql -u root -p</span></span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>系统服务</strong></div>
+
+<div style="color:royalblue;">在安装MySQL时，MySQL将会把数据库注册为Windows的系统服务，并设定为开机自启。<span style="color:red;">请注意，要手动开启系统服务，必须使用带有管理员权限的cmd或者PowerShell。</span>默认的服务名是 <code>mysql80</code> ，此处我将其设定为了 <code>SQL</code> 。如果你没有更改默认设置，那么启动MySQL系统服务的代码应该为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">net start mysql80</span></span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">如果没有启动MySQL服务就进行登录，将会出现如下报错：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">mysql -u root -p</span></span><br><span class="line">Enter password: ************</span><br><span class="line">ERROR 2003 (HY000): Can&#x27;t connect to MySQL server on &#x27;localhost:3306&#x27; (10061)</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>SQL语句不区分大小写，但为了区分数据与SQL的语句，建议SQL的语句全使用大写字母。SQL的每条语句都需要以分号结尾，如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br></pre></td></tr></table></figure>
+
+<p>当然上述的语句小写也可以正常使用。上述语句将会打印所有的数据库名称：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SHOW DATABASES;</span></span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sakila             |</span><br><span class="line">| sys                |</span><br><span class="line">| world              |</span><br><span class="line">+--------------------+</span><br><span class="line">6 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-DDL"><a href="#1-DDL" class="headerlink" title="(1) DDL"></a><strong>(1) DDL</strong></h3><h4 id="1-基础语句"><a href="#1-基础语句" class="headerlink" title="1. 基础语句"></a><strong>1. 基础语句</strong></h4><p>DDL，全称为数据定义语言（<span style="color:red;">D</span>ata <span style="color:red;">D</span>efinition <span style="color:red;">L</span>anguage）。它是SQL的一种，用于管理库和表。</p>
+<p>操作数据库有下述语句：</p>
+<ul>
+<li><code>SHOW DATABASES;</code> ，显示所有数据库</li>
+<li><code>CREATE DATABASE 数据库名;</code> ，创建数据库</li>
+<li><code>DROP DATABASE 数据库名;</code> ，删除数据库</li>
+<li><code>USE 数据库名;</code> ，进入数据库</li>
+<li><code>SELECT DATABASE();</code> ，查询当前的数据库</li>
+</ul>
+<p>表是数据库的精髓，不能不品尝。要执行对表的操作，必须进入特定的数据库。</p>
+<ul>
+<li><code>SHOW TABLES;</code> ，展示当前数据库的所有表</li>
+<li><code>DESC 表名;</code> ，查询当前表的结构</li>
+<li><code>SHOW CREATE TABLE 表名;</code> ，查询创建该表的语句</li>
+<li><code>CREATE TABLE 表名(表结构);</code> ，创建表</li>
+</ul>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>表结构</strong></div>
+
+<div style="color:royalblue;">数据库中表的结构应该如下：</div>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">属性名<span class="number">1</span> 属性<span class="number">1</span>类型 COMMENT <span class="string">&#x27;说明&#x27;</span>,</span><br><span class="line">属性名<span class="number">2</span> 属性<span class="number">2</span>类型 COMMENT <span class="string">&#x27;说明&#x27;</span>,</span><br><span class="line">······</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">其中，<code>COMMENT</code> 关键字及其后的说明可以省略。它相当于是注释。</div>
+</div>
+
+<h4 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a><strong>2. 数据类型</strong></h4><p>上文提到的属性类型，可以看成是其它编程语言中的变量类型。</p>
+<div class="tabs" id="datatype"><ul class="nav-tabs"><li class="tab active"><a href="#datatype-1">整型</a></li><li class="tab"><a href="#datatype-2">浮点型</a></li><li class="tab"><a href="#datatype-3">字符型</a></li><li class="tab"><a href="#datatype-4">日期型</a></li></ul><div class="tab-content"><div class="tab-pane active" id="datatype-1"><p>SQL中的整型类型比较多，但很好记：</p>
+<ul>
+<li><code>TINYINT</code> ，占用1个字节</li>
+<li><code>SMALLINT</code> ，占用2个字节</li>
+<li><code>MEDIUMINT</code> ，占用3个字节</li>
+<li><code>INT</code> ，占用4个字节</li>
+<li><code>BIGINT</code> ，占用8个字节</li>
+</ul>
+<p>如果想使用无符号类型的整型，可以在类型后面追加 <code>UNSIGNED</code> 关键字。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> HIE(</span><br><span class="line">    Age TINYINT UNSIGNED</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="datatype-2"><p>浮点型类型相对较少：</p>
+<ul>
+<li><code>FLOAT</code> ，占用4个字节</li>
+<li><code>DOUBLE</code> ，占用8个字节</li>
+<li><code>DECIMAL</code> ，占用大小根据精度改变</li>
+</ul>
+<p>SQL中的 <code>FLOAT</code> 和 <code>DOUBLE</code> 与其它多数语言一样，也存在精度缺陷。要想精确保存小数，应当使用 <code>DECIMAL</code> 。</p>
+<p>浮点数也有符号，要想使用无符号浮点型，可以使用 <code>UNSIGNED</code> 关键字。</p>
+<p>使用浮点类型时，应当指定它的长度和精度：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> HIE(</span><br><span class="line">    Age TINYINT UNSIGNED,</span><br><span class="line">    Price <span class="keyword">DOUBLE</span>(<span class="number">9</span>,<span class="number">2</span>) UNSIGNED</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码表示 <code>Price</code> 属性是无符号的 <code>DOUBLE</code> 类型，其10进制数字长度≤9，小数位数≤2。</p></div><div class="tab-pane" id="datatype-3"><p>SQL的字符型相对较多：</p>
+<ul>
+<li><code>CHAR</code> ，定长字符型</li>
+<li><code>VARCHAR</code> ，变长字符型</li>
+<li><code>BLOB</code> ，二进制</li>
+<li><code>TEXT</code> ，文本</li>
+</ul>
+<p>使用字符类型时应指定其占用的字符数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> HIE(</span><br><span class="line">    Age TINYINT UNSIGNED,</span><br><span class="line">    Price <span class="keyword">DOUBLE</span>(<span class="number">9</span>,<span class="number">2</span>) UNSIGNED,</span><br><span class="line">    Name <span class="type">VARCHAR</span>(<span class="number">10</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>CHAR</code> 与 <code>VARCHAR</code></strong></div>
+
+<div style="color:royalblue;">不论是 <code>CHAR</code> 还是 <code>VARCHAR</code> ，其存储的字符长度均不能超过指定的长度。但它们实际占用的字节数不一样。不管存储的字符有多少， <code>CHAR</code> 始终会占用给定的字节数，而 <code>VARCHAR</code> 则会计算存储的字符数，并占用最小的空间。因此 <code>CHAR</code> 的时间性能更好而空间开销更大。</div>
+</div></div><div class="tab-pane" id="datatype-4"><p>SQL中的日期型很多，这里就提及比较常用的几种：</p>
+<ul>
+<li><code>DATE</code> ，年月日</li>
+<li><code>TIME</code> ，时分秒</li>
+<li><code>TIMESTAMP</code> ，时间戳，年月日时分秒</li>
+</ul></div></div></div>
+
+<h4 id="3-属性操作"><a href="#3-属性操作" class="headerlink" title="3. 属性操作"></a><strong>3. 属性操作</strong></h4><p>数据库中表的结构并不是在定义后就不能修改。</p>
+<p>要想修改属性，可以使用：</p>
+<ul>
+<li><code>ALTER TABLE 表名 ADD 属性名;</code> ，添加属性</li>
+<li><code>ALTER TABLE 表名 MODIFY 属性名 新类型;</code> ，修改属性的类型</li>
+<li><code>ALTER TABLE 表名 CHANGE 属性名 新属性名 新类型名;</code> ，修改属性名及类型</li>
+<li><code>ALTER TABLE 表名 DROP 属性名;</code> ，删除属性</li>
+</ul>
+<p>要想修改表，可以使用：</p>
+<ul>
+<li><code>ALTER TABLE 表名 RENAME TO 新表名;</code> ，重命名表</li>
+<li><code>DROP TABLE 表名;</code> ，删除表</li>
+<li><code>TRUNCATE TABLE 表名;</code> ，删除表后再重建表（即清空表中数据）</li>
+</ul>
+<h3 id="2-DML"><a href="#2-DML" class="headerlink" title="(2) DML"></a><strong>(2) DML</strong></h3><p>DML，全称为数据操作语言（<span style="color:red;">D</span>ata <span style="color:red;">M</span>anipulation <span style="color:red;">L</span>anguage）。它是SQL的一种，用于操作表中的项。</p>
+<p>下面的语句中， <code>[]</code> 中的语句代表该语句可省略。</p>
+<ul>
+<li><code>INSERT 表名 (属性名1, 属性名2, ···) VALUES (属性值1, 属性值2, ···);</code> ，向表中新增项</li>
+<li><code>UPDATE 表名 SET 属性名1='属性值1', 属性名2='属性值2', ··· [WHERE 条件];</code> ，修改表中符合 <code>WHERE</code> 关键字后条件的项的属性值</li>
+<li><code>DELETE FROM 表名 [WHERE 条件];</code> ，删除表中符合条件的所有项</li>
+</ul>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>WHERE</code> 关键字的条件</strong></div>
+
+<div style="color:royalblue;">类似于其它编程语言的控制流，SQL中也存在条件运算符。下面只列举与C++不同的条件运算符：
+
+<ul>
+<li><code>BETWEEN ··· AND ···</code> ，在某个范围之间</li>
+<li><code>IN(···)</code> ，是括号内的值之一</li>
+<li><code>LIKE</code> ，模糊匹配，<code>'_'</code>代表单个字符， <code>'%'</code> 代表任意个字符</li>
+<li><code>IS NULL</code> ，是空值</li>
+</ul>
+</div>
+</div>
+
+<h3 id="3-DQL"><a href="#3-DQL" class="headerlink" title="(3) DQL"></a><strong>(3) DQL</strong></h3><p>DQL，全称为数据查询语言（<span style="color:red;">D</span>ata <span style="color:red;">Q</span>uery <span style="color:red;">L</span>anguage）。它是SQL的一种，用于查询数据库中的项。</p>
+<h4 id="1-WHERE"><a href="#1-WHERE" class="headerlink" title="1. WHERE"></a><strong>1. <code>WHERE</code></strong></h4><ul>
+<li><code>SELECT [DISTINCT] 属性名1 [AS '别名1'], 属性名2, ··· FROM 表名 [WHERE 条件];</code> 查询表中所有项对应的这些属性。<ul>
+<li>如果有 <code>DISTINCT</code> 关键字，则不会显示重复结果；</li>
+<li>如果有 <code>AS</code> 关键字，则会在显示结果时以别名代替；</li>
+<li>如果有 <code>WHERE</code> 关键字，则只会显示符合条件的项。</li>
+</ul>
+</li>
+</ul>
+<p><code>AS</code> 关键字不仅可以用于设置属性别名，还能用于设置表的别名。</p>
+<h4 id="2-聚合函数"><a href="#2-聚合函数" class="headerlink" title="2. 聚合函数"></a><strong>2. 聚合函数</strong></h4><p><code>SELECT</code> 关键字后也可以不加属性名而是使用函数。关于函数的细节之后再详述，这里只介绍一些能搭配 <code>SELECT</code> 使用的函数。这些函数被称作<span style="color:red;">聚合函数</span>。</p>
+<ul>
+<li><code>count(属性名)</code> ，返回该属性非空的项个数</li>
+<li><code>max(属性名)</code> ，返回该属性的最大值</li>
+<li><code>min(属性名)</code> ，返回该属性的最小值</li>
+<li><code>avg(属性名)</code> ，返回该属性的平均值</li>
+<li><code>sum(属性名)</code> ，返回该属性值的和</li>
+</ul>
+<h4 id="3-GROUP-BY-与-HAVING"><a href="#3-GROUP-BY-与-HAVING" class="headerlink" title="3. GROUP BY 与 HAVING"></a><strong>3. <code>GROUP BY</code> 与 <code>HAVING</code></strong></h4><p><code>GROUP BY</code> 关键字需要放在 <code>SELECT</code> 语句的最后。它的功能是按照某一属性对项进行分组，结果将会以组来显示。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 使用ctos数据库</span><br><span class="line">USE ctos;</span><br><span class="line"></span><br><span class="line"># 传入一些数据</span><br><span class="line"><span class="keyword">INSERT</span> hie (Name, Type, Age)</span><br><span class="line"><span class="keyword">VALUES</span> (&quot;Lacia&quot;, &quot;Type-005&quot;, <span class="number">17</span>),</span><br><span class="line">    (&quot;Kouka&quot;, &quot;Type-001&quot;, <span class="number">20</span>),</span><br><span class="line">    (&quot;Method&quot;, &quot;Type-004&quot;, <span class="number">18</span>),</span><br><span class="line">    (&quot;Lacia-01&quot;, &quot;Type-005&quot;, <span class="number">14</span>);</span><br><span class="line"></span><br><span class="line"># 查找数据</span><br><span class="line"><span class="keyword">SELECT</span> Type <span class="keyword">AS</span> <span class="string">&#x27;型号&#x27;</span>,</span><br><span class="line">    <span class="built_in">count</span>(Name) <span class="keyword">AS</span> <span class="string">&#x27;数量&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> hie</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Type;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<p><img src="/2022/03/01/SQLGrammar/1.png" alt="1 1" title="1"></p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>图形化数据库</strong></div>
+
+<div style="color:royalblue;">上图显然不是命令行的数据库。数据库也有图形化操作的软件，例如Navicat<del>一个屑中屑</del>与MySQL WorkBench等。但这里我用的是VS Code的插件——SQLTools。<del>为什么VS Code是神。</del></div>
+</div>
+
+<p>可以看见， <code>Type</code> 与 <code>count()</code> 均被替换为了别名，并且是以 <code>Type</code> 属性值相同的项为一组进行分组，再进行统计。如果有 <code>WHERE</code> 关键字，则不满足条件的项将不会被纳入统计。</p>
+<p><code>HAVING</code> 关键字需要放在 <code>GROUP BY</code> 关键字之后。它与 <code>WHERE</code> 关键字相似，但它是对分组之后的项进行处理，并且 <code>HAVING</code> 可以使用聚合函数进行条件判断。</p>
+<h4 id="4-ORDER-BY"><a href="#4-ORDER-BY" class="headerlink" title="4. ORDER BY"></a><strong>4. <code>ORDER BY</code></strong></h4><p>使用 <code>ORDER BY</code> 关键字可以按照某一属性的值对结果进行排序。可以在属性名后加上关键字以确定排序顺序：</p>
+<ul>
+<li><code>ASC</code> ，升序排序</li>
+<li><code>DESC</code> ，降序排序</li>
+<li>不加关键字，默认升序排序</li>
+</ul>
+<p><code>ORDER BY</code> 关键字后可以加多个属性。当前一个属性相同时，会按照后一个属性的排序方式进行排序。你可以为每一个属性设置排序方式。</p>
+<h4 id="5-LIMIT"><a href="#5-LIMIT" class="headerlink" title="5. LIMIT"></a><strong>5. <code>LIMIT</code></strong></h4><p><code>LIMIT</code> 关键字用于规定一页展示多少条搜索结果。在不同的数据库系统中，分页功能有不同的关键字，在MySQL中这个关键字就是 <code>LIMIT</code> 。它的用法为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIMIT 页号, 每页条目数</span><br></pre></td></tr></table></figure>
+
+<p>其中，页号是从0开始计数的。</p>
+<h4 id="6-DQL的编写顺序与执行顺序"><a href="#6-DQL的编写顺序与执行顺序" class="headerlink" title="6. DQL的编写顺序与执行顺序"></a><strong>6. DQL的编写顺序与执行顺序</strong></h4><p>编写顺序：<br><code>SELECT</code>-&gt;<code>FROM</code>-&gt;<code>WHERE</code>-&gt;<code>GROUP BY</code>-&gt;<code>HAVING</code>-&gt;<code>ORDER BY</code>-&gt;<code>LIMIT</code> 。</p>
+<p>执行顺序：<br><code>FROM</code>-&gt;<code>WHERE</code>-&gt;<code>GROUP BY</code>-&gt;<code>HAVING</code>-&gt;<code>SELECT</code>-&gt;<code>ORDER BY</code>-&gt;<code>LIMIT</code> 。</p>
+<h3 id="4-DCL"><a href="#4-DCL" class="headerlink" title="(4) DCL"></a><strong>(4) DCL</strong></h3><p>DCL，全称为数据库控制语言（<span style="color:red;">D</span>ata <span style="color:red;">C</span>ontrol <span style="color:red;">L</span>anguage）。它用于控制数据的访问权限。</p>
+<div class="tabs" id="usercontrol"><ul class="nav-tabs"><li class="tab active"><a href="#usercontrol-1">查看用户</a></li><li class="tab"><a href="#usercontrol-2">创建用户</a></li><li class="tab"><a href="#usercontrol-3">修改用户</a></li><li class="tab"><a href="#usercontrol-4">删除用户</a></li><li class="tab"><a href="#usercontrol-5">权限控制</a></li></ul><div class="tab-content"><div class="tab-pane active" id="usercontrol-1"><p>MySQL中的用户信息全都存放在一个名为 <code>mysql</code> 的数据库下的 <code>user</code> 表中。你可以运行下面的代码来查看有哪些用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span>   # “<span class="operator">*</span>” 代表选择所有属性</span><br><span class="line"><span class="keyword">FROM</span> mysql.user;   #可以通过 库名.表名 来直接定位表</span><br></pre></td></tr></table></figure>
+
+<p>由于该表中的属性过多，在命令行中显示极有可能格式紊乱，建议使用图形化的界面查看。</p>
+<p><img src="/2022/03/01/SQLGrammar/2.png" alt="2 2" title="2"></p>
+<p><code>Lacia</code> 用户是我在安装时添加的。如果你按照默认的方式安装了MySQL，那么将不会存在这个用户。</p></div><div class="tab-pane" id="usercontrol-2"><p>使用如下语句以创建用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机地址&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>创建的用户只能从指定的地址登录。如果想设置为能从任意地址登录，可以把主机地址设置为 <code>'%'</code> （通配符）。</p></div><div class="tab-pane" id="usercontrol-3"><p>使用如下语句以修改用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机地址&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> 加密方式 <span class="keyword">BY</span> <span class="string">&#x27;密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中，加密方式建议选择默认的 <code>mysql_native_password</code> 。</p></div><div class="tab-pane" id="usercontrol-4"><p>使用如下语句以删除用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机地址&#x27;</span>;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usercontrol-5"><p>SQL中的常用权限可以分为如下几种：</p>
+<ul>
+<li><code>ALL</code> ，所有特权</li>
+<li><code>SELECT</code> ，查询项权限</li>
+<li><code>INSERT</code> ，增加项权限</li>
+<li><code>UPDATE</code> ，修改项权限</li>
+<li><code>DELETE</code> ，删除项权限</li>
+<li><code>ALTER</code> ，修改表权限</li>
+<li><code>DROP</code> ，删除库&#x2F;表权限</li>
+<li><code>CREATE</code> ，创建库&#x2F;表权限</li>
+</ul>
+<p>管理用户权限，可以使用下列语句：</p>
+<ul>
+<li><code>SHOW GRANTS FOR '用户名'@'主机地址';</code> ，查看指定用户的权限</li>
+<li><code>GRANT 权限列表 ON 库名.表名 TO '用户名'@'主机地址';</code> ，赋予指定用户管理指定表的指定权限</li>
+<li><code>REVOKE 权限列表 ON 库名.表名 FROM '用户名'@'主机地址';</code> 撤销指定用户对指定表的指定权限</li>
+</ul>
+<p>同样，建议使用图形化的数据库软件查看结果。</p></div></div></div>
+
+<h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a><strong>三、函数</strong></h2><p>SQL中内置了很多函数。</p>
+<h3 id="1-字符串函数"><a href="#1-字符串函数" class="headerlink" title="(1) 字符串函数"></a><strong>(1) 字符串函数</strong></h3><ul>
+<li><code>CONCAT(str1, ···)</code> ，将作为参数的所有字符串拼接后返回。</li>
+<li><code>LOWER(str)</code> ，将 <code>str</code> 的所有字符转为小写后返回。</li>
+<li><code>UPPER(str)</code> ，将 <code>str</code> 的所有字符转为大写后返回。</li>
+<li><code>LPAD(str, n, pad)</code> ，用<code>pad</code> 填充 <code>str</code> 左侧，直到字符串长度达到 <code>n</code> ，并返回。</li>
+<li><code>RPAD</code> ，同 <code>LPAD()</code> ，但是是填充右侧。</li>
+<li><code>TRIM(str)</code> ，去除 <code>str</code> 头部和尾部的空格。</li>
+<li><code>SUBSTRING(str, start, len)</code> ,截取 <code>str</code> ，从第 <code>start</code> 个字符开始截取（包含），直到子串长度达到 <code>len</code> 或达到字符串末尾。</li>
+</ul>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>显示函数结果</strong></div>
+
+<div style="color:royalblue;">可以直接使用 <code>SELECT</code> 关键字来打印函数的执行结果。</div>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUBSTRING</span>(<span class="string">&#x27;1145141919810&#x27;</span>, <span class="number">3</span>, <span class="number">7</span>);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT SUBSTRING(<span class="string">&#x27;1145141919810&#x27;</span>, 3, 7);</span></span><br><span class="line">+----------------------------------+</span><br><span class="line">| SUBSTRING(&#x27;1145141919810&#x27;, 3, 7) |</span><br><span class="line">+----------------------------------+</span><br><span class="line">| 4514191                          |</span><br><span class="line">+----------------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">另外，请注意，<code>SUBSTRING()</code> 函数的起始位置是从1开始计数的。</div>
+</div>
+
+<h3 id="2-数值函数"><a href="#2-数值函数" class="headerlink" title="(2) 数值函数"></a><strong>(2) 数值函数</strong></h3><ul>
+<li><code>CEIL(a)</code> ， <code>a</code> 向上取整后返回</li>
+<li><code>FLOOR(a)</code> ，<code>a</code> 向下取整后返回</li>
+<li><code>MOD(a, b)</code> ，返回 <code>a</code> mod <code>b</code></li>
+<li><code>RAND()</code> ，返回1个在0~1之间的随机数。</li>
+<li><code>ROUND(x, i)</code> ，将 <code>x</code> 四舍五入取整，保留 <code>i</code> 位小数。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CEIL</span>(<span class="number">114.514</span>),</span><br><span class="line">    <span class="built_in">FLOOR</span>(<span class="number">114.514</span>),</span><br><span class="line">    <span class="built_in">MOD</span>(<span class="number">1919</span>, <span class="number">810</span>),</span><br><span class="line">    RAND() <span class="operator">*</span> <span class="number">100</span>,</span><br><span class="line">    ROUND(<span class="number">114.5145</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/03/01/SQLGrammar/3.png" alt="3 3" title="3"></p>
+<h3 id="3-日期函数"><a href="#3-日期函数" class="headerlink" title="(3) 日期函数"></a><strong>(3) 日期函数</strong></h3><ul>
+<li><code>CURDATE()</code> ，返回当前日期</li>
+<li><code>CURTIME()</code> ，返回当前时间</li>
+<li><code>NOW()</code> ，返回当前的日期+时间</li>
+<li><code>YEAR(date)</code> ，返回日期中的年份</li>
+<li><code>MONTH(date)</code> ，返回日期中的月份</li>
+<li><code>DAY(date)</code> ，返回日期中的天</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CURDATE(),</span><br><span class="line">    CURTIME(),</span><br><span class="line">    NOW(),</span><br><span class="line">    <span class="keyword">YEAR</span>(CURDATE()),</span><br><span class="line">    <span class="keyword">MONTH</span>(<span class="string">&#x27;1919-08-10&#x27;</span>),</span><br><span class="line">    <span class="keyword">DAY</span>(CURDATE());</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/03/01/SQLGrammar/4.png" alt="4 4" title="4"></p>
+<p>SQL能够非常便捷地进行日期运算，只需要使用 <code>DATE_ADD()</code> 函数与 <code>INTERVAL</code> 关键字。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(</span><br><span class="line">        <span class="string">&#x27;1919-08-10&#x27;</span>,</span><br><span class="line">        <span class="type">INTERVAL</span> <span class="number">114514</span> <span class="keyword">DAY</span></span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/03/01/SQLGrammar/5.png" alt="5 5" title="5"></p>
+<p>计算两个日期相隔多少天，可以使用 <code>DATEDIFF()</code> 函数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATEDIFF(CURDATE(), <span class="string">&#x27;1919-08-10&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意是前者减去后者。如果把较早的日期放在前面，将会返回负数。输出结果为：</p>
+<p><img src="/2022/03/01/SQLGrammar/6.png" alt="6 6" title="6"></p>
+<h2 id="四、控制流"><a href="#四、控制流" class="headerlink" title="四、控制流"></a><strong>四、控制流</strong></h2><p>SQL的常用控制流函数有以下两个：</p>
+<ul>
+<li><code>IF(bool, a, b)</code> ，如果 <code>bool</code> 为 <code>true</code> ，则返回 <code>a</code> ，否则返回 <code>b</code> 。</li>
+<li><code>IFNULL(a, b)</code> ，如果 <code>a</code> 不为 <code>NULL</code> ，则返回 <code>a</code> ，否则返回 <code>b</code> 。</li>
+</ul>
+<p>SQL中还可以使用 <code>CASE</code> 关键字来建立控制流：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 第一种</span><br><span class="line"><span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> bool1 <span class="keyword">THEN</span> value1</span><br><span class="line">    <span class="keyword">WHEN</span> bool2 <span class="keyword">THEN</span> value2</span><br><span class="line">    ······</span><br><span class="line">    <span class="keyword">ELSE</span> DefaultValue</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 第二种</span><br><span class="line"><span class="keyword">CASE</span> a</span><br><span class="line">    <span class="keyword">WHEN</span> a1 <span class="keyword">THEN</span> value1</span><br><span class="line">    <span class="keyword">WHEN</span> a2 <span class="keyword">THEN</span> value2</span><br><span class="line">    ······</span><br><span class="line">    <span class="keyword">ELSE</span> DefaultValue</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码中的第一种，是当 <code>WHEN</code> 关键字后的逻辑表达式为真时，返回其后的 <code>THEN</code> 关键字后的值。<br>第二种则是当 <code>WHEN</code> 关键字后的值等于 <code>a</code> 时，返回其后的 <code>THEN</code> 关键字后的值。</p>
+<p>由 <code>CASE</code> 关键字定义的控制流，与Go语言的 <code>switch</code> 语句相似，它只会返回第一个符合条件的值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> <span class="literal">true</span> <span class="keyword">THEN</span> &quot;1&quot;</span><br><span class="line">    <span class="keyword">WHEN</span> <span class="literal">true</span> <span class="keyword">THEN</span> &quot;2&quot;</span><br><span class="line">    <span class="keyword">ELSE</span> &quot;3&quot;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">AS</span> &quot;测试&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/03/01/SQLGrammar/7.png" alt="7 7" title="7"></p>
+<h2 id="五、约束"><a href="#五、约束" class="headerlink" title="五、约束"></a><strong>五、约束</strong></h2><p>约束用于限制数据库中存储的某一个属性的值应该处于什么范围内。与约束有关的关键字如下：</p>
+<ul>
+<li><code>NOT NULL</code> ，非空</li>
+<li><code>UNIQUE</code> ，唯一</li>
+<li><code>PRIMARY KEY</code> ，主键约束，非空且唯一</li>
+<li><code>DEFAULT</code> ，未指定属性值时，采用其后的默认值</li>
+<li><code>FOREIGN KEY</code> ，外键约束，链接两张表的某一属性</li>
+<li><code>CHECK</code> ，值必须满足某一条件</li>
+</ul>
+<p>约束又分为表级约束与列级约束。表级约束将对整张表的符合条件的属性起约束作用，而列级约束只对某一个属性起约束作用。由于约束的删除与添加各不相同<del>设计这部分代码的人真的是人间之屑</del>，此处只涉及对外键约束的操作，因为它最常被添加或修改。</p>
+<p>一般外键约束都是在表建立以后再进行链接，因此有必要掌握创建与删除外键约束的语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 创建外键约束</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> 自定义约束名 <span class="keyword">FOREIGN</span> KEY (属性名) REFERENCE 表名(属性名);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 删除外键约束</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY 自定义约束名;</span><br></pre></td></tr></table></figure>
+
+<p>要链接两个表的某一属性，前提是这两张表的对应属性必须属于一种类型。在设置外键约束以后，还可以设置更新&#x2F;删除项时的行为：</p>
+<ul>
+<li><code>RESTRICT</code> ，若有对应外键则不允许修改</li>
+<li><code>CASCADE</code> ，连对应外键一起修改</li>
+<li><code>SET NULL</code> ，将外键的值设置为 <code>NULL</code> 。</li>
+</ul>
+<p>默认行为是 <code>RESTRICT</code> ，要修改行为可以使用 <code>ON UPDATE</code> 和 <code>ON DELETE</code> 关键字，它们需要接在 <code>REFERENCE</code> 关键字之后。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> 自定义约束名 <span class="keyword">FOREIGN</span> KEY (属性名) REFERENCE 表名(属性名) <span class="keyword">ON</span> <span class="keyword">UPDATE</span> 行为<span class="number">1</span> <span class="keyword">ON</span> <span class="keyword">DELETE</span> 行为<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><div style="color:green;font-size:1.5em;"><strong>基础知识到此为止</strong></div>
+
+<div style="color:green;">SQL还有多表查询，事务等。这些也属于基础知识，但本文不再涉及。更深层次的知识则有数据库引擎、存储方式等偏向底层的知识，这些应该在打好基础之后再深入了解。</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/03/01/SQLGrammar/" title="SQL基础">https://ayanami-daisuki.github.io/2022/03/01/SQLGrammar/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/21/PythonGrammar03/" rel="prev" title="Python基础（三）">
+                  <i class="fa fa-chevron-left"></i> Python基础（三）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/02/JavaGrammar01/" rel="next" title="Java基础（一）">
+                  Java基础（一） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

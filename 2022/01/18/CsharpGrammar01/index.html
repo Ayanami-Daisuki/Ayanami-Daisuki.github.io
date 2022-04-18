@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/01/18/CsharpGrammar01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/01/18/CsharpGrammar01/","path":"2022/01/18/CsharpGrammar01/","title":"C#语法基础（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C#语法基础（一） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B"><span class="nav-text">一、C#简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NET%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">.NET跨平台工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">二、C#基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Hello-world%EF%BC%81"><span class="nav-text">(1) Hello,world！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E5%9C%A8vscode%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%A5%BDC-%E7%8E%AF%E5%A2%83"><span class="nav-text">Ⅰ. 在vscode上配置好C#环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E5%9C%A8C-%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%91%BD%E5%90%8D%E4%B8%BAHello"><span class="nav-text">Ⅱ. 在C#文件夹下新建一个文件夹，命名为Hello</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E6%89%93%E5%BC%80%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">Ⅲ. 在终端中打开这个文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A3-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E8%BE%93%E5%85%A5"><span class="nav-text">Ⅳ. 在终端中输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A4-%E8%AE%BE%E7%BD%AE-csproj%E6%96%87%E4%BB%B6"><span class="nav-text">Ⅴ. 设置.csproj文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A5-%E7%BC%96%E5%86%99C-%E4%BB%A3%E7%A0%81"><span class="nav-text">Ⅵ. 编写C#代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A6-%E7%BC%96%E8%AF%91%E5%B9%B6%E8%BF%90%E8%A1%8C"><span class="nav-text">Ⅶ. 编译并运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Hello%EF%BC%8Cworld-%E7%9A%84%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="nav-text">(2) Hello，world!的原理概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">Ⅰ. 命名空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E7%B1%BB"><span class="nav-text">Ⅱ. 类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2-%E5%87%BD%E6%95%B0"><span class="nav-text">Ⅲ. 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A3-Console-WriteLine"><span class="nav-text">Ⅳ. Console.WriteLine()</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/01/18/CsharpGrammar01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C#语法基础（一） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#语法基础（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-18 08:43:00" itemprop="dateCreated datePublished" datetime="2022-01-18T08:43:00+08:00">2022-01-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:06:06" itemprop="dateModified" datetime="2022-04-17T21:06:06+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/01/18/CsharpGrammar01/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议先学习C++基础再进行C#的学习。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、C-简介"><a href="#一、C-简介" class="headerlink" title="一、C#简介"></a><strong>一、C#简介</strong></h2><p>C#有三大平台：</p>
+<ul>
+<li>.NET Framework</li>
+<li>.NET Core</li>
+<li>Xamarin</li>
+</ul>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>各个平台的特性</strong></div>
+
+<div style="color:royalblue;">.NET Framework是旧技术，仅适用于Windows平台，为了维持兼容性将不会有重大更新；.NET Core是新技术，跨平台，将是未来Microsoft主要的投入方向；Xamarin是第三方的，可以跨平台。主要应用于Unity。</div>
+</div>
+
+<p>未来Microsoft会将主要精力投入 .NET Core 而非 .NET Framework ，并且自 .NET Core 5.0 开始正式更名为 .NET 5.0 ，它相比 .NET Framework 更加灵活。目前，2022年， .NET 已经到了6.0版本。</p>
+<h3 id="NET跨平台工作原理"><a href="#NET跨平台工作原理" class="headerlink" title=".NET跨平台工作原理"></a><strong>.NET跨平台工作原理</strong></h3><p>跨平台原理与Java类似，在程序与操作系统之间隔了一层虚拟机。</p>
+<ol>
+<li>编译时<br>.NET CLI工具使用的C#编译器名为Roslyn，它将C#的源代码转换为中间语言代码，并将之存放在.dll或者.exe文件中。</li>
+<li>加载时<br>.NET Core的虚拟机CoreCLR从文件中加载代码，再由即时编译器将之编译为本机CPU指令。</li>
+<li>运行时<br>运行时由本机CPU运行即时编译器编译后的CPU指令。</li>
+</ol>
+<p>.NET拥有CLR（公共语言运行库）和BCL（基类库），前者负责代码的执行，后者提供丰富的类以构建应用程序。</p>
+<h2 id="二、C-基础语法"><a href="#二、C-基础语法" class="headerlink" title="二、C#基础语法"></a><strong>二、C#基础语法</strong></h2><h3 id="1-Hello-world！"><a href="#1-Hello-world！" class="headerlink" title="(1) Hello,world！"></a><strong>(1) Hello,world！</strong></h3><h4 id="Ⅰ-在vscode上配置好C-环境"><a href="#Ⅰ-在vscode上配置好C-环境" class="headerlink" title="Ⅰ. 在vscode上配置好C#环境"></a><strong>Ⅰ. 在vscode上配置好C#环境</strong></h4><p>关于如何配置环境，请参见网络上的方法，此处不再赘述。</p>
+<h4 id="Ⅱ-在C-文件夹下新建一个文件夹，命名为Hello"><a href="#Ⅱ-在C-文件夹下新建一个文件夹，命名为Hello" class="headerlink" title="Ⅱ. 在C#文件夹下新建一个文件夹，命名为Hello"></a><strong>Ⅱ. 在C#文件夹下新建一个文件夹，命名为Hello</strong></h4><p><img src="/2022/01/18/CsharpGrammar01/1.png" alt="1 1" title="1"></p>
+<h4 id="Ⅲ-在终端中打开这个文件夹"><a href="#Ⅲ-在终端中打开这个文件夹" class="headerlink" title="Ⅲ. 在终端中打开这个文件夹"></a><strong>Ⅲ. 在终端中打开这个文件夹</strong></h4><h4 id="Ⅳ-在终端中输入"><a href="#Ⅳ-在终端中输入" class="headerlink" title="Ⅳ. 在终端中输入"></a><strong>Ⅳ. 在终端中输入</strong></h4><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet new console</span></span><br></pre></td></tr></table></figure>
+
+<p>通过这个命令可以自动在该文件夹下创建C#工程。</p>
+<h4 id="Ⅴ-设置-csproj文件"><a href="#Ⅴ-设置-csproj文件" class="headerlink" title="Ⅴ. 设置.csproj文件"></a><strong>Ⅴ. 设置.csproj文件</strong></h4><p>因为我的文件夹名为Hello，所以生成的C#配置文件默认为Hello.csproj。打开Hello.csproj。</p>
+<p><img src="/2022/01/18/CsharpGrammar01/2.png" alt="2 2" title="2"></p>
+<p>删除上图中高亮的代码部分，即</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImplicitUsings</span>&gt;</span>enable<span class="tag">&lt;/<span class="name">ImplicitUsings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>隐式命名空间</strong></div>
+
+<div style="color:royalblue;">这段代码是.NET 6.0的新特性之一：隐式命名空间引用。启用了这个选项以后，C#的语法就可以像脚本一样书写。但是为了更好地学习C#，我们需要关闭这个选项。</div>
+</div>
+
+<h4 id="Ⅵ-编写C-代码"><a href="#Ⅵ-编写C-代码" class="headerlink" title="Ⅵ. 编写C#代码"></a><strong>Ⅵ. 编写C#代码</strong></h4><p>按如下格式重构Program.cs文件中的内容。（此处我将Program.cs重命名为了Hello.cs）</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;  <span class="comment">//使用System命名空间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MainProgram</span>  <span class="comment">//[1]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">MainProcess</span>  <span class="comment">//[2]</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()  <span class="comment">//[3]</span></span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Hello,world!&quot;</span>);  <span class="comment">//[4]</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note default"><div style="color:dimgray;font-size:1.5em;"><strong>代码的注释</strong></div>
+
+<div style="color:dimgray;">
+[1] 用户自定义的命名空间。只要不使用C#关键字，名字随便选。<br>
+[2] 用户自定义的类。只要不使用C#关键字，名字随便选。<br>
+[3] 和C/C++一样，主函数名称必须为Main()，要注意大小写，且必须为static类型。返回值可以为int，但记得写return 0;。<br>
+[4] 控制台打印Hello,world并换行。
+</div>
+</div>
+
+<p>为什么需要这么写，下文再详述。</p>
+<h4 id="Ⅶ-编译并运行"><a href="#Ⅶ-编译并运行" class="headerlink" title="Ⅶ. 编译并运行"></a><strong>Ⅶ. 编译并运行</strong></h4><p>在终端中输入</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br></pre></td></tr></table></figure>
+
+<p>C#编译器将会对源文件进行编译并生成可执行文件。</p>
+<p>控制台的输出应该为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br><span class="line">Hello,world!</span><br><span class="line"><span class="meta prompt_">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>.exe文件的位置应该处于&#x2F;Hello&#x2F;bin&#x2F;Debug&#x2F;net6.0下。其全名应该为Hello.exe。</p>
+<p>你可以尝试在Hello.exe所在的文件夹打开powershell，输入</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">.\Hello.exe</span></span><br></pre></td></tr></table></figure>
+
+<p>其执行结果应该为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">.\Hello.exe</span></span><br><span class="line">Hello,world!</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Hello，world-的原理概述"><a href="#2-Hello，world-的原理概述" class="headerlink" title="(2) Hello，world!的原理概述"></a><strong>(2) Hello，world!的原理概述</strong></h3><p>C#的名字源自于C++++。C++在C的基础上做了加法，增加了面向对象编程。 <del>而C#在C++的基础上做了“加法”（确信）。</del> C#按照C++的语法，以完全的面向对象思想构建了语法体系。因此学过C++的同学能看到一些很熟悉的东西。</p>
+<h4 id="Ⅰ-命名空间"><a href="#Ⅰ-命名空间" class="headerlink" title="Ⅰ. 命名空间"></a><strong>Ⅰ. 命名空间</strong></h4><p>与C++的命名空间相似。不过C#没有了头文件，所有的类均在命名空间中定义。</p>
+<p>要使用某一个类，要么采用</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> 命名空间;</span><br><span class="line">······</span><br><span class="line">类</span><br></pre></td></tr></table></figure>
+
+<p>要么采用</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命名空间.类</span><br></pre></td></tr></table></figure>
+
+<p>的方式进行引用。</p>
+<h4 id="Ⅱ-类"><a href="#Ⅱ-类" class="headerlink" title="Ⅱ. 类"></a><strong>Ⅱ. 类</strong></h4><p>与C++的类相似。不过C#做了静态与非静态的区分。这个之后再讲。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>暂时地理解</strong></div>
+
+<div style="color:royalblue;">现在就先这么理解：static的类实际存在，其本身就是一个变量，可以直接使用；非static的类只是一个类型，不是变量，只能使用以这个类型创建的变量。</div>
+</div>
+
+<h4 id="Ⅲ-函数"><a href="#Ⅲ-函数" class="headerlink" title="Ⅲ. 函数"></a><strong>Ⅲ. 函数</strong></h4><p>与C++的成员函数类似。C#中没有存在于类之外的函数，所有的函数均存在类的内部。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>从C++的角度理解</strong></div>
+
+<div style="color:royalblue;">按C++的定义，可以这么说：C#的所有函数都是成员函数。</div>
+</div>
+
+<p>并且函数也与类一样，存在静态与非静态之分。<br>所以主函数Main()需要写在类的内部，并且需要以static前缀声明。</p>
+<p>和C&#x2F;C++一样，C#也只能有一个名称为Main()的函数。</p>
+<p>可以做如下实验：</p>
+<p>按如下方式修改你的.cs文件</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MainProgram</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">MainProcess</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Hello,world!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">M2</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">MainProcess</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Hello,world!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在命令行中运行</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br></pre></td></tr></table></figure>
+
+<p>我的报错信息为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">dotnet run</span></span><br><span class="line">error CS0017: 程序定义了多个入口点。使用 /main (指定包含入口点的类型)进行编译。</span><br><span class="line"></span><br><span class="line">生成失败。请修复生成错误并重新运行。</span><br></pre></td></tr></table></figure>
+
+<p>即：要么你指定一个Main()作为主函数，要么你换一个名字，要么编译失败。</p>
+<p>并且可以有如下结论：</p>
+<ol>
+<li>命名空间不允许一致。</li>
+<li>不同命名空间的类名允许一致</li>
+<li>处于同一命名空间的类名不允许一致。</li>
+<li>只要不指定主函数，Main()就只能有一个。</li>
+</ol>
+<h4 id="Ⅳ-Console-WriteLine"><a href="#Ⅳ-Console-WriteLine" class="headerlink" title="Ⅳ. Console.WriteLine()"></a><strong>Ⅳ. Console.WriteLine()</strong></h4><p>根据源代码与前面的解释不难推测出，Console.WriteLine()函数控制了在控制台打印”Hello,world!”。<br>其中Console为一个static类，定义在System命名空间中。因此你可以按如下方式重构源代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">MainProgram</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">MainProcess</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.Console.WriteLine(<span class="string">&quot;Hello,world!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>依然可以编译成功并正确运行。</p>
+<p>Console类为代表控制台的static类。使用它可以对控制台进行操作。Console类下面定义了成员函数WriteLine()。与C的printf()、C++的std::cout类似，它用于在控制台下执行打印功能并在打印结束后进行换行。若不想换行可以使用另一个成员函数Write()。</p>
+<p>至此，配合C&#x2F;C++的语法知识，使用C#写出一般简单程序已经不在话下。你可以试着将你写的一些偏重于算法的简单C++代码按照C#的格式重构。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/01/18/CsharpGrammar01/" title="C#语法基础（一）">https://ayanami-daisuki.github.io/2022/01/18/CsharpGrammar01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/C-%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> C#语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/17/DasKapital01/" rel="prev" title="资本论笔记（一）">
+                  <i class="fa fa-chevron-left"></i> 资本论笔记（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/18/MachineLearningPrinciple/" rel="next" title="机器学习原理">
+                  机器学习原理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/03/03/JavaGrammar02/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/03/03/JavaGrammar02/","path":"2022/03/03/JavaGrammar02/","title":"Java基础（二）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java基础（二） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">三、面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%96%B9%E6%B3%95%EF%BC%88%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">(1) 方法（成员函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9A%E4%B9%89%E7%B1%BB"><span class="nav-text">(2) 定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">(3) 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%A7%E6%89%BF"><span class="nav-text">(4) 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-this-%E4%B8%8E-super"><span class="nav-text">1. this 与 super</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%BB%A7%E6%89%BF%E4%B8%AD%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">2. 继承中的构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-text">(5) 访问权限修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%8A%B6%E6%80%81%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-text">(6) 状态修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-final"><span class="nav-text">1. final</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-static"><span class="nav-text">2. static</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%A4%9A%E6%80%81"><span class="nav-text">(7) 多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8A%BD%E8%B1%A1"><span class="nav-text">2. 抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%8E%A5%E5%8F%A3"><span class="nav-text">3. 接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-text">(8) 内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E5%8C%85%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%BC%95%E7%94%A8"><span class="nav-text">(9) 包的创建与引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E6%9D%82%E9%A1%B9"><span class="nav-text">(10) 杂项</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+      <div id="aplayer"></div>
+      <script type="text/javascript" src="/js/aplayer.js"></script>
+      <script type="text/javascript" src="/js/music.js"></script>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/03/03/JavaGrammar02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java基础（二） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础（二）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-03 12:21:07" itemprop="dateCreated datePublished" datetime="2022-03-03T12:21:07+08:00">2022-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-17 21:01:45" itemprop="dateModified" datetime="2022-04-17T21:01:45+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/03/03/JavaGrammar02/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">建议至少有学过一门其它编程语言（最好是C#或C++）的基础再看本文。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="三、面向对象"><a href="#三、面向对象" class="headerlink" title="三、面向对象"></a><strong>三、面向对象</strong></h2><p>其实Java抛弃了面向过程，而只有面向对象——从 <code>main()</code> 函数放在类中就能看出。因此面向对象可以说是Java的核心知识。</p>
+<p>首先要明确的是对象与类的的差异。对象在C++中被称为变量，也就是通过类所定义的变量；而类是程序员所定义的一种数据类型。Java中所有的类，都间接或直接地继承自 <code>Object</code> 类。</p>
+<h3 id="1-方法（成员函数）"><a href="#1-方法（成员函数）" class="headerlink" title="(1) 方法（成员函数）"></a><strong>(1) 方法（成员函数）</strong></h3><p>方法其实就是C++中的成员函数。由于Java是纯面向对象的语言，它抛弃了传统意义上的“函数”，而是将所有的函数都写在类中，作为成员函数（或者称为方法）来使用。运行Java程序时，会默认以一个名为 <code>main()</code> 的方法为程序入口，从这个函数开始执行。这一点与C&#x2F;C++类似，只不过Java将主函数放在了类中而已。Java中方法的定义与C++定义成员函数类似。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(test());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义方法，返回值为String类型</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, world!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>与C++相似，Java的方法允许重载——即允许同一个类中方法名相同，但必须满足参数类型或个数不同。此处不再赘述。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>值传递与引用传递</strong></div>
+
+<div style="color:royalblue;">在编写函数时，有时程序员希望，在函数中对参数的修改，在函数外也能保留。在C中，程序员可以使用指针；在C++中，程序员可以使用 <code>&</code> 运算符或指针；在C#中，程序员可以使用 <code>ref</code> 关键字；在Python中，程序员只能依赖可变类型或者多个返回值；而在Java中，程序员似乎只能依赖引用类型或将返回值打包。</div>
+
+<div style="color:royalblue;">引用类型，即类似于数组这样的类型，它在栈中保存的值是地址而非真实值。在传递参数时，形参会拷贝实参保存在栈中的“值”，而对于引用类型，其“值”就是它在堆中的真实值的地址。学过计算机组成原理或操作系统的同学应该不难理解其底层原理。实际上Java只有值传递，但Java的类型分为了引用类型（指针）和值类型。</div>
+</div>
+
+<h3 id="2-定义类"><a href="#2-定义类" class="headerlink" title="(2) 定义类"></a><strong>(2) 定义类</strong></h3><p>语法上与C++大同小异，但Java规定一个文件只能存在一个 <code>public</code> 类，并且该类的名称必须与文件名（不带后缀名）一致。关于 <code>public</code> 与 <code>private</code> 属性，下文再详述。</p>
+<p>新建一个文件，重命名为 <code>HIE.java</code> ，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HIE.java的代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String Name;</span><br><span class="line">    <span class="keyword">private</span> String Type;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HIE</span><span class="params">(String name, String type)</span> &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">        Type = type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">SelfIntroduce</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;I&#x27;m %s and %s HIE.\n&quot;</span>, Name, Type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再切换至 <code>MainProgram.java</code> 文件，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MainProgram.java的代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用HIE类的构造函数来初始化Lacia变量</span></span><br><span class="line">        <span class="type">HIE</span> <span class="variable">Lacia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HIE</span>(<span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Lacia.SelfIntroduce();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">I&#x27;m Lacia and Type-001 HIE.</span><br></pre></td></tr></table></figure>
+
+<p>上述的 <code>MainProgram.java</code> 文件与 <code>HIE.java</code> 文件需在同一文件夹下。编译 <code>MainProgram.java</code> 时，会连 <code>HIE.java</code> 也一起编译，生成两个 <code>.class</code> 文件。</p>
+<p>需要注意的是：由用户定义的类，<span style="color:red;">均为引用类型</span>。</p>
+<h3 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="(3) 构造函数"></a><strong>(3) 构造函数</strong></h3><p>由于Java允许重载，使得书写多种构造函数成为可能。但请记住最好使用 <code>public</code> 来修饰构造函数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">HIE</span> <span class="variable">Lacia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HIE</span>(<span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line">        Lacia.SelfIntroduce();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;   <span class="comment">// &lt;=====没有加修饰符</span></span><br><span class="line">    <span class="keyword">private</span> String Name;</span><br><span class="line">    <span class="keyword">private</span> String Type;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造函数，但是不加public</span></span><br><span class="line">    <span class="comment">// 运行是正常的，但不推荐</span></span><br><span class="line">    HIE(String name, String type) &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">        Type = type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">SelfIntroduce</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s, %s\n&quot;</span>, Name, Type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-继承"><a href="#4-继承" class="headerlink" title="(4) 继承"></a><strong>(4) 继承</strong></h3><p>Java中不允许一个类继承多个类，但允许一个类继承有父类的类。继承需要使用 <code>extends</code> 关键字，语法结构如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> <span class="keyword">extends</span> <span class="title class_">B</span></span><br></pre></td></tr></table></figure>
+
+<p>其中A为子类，B为父类。</p>
+<h4 id="1-this-与-super"><a href="#1-this-与-super" class="headerlink" title="1. this 与 super"></a><strong>1. <code>this</code> 与 <code>super</code></strong></h4><p>在了解 <code>this</code> 与 <code>super</code> 关键字之前，应该先掌握Java寻找变量的顺序。在类的方法中，寻找变量的顺序如下：</p>
+<pre class="mermaid">
+graph TD
+
+A(方法的局部变量) --&gt; |没有则寻找| B(子类成员变量)
+B --&gt; |没有则寻找| C(父类成员变量)
+
+</pre>
+
+<p>如果父类中也没有，那么就会直接报错，不会再向父类的父类寻找。上述的寻找方式中存在两个问题：</p>
+<ol>
+<li>成员变量与方法内的局部变量同名</li>
+<li>父类成员变量与子类成员变量同名</li>
+</ol>
+<p>解决上述问题可以分别使用 <code>this</code> 关键字和 <code>super</code> 关键字。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><code>this</code></th>
+<th align="center"><code>super</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">永远指向本类</td>
+<td align="center">永远指向父类</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主程序的类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Lacia</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lacia</span>();</span><br><span class="line">        temp.Function();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">String</span> <span class="variable">Type</span> <span class="operator">=</span> <span class="string">&quot;HIE Type&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lacia</span> <span class="keyword">extends</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">String</span> <span class="variable">Type</span> <span class="operator">=</span> <span class="string">&quot;Lacia Type&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Function</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">Type</span> <span class="operator">=</span> <span class="string">&quot;Function Type&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出局部变量的Type</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Type = &quot;</span> + Type);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出本类的Type</span></span><br><span class="line">        System.out.println(<span class="string">&quot;this.Type = &quot;</span> + <span class="built_in">this</span>.Type);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出父类的Type</span></span><br><span class="line">        System.out.println(<span class="string">&quot;super.Type = &quot;</span> + <span class="built_in">super</span>.Type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Type = Function Type</span><br><span class="line">this.Type = Lacia Type</span><br><span class="line">super.Type = HIE Type</span><br></pre></td></tr></table></figure>
+
+<p>同理， <code>this</code> 与 <code>super</code> 关键字也能用于方法，此处不再赘述。当子类重写父类方法时，应当在方法名的上一行声明 <code>@Override</code> ，以表示这个方法重写了父类方法。但其实不加，编译器也不会报错或警告。</p>
+<h4 id="2-继承中的构造函数"><a href="#2-继承中的构造函数" class="headerlink" title="2. 继承中的构造函数"></a><strong>2. 继承中的构造函数</strong></h4><p>当子类创建对象时，如果不显式调用父类的构造函数，那么就会默认调用父类的无参构造函数。要显式调用父类构造函数，应当使用 <code>super()</code> 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Lacia</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="number">114514</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参构造函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HIE</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;默认&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带参构造函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HIE</span><span class="params">(<span class="type">int</span> a)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;父类接收参数 = &quot;</span> + a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lacia</span> <span class="keyword">extends</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Lacia</span><span class="params">(<span class="type">int</span> a)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用父类带参构造函数</span></span><br><span class="line">        <span class="built_in">super</span>(a);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;子类接收参数 = &quot;</span> + a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac -encoding utf-8 MainProgram.java ; java MainProgram</span></span><br><span class="line">父类接收参数 = 114514</span><br><span class="line">子类接收参数 = 114514</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>Java的编码</strong></div>
+
+<div style="color:royalblue;">Java国际化做得很好，Java的环境会自动检测你的系统语言与编码，在编译时将默认采用你的系统编码。而这就是问题所在——我的源代码采用UTF-8编码，而我的系统编码是GBK，这导致若源代码中含有中文，Java采用默认编译以后会出现乱码：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">鐖剁被鎺ユ敹鍙傛暟 = 114514</span><br><span class="line">瀛愮被鎺ユ敹鍙傛暟 = 114514</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;"><del>一时不知该吐槽VS Code还是Java还是微软。</del></div>
+</div>
+
+<h3 id="5-访问权限修饰符"><a href="#5-访问权限修饰符" class="headerlink" title="(5) 访问权限修饰符"></a><strong>(5) 访问权限修饰符</strong></h3><p>Java中允许不加修饰符，但这不代表没有修饰符的类 &#x2F; 成员变量 &#x2F; 方法没有限制访问权限。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><code>private</code></th>
+<th align="center">不加修饰符</th>
+<th align="center"><code>protected</code></th>
+<th align="center">public</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">本类</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center">同包类 &#x2F; 同包子类</td>
+<td align="center">无</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center">非同包子类</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center">无关类</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">有</td>
+</tr>
+</tbody></table>
+<p>简单来说， <code>private</code> 只允许本类访问； 默认（即不加修饰符）只允许同包类访问；<code>protected</code> 只允许同包或子类访问；<code>public</code> 则不限制访问权。</p>
+<h3 id="6-状态修饰符"><a href="#6-状态修饰符" class="headerlink" title="(6) 状态修饰符"></a><strong>(6) 状态修饰符</strong></h3><h4 id="1-final"><a href="#1-final" class="headerlink" title="1. final"></a><strong>1. <code>final</code></strong></h4><p>被 <code>final</code> 关键字修饰的方法不允许被重写；被修饰的成员变量必须有初始值，且不允许值被修改；被修饰的类不允许被继承。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>final</code> 修饰局部变量</strong></div>
+
+<div style="color:royalblue;"><code>final</code> 关键字也可以用于修饰方法内的局部变量。被修饰的局部变量不允许修改其在栈中的值。这就意味着，对于值类型而言它相当于常量，而对于值类型而言它相当于变成了常量的指针，即不允许修改指向的地址，但允许修改其指向的地址中的值。</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">114</span>;</span><br><span class="line">a = <span class="number">514</span>;   <span class="comment">// &lt;===此行报错：不允许被修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> ArrayList&lt;Integer&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">temp.add(<span class="number">114514</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br><span class="line">temp.add(<span class="number">1919810</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;temp = &quot;</span> + temp);</span><br><span class="line"></span><br><span class="line">temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();   <span class="comment">// &lt;===此行报错：不允许被修改</span></span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">去掉报错的代码后，输出结果为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">temp = [114514]</span><br><span class="line">temp = [114514, 1919810]</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">可以看到修改引用类型的值是可以的，但是不允许修改其指向的地址。</div>
+</div>
+
+<h4 id="2-static"><a href="#2-static" class="headerlink" title="2. static"></a><strong>2. <code>static</code></strong></h4><p>Java的 <code>static</code> 关键字与C#的 <code>static</code> 关键字差别较小。此处建议参考此博客的<a href="/2022/01/19/CsharpGrammar04/#3-非static类中的static成员">C#语法基础（四）</a>。</p>
+<p>这里就从简说明，Java的 <code>static</code> 能修饰成员变量和方法，但不能修饰类，这一点和C#不同。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">有 <code>static</code></th>
+<th align="center">无 <code>static</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">通过类访问</td>
+<td align="center">可以</td>
+<td align="center">不可以</td>
+</tr>
+<tr>
+<td align="center">通过对象访问</td>
+<td align="center">可以（不建议）</td>
+<td align="center">可以</td>
+</tr>
+<tr>
+<td align="center">对象共享</td>
+<td align="center">共享</td>
+<td align="center">不共享</td>
+</tr>
+</tbody></table>
+<p>下面的代码能帮助理解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">HIE</span> <span class="variable">Lacia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HIE</span>(), Kouka = <span class="keyword">new</span> <span class="title class_">HIE</span>();</span><br><span class="line">        Lacia.A = <span class="number">114</span>;</span><br><span class="line">        Kouka.A = <span class="number">514</span>;</span><br><span class="line">        Kouka.B = <span class="number">1919810</span>;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Lacia:&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;A = &quot;</span> + Lacia.A + <span class="string">&quot;, B = &quot;</span> + Lacia.B);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Kouka:&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;a = &quot;</span> + Kouka.A + <span class="string">&quot;, B = &quot;</span> + Kouka.B);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;HIE.B = &quot;</span> + HIE.B);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="variable">A</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">B</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Lacia:</span><br><span class="line">A = 114, B = 1919810</span><br><span class="line">Kouka:</span><br><span class="line">a = 514, B = 1919810</span><br><span class="line">HIE.B = 1919810</span><br></pre></td></tr></table></figure>
+
+<p>再次强调，不建议使用对象访问 <code>static</code> 的成员变量或方法。被 <code>static</code> 修饰的函数只能访问 <code>static</code> 的成员，不能访问非 <code>static</code> 成员。</p>
+<h3 id="7-多态"><a href="#7-多态" class="headerlink" title="(7) 多态"></a><strong>(7) 多态</strong></h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a><strong>1. 基本概念</strong></h4><p>使用父类创建的子类对象，只能调用父类中已有的成员。但若方法被子类重写了，则会调用子类的方法。或许看代码更容易理解一些。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">HIE</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lacia</span>();</span><br><span class="line">        temp.Test();</span><br><span class="line">        temp.Work();   <span class="comment">// &lt;=== 此行报错</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lacia</span> <span class="keyword">extends</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对父类不可见</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;I&#x27;m Lacia.&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 父类可调用</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(a);</span><br><span class="line">        Work();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对父类不可见</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Work</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Work.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删掉报错的代码后，输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">I&#x27;m Lacia.</span><br><span class="line">Work.</span><br></pre></td></tr></table></figure>
+
+<p>可以看见，按上述方式声明的父类对象，虽然不能直接调用父类中不存在的成员，但是该成员依然存在，且方法被子类重写时，会调用子类的方法。</p>
+<p>另外，子类对象与多态的父类对象可以互相显式类型转换。</p>
+<h4 id="2-抽象"><a href="#2-抽象" class="headerlink" title="2. 抽象"></a><strong>2. 抽象</strong></h4><p><code>abstract</code> 修饰符只能用于修饰类和方法。被修饰的类相当于C++的虚类；被修饰的方法相当于C++的纯虚函数。 <code>abstract</code> 方法只能存在于 <code>abstract</code> 类中。</p>
+<p><code>abstract</code> 类不能创建对象，但它可以有构造函数、 <code>static</code> 成员和非 <code>abstract</code> 成员。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">Function</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>abstract</code> 类一般会和多态特性搭配使用。</p>
+<h4 id="3-接口"><a href="#3-接口" class="headerlink" title="3. 接口"></a><strong>3. 接口</strong></h4><p>接口的底层实现是 <code>abstract</code> 类。接口的声明方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">HIEstandard</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">Function</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Java的接口中，所有成员变量均为 <code>public</code> 、 <code>static</code> 且 <code>final</code> 的；所有的方法均为  <code>public</code> 且 <code>abstract</code> 的，即便你没有显式声明这些修饰符。接口不允许有构造函数。</p>
+<p>声明某个类实现了接口，需要使用 <code>implements</code> 关键字。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> <span class="keyword">implements</span> <span class="title class_">HIEstandard</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Function</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个类可以声明它实现了多个接口，只需要在 <code>implements</code> 关键字后以 <code>,</code> 分隔实现的接口即可。</p>
+<p>声明实现了接口的类，要么该类是 <code>abstract</code> 的，要么该类必须全部实现接口中声明的函数。</p>
+<h3 id="8-内部类"><a href="#8-内部类" class="headerlink" title="(8) 内部类"></a><strong>(8) 内部类</strong></h3><p>Java可以在类中创建类。内部类可以访问外部类的所有成员，外部类也能访问内部内的所有成员（但是非 <code>static</code> 成员需要通过创建实例对象才能访问）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">HIE</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HIE</span>();</span><br><span class="line">        temp.Test();</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">Lacia</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">Function</span><span class="params">()</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Lacia</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lacia</span>();</span><br><span class="line">        temp.Function();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>如果要想在无关类中直接创建内部类的对象，必须将内部类修改为 <code>public</code> ，并且使用如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HIE.<span class="type">Lacia</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HIE</span>().<span class="keyword">new</span> <span class="title class_">Lacia</span>();</span><br></pre></td></tr></table></figure>
+
+<p><del>然而直接创建内部类对象属于是整花活没啥用的功能。</del>内部类也可以写在方法中，但是它只能在该方法中生效。内部类也可以是匿名的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainProgram</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 匿名类，该类是HIE的子类</span></span><br><span class="line">        <span class="type">HIE</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HIE</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 重写HIE类的Test()方法</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;   <span class="comment">// &lt;=== 不要忘记写分号</span></span><br><span class="line"></span><br><span class="line">        temp.Test();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 下面这种方式也可以，即用即扔</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">HIE</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Alternative&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.Test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;HIE&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">Hello, world!</span><br><span class="line">Alternative</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-包的创建与引用"><a href="#9-包的创建与引用" class="headerlink" title="(9) 包的创建与引用"></a><strong>(9) 包的创建与引用</strong></h3><p>在Java中，你可以将 <code>.java</code> 文件归属到包中。先上一张图方便理解：</p>
+<p><img src="/2022/03/03/JavaGrammar02/1.png" alt="1 1" title="1"></p>
+<p><del>图片有点变形？因为我PS了一下 <code>Test</code> 文件夹下两个文件的位置。VS Code的缩进太少了，不好分辨在不在文件夹里。</del>上图中，<code>Java</code> 是工作目录； <code>Test</code> 是包名；<code>Hello</code> 是该包中的类名。</p>
+<p>首先，在你的工作目录下创建一个文件夹，文件夹命名为包名。在该文件夹下创建一个 <code>.java</code> 文件，在该文件的第一行加上如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 包名;</span><br></pre></td></tr></table></figure>
+
+<p><del>有点Go那味儿了。</del>当你需要引用这个包时，在你的工作目录下的 <code>.java</code> 文件开头加上：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 包名.类名;</span><br></pre></td></tr></table></figure>
+
+<p>你可能会遇到报错，不过不必担心，因为你还没编译你的包。在你的包所处的目录下打开PowerShell &#x2F; cmd &#x2F; Windows Terminal，编译你的包。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac 类名.java;</span></span><br></pre></td></tr></table></figure>
+
+<p>上述命令会在该文件夹下生成一个 <code>.class</code> 文件，然后你就能正常使用你的包了。这有点像 <code>.dll</code> 文件，需要先编译才能使用。</p>
+<h3 id="10-杂项"><a href="#10-杂项" class="headerlink" title="(10) 杂项"></a><strong>(10) 杂项</strong></h3><p>隔壁C#是支持 <code>get</code> 和 <code>set</code> 关键字的，但Java要想在类外访问 <code>private</code> 的成员变量，只能通过 <code>getVal()</code> 和 <code>setVal()</code> 方法，也就是通过方法修改或返回 <code>private</code> 成员变量。学有余力的同学可以看看C#是如何处理这个问题的，详情请参见本站的 <a href="/2022/01/19/CsharpGrammar04/#6-属性">C#语法基础（四）</a> 。<del>但我估计大部分没接触过C#的同学会暴毙在接口和内部类部分，并没有什么余力（悲）。</del></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/03/03/JavaGrammar02/" title="Java基础（二）">https://ayanami-daisuki.github.io/2022/03/03/JavaGrammar02/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+              <a href="/tags/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> Java语法基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/02/JavaGrammar01/" rel="prev" title="Java基础（一）">
+                  <i class="fa fa-chevron-left"></i> Java基础（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/04/JavaGrammar03/" rel="next" title="Java基础（三）">
+                  Java基础（三） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">235k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.14.0/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+  <script data-pjax async src="/js/busuanzi.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>
