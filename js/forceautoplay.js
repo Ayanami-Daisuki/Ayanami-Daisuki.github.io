@@ -1,0 +1,1 @@
+function ForceAutoplay(){window.removeEventListener("keydown",ForceAutoplay,true);window.removeEventListener("mousedown",ForceAutoplay,true);document.querySelector("div.aplayer-button.aplayer-play").click()}window.addEventListener("mousedown",ForceAutoplay,true);

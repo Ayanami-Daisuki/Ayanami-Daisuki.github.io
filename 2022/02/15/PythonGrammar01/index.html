@@ -3,6 +3,7 @@
 <head>
   <script type="text/javascript" src="/js/background.js"></script>
   <script type="text/javascript" src="/js/logo.js"></script>
+  <script type="text/javascript" src="/js/forceautoplay.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
@@ -23,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"republicengineeringstudent.gitee.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"republicengineeringstudent.gitee.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
 
 
 
@@ -86,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -127,6 +128,11 @@
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
+
+  <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/js/aplayer.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
 
   <aside class="sidebar">
 
@@ -215,11 +221,6 @@
 
         </div>
       </div>
-
-      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
-      <div id="aplayer"></div>
-      <script type="text/javascript" src="/js/aplayer.js"></script>
-      <script type="text/javascript" src="/js/music.js"></script>
         <div class="back-to-top animated" role="button" aria-label="返回顶部">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
@@ -288,7 +289,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-17 20:57:29" itemprop="dateModified" datetime="2022-04-17T20:57:29+08:00">2022-04-17</time>
+      <time title="修改时间：2022-04-19 15:58:21" itemprop="dateModified" datetime="2022-04-19T15:58:21+08:00">2022-04-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -506,7 +507,7 @@
 <p>输出结果为：</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = (&#x27;1&#x27;, &#x27;1&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;1&#x27;, &#x27;4&#x27;)</span><br></pre></td></tr></table></figure>
 
-<p>关于 <code>dict()</code> 的详细使用说明，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/python/python-func-dict.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<p>关于 <code>dict()</code> 的详细使用说明，请参见 <a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/python/python-func-dict.html ">菜鸟教程</a> 。</p>
 <h2 id="五、切片"><a href="#五、切片" class="headerlink" title="五、切片"></a><strong>五、切片</strong></h2><p>此切片非Go的 <code>slice</code> 切片，而是截取某些可迭代的对象的一部分。语法大致为：</p>
 <p><code>对象[开始:结束:步长]</code></p>
 <p>其中对象为可迭代对象，开始是从第几个元素开始截取（包含），结束为截取到第几个元素为止（不包含），步长是截取时，取出某个元素后，再把“指针”向后移多少个元素。</p>
@@ -553,7 +554,7 @@
 <p>输出结果为:</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">python Hello.py</span></span><br><span class="line">i = True</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="stringfunction-8"><p><code>endswith()</code> 用于判断字符串是否以指定的字符串结尾。参数与返回值均与 <code>startswith()</code> 一致。</p></div><div class="tab-pane" id="stringfunction-9"><p><code>isalpha()</code> 函数用于判断字符串是否均由字母组成。它没有参数，返回值为 <code>True</code> 或 <code>False</code> 。</p></div><div class="tab-pane" id="stringfunction-10"><p><code>isdigit()</code> 函数用于判断字符串是否均由数字组成。它没有参数，返回值为 <code>True</code> 或 <code>False</code> 。</p></div></div></div>
 
-<p>关于更多字符串的函数，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/python/python-strings.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<p>关于更多字符串的函数，详情请参见 <a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/python/python-strings.html ">菜鸟教程</a> 。</p>
 
     </div>
 
@@ -655,14 +656,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">235k</span>
+    <span title="站点总字数">234k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:34</span>
+    <span title="站点阅读时长">3:33</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -692,6 +693,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
 
   

@@ -3,6 +3,7 @@
 <head>
   <script type="text/javascript" src="/js/background.js"></script>
   <script type="text/javascript" src="/js/logo.js"></script>
+  <script type="text/javascript" src="/js/forceautoplay.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
@@ -23,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-center-atom.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"republicengineeringstudent.gitee.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"republicengineeringstudent.gitee.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
 
 
 
@@ -86,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -127,6 +128,11 @@
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
+
+  <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/js/aplayer.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
 
   <aside class="sidebar">
 
@@ -215,11 +221,6 @@
 
         </div>
       </div>
-
-      <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
-      <div id="aplayer"></div>
-      <script type="text/javascript" src="/js/aplayer.js"></script>
-      <script type="text/javascript" src="/js/music.js"></script>
         <div class="back-to-top animated" role="button" aria-label="返回顶部">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
@@ -288,7 +289,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-17 21:01:34" itemprop="dateModified" datetime="2022-04-17T21:01:34+08:00">2022-04-17</time>
+      <time title="修改时间：2022-04-19 15:58:53" itemprop="dateModified" datetime="2022-04-19T15:58:53+08:00">2022-04-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -386,7 +387,7 @@
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a.charAt(3) is 5</span><br></pre></td></tr></table></figure>
 
 <p>该方法搭配 <code>String</code> 类中的 <code>length()</code> 方法（用于获取该字符串的长度），即可实现遍历字符串中的每一个字符。</p>
-<p>Java的 <code>String</code> 也支持使用 <code>+</code> 运算符进行拼接。但请注意该拼接的底层实现并不是运算符重载（Java不支持运算符重载），而是一个语法糖。关于 <code>String</code> 类的更多方法，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-string.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<p>Java的 <code>String</code> 也支持使用 <code>+</code> 运算符进行拼接。但请注意该拼接的底层实现并不是运算符重载（Java不支持运算符重载），而是一个语法糖。关于 <code>String</code> 类的更多方法，详情请参见 <a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-string.html ">菜鸟教程</a> 。</p>
 <h3 id="2-StringBuilder"><a href="#2-StringBuilder" class="headerlink" title="(2) StringBuilder"></a><strong>(2) <code>StringBuilder</code></strong></h3><p><code>StringBuilder</code> 类为可变字符串类型。 <code>String</code> 类型不可被更改，因此在进行拼接时会使用新的内存地址，将拼接后的值放在新的地址中并让变量指向该地址。而 <code>StringBuilder</code> 类则会保持变量指向的地址不变。</p>
 <div class="tabs" id="stringbuilder"><ul class="nav-tabs"><li class="tab active"><a href="#stringbuilder-1">构造函数</a></li><li class="tab"><a href="#stringbuilder-2"><code>append()</code></a></li><li class="tab"><a href="#stringbuilder-3"><code>reverse()</code></a></li><li class="tab"><a href="#stringbuilder-4"><code>String</code> 与 <code>StringBuilder</code> 互转</a></li></ul><div class="tab-content"><div class="tab-pane active" id="stringbuilder-1"><p><code>StringBuilder</code> 的常用构造函数有以下两个：</p>
 <ul>
@@ -408,7 +409,7 @@
 <p>输出结果为：</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">javac MainProgram.java ; java MainProgram</span></span><br><span class="line">a = 114514</span><br></pre></td></tr></table></figure></div></div></div>
 
-<p>关于更多 <code>StringBuilder</code> 类的方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-stringbuffer.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<p>关于更多 <code>StringBuilder</code> 类的方法，请参见 <a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-stringbuffer.html ">菜鸟教程</a> 。</p>
 <h3 id="3-Math"><a href="#3-Math" class="headerlink" title="(3) Math"></a><strong>(3) <code>Math</code></strong></h3><p><code>Math</code> 类中定义了很多常用的数学运算方法，这些方法都是 <code>static</code> 的，因此不需要用 <code>Math</code> 类创建实例对象也可以调用。这里只例举一些常见的：</p>
 <table>
 <thead>
@@ -468,7 +469,7 @@
 <td align="center"><code>double</code></td>
 </tr>
 </tbody></table>
-<p>关于更多 <code>Math</code> 类方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-number.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<p>关于更多 <code>Math</code> 类方法，请参见 <a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-number.html ">菜鸟教程</a> 。</p>
 <h3 id="4-System"><a href="#4-System" class="headerlink" title="(4) System"></a><strong>(4) <code>System</code></strong></h3><p><code>System</code> 类之前在讲标准输入输出流的时候就已经接触过了。与 <code>Math</code> 类一样，该类的成员都是 <code>static</code> 的。</p>
 <table>
 <thead>
@@ -560,7 +561,7 @@
 <td align="center"><code>int</code></td>
 </tr>
 </tbody></table>
-<p><code>Arrays</code> 类还有许多方法和重载的方法，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。<del>怎么不一开始就上官方文档？因为全是英文看得我都头疼，有中文理解能快不少。</del></p>
+<p><code>Arrays</code> 类还有许多方法和重载的方法，详情请参见 <a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a> 。<del>怎么不一开始就上官方文档？因为全是英文看得我都头疼，有中文理解能快不少。</del></p>
 <h3 id="7-基本类型包装类"><a href="#7-基本类型包装类" class="headerlink" title="(7) 基本类型包装类"></a><strong>(7) 基本类型包装类</strong></h3><p>Java中的基本数据类型并不是类，因此也就没有继承自 <code>Object</code> 。而Java自身又提供了对基本类型的封装类，也就是将基本数据类型打包成继承自 <code>Object</code> 的类。</p>
 <table>
 <thead>
@@ -602,7 +603,7 @@
 <td align="center"><code>Boolean</code></td>
 </tr>
 </tbody></table>
-<p>这些包装类中封装了不少关于类型转换等功能的方法。关于这些包装类的成员，此处不做赘述，详情请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。</p>
+<p>这些包装类中封装了不少关于类型转换等功能的方法。关于这些包装类的成员，此处不做赘述，详情请参见 <a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a> 。</p>
 <h3 id="8-ArrayList-lt-T-gt"><a href="#8-ArrayList-lt-T-gt" class="headerlink" title="(8) ArrayList&lt;T&gt;"></a><strong>(8) <code>ArrayList&lt;T&gt;</code></strong></h3><p>就像C++中有STL容器一样，Java也有一些好用的容器，比如 <code>ArrayList</code> ，它类似于C#的 <code>List</code> 和C++的 <code>vector</code> ，<span style="color:red;">其底层实现为数组，即顺序表</span>。在使用 <code>ArrayList</code> 之前，应当导入 <code>java.util.ArrayList</code> 包。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br></pre></td></tr></table></figure>
 
@@ -648,7 +649,7 @@
 <li><code>isEmpty()</code> ，如果为空则返回 <code>true</code> ，否则返回 <code>false</code></li>
 <li><code>size()</code> ，返回元素个数</li>
 </ul>
-<p>关于更多 <code>ArrayList</code> 类的方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-arraylist.html ">菜鸟教程</a>&amp;nbsp;。</p>
+<p>关于更多 <code>ArrayList</code> 类的方法，请参见 <a class="btn" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-arraylist.html ">菜鸟教程</a> 。</p>
 <h3 id="9-LinkedList-lt-T-gt"><a href="#9-LinkedList-lt-T-gt" class="headerlink" title="(9) LinkedList&lt;T&gt;"></a><strong>(9) <code>LinkedList&lt;T&gt;</code></strong></h3><p><code>LinkedList</code> 类定义在 <code>java.util.LinkedList</code> 包内，它与 <code>ArrayList</code> 差异不大，但其底层实现是链表。 <code>LinkedList</code> 中有一些独有的方法：</p>
 <table>
 <thead>
@@ -894,7 +895,7 @@
 <td align="center">······</td>
 </tr>
 </tbody></table>
-<p>关于更多 <code>Collections</code> 类的方法，请参见&amp;nbsp;<a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a>&amp;nbsp;。</p>
+<p>关于更多 <code>Collections</code> 类的方法，请参见 <a class="btn" target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/ ">Java官方文档</a> 。</p>
 <h2 id="五、一些常见接口"><a href="#五、一些常见接口" class="headerlink" title="五、一些常见接口"></a><strong>五、一些常见接口</strong></h2><p>Java是纯面向对象语言，多态又是面向对象的特色，在创建类似于C++ STL的对象时，建议采用接口作为类型，以某一具体类作为实现，如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;String&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
 
@@ -1193,14 +1194,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">235k</span>
+    <span title="站点总字数">234k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:34</span>
+    <span title="站点阅读时长">3:33</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1230,6 +1231,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
 
   

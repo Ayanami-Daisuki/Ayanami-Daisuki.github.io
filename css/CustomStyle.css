@@ -105,25 +105,15 @@ div.tabs {
   top: -5px !important;
 }
 
-.links-of-author-item {
+.links-of-author-item, li.links-of-blogroll-item>a {
   background: transparent !important;
   overflow: hidden !important;
-  transition: all ease-out 0.5s !important;
+  transition: all ease-out 0.25s !important;
 }
 
 .links-of-author-item:hover {
   background-color: transparent !important;
   box-shadow: 0px 0px 2px #000 !important;
-}
-
-.links-of-author-item a {
-  background: transparent !important;
-  transition: all ease-out 0.5s !important;
-}
-
-.links-of-author-item a:hover {
-  background: transparent !important;
-  transform: scale(1.25) !important;
 }
 
 .nav-item {
@@ -159,8 +149,11 @@ div.tabs {
 }
 
 code {
-  font: consolas;
-  background-color: #808080;
+  color: white !important;
+  border-radius: 1px !important;
+  box-shadow: 0px 0px 3px 0.5px gray;
+  font-family: consolas !important;
+  background-color: gray;
 }
 
 a.post-title-link {
@@ -190,4 +183,27 @@ a.post-title-link:hover {
 
 .sidebar-panel-container::-webkit-scrollbar-track {
   background: transparent;
+}
+
+.main-inner {
+  box-shadow: 0 0 3px 3px deepskyblue;
+}
+
+.footer-inner {
+  font-size: 1.5em !important;
+  color: black !important;
+  text-shadow: 0 0 3px deepskyblue;
+}
+
+li.links-of-blogroll-item>a {
+  border: solid 1px black !important;
+}
+
+li.links-of-blogroll-item>a:hover {
+  background-color: #E8E8E8 !important;
+}
+
+div#aplayer {
+  width: 100% !important;
+  margin: 12px 0 !important;
 }
