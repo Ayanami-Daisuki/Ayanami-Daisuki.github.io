@@ -3162,3 +3162,7 @@ div#aplayer {
 figure.highlight.html, p {
   margin: 20px 0 !important;
 }
+
+.post-body {
+  text-align: left;
+}
