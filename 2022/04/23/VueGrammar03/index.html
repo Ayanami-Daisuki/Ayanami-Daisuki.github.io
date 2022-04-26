@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/background.js"></script>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <script type="text/javascript" src="/js/forceautoplay.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="cdn.bootcdn.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-center-atom.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"republicengineeringstudent.gitee.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/config.min.js"></script>
+
+
+
+<link rel="canonical" href="https://republicengineeringstudent.gitee.io/2022/04/23/VueGrammar03/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://republicengineeringstudent.gitee.io/2022/04/23/VueGrammar03/","path":"2022/04/23/VueGrammar03/","title":"Vue基础（三）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vue基础（三） | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <meta name="msvalidate.01" content="2DC98D673CEA63668E0E0390B0D5A92E" />
+  <meta name="google-site-verification" content="1oFThEwTKR5SObaIdOL2PxGLwX-rE5ClaZKSAdhq3LY" />
+  <meta name="google-site-verification" content="a7h6HxqLG_MHyjCraHg6yzJYNk3na2UIjP7AcWOrg_E" />
+  <meta name="baidu-site-verification" content="code-PFGV5jFemX" />
+  <meta name="baidu-site-verification" content="code-Z4QAODNN82" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">38</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/js/aplayer.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%8F%92%E6%A7%BD"><span class="nav-text">七、插槽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%BB%98%E8%AE%A4%E6%8F%92%E6%A7%BD"><span class="nav-text">(1) 默认插槽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="nav-text">(2) 具名插槽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD"><span class="nav-text">(3) 作用域插槽</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%BB%84%E5%90%88%E5%BC%8F-API"><span class="nav-text">八、组合式 API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-emits"><span class="nav-text">(1) emits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-setup"><span class="nav-text">(2) setup()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ref"><span class="nav-text">(3) ref()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-reactive"><span class="nav-text">(4) reactive()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Proxy%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-text">(5) Proxy的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Reflect"><span class="nav-text">(6) Reflect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="nav-text">(7) 计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7"><span class="nav-text">(8) 监视属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-watch"><span class="nav-text">1. watch()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-watchEffect"><span class="nav-text">2. watchEffect()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-toRef-%E4%B8%8EtoRefs"><span class="nav-text">(9) toRef()与toRefs()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E6%96%B0%E7%9A%84%E6%A0%87%E7%AD%BE"><span class="nav-text">九、新的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-lt-teleport-gt"><span class="nav-text">(1) &lt;teleport&gt;</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/lib/@creativecommons/vocabulary/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://republicengineeringstudent.gitee.io/2022/04/23/VueGrammar03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Vue基础（三） | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue基础（三）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-23 19:28:16" itemprop="dateCreated datePublished" datetime="2022-04-23T19:28:16+08:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-26 20:47:34" itemprop="dateModified" datetime="2022-04-26T20:47:34+08:00">2022-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/04/23/VueGrammar03/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有HTML和JavaScript基础，并且最好学过CSS。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="七、插槽"><a href="#七、插槽" class="headerlink" title="七、插槽"></a><strong>七、插槽</strong></h2><p>Vue 中组件的标签有两种写法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 第一种 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MainStruct</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 第二种 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MainStruct</span>&gt;</span><span class="tag">&lt;/<span class="name">MainStruct</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一种是自结束标签，第二种就是一般的标签。Vue 专门保留了两种写法，说明这两种写法都有其自己的作用。前者就是一般的组件标签，而后者有额外的功能——插槽。</p>
+<p>Vue 的插槽功能允许向组件标签的内部再追加内容，并且浏览网页时能在子组件中显示。插槽一般用于有多个同类的子组件实例，但每个实例中的显示内容又不一致的情况。</p>
+<h3 id="1-默认插槽"><a href="#1-默认插槽" class="headerlink" title="(1) 默认插槽"></a><strong>(1) 默认插槽</strong></h3><p>使用默认插槽很简单：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 使用组件，并向其中添加 HTML 元素 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">MainStruct</span> <span class="attr">v-show</span>=<span class="string">&quot;flag&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">MainStruct</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 子组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- &lt;slot&gt; 标签标记了被插入的信息应当存在的位置 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 即定义了一个插槽 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>网页展示效果应该如下：</p>
+<p><img src="/2022/04/23/VueGrammar03/1.png" alt="1" title="1"></p>
+<p>在<code>&lt;slot&gt;</code>标签中允许存在 HTML 结构（即纯文本和标签都可以），但这些 HTML 结构只有插槽没有被使用的时候才会展示。</p>
+<h3 id="2-具名插槽"><a href="#2-具名插槽" class="headerlink" title="(2) 具名插槽"></a><strong>(2) 具名插槽</strong></h3><p>Vue 允许存在多个<code>&lt;slot&gt;</code>标签，即允许使用多个插槽。但当不加任何修饰时，每一个插槽都会显示父组件传递的 HTML 结构。因此需要对插槽进行一些 “修饰” 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">MainStruct</span> <span class="attr">v-show</span>=<span class="string">&quot;flag&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;template&gt; 标签允许套娃，且 v-slot 属性只能应用在 &lt;template&gt; 标签上 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 将会装入名为 Lacia 的插槽中 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:Lacia</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Type-005<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- 会装入与上方的 &lt;template&gt; 标签不同的插槽 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 将会装入名为 Kouka 的插槽中 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:Kouka</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Type-001<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">MainStruct</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 子元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 设置两个带 name 属性的插槽 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;Lacia&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;Kouka&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在网页中的展示结果为：</p>
+<p><img src="/2022/04/23/VueGrammar03/2.png" alt="2" title="2"></p>
+<h3 id="3-作用域插槽"><a href="#3-作用域插槽" class="headerlink" title="(3) 作用域插槽"></a><strong>(3) 作用域插槽</strong></h3><p>使用插槽时，可以把子组件的数据传递给父组件中的插槽。在子组件中，为<code>&lt;slot&gt;</code>标签绑定属性即可在父组件中接收到该属性值。这需要用到<code>v-slot</code>属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">MainStruct</span> <span class="attr">v-show</span>=<span class="string">&quot;flag&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 标注该 &lt;template&gt; 标签应当插入名为 Lacia 的插槽中 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 并且接受从该插槽来的所有数据，将其命名为 Data --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:Lacia</span>=<span class="string">&quot;Data&quot;</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 尝试展示接收到的数据 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h4</span>&gt;</span>&#123;&#123; Data &#125;&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Type-005<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:Kouka</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Type-001<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">MainStruct</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 向使用该插槽的组件传入参数 a 和 b --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">slot</span> <span class="attr">:a</span>=<span class="string">&quot;a&quot;</span> <span class="attr">:b</span>=<span class="string">&quot;b&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Lacia&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;Kouka&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 定义数据 a 和 b</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">a</span>: <span class="number">114514</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">b</span>: <span class="number">1919810</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码在网页中的效果为：</p>
+<p><img src="/2022/04/23/VueGrammar03/3.png" alt="3" title="3"></p>
+<p>即：要想使用来自子组件的数据，使用<code>Data.a</code>即可。</p>
+<h2 id="八、组合式-API"><a href="#八、组合式-API" class="headerlink" title="八、组合式 API"></a><strong>八、组合式 API</strong></h2><p>组合式 API 是 Vue 3.0 新提出来的东西，因此 Vue 2.0 是不适用的。</p>
+<h3 id="1-emits"><a href="#1-emits" class="headerlink" title="(1) emits"></a><strong>(1) <code>emits</code></strong></h3><p><code>emits</code>是 Vue 3.0 新追加的一个应当被定义在 Vue 组件的配置对象中的属性。该属性用于接收来自父组件传递给子组件的自定义事件。如果没有使用<code>emits</code>属性 “注册” 自定义事件，那么自定义事件就将对子组件不可用。</p>
+<p><code>emits</code>属性应当是一个数组，其存储的值是<code>String</code>类型，标记要 “注册” 的自定义事件的名称。</p>
+<h3 id="2-setup"><a href="#2-setup" class="headerlink" title="(2) setup()"></a><strong>(2) <code>setup()</code></strong></h3><p>之前所写的<code>data()</code>、<code>methods</code>等，其实都是不规范的（但仍能使用）。在 Vue 3.0 中，数据、方法、计算属性、生命周期钩子、监视属性等全都应该写在<code>setup</code>属性中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// setup属性</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> <span class="title class_">Name</span> = <span class="string">&quot;Lacia&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> <span class="title class_">Type</span> = <span class="string">&quot;Type-005&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">function</span> <span class="title function_">SelfIntroduction</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">`I&#x27;m <span class="subst">$&#123;Name&#125;</span>,<span class="subst">$&#123;Type&#125;</span>`</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 只有被返回了的属性才能在HTML模板中被使用</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; <span class="title class_">Name</span>, <span class="title class_">Type</span>, <span class="title class_">SelfIntroduction</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>setup()</code>属性应该有一个返回值，这个返回值是对象，它的属性在 HTML 模板中可以直接使用，而没有返回的数据则无法直接使用，但可以通过闭包使用。但请注意，上述写法无法做到响应式。</p>
+<p>另外，<code>setup()</code>函数执行的时机是在<code>beforeCreate()</code>回调函数执行<span style="color:red;">之前</span>，并且只会执行一次。<code>setup()</code>函数会在执行时接收到两个参数，第一个参数是使用<code>props</code>属性接收到的、从父组件传递过来的参数的对象的代理对象（关于什么是代理对象，下文将详述）；第二个参数则是一个上下文对象。该对象含有一个<code>emit()</code>方法，用于触发自定义事件。关于这个对象此处不做过多赘述，详情请参见 <a class="btn" target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/guide/composition-api-setup.html#context ">Vue 3 官方文档</a> 。</p>
+<h3 id="3-ref"><a href="#3-ref" class="headerlink" title="(3) ref()"></a><strong>(3) <code>ref()</code></strong></h3><p>这个<code>ref()</code>与之前提到的与 HTML 元素的<code>id</code>属性类似的<code>ref</code>属性不同。当然<code>ref</code>属性并没有被删除，这里讲的是一个在 Vue 组件配置对象中的<code>ref()</code>函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 引入 ref() 函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 通过 ref() 来定义数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> <span class="title class_">Name</span> = <span class="title function_">ref</span>(<span class="string">&quot;Lacia&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> <span class="title class_">Type</span> = <span class="title function_">ref</span>(<span class="string">&quot;Type-005&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">function</span> <span class="title function_">SelfIntroduction</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 修改与打印值的时候，应当修改 value 属性</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Name</span>.<span class="property">value</span> = <span class="string">&quot;Kouka&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">`I&#x27;m <span class="subst">$&#123;Name.value&#125;</span>,<span class="subst">$&#123;Type.value&#125;</span>`</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; <span class="title class_">Name</span>, <span class="title class_">Type</span>, <span class="title class_">SelfIntroduction</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>经过<code>ref()</code>函数加工的数据可以实现响应式，但修改其值的时候不能直接修改变量，而是应该修改这个变量的<code>value</code>属性，因为<code>ref()</code>函数返回的是一个对象，该对象是引用实现的实例（简称引用对象）。它的底层实现原理依旧与数据代理一致。</p>
+<p>在 HTML 模板中使用<code>ref()</code>函数加工过的数据时，不需要加<code>value</code>属性，Vue 会自动帮你解析。</p>
+<p>对于对象类型的数据，则不需要<code>ref()</code>函数套娃也能做到响应式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 不需要添加 value 属性 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; Lacia.Name &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; Lacia.Age &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;test&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 引入 ref() 函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 通过 ref() 函数绑定一个对象</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> <span class="title class_">Lacia</span> = <span class="title function_">ref</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Age</span>: <span class="number">17</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 修改对象中的数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Lacia</span>.<span class="property">value</span>.<span class="property">Name</span> = <span class="string">&quot;Kouka&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Lacia</span>.<span class="property">value</span>.<span class="property">Age</span> = <span class="number">14</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 查看数据</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Lacia</span>.<span class="property">value</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; <span class="title class_">Lacia</span>, test &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>点击网页中的按钮，控制台将会打印：</p>
+<p><img src="/2022/04/23/VueGrammar03/4.png" alt="4" title="4"></p>
+<p>可以看到这并不是上文定义的那个对象，而是一个陌生的东西—— <code>Proxy</code> 。它是通过 Vue 3.0 中的<code>reactive()</code>函数定义的，该函数可以认为是<code>defineProperty()</code>函数的升级版。</p>
+<h3 id="4-reactive"><a href="#4-reactive" class="headerlink" title="(4) reactive()"></a><strong>(4) <code>reactive()</code></strong></h3><p>相比起<code>ref()</code>函数，通过<code>reactive()</code>函数绑定的对象更加啊便于使用，但<code>reactive()</code>函数不能绑定基本类型的数据，只能绑定对象。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 引入 ref() 和 reactive() 函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref, reactive &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 使用 ref() 函数绑定</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> <span class="title class_">Lacia</span> = <span class="title function_">ref</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Name</span>: <span class="string">&quot;Lacia&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Age</span>: <span class="number">17</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 使用 reactive() 函数绑定</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> <span class="title class_">Method</span> = <span class="title function_">reactive</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Name</span>: <span class="string">&quot;Method&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Age</span>: <span class="number">19</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 修改前者需要使用 value 属性，而后者不需要</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Lacia</span>.<span class="property">value</span>.<span class="property">Age</span> = <span class="number">14</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Method</span>.<span class="property">Age</span> = <span class="number">24</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; <span class="title class_">Lacia</span>, test, <span class="title class_">Method</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其实<code>ref()</code>函数的底层也是调用了<code>reactive()</code>函数来绑定对象数据。<code>reactive()</code>函数可以实现更轻量级的深度监视，即不管对象套娃套了多少层，它都可以做到监视。它也可以用于绑定数组。</p>
+<h3 id="5-Proxy的原理"><a href="#5-Proxy的原理" class="headerlink" title="(5) Proxy的原理"></a><strong>(5) <code>Proxy</code>的原理</strong></h3><p>Vue 3.0 的响应式原理就是基于<code>Proxy</code>的，因此有必要了解<code>Proxy</code>的底层原理。</p>
+<p><code>Proxy()</code>是定义在<code>window</code>对象下的一个构造函数，因此可以直接在前端代码中使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个需要被代理的对象</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Target</span> = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">114514</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Vue 2.0 的代理方式</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">V2</span> = &#123;&#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable constant_">V2</span>, <span class="string">&quot;a&quot;</span>, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="comment">// 侦测到数据被读取</span></span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Target</span>.<span class="property">a</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">set</span>(<span class="params">Value</span>) &#123;</span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="comment">// 侦测到数据被修改，重新渲染 HTML 模板</span></span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="title class_">Target</span>.<span class="property">a</span> = <span class="number">114514</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Vue 3.0 的代理方式</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">V3</span> = <span class="keyword">new</span> <span class="title class_">Proxy</span>(<span class="title class_">Target</span>, &#123;</span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="comment">// 设置配置对象</span></span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>相比起 Vue 2.0，Vue 3.0 的代理更加简洁明了且不需要耗费繁琐的精力去遍历一个对象下可能含有的对象。</p>
+<p><code>Proxy()</code>构造函数的第一个参数就是需要代理的对象，第二个参数则是关于这个对象的一些设置。其中可以设置<code>get()</code>和<code>set()</code>等方法。</p>
+<div class="tabs" id="proxymethod"><ul class="nav-tabs"><li class="tab active"><a href="#proxymethod-1"><code>get()</code></a></li><li class="tab"><a href="#proxymethod-2"><code>set()</code></a></li><li class="tab"><a href="#proxymethod-3"><code>deleteProperty()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="proxymethod-1"><p>当需要读取被代理的对象的值时，就会调用<code>get()</code>函数。</p>
+<p>它会接收到两个参数：被代理的对象本身和需要读取的属性名。同<code>defineProperty()</code>函数中需要设置的<code>get()</code>函数一样，这个<code>get()</code>函数也需要返回值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 需要被代理的对象</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="title class_">Target</span> = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">a</span>: <span class="number">114514</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">b</span>: <span class="string">&quot;1919810&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 配置代理</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="variable constant_">V3</span> = <span class="keyword">new</span> <span class="title class_">Proxy</span>(<span class="title class_">Target</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">get</span>(<span class="params">Target, Property</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 尝试打印参数到底是什么</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Target =&quot;</span>, <span class="title class_">Target</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Property =&quot;</span>, <span class="title class_">Property</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> <span class="string">&quot;测试&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在浏览器的控制台中，分别尝试读取<code>a</code>和<code>b</code> ，结果如下：</p>
+<p><img src="/2022/04/23/VueGrammar03/5.png" alt="5" title="5"></p>
+<p>可以看出，<code>get()</code>函数的返回值就是读取代理对象的属性时的返回值。因此相对合理的读取方式应当是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">get</span>(<span class="title class_">Target</span>, <span class="title class_">Property</span>);</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="comment">// 侦测到了读取</span></span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Target</span>[<span class="title class_">Property</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="proxymethod-2"><p><code>set()</code>函数将会在修改属性与<span style="color:red;">新增属性</span>时被调用。</p>
+<p><code>set()</code>函数会多接收到一个参数，那就是该属性需要被修改为什么值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">V3</span> = <span class="keyword">new</span> <span class="title class_">Proxy</span>(<span class="title class_">Target</span>, &#123;</span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="comment">//省略 get()</span></span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="title function_">set</span>(<span class="params">Target, Property, Value</span>) &#123;</span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="comment">// 侦测到修改数据</span></span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="title class_">Target</span>[<span class="title class_">Property</span>] = <span class="title class_">Value</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="proxymethod-3"><p>该函数在删除代理对象的属性时将会被调用。</p>
+<p><code>deleteProperty()</code>函数的参数与<code>get()</code>函数一致。该函数的返回值应当是一个<code>boolean</code>类型的值，表示删除属性是否成功。<span style="color:red;">请一定要记住在该函数内<code>delete</code>相应的属性，因为当该函数被程序员定义后，将不会默认删除原属性。</span></p></div></div></div>
+
+<h3 id="6-Reflect"><a href="#6-Reflect" class="headerlink" title="(6) Reflect"></a><strong>(6) <code>Reflect</code></strong></h3><p>深入了解过 C#或者 Java 的同学应该已经学过反射了。</p>
+<p><code>Reflect</code>是一个定义在<code>window</code>对象下的对象，它与 “静态”的 <code>Object</code>对象有点相似（因为 JavaScript 标准的设计者们在尝试把一些<code>Object</code> 对象下的方法转移到<code>Reflect</code>对象下）。</p>
+<p><code>Reflect</code>对象下常见的方法有：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>get()</code></td>
+<td align="center">对象，属性名</td>
+<td align="center">获得该对象的指定属性值</td>
+<td align="center">该对象的指定属性值</td>
+</tr>
+<tr>
+<td align="center"><code>set()</code></td>
+<td align="center">对象，属性名，值</td>
+<td align="center">将该对象的属性的值修改为指定值</td>
+<td align="center"><code>boolean</code> ，指示操作是否成功</td>
+</tr>
+<tr>
+<td align="center"><code>defineProperty()</code></td>
+<td align="center">对象，属性名，配置对象</td>
+<td align="center">设数据置代理</td>
+<td align="center"><code>boolean</code> ，指示操作是否成功</td>
+</tr>
+<tr>
+<td align="center"><code>deleteProperty()</code></td>
+<td align="center">对象，属性名</td>
+<td align="center">删除该对象的指定属性</td>
+<td align="center"><code>boolean</code> ，指示操作是否成功</td>
+</tr>
+</tbody></table>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>Reflect.defineProperty()</code>与<code>Object.defineProperty()</code>的区别</strong></div>
+
+<div style="color:royalblue;">前者在重复定义属性时不会引发报错，只会返回<code>false</code>来指示修改不成功；而后者将会直接抛出异常，中断程序运行。</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个对象和一个用于接收返回值的对象</span></span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Ref</span> = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Result</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 尝试使用 Reflect.defineProperty() 重复定义属性</span></span><br><span class="line"><span class="title class_">Result</span> = <span class="title class_">Reflect</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Ref</span>, <span class="string">&quot;a&quot;</span>, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1. Result =&quot;</span>, <span class="title class_">Result</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Result</span> = <span class="title class_">Reflect</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Ref</span>, <span class="string">&quot;a&quot;</span>, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;2. Result =&quot;</span>, <span class="title class_">Result</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清空 Ref 对象</span></span><br><span class="line"><span class="title class_">Ref</span> = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 尝试使用 Object.defineProperty() 重复定义属性</span></span><br><span class="line"><span class="title class_">Result</span> = <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Ref</span>, <span class="string">&quot;a&quot;</span>, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;3. Result =&quot;</span>, <span class="title class_">Result</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Result</span> = <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Ref</span>, <span class="string">&quot;a&quot;</span>, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1. Result =&quot;</span>, <span class="title class_">Result</span>);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">上述代码的输出结果为：</div>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">1. Result = true</span><br><span class="line">2. Result = false</span><br><span class="line">3. Result = &#123;&#125;</span><br><span class="line">evalmachine.&lt;anonymous&gt;:10</span><br><span class="line">Result =Object.defineProperty(Ref, &#x27;a&#x27;, &#123;</span><br><span class="line">               ^</span><br><span class="line"></span><br><span class="line">TypeError: Cannot redefine property: a</span><br><span class="line">    at Function.defineProperty (&lt;anonymous&gt;)</span><br><span class="line">    at evalmachine.&lt;anonymous&gt;:10:16</span><br><span class="line">    at Script.runInThisContext (node:vm:129:12)</span><br><span class="line">    at Object.runInThisContext (node:vm:305:38)</span><br><span class="line">    at run ([eval]:1020:15)</span><br><span class="line">    at onRunRequest ([eval]:864:18)</span><br><span class="line">    at onMessage ([eval]:828:13)</span><br><span class="line">    at process.emit (node:events:526:28)</span><br><span class="line">    at emit (node:internal/child_process:938:14)</span><br><span class="line">    at processTicksAndRejections (node:internal/process/task_queues:84:21)</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">因此，在实际开发中能使用<code>Reflect</code>的情况建议尽量使用它，而不要使用<code>Object</code> ，因为很有可能一个未处理的异常抛出就终止了程序的运行。</div>
+</div>
+
+<p>Vue 3.0 就是通过<code>Proxy</code>（代理）与<code>Reflect</code>（反射）来实现的响应式。</p>
+<h3 id="7-计算属性"><a href="#7-计算属性" class="headerlink" title="(7) 计算属性"></a><strong>(7) 计算属性</strong></h3><p>在 Vue 3.0 中，使用计算属性也需要先<code>import</code> 。虽然也能直接使用 Vue 2.0 的计算属性，但并不推荐这么做。配置计算属性很简单：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 引入 ref() 和 computed() 函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref, computed &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> a = <span class="title function_">ref</span>(<span class="number">6</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 定义计算属性</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> b = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">return</span> a.<span class="property">value</span> ** <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; a, b &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Vue 3.0 中，<code>computed</code>变成了一个函数，该函数接收一个参数函数，该函数的返回值就是此计算属性的值。并且，计算属性是可以定义到由<code>reactive()</code>函数创建的代理对象下的。</p>
+<p>上述写法是计算属性的简写形式，只能读不能写。要想获得可以写入的计算属性，应当使用完整的计算属性书写方式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref, computed &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> a = <span class="title function_">ref</span>(<span class="number">6</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 完整的计算属性书写方式</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> b = <span class="title function_">computed</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 定义 get() 方法</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">get</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">return</span> a.<span class="property">value</span> ** <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">                &#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 定义 set() 方法</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">set</span>(<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    a.<span class="property">value</span> = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">sqrt</span>(value));</span></span><br><span class="line"><span class="language-javascript">                &#125;,</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; a, b &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-监视属性"><a href="#8-监视属性" class="headerlink" title="(8) 监视属性"></a><strong>(8) 监视属性</strong></h3><h4 id="1-watch"><a href="#1-watch" class="headerlink" title="1. watch()"></a><strong>1. <code>watch()</code></strong></h4><p>与计算属性一样，监视属性也变成了一个需要引入的函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 引入 ref() 和 watch() 函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref, watch &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> a = <span class="title function_">ref</span>(<span class="number">6</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置计算属性</span></span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">watch</span>(a, <span class="function">(<span class="params">New, Old</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// ······</span></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 侦测到数据改变后的代码</span></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// ······</span></span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; a &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>相比旧版本的<code>watch</code> ，新版本的监视属性允许监视多个值：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> &#123; ref, watch &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;MainStruct&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> a = <span class="title function_">ref</span>(<span class="number">6</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> b = <span class="title function_">ref</span>(<span class="string">&quot;测试&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置多个计算属性</span></span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">watch</span>([a, b], <span class="function">(<span class="params">New, Old</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 尝试查看传入的参数</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;New =&quot;</span>, <span class="title class_">New</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Old =&quot;</span>, <span class="title class_">Old</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> &#123; a, b &#125;;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在网页中修改值，将会在控制台中打印：</p>
+<p><img src="/2022/04/23/VueGrammar03/6.png" alt="6" title="6"></p>
+<p>可以看出传递给函数的参数变为了数组，并且是按照要监视的属性在参数数组中的位置，来排列新值和就值。一旦数组中的某一个变量的值改变，就会触发回调函数。</p>
+<p>此外，<code>watch()</code>还能接收第三个参数，该参数是一个配置对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">watch</span>(</span><br><span class="line">    [a, b],</span><br><span class="line">    <span class="function">(<span class="params">New, Old</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 尝试查看传入的参数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;New =&quot;</span>, <span class="title class_">New</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Old =&quot;</span>, <span class="title class_">Old</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 第三个参数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 指示在页面首次加载时立即执行回调函数</span></span><br><span class="line">        <span class="attr">immediate</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>深度监视模式与监视<code>reactive()</code>创建的代理对象</strong></div>
+
+<div style="color:goldenrod;">深度监视模式在监视<span style="color:red;">代理对象本身</span>的情况下是失效的（或者说没法关闭），因为Vue 3.0的底层代理逻辑（ <code>Proxy</code> ）就注定了它只能是深度监视的。另外，监视代理对象时，虽然能侦测到属性值的变化，但是传给回调函数的<code>New</code>与<code>Old</code>都是代理对象本身，即无法获取改变之前的值。因为传回的都是代理对象本身，它不掌握数据，所以新旧值都是引用的外部数据，引用本身不变，而这个外部数据已经被修改了。</div>
+</div>
+
+<p>因此，在 Vue 3.0 中，监视代理对象的某一个属性，需要通过函数返回值的方式来传递参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> temp = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">114514</span>,</span><br><span class="line">    <span class="attr">b</span>: <span class="number">1919810</span>,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="title function_">watch</span>(<span class="function">() =&gt;</span> temp.<span class="property">a</span>, <span class="function">(<span class="params">New, Old</span>) =&gt;</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">        <span class="comment">// 你的代码</span></span><br><span class="line">        <span class="comment">// ······</span></span><br><span class="line">    &#125;);</span><br><span class="line"><span class="keyword">return</span> &#123; a &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>当监视一个代理对象内的多个属性时，就必须使用数组，并且其中的每一个元素都应当是像上述代码中的<code>() => temp.a</code>一样的函数。当<span style="color:red;">只</span>监视代理对象中的<span style="color:red;">对象中的属性</span>时，需要使用深度监视模式。</p>
+<h4 id="2-watchEffect"><a href="#2-watchEffect" class="headerlink" title="2. watchEffect()"></a><strong>2. <code>watchEffect()</code></strong></h4><p><code>watchEffect()</code>函数是Vue 3.0新增的函数，该函数同样也能用于监视。它只接受一个参数，该参数是一个回调函数。</p>
+<p>使用<code>watchEffect()</code>函数进行监视时，不需要指明要监视的变量。所有在该回调函数内使用的变量的值改变时，回调函数就会重新执行。相比<code>watch()</code>函数，<code>watchEffect()</code>函数智能了不少。通常会在该函数的回调函数内编写Ajax请求。</p>
+<h3 id="9-toRef-与toRefs"><a href="#9-toRef-与toRefs" class="headerlink" title="(9) toRef()与toRefs()"></a><strong>(9) <code>toRef()</code>与<code>toRefs()</code></strong></h3><p><code>toRef()</code>函数接受两个参数，前者是一个对象，后者是该对象的属性名。该函数会将指定的属性加工为引用对象。使用该函数时可以传入<code>reactive()</code>函数创建的代理对象，生成的引用对象也具有响应式的效果。</p>
+<p>它与<code>ref()</code>函数最大的区别在于，前者是真的 “引用” ，而后者是新建实例的 “引用” 。当传入的数据是一个代理对象时，修改前者创建的引用对象，代理对象也会跟着改变；而后者无法做到这一点，因为后者 “引用” 的是一个全新对象。</p>
+<p>而<code>toRefs()</code>则是一次性处理一个对象下的所有属性，因此它不需要第二个参数。</p>
+<p><del>反正我是觉得这俩函数花里胡哨的没啥用。</del></p>
+<h2 id="九、新的标签"><a href="#九、新的标签" class="headerlink" title="九、新的标签"></a><strong>九、新的标签</strong></h2><p>下文介绍的标签不是HTML自带的标签，而是Vue定义的可以在模板中使用的标签。</p>
+<h3 id="1-lt-teleport-gt"><a href="#1-lt-teleport-gt" class="headerlink" title="(1) &lt;teleport&gt;"></a><strong>(1) <code>&lt;teleport&gt;</code></strong></h3><p><code>&lt;teleport&gt;</code>标签可以将位于其内部的HTML文本（包含HTML元素及其结构） “传送” 到指定的元素下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MainStruct</span> <span class="attr">v-show</span>=<span class="string">&quot;flag&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">MainStruct</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 标明要传送其内部的结构到 id 为 test 的 &lt;div&gt; 标签下 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">teleport</span> <span class="attr">to</span>=<span class="string">&quot;div#test&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">teleport</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 子组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">&quot;temp.a&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">&quot;temp.b&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 父组件中的结构将会出现在此 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>浏览器中展示的HTML结构如下：</p>
+<p><img src="/2022/04/23/VueGrammar03/7.png" alt="7" title="7"></p>
+<p><code>&lt;teleport&gt;</code>标签能将其中的HTML结构传送到任意位置，包括<code>&lt;body&gt;</code>标签，但传送的底层实现类似于<code>appendChild()</code>函数，即传送的HTML结构会变成该元素下的最后一个子元素。</p>
+<div class="note success"><div style="color:green;font-size:1.5em;"><strong>基础知识到此为止</strong></div>
+
+<div style="color:green;">Vue是一个庞大的、还在不断更新的库。此文所述，止冰山一角。要想深入了解，掌握ES6~ES12的新语法、学习JavaScript高级编程、阅读Vue的完整API文档是不可避免的。</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://republicengineeringstudent.gitee.io/2022/04/23/VueGrammar03/" title="Vue基础（三）">https://republicengineeringstudent.gitee.io/2022/04/23/VueGrammar03/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/JavaScript%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> JavaScript库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/22/Ajax/" rel="prev" title="Ajax入门">
+                  <i class="fa fa-chevron-left"></i> Ajax入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">279k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:14</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/comments.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/utils.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/motion.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/next-boot.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/bookmark.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/pjax.min.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/third-party/search/local-search.min.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"/lib/mermaid/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/third-party/tags/mermaid.min.js"></script>
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/third-party/pace.min.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdn.bootcdn.net/ajax/libs/hexo-theme-next/8.11.0/third-party/math/mathjax.min.js"></script>
+
+
+
+</body>
+</html>

@@ -152,7 +152,7 @@ code {
   color: white !important;
   border-radius: 1px !important;
   box-shadow: 0px 0px 3px 0.5px gray;
-  font-family: consolas !important;
+  font-family: consolas, "微软雅黑" !important;
   background-color: gray;
 }
 
@@ -208,8 +208,12 @@ div#aplayer {
   margin: 12px 0 !important;
 }
 
-figure.highlight.html, p {
+figure.highlight, p {
   margin: 20px 0 !important;
+}
+
+pre {
+  font-family: consolas, "微软雅黑" !important;
 }
 
 .post-body {
