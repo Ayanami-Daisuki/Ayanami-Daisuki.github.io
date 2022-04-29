@@ -1,1 +1,30 @@
-window.addEventListener("load",function(){var a=false;var b=["/img/logo.png","/img/DDR.png"];var c=0;var d=document.querySelector("img.custom-logo-image");var e=document.querySelector(".site-brand-container");d.style.opacity="1";d.onmouseenter=function(){if(a)return;else a=true;if(c==0)e.style.background="red";else e.style.background="#007fff";var f=1;var g=setInterval(function(){d.style.opacity=String(f);f-=.05;if(f<=0){if(c==0){d.src=b[1];c=1}else{d.src=b[0];c=0}clearInterval(g);var h=setInterval(function(){d.style.opacity=String(f);f+=.05;if(f>=1){a=false;clearInterval(h)}},30)}},30)}});
+let PreloadLogo = document.createElement("img");
+PreloadLogo.src = "/img/DDR.png";
+delete PreloadLogo;
+
+window.addEventListener("load", () =>
+{
+    const LogoList = ["/img/logo.png", "/img/DDR.png"];
+    const LogoBackgroundColor = ["#007FFF", "red"];
+    const Logo = document.querySelector("img.custom-logo-image");
+    const LogoBackground = document.querySelector("div.site-brand-container");
+    let Next = 1;
+    let Mutex = false;
+    LogoBackground.addEventListener("mouseenter", () =>
+    {
+        if (Mutex) return;
+        Mutex = true;
+        Logo.style.opacity = "0";
+        LogoBackground.style.backgroundColor = "black";
+        setTimeout(() =>
+        {
+            Logo.src = LogoList[Next];
+            LogoBackground.style.backgroundColor = LogoBackgroundColor[Next];
+            Next++;
+            if (Next === LogoList.length)
+                Next = 0;
+            Logo.style.opacity = "1";
+            setTimeout(() => { Mutex = false; }, 1000);
+        }, 1000);
+    });
+});

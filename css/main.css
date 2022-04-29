@@ -2947,11 +2947,9 @@ body {
   background-position: 50% 50%;
   background-size: cover;
   background-origin: border-box;
-  overflow-y: scroll;
-}
-
-body::-webkit-scrollbar {
-  display: none;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
 }
 
 main.main {
@@ -2963,6 +2961,11 @@ main.main {
   border-radius: 0px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   padding: 40px;
+}
+
+img.custom-logo-image,
+div.site-brand-container {
+  transition: all 1s ease-in-out;
 }
 
 .nav-link.active {
@@ -3017,6 +3020,8 @@ div.tabs {
   transition-property: all !important;
   transition-timing-function: ease !important;
   color: #00bfff;
+  font-size: 1.2em;
+  margin: 0 !important;
 }
 
 .site-author-name:hover {
@@ -3047,7 +3052,8 @@ div.tabs {
   top: -5px !important;
 }
 
-.links-of-author-item, li.links-of-blogroll-item>a {
+.links-of-author-item,
+li.links-of-blogroll-item>a {
   background: transparent !important;
   overflow: hidden !important;
   transition: all ease-out 0.25s !important;
@@ -3132,9 +3138,7 @@ a.post-title-link:hover {
 }
 
 .footer-inner {
-  font-size: 1.5em !important;
-  color: black !important;
-  text-shadow: 0 0 3px deepskyblue;
+  text-shadow: -2px 0 2px black, 2px 0 2px black, 0 -2px 2px black, 0 2px 2px black;
 }
 
 li.links-of-blogroll-item>a {
@@ -3150,7 +3154,8 @@ div#aplayer {
   margin: 12px 0 !important;
 }
 
-figure.highlight, p {
+figure.highlight,
+p {
   margin: 20px 0 !important;
 }
 
@@ -3160,4 +3165,88 @@ pre {
 
 .post-body {
   text-align: left;
+}
+
+#Menu {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  height: auto;
+  position: fixed;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: all 0.25s ease;
+  text-shadow: -2px 0 2px white, 2px 0 2px white, 0 -2px 2px white, 0 2px 2px white;
+}
+
+#List {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ListElement {
+  position: relative;
+  color: black;
+  text-align: left;
+  margin: 0;
+  height: 30px;
+  padding: 0 0 0 10px;
+  width: 141px;
+  border: 0;
+  background-color: transparent;
+}
+
+.ListElement:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#SkadiCorner {
+  position: fixed;
+  height: 277px;
+  width: 230px;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+  user-select: none;
+  color: red;
+  text-align: center;
+  text-shadow: -2px 0 2px white, 2px 0 2px white, 0 -2px 2px white, 0 2px 2px white;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+#SkadiFollow {
+  position: fixed;
+  height: 214px;
+  width: 230px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.SkadiWebp {
+  position: relative;
+  user-select: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 214px;
+  width: 230px;
+}
+
+#BackToTop {
+  margin-bottom: 20px;
 }
