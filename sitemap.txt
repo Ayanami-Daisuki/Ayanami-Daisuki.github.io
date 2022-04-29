@@ -54,8 +54,8 @@ https://republicengineeringstudent.gitee.io/tags/Java%E8%AF%AD%E6%B3%95%E5%9F%BA
 https://republicengineeringstudent.gitee.io/tags/JavaScript%E8%BF%9B%E9%98%B6/
 https://republicengineeringstudent.gitee.io/tags/%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/
 https://republicengineeringstudent.gitee.io/tags/DOM/
-https://republicengineeringstudent.gitee.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
 https://republicengineeringstudent.gitee.io/tags/JavaScript%E5%9F%BA%E7%A1%80/
+https://republicengineeringstudent.gitee.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
 https://republicengineeringstudent.gitee.io/tags/Python/
 https://republicengineeringstudent.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://republicengineeringstudent.gitee.io/tags/Python-API/
