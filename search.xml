@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>卷积神经网络原理</title>
+    <url>/2022/01/18/ConvolutionalNeuralNetworkPrinciple/</url>
+    <content><![CDATA[<img src="/2022/01/18/ConvolutionalNeuralNetworkPrinciple/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有神经网络学习基础。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="卷积核（Kernel）"><a href="#卷积核（Kernel）" class="headerlink" title="卷积核（Kernel）"></a><strong>卷积核（Kernel）</strong></h2><p>卷积操作需要用到的玩意。如下图，阴影为卷积核，蓝色为原始图像，绿色为卷积后图像。卷积核常见大小有3×3或5×5。</p>
+<p><img src="/2022/01/18/ConvolutionalNeuralNetworkPrinciple/Convolution.gif" alt="Convolution 卷积操作" title="卷积操作"></p>
+<h2 id="卷积操作"><a href="#卷积操作" class="headerlink" title="卷积操作"></a><strong>卷积操作</strong></h2><p>上图所示即为卷积操作，其结果类似于降采样。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>降采样</strong></div>
+
+<div style="color:royalblue;">简单来说就是降低图像的质量但是不会丢失图像的基本特征，图像糊了但是还是看得清画的是啥。（对于计算机而言的“看得清”，并且提取的特征可以多样化：颜色特征、线条几何特征等。）</div>
+</div>
+
+<p>具体操作为将卷积核“放在”原始图像上，并将每格重叠的像素点的值相乘后依次相加，最终的值填入处理后图像对应的像素点，再将卷积核向右或向下移动，最终处理完整个原始图像。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>神经网络中的卷积核</strong></div>
+
+<div style="color:royalblue;">在CNN中，卷积核并不需要设计者自行设置。CNN将卷积核看作了神经网络的结点，将卷积核每个像素点的值看成了神经网络中的每个结点参数。因此只需要等算法自己执行反向传播，即可优化卷积核的像素值。</div>
+</div>
+
+<h2 id="填充（Padding）"><a href="#填充（Padding）" class="headerlink" title="填充（Padding）"></a><strong>填充（Padding）</strong></h2><p>若要维持原图像大小不变，需要在原图像周围填充一圈像素，即为上图的白色区域。填充可以是0也可以是255。</p>
+<h2 id="步长（Stride）"><a href="#步长（Stride）" class="headerlink" title="步长（Stride）"></a><strong>步长（Stride）</strong></h2><p>卷积操作时，在进行完一次处理后的图像的像素点值的计算时，卷积核将会向右或向下移动，移动的像素格数量即为步长。步长越长，卷积后的图像就会越小。一般设置为1。</p>
+<h2 id="池化（Pooling）"><a href="#池化（Pooling）" class="headerlink" title="池化（Pooling）"></a><strong>池化（Pooling）</strong></h2><p>与卷积操作类似，不过比卷积更简单。<br>池化一般有平均池化和最大池化。<br>选取一个类似于卷积核的池化核，若为平均池化则计算池化核内所有像素点的平均值，填入池化后图像。若为最大池化，则直接将池化核内最大的像素值填入池化后图像。</p>
+<h2 id="卷积后的图像大小计算公式"><a href="#卷积后的图像大小计算公式" class="headerlink" title="卷积后的图像大小计算公式"></a><strong>卷积后的图像大小计算公式</strong></h2><p>$$<br>\frac{原始图像边长+2×填充宽度-卷积核边长}{步长}+1<br>$$</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>CNN</tag>
+        <tag>计算机科学</tag>
+        <tag>机器学习</tag>
+        <tag>原理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ajax入门</title>
     <url>/2022/04/22/Ajax/</url>
     <content><![CDATA[<img src="/2022/04/22/Ajax/Title.png" alt="标题" style="width:100%;height:auto;">
@@ -199,48 +241,6 @@
       <tags>
         <tag>计算机科学</tag>
         <tag>JavaScript库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>卷积神经网络原理</title>
-    <url>/2022/01/18/ConvolutionalNeuralNetworkPrinciple/</url>
-    <content><![CDATA[<img src="/2022/01/18/ConvolutionalNeuralNetworkPrinciple/Title.png" alt="标题" style="width:100%;height:auto;">
-
-<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
-
-<div style="color:goldenrod;">理解本文需要有神经网络学习基础。</div>
-</div>
-
-<span id="more"></span>
-
-<h2 id="卷积核（Kernel）"><a href="#卷积核（Kernel）" class="headerlink" title="卷积核（Kernel）"></a><strong>卷积核（Kernel）</strong></h2><p>卷积操作需要用到的玩意。如下图，阴影为卷积核，蓝色为原始图像，绿色为卷积后图像。卷积核常见大小有3×3或5×5。</p>
-<p><img src="/2022/01/18/ConvolutionalNeuralNetworkPrinciple/Convolution.gif" alt="Convolution 卷积操作" title="卷积操作"></p>
-<h2 id="卷积操作"><a href="#卷积操作" class="headerlink" title="卷积操作"></a><strong>卷积操作</strong></h2><p>上图所示即为卷积操作，其结果类似于降采样。</p>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>降采样</strong></div>
-
-<div style="color:royalblue;">简单来说就是降低图像的质量但是不会丢失图像的基本特征，图像糊了但是还是看得清画的是啥。（对于计算机而言的“看得清”，并且提取的特征可以多样化：颜色特征、线条几何特征等。）</div>
-</div>
-
-<p>具体操作为将卷积核“放在”原始图像上，并将每格重叠的像素点的值相乘后依次相加，最终的值填入处理后图像对应的像素点，再将卷积核向右或向下移动，最终处理完整个原始图像。</p>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>神经网络中的卷积核</strong></div>
-
-<div style="color:royalblue;">在CNN中，卷积核并不需要设计者自行设置。CNN将卷积核看作了神经网络的结点，将卷积核每个像素点的值看成了神经网络中的每个结点参数。因此只需要等算法自己执行反向传播，即可优化卷积核的像素值。</div>
-</div>
-
-<h2 id="填充（Padding）"><a href="#填充（Padding）" class="headerlink" title="填充（Padding）"></a><strong>填充（Padding）</strong></h2><p>若要维持原图像大小不变，需要在原图像周围填充一圈像素，即为上图的白色区域。填充可以是0也可以是255。</p>
-<h2 id="步长（Stride）"><a href="#步长（Stride）" class="headerlink" title="步长（Stride）"></a><strong>步长（Stride）</strong></h2><p>卷积操作时，在进行完一次处理后的图像的像素点值的计算时，卷积核将会向右或向下移动，移动的像素格数量即为步长。步长越长，卷积后的图像就会越小。一般设置为1。</p>
-<h2 id="池化（Pooling）"><a href="#池化（Pooling）" class="headerlink" title="池化（Pooling）"></a><strong>池化（Pooling）</strong></h2><p>与卷积操作类似，不过比卷积更简单。<br>池化一般有平均池化和最大池化。<br>选取一个类似于卷积核的池化核，若为平均池化则计算池化核内所有像素点的平均值，填入池化后图像。若为最大池化，则直接将池化核内最大的像素值填入池化后图像。</p>
-<h2 id="卷积后的图像大小计算公式"><a href="#卷积后的图像大小计算公式" class="headerlink" title="卷积后的图像大小计算公式"></a><strong>卷积后的图像大小计算公式</strong></h2><p>$$<br>\frac{原始图像边长+2×填充宽度-卷积核边长}{步长}+1<br>$$</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>计算机科学</tag>
-        <tag>CNN</tag>
-        <tag>机器学习</tag>
-        <tag>原理</tag>
       </tags>
   </entry>
   <entry>
@@ -3940,6 +3940,225 @@ D --&gt;|派生| E(PrintStream)
       </tags>
   </entry>
   <entry>
+    <title>JavaScript进阶</title>
+    <url>/2022/03/11/JavaScriptAdvanced/</url>
+    <content><![CDATA[<img src="/2022/03/11/JavaScriptAdvanced/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要JavaScript基础。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h2><p>本来觉得JavaScript没必要掌握太深，但是为了学VUE、Node.js和Electron，感觉这部分欠下的不得不补。</p>
+<h2 id="二、基础巩固"><a href="#二、基础巩固" class="headerlink" title="二、基础巩固"></a><strong>二、基础巩固</strong></h2><p>这一部分就简单带过。</p>
+<h3 id="1-变量类型与判断"><a href="#1-变量类型与判断" class="headerlink" title="(1) 变量类型与判断"></a><strong>(1) 变量类型与判断</strong></h3><p>JavaScript中的类型分为如下几种：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型名</th>
+<th align="center">代表的值</th>
+<th align="center">可用 <code>typeof</code> 检查</th>
+<th align="center">可用 <code>instanceof</code> 检查</th>
+<th align="center">可用 <code>===</code> 检查</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>number</code></td>
+<td align="center">数字</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>string</code></td>
+<td align="center">字符、字符串</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>boolean</code></td>
+<td align="center">布尔值</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>function</code></td>
+<td align="center">函数</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center"><code>object</code></td>
+<td align="center">对象</td>
+<td align="center">是，但不可检查类名</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center"><code>undefined</code></td>
+<td align="center">未初始化的变量</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center"><code>null</code></td>
+<td align="center">空值</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+</tbody></table>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>typeof</code> 的返回值类型</strong></div>
+
+<div style="color:royalblue;">这本应该是基础的内容，但JavaScript类型并不严格所以我就没有深究。但进阶篇不得不面对这个问题，正因为JavaScript类型不严格，所以才要更加注重类型判断，以免出现令人困惑的问题。</div>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">114514</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;typeof的返回值类型：&quot;</span> + <span class="keyword">typeof</span> (<span class="keyword">typeof</span> a));</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">输出结果为：</div>
+
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">typeof的返回值类型：string</span><br></pre></td></tr></table></figure>
+</div>
+
+<h3 id="2-值类型与引用类型"><a href="#2-值类型与引用类型" class="headerlink" title="(2) 值类型与引用类型"></a><strong>(2) 值类型与引用类型</strong></h3><p>JavaScript中，基本类型是值类型（真正的值在栈中）而对象是引用类型（真正的值在堆中，栈中只有一个指向堆的指针）。使用 <code>===</code> 判断两个变量 &#x2F; 对象是否相等时，只会判断位于栈中的值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">a</span> = (<span class="params"></span>) =&gt; &#123; &#125;;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line"><span class="keyword">var</span> <span class="title function_">c</span> = (<span class="params"></span>) =&gt; &#123; &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b === a is &quot;</span> + (b === a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c === a is &quot;</span> + (c === a));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">b === a is true</span><br><span class="line">c === a is false</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>lambda表达式</strong></div>
+
+<div style="color:royalblue;">上述代码中的 <code>() => &#123; &#125;</code> 是lambda表达式，用于更简洁地定义函数。由于其他语言也有与其类似的lambda表达式，此处对其不做赘述。</div>
+</div>
+
+<p>其中值类型被传递进函数时，在函数内的修改不会影响函数外部的变量，而引用类型则<span style="color:red;">可能</span>会被影响。当重新对在函数内的引用类型赋值则不会被影响；而修改引用类型的属性，则会产生影响：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会对引用类型造成影响</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">NoEffect</span>(<span class="params">a</span>)</span><br><span class="line">&#123;</span><br><span class="line">    a = <span class="number">1919810</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只会对应用类型造成影响</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Effecting</span>(<span class="params">a</span>)</span><br><span class="line">&#123;</span><br><span class="line">    a.<span class="property">test</span> = <span class="number">1919810</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a为值类型，b为引用类型</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">114514</span>;</span><br><span class="line"><span class="keyword">var</span> b = &#123; <span class="string">&quot;test&quot;</span>: <span class="number">114514</span> &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title class_">NoEffect</span>(a);</span><br><span class="line"><span class="title class_">NoEffect</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b.<span class="property">test</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;---------&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Effecting</span>(a);</span><br><span class="line"><span class="title class_">Effecting</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.test = &quot;</span> + a.<span class="property">test</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b.<span class="property">test</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514</span><br><span class="line">b = 114514</span><br><span class="line">---------</span><br><span class="line">a.test = undefined</span><br><span class="line">b = 1919810</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-原型与原型链"><a href="#3-原型与原型链" class="headerlink" title="(3) 原型与原型链"></a><strong>(3) 原型与原型链</strong></h3><p>每一个对象都有其原型对象，每一种类型的对象只有一个原型对象。原型对象可以通过对象的 <code>__proto__</code> 属性或者构造函数的 <code>prototype</code> 来访问。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义构造函数，并创建对象</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Lacia</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.__proto__ = &quot;</span> + a.<span class="property">__proto__</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Lacia.prototype = &quot;</span> + <span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查是否指向同一个原型对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Lacia.prototype === a.__proto__ is &quot;</span> + (<span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span> === a.<span class="property">__proto__</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a.__proto__ = [object Object]</span><br><span class="line">Lacia.prototype = [object Object]</span><br><span class="line">Lacia.prototype === a.__proto__ is true</span><br></pre></td></tr></table></figure>
+
+<p>而原型对象的 <code>constructor</code> 属性又指向了构造函数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Lacia.prototype.constructor === Lacia is &quot;</span> + (<span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> === <span class="title class_">Lacia</span>));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Lacia.prototype.constructor === Lacia is true</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>prototype</code> 称为显示原型对象， <code>__proto__</code> 称为隐式原型对象。当在对象中寻找属性或方法时，如果没有找到，则会向其原型对象寻找。在原型对象中还没找到时，会去找原型对象的原型对象。经典的 <code>toString()</code> 方法就是定义在原型对象的原型对象中，这使得几乎任何类型都可以被转换为 <code>string</code> 类型。</p>
+<pre class="mermaid">
+graph TD
+
+A(对象) --&gt;|&lt;code&gt;__proto__&lt;&#x2F;code&gt;| B(原型对象)
+B --&gt;|&lt;code&gt;constructor&lt;&#x2F;code&gt;| C(构造函数)
+C --&gt;|&lt;code&gt;prototype&lt;&#x2F;code&gt;| B
+C --&gt;|&lt;code&gt;__proto__&lt;&#x2F;code&gt;| D(函数的原型)
+D --&gt;|&lt;code&gt;constructor&lt;&#x2F;code&gt;| E(&lt;code&gt;Function&lt;&#x2F;code&gt;)
+E --&gt;|&lt;code&gt;prototype&lt;&#x2F;code&gt;| D
+
+</pre>
+
+<p>构造函数作为一种特殊的对象，自然也有 <code>__proto__</code> 属性与其自身的原型对象。</p>
+<h2 id="三、高级"><a href="#三、高级" class="headerlink" title="三、高级"></a><strong>三、高级</strong></h2><h3 id="1-变量声明与函数声明的提升"><a href="#1-变量声明与函数声明的提升" class="headerlink" title="(1) 变量声明与函数声明的提升"></a><strong>(1) 变量声明与函数声明的提升</strong></h3><p>JavaScript在执行前会先解析整个代码，并且会先定义好所有的变量（但不赋值，此时变量值为 <code>undefined</code> 。）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = <span class="number">114514</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ER</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Error : temp = &quot;</span> + temp);</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="number">1919810</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">OK1</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="number">1919810</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;OK1 : temp = &quot;</span> + temp);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">OK2</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;OK2 : temp = &quot;</span> + temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">ER</span>();</span><br><span class="line"><span class="title class_">OK1</span>();</span><br><span class="line"><span class="title class_">OK2</span>();</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Error : temp = undefined</span><br><span class="line">OK1 : temp = 1919810</span><br><span class="line">OK2 : temp = 114514</span><br></pre></td></tr></table></figure>
+
+<p>可以看见函数 <code>ER()</code> 输出的值既非114514也不是1919810，但 <code>OK1</code> 和 <code>OK2</code> 表明了局部变量和全局变量都能够正常生效。这是因为 <code>ER()</code> 函数在执行时相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ER</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> temp;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Error : temp = &quot;</span> + temp);</span><br><span class="line">    temp = <span class="number">1919810</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>局部变量的 <code>temp</code> 覆盖了全局变量的 <code>temp</code> ，但它没有初始化，因此在打印时将会输出 <code>undefined</code> 。</p>
+<p>对于函数也是一样的，JavaScript可以将函数的声明放在函数的调用之后。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>但是使用匿名函数赋值给变量的方式，则必须在定义后再调用。因为匿名函数和变量虽然会在代码执行前被定义，但赋值需要等到变量声明的位置再进行。这种方式本质上属于变量声明提升。</p>
+<p>变量声明与函数声明的原理，是JavaScript的代码在被执行之前，解释器将会准备好运行环境（对象），将所有用到的变量与函数都定义在该对象的属性中。这个对象可以通过 <code>this</code> 指针来查看。在浏览器中，它指向 <code>window</code> 对象，而在Node.js环境下，它是一个空对象。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>上下文</strong></div>
+
+<div style="color:royalblue;">运行环境对象只是为了方便理解而暂时使用的我的自定义名称。严谨一点的话，应当使用“上下文”。<del>但你这上下文和C/C++的上下文差的也太多了罢（绝望）。</del></div>
+</div>
+
+<p>函数被调用时也是同理，解释器会先准备一个运行环境（对象），解析函数内的局部变量与函数定义等，并将其定义为该对象的属性，再将其压入一个运行环境栈，然后才开始执行函数内的代码。栈顶对象就是运行环境，当函数退出时，栈将会弹出栈顶元素。</p>
+<h3 id="2-闭包"><a href="#2-闭包" class="headerlink" title="(2) 闭包"></a><strong>(2) 闭包</strong></h3><p>在理解了运行环境栈与运行环境对象以后，理解闭包就不难了。</p>
+<p>首先需要了解，JavaScript也存在堆与栈。由于其没有指针，就需要解释器去回收位于堆中的垃圾。回收的标准，是堆中的某个对象，不再有引用类型指向它或它的属性。运行环境对象也不例外。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    a = <span class="function">() =&gt;</span>   <span class="comment">// lambda表达式</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印i的值</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">a</span>();</span><br><span class="line"><span class="title function_">a</span>();</span><br><span class="line"><span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>上述的代码中，定义在 <code>test()</code> 函数中的局部变量 <code>i</code> 应当在函数执行完毕后被回收，但实际上并没有，因为作为该函数的运行环境对象虽然从栈中弹出了，但并没有被回收，仍然存在于堆中。全局变量 <code>a</code> 指向了一个匿名函数，该函数是<code>test()</code> 函数的运行时对象的方法，因此该对象没有被回收，所以每次打印的 <code>i</code> 的值在递增。</p>
+<p>上述代码可以利用匿名函数和运行环境对象，做得再“绝”一点：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function">(<span class="params">a</span>) =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    a.<span class="property">a</span> = <span class="function">() =&gt;</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="variable language_">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">a</span>();</span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">a</span>();</span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
+
+<p>要想让闭包死亡（即回收闭包，或释放运行环境对象），可以使用 <code>this.a = null;</code> 。执行这条语句后，由于没有引用类型指向运行环境对象或运行环境对象的属性，它将被回收，堆空间将被释放。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>闭包的缺点</strong></div>
+
+<div style="color:goldenrod;">使用闭包，意味着堆内存将会被长期占用，如果一个程序有大量的闭包，或闭包内使用了很多对象，将有可能造成堆内存溢出。同时，由于闭包在本质上是向外暴露堆内存地址，这将有可能导致内存泄漏。因此，在不需要使用闭包时，应当及时释放闭包，或者从最初开始就不要使用闭包。</div>
+</div>
+
+<h3 id="3-继承"><a href="#3-继承" class="headerlink" title="(3) 继承"></a><strong>(3) 继承</strong></h3><h4 id="1-原型链继承"><a href="#1-原型链继承" class="headerlink" title="1. 原型链继承"></a><strong>1. 原型链继承</strong></h4><p>构造函数的 <code>prototype</code> 属性指向的是该类型的原型对象，换句话说就是父类。因此可以通过修改该属性来改变其父类，以达到继承的效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义HIE类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable constant_">HIE</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">SelfIntroduce</span> = <span class="keyword">function</span> (<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;My name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Lacia类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params">Type</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = <span class="title class_">Type</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 让Lacia类继承自HIE类</span></span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">HIE</span>();</span><br><span class="line"><span class="comment">// 上一条语句会修改Lacia类的原型对象的constructor属性</span></span><br><span class="line"><span class="comment">// 虽然可以忽略不管，但最好改回来</span></span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> = <span class="title class_">Lacia</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line">temp.<span class="property">Name</span> = <span class="string">&quot;Kouka&quot;</span>;</span><br><span class="line">temp.<span class="title class_">SelfIntroduce</span>();</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">My name is Kouka</span><br></pre></td></tr></table></figure>
+
+<p>这种继承方式存在局限性，上述代码中已经很明显地标识了——当父类构造函数拥有参数时，子类将无法初始化（除非让父类属性都是同一个值，或者不继承父类属性）。</p>
+<h4 id="2-构造函数继承（伪）"><a href="#2-构造函数继承（伪）" class="headerlink" title="2. 构造函数继承（伪）"></a><strong>2. 构造函数继承（伪）</strong></h4><p><span style="color:red;">这种继承方式是假继承，不能继承父类的方法。</span>具体原理是利用函数对象的 <code>call()</code> 方法或 <code>apply()</code> 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// HIE类的构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params">Name</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = <span class="title class_">Name</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lacia类的构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params">Name, Type</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 继承（伪）自HIE类</span></span><br><span class="line">    <span class="variable constant_">HIE</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>, <span class="title class_">Name</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = <span class="title class_">Type</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="string">&quot;Kouka&quot;</span>, <span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;temp.Name = &quot;</span> + temp.<span class="property">Name</span> + <span class="string">&quot;, temp.Type = &quot;</span> + temp.<span class="property">Type</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">temp.Name = Kouka, temp.Type = Type-001</span><br></pre></td></tr></table></figure>
+
+<p>上述方法其实只是将“父类”的属性复制给了“子类”，“子类”的原型链中并不存在“父类”，也因此“子类”并不能获得“父类”定义好的方法。</p>
+<h4 id="3-组合继承"><a href="#3-组合继承" class="headerlink" title="3. 组合继承"></a><strong>3. 组合继承</strong></h4><p>使用上述的构造函数继承+原型继承的方式，可以实现功能相对完备的继承方式。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义HIE类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params">Name</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = <span class="title class_">Name</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable constant_">HIE</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">SelfIntroduce</span> = <span class="keyword">function</span> (<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;My name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Lacia类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params">Name, Type</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 通过构造函数的继承自HIE类</span></span><br><span class="line">    <span class="variable constant_">HIE</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>, <span class="title class_">Name</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = <span class="title class_">Type</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过原型链继承自HIE类</span></span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">HIE</span>();</span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> = <span class="title class_">Lacia</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="string">&quot;Kouka&quot;</span>, <span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line">temp.<span class="title class_">SelfIntroduce</span>();</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">My name is Kouka</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-定时器"><a href="#4-定时器" class="headerlink" title="(4) 定时器"></a><strong>(4) 定时器</strong></h3><p>首先需要强调：<span style="color:red;">JavaScript是单线程执行的</span>。或者严格一点说，程序员写的这一份 <code>.js</code> 代码是单线程执行的。因为JavaScript最初的目的就是个浏览器脚本，用于设置浏览器的页面，如果引入多线程将会引发复杂的线程同步问题。</p>
+<p>当执行 <code>.js</code> 文件时，解释器按如下顺序会先做准备：</p>
+<ol>
+<li>新开一个子线程</li>
+<li>解析 <code>.js</code> 文件中的代码</li>
+<li>设置子线程上下文并将其压入上下文栈</li>
+<li>在子线程中执行代码</li>
+<li>在主线程中设置回调函数，等待触发</li>
+</ol>
+<p>也就是说，定时器函数的底层实现实际上是多线程，其真实时延受制于子线程的执行耗时。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取程序开始执行的时间</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">StartTime</span> = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置定时器，2000ms后将执行回调函数</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 打印时间差</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Time cost : &quot;</span> + (<span class="title class_">Date</span>.<span class="title function_">now</span>() - <span class="title class_">StartTime</span>));</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 迟滞子线程的执行</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000000</span>; i++)</span><br><span class="line">&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Time cost : 10600</span><br></pre></td></tr></table></figure>
+
+<p>可以看到实际延时是10600ms，不是2000ms。JavaScript虽然实际上是多线程，但是代码执行顺序却是单线程的。在回调函数被设置之前，JavaScript的解释器会优先保证子线程中的代码被执行完毕。</p>
+<p>当要设置回调函数时，JavaScript解释器（或浏览器内核）会维护一个回调函数队列。这些回调函数并没有立即被设置，而是在等待子线程结束以后才依次从该队列中弹出回调函数并设置之，事件、Ajax亦是如此。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>编程语言</category>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>计算机科学</tag>
+        <tag>编程语言</tag>
+        <tag>JavaScript进阶</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java基础（五）</title>
     <url>/2022/03/07/JavaGrammar05/</url>
     <content><![CDATA[<img src="/2022/03/07/JavaGrammar05/Title.png" alt="标题" style="width:100%;height:auto;">
@@ -4220,225 +4439,6 @@ D --&gt;|派生| E(PrintStream)
         <tag>计算机科学</tag>
         <tag>编程语言</tag>
         <tag>Java语法基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript进阶</title>
-    <url>/2022/03/11/JavaScriptAdvanced/</url>
-    <content><![CDATA[<img src="/2022/03/11/JavaScriptAdvanced/Title.png" alt="标题" style="width:100%;height:auto;">
-
-<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
-
-<div style="color:goldenrod;">理解本文需要JavaScript基础。</div>
-</div>
-
-<span id="more"></span>
-
-<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h2><p>本来觉得JavaScript没必要掌握太深，但是为了学VUE、Node.js和Electron，感觉这部分欠下的不得不补。</p>
-<h2 id="二、基础巩固"><a href="#二、基础巩固" class="headerlink" title="二、基础巩固"></a><strong>二、基础巩固</strong></h2><p>这一部分就简单带过。</p>
-<h3 id="1-变量类型与判断"><a href="#1-变量类型与判断" class="headerlink" title="(1) 变量类型与判断"></a><strong>(1) 变量类型与判断</strong></h3><p>JavaScript中的类型分为如下几种：</p>
-<table>
-<thead>
-<tr>
-<th align="center">类型名</th>
-<th align="center">代表的值</th>
-<th align="center">可用 <code>typeof</code> 检查</th>
-<th align="center">可用 <code>instanceof</code> 检查</th>
-<th align="center">可用 <code>===</code> 检查</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>number</code></td>
-<td align="center">数字</td>
-<td align="center">是</td>
-<td align="center">否</td>
-<td align="center">是</td>
-</tr>
-<tr>
-<td align="center"><code>string</code></td>
-<td align="center">字符、字符串</td>
-<td align="center">是</td>
-<td align="center">否</td>
-<td align="center">是</td>
-</tr>
-<tr>
-<td align="center"><code>boolean</code></td>
-<td align="center">布尔值</td>
-<td align="center">是</td>
-<td align="center">否</td>
-<td align="center">是</td>
-</tr>
-<tr>
-<td align="center"><code>function</code></td>
-<td align="center">函数</td>
-<td align="center">是</td>
-<td align="center">是</td>
-<td align="center">否</td>
-</tr>
-<tr>
-<td align="center"><code>object</code></td>
-<td align="center">对象</td>
-<td align="center">是，但不可检查类名</td>
-<td align="center">是</td>
-<td align="center">否</td>
-</tr>
-<tr>
-<td align="center"><code>undefined</code></td>
-<td align="center">未初始化的变量</td>
-<td align="center">是</td>
-<td align="center">否</td>
-<td align="center">是</td>
-</tr>
-<tr>
-<td align="center"><code>null</code></td>
-<td align="center">空值</td>
-<td align="center">否</td>
-<td align="center">否</td>
-<td align="center">是</td>
-</tr>
-</tbody></table>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>typeof</code> 的返回值类型</strong></div>
-
-<div style="color:royalblue;">这本应该是基础的内容，但JavaScript类型并不严格所以我就没有深究。但进阶篇不得不面对这个问题，正因为JavaScript类型不严格，所以才要更加注重类型判断，以免出现令人困惑的问题。</div>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">114514</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;typeof的返回值类型：&quot;</span> + <span class="keyword">typeof</span> (<span class="keyword">typeof</span> a));</span><br></pre></td></tr></table></figure>
-
-<div style="color:royalblue;">输出结果为：</div>
-
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">typeof的返回值类型：string</span><br></pre></td></tr></table></figure>
-</div>
-
-<h3 id="2-值类型与引用类型"><a href="#2-值类型与引用类型" class="headerlink" title="(2) 值类型与引用类型"></a><strong>(2) 值类型与引用类型</strong></h3><p>JavaScript中，基本类型是值类型（真正的值在栈中）而对象是引用类型（真正的值在堆中，栈中只有一个指向堆的指针）。使用 <code>===</code> 判断两个变量 &#x2F; 对象是否相等时，只会判断位于栈中的值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">a</span> = (<span class="params"></span>) =&gt; &#123; &#125;;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line"><span class="keyword">var</span> <span class="title function_">c</span> = (<span class="params"></span>) =&gt; &#123; &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b === a is &quot;</span> + (b === a));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c === a is &quot;</span> + (c === a));</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">b === a is true</span><br><span class="line">c === a is false</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>lambda表达式</strong></div>
-
-<div style="color:royalblue;">上述代码中的 <code>() => &#123; &#125;</code> 是lambda表达式，用于更简洁地定义函数。由于其他语言也有与其类似的lambda表达式，此处对其不做赘述。</div>
-</div>
-
-<p>其中值类型被传递进函数时，在函数内的修改不会影响函数外部的变量，而引用类型则<span style="color:red;">可能</span>会被影响。当重新对在函数内的引用类型赋值则不会被影响；而修改引用类型的属性，则会产生影响：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会对引用类型造成影响</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">NoEffect</span>(<span class="params">a</span>)</span><br><span class="line">&#123;</span><br><span class="line">    a = <span class="number">1919810</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只会对应用类型造成影响</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Effecting</span>(<span class="params">a</span>)</span><br><span class="line">&#123;</span><br><span class="line">    a.<span class="property">test</span> = <span class="number">1919810</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a为值类型，b为引用类型</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">114514</span>;</span><br><span class="line"><span class="keyword">var</span> b = &#123; <span class="string">&quot;test&quot;</span>: <span class="number">114514</span> &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title class_">NoEffect</span>(a);</span><br><span class="line"><span class="title class_">NoEffect</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b.<span class="property">test</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;---------&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Effecting</span>(a);</span><br><span class="line"><span class="title class_">Effecting</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.test = &quot;</span> + a.<span class="property">test</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b = &quot;</span> + b.<span class="property">test</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a = 114514</span><br><span class="line">b = 114514</span><br><span class="line">---------</span><br><span class="line">a.test = undefined</span><br><span class="line">b = 1919810</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-原型与原型链"><a href="#3-原型与原型链" class="headerlink" title="(3) 原型与原型链"></a><strong>(3) 原型与原型链</strong></h3><p>每一个对象都有其原型对象，每一种类型的对象只有一个原型对象。原型对象可以通过对象的 <code>__proto__</code> 属性或者构造函数的 <code>prototype</code> 来访问。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义构造函数，并创建对象</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Lacia</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a.__proto__ = &quot;</span> + a.<span class="property">__proto__</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Lacia.prototype = &quot;</span> + <span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查是否指向同一个原型对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Lacia.prototype === a.__proto__ is &quot;</span> + (<span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span> === a.<span class="property">__proto__</span>));</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">a.__proto__ = [object Object]</span><br><span class="line">Lacia.prototype = [object Object]</span><br><span class="line">Lacia.prototype === a.__proto__ is true</span><br></pre></td></tr></table></figure>
-
-<p>而原型对象的 <code>constructor</code> 属性又指向了构造函数：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Lacia.prototype.constructor === Lacia is &quot;</span> + (<span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> === <span class="title class_">Lacia</span>));</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Lacia.prototype.constructor === Lacia is true</span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>prototype</code> 称为显示原型对象， <code>__proto__</code> 称为隐式原型对象。当在对象中寻找属性或方法时，如果没有找到，则会向其原型对象寻找。在原型对象中还没找到时，会去找原型对象的原型对象。经典的 <code>toString()</code> 方法就是定义在原型对象的原型对象中，这使得几乎任何类型都可以被转换为 <code>string</code> 类型。</p>
-<pre class="mermaid">
-graph TD
-
-A(对象) --&gt;|&lt;code&gt;__proto__&lt;&#x2F;code&gt;| B(原型对象)
-B --&gt;|&lt;code&gt;constructor&lt;&#x2F;code&gt;| C(构造函数)
-C --&gt;|&lt;code&gt;prototype&lt;&#x2F;code&gt;| B
-C --&gt;|&lt;code&gt;__proto__&lt;&#x2F;code&gt;| D(函数的原型)
-D --&gt;|&lt;code&gt;constructor&lt;&#x2F;code&gt;| E(&lt;code&gt;Function&lt;&#x2F;code&gt;)
-E --&gt;|&lt;code&gt;prototype&lt;&#x2F;code&gt;| D
-
-</pre>
-
-<p>构造函数作为一种特殊的对象，自然也有 <code>__proto__</code> 属性与其自身的原型对象。</p>
-<h2 id="三、高级"><a href="#三、高级" class="headerlink" title="三、高级"></a><strong>三、高级</strong></h2><h3 id="1-变量声明与函数声明的提升"><a href="#1-变量声明与函数声明的提升" class="headerlink" title="(1) 变量声明与函数声明的提升"></a><strong>(1) 变量声明与函数声明的提升</strong></h3><p>JavaScript在执行前会先解析整个代码，并且会先定义好所有的变量（但不赋值，此时变量值为 <code>undefined</code> 。）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = <span class="number">114514</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ER</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Error : temp = &quot;</span> + temp);</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="number">1919810</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">OK1</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="number">1919810</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;OK1 : temp = &quot;</span> + temp);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">OK2</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;OK2 : temp = &quot;</span> + temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">ER</span>();</span><br><span class="line"><span class="title class_">OK1</span>();</span><br><span class="line"><span class="title class_">OK2</span>();</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Error : temp = undefined</span><br><span class="line">OK1 : temp = 1919810</span><br><span class="line">OK2 : temp = 114514</span><br></pre></td></tr></table></figure>
-
-<p>可以看见函数 <code>ER()</code> 输出的值既非114514也不是1919810，但 <code>OK1</code> 和 <code>OK2</code> 表明了局部变量和全局变量都能够正常生效。这是因为 <code>ER()</code> 函数在执行时相当于：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ER</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> temp;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Error : temp = &quot;</span> + temp);</span><br><span class="line">    temp = <span class="number">1919810</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>局部变量的 <code>temp</code> 覆盖了全局变量的 <code>temp</code> ，但它没有初始化，因此在打印时将会输出 <code>undefined</code> 。</p>
-<p>对于函数也是一样的，JavaScript可以将函数的声明放在函数的调用之后。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
-
-<p>但是使用匿名函数赋值给变量的方式，则必须在定义后再调用。因为匿名函数和变量虽然会在代码执行前被定义，但赋值需要等到变量声明的位置再进行。这种方式本质上属于变量声明提升。</p>
-<p>变量声明与函数声明的原理，是JavaScript的代码在被执行之前，解释器将会准备好运行环境（对象），将所有用到的变量与函数都定义在该对象的属性中。这个对象可以通过 <code>this</code> 指针来查看。在浏览器中，它指向 <code>window</code> 对象，而在Node.js环境下，它是一个空对象。</p>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>上下文</strong></div>
-
-<div style="color:royalblue;">运行环境对象只是为了方便理解而暂时使用的我的自定义名称。严谨一点的话，应当使用“上下文”。<del>但你这上下文和C/C++的上下文差的也太多了罢（绝望）。</del></div>
-</div>
-
-<p>函数被调用时也是同理，解释器会先准备一个运行环境（对象），解析函数内的局部变量与函数定义等，并将其定义为该对象的属性，再将其压入一个运行环境栈，然后才开始执行函数内的代码。栈顶对象就是运行环境，当函数退出时，栈将会弹出栈顶元素。</p>
-<h3 id="2-闭包"><a href="#2-闭包" class="headerlink" title="(2) 闭包"></a><strong>(2) 闭包</strong></h3><p>在理解了运行环境栈与运行环境对象以后，理解闭包就不难了。</p>
-<p>首先需要了解，JavaScript也存在堆与栈。由于其没有指针，就需要解释器去回收位于堆中的垃圾。回收的标准，是堆中的某个对象，不再有引用类型指向它或它的属性。运行环境对象也不例外。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    a = <span class="function">() =&gt;</span>   <span class="comment">// lambda表达式</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印i的值</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">a</span>();</span><br><span class="line"><span class="title function_">a</span>();</span><br><span class="line"><span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-
-<p>上述的代码中，定义在 <code>test()</code> 函数中的局部变量 <code>i</code> 应当在函数执行完毕后被回收，但实际上并没有，因为作为该函数的运行环境对象虽然从栈中弹出了，但并没有被回收，仍然存在于堆中。全局变量 <code>a</code> 指向了一个匿名函数，该函数是<code>test()</code> 函数的运行时对象的方法，因此该对象没有被回收，所以每次打印的 <code>i</code> 的值在递增。</p>
-<p>上述代码可以利用匿名函数和运行环境对象，做得再“绝”一点：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function">(<span class="params">a</span>) =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    a.<span class="property">a</span> = <span class="function">() =&gt;</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="variable language_">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">a</span>();</span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">a</span>();</span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
-
-<p>要想让闭包死亡（即回收闭包，或释放运行环境对象），可以使用 <code>this.a = null;</code> 。执行这条语句后，由于没有引用类型指向运行环境对象或运行环境对象的属性，它将被回收，堆空间将被释放。</p>
-<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>闭包的缺点</strong></div>
-
-<div style="color:goldenrod;">使用闭包，意味着堆内存将会被长期占用，如果一个程序有大量的闭包，或闭包内使用了很多对象，将有可能造成堆内存溢出。同时，由于闭包在本质上是向外暴露堆内存地址，这将有可能导致内存泄漏。因此，在不需要使用闭包时，应当及时释放闭包，或者从最初开始就不要使用闭包。</div>
-</div>
-
-<h3 id="3-继承"><a href="#3-继承" class="headerlink" title="(3) 继承"></a><strong>(3) 继承</strong></h3><h4 id="1-原型链继承"><a href="#1-原型链继承" class="headerlink" title="1. 原型链继承"></a><strong>1. 原型链继承</strong></h4><p>构造函数的 <code>prototype</code> 属性指向的是该类型的原型对象，换句话说就是父类。因此可以通过修改该属性来改变其父类，以达到继承的效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义HIE类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = <span class="string">&quot;Lacia&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable constant_">HIE</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">SelfIntroduce</span> = <span class="keyword">function</span> (<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;My name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Lacia类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params">Type</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = <span class="title class_">Type</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 让Lacia类继承自HIE类</span></span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">HIE</span>();</span><br><span class="line"><span class="comment">// 上一条语句会修改Lacia类的原型对象的constructor属性</span></span><br><span class="line"><span class="comment">// 虽然可以忽略不管，但最好改回来</span></span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> = <span class="title class_">Lacia</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line">temp.<span class="property">Name</span> = <span class="string">&quot;Kouka&quot;</span>;</span><br><span class="line">temp.<span class="title class_">SelfIntroduce</span>();</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">My name is Kouka</span><br></pre></td></tr></table></figure>
-
-<p>这种继承方式存在局限性，上述代码中已经很明显地标识了——当父类构造函数拥有参数时，子类将无法初始化（除非让父类属性都是同一个值，或者不继承父类属性）。</p>
-<h4 id="2-构造函数继承（伪）"><a href="#2-构造函数继承（伪）" class="headerlink" title="2. 构造函数继承（伪）"></a><strong>2. 构造函数继承（伪）</strong></h4><p><span style="color:red;">这种继承方式是假继承，不能继承父类的方法。</span>具体原理是利用函数对象的 <code>call()</code> 方法或 <code>apply()</code> 方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// HIE类的构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params">Name</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = <span class="title class_">Name</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lacia类的构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params">Name, Type</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 继承（伪）自HIE类</span></span><br><span class="line">    <span class="variable constant_">HIE</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>, <span class="title class_">Name</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = <span class="title class_">Type</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="string">&quot;Kouka&quot;</span>, <span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;temp.Name = &quot;</span> + temp.<span class="property">Name</span> + <span class="string">&quot;, temp.Type = &quot;</span> + temp.<span class="property">Type</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">temp.Name = Kouka, temp.Type = Type-001</span><br></pre></td></tr></table></figure>
-
-<p>上述方法其实只是将“父类”的属性复制给了“子类”，“子类”的原型链中并不存在“父类”，也因此“子类”并不能获得“父类”定义好的方法。</p>
-<h4 id="3-组合继承"><a href="#3-组合继承" class="headerlink" title="3. 组合继承"></a><strong>3. 组合继承</strong></h4><p>使用上述的构造函数继承+原型继承的方式，可以实现功能相对完备的继承方式。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义HIE类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HIE</span>(<span class="params">Name</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Name</span> = <span class="title class_">Name</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable constant_">HIE</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">SelfIntroduce</span> = <span class="keyword">function</span> (<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;My name is &quot;</span> + <span class="variable language_">this</span>.<span class="property">Name</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Lacia类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Lacia</span>(<span class="params">Name, Type</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 通过构造函数的继承自HIE类</span></span><br><span class="line">    <span class="variable constant_">HIE</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>, <span class="title class_">Name</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Type</span> = <span class="title class_">Type</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过原型链继承自HIE类</span></span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">HIE</span>();</span><br><span class="line"><span class="title class_">Lacia</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> = <span class="title class_">Lacia</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="title class_">Lacia</span>(<span class="string">&quot;Kouka&quot;</span>, <span class="string">&quot;Type-001&quot;</span>);</span><br><span class="line">temp.<span class="title class_">SelfIntroduce</span>();</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">My name is Kouka</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-定时器"><a href="#4-定时器" class="headerlink" title="(4) 定时器"></a><strong>(4) 定时器</strong></h3><p>首先需要强调：<span style="color:red;">JavaScript是单线程执行的</span>。或者严格一点说，程序员写的这一份 <code>.js</code> 代码是单线程执行的。因为JavaScript最初的目的就是个浏览器脚本，用于设置浏览器的页面，如果引入多线程将会引发复杂的线程同步问题。</p>
-<p>当执行 <code>.js</code> 文件时，解释器按如下顺序会先做准备：</p>
-<ol>
-<li>新开一个子线程</li>
-<li>解析 <code>.js</code> 文件中的代码</li>
-<li>设置子线程上下文并将其压入上下文栈</li>
-<li>在子线程中执行代码</li>
-<li>在主线程中设置回调函数，等待触发</li>
-</ol>
-<p>也就是说，定时器函数的底层实现实际上是多线程，其真实时延受制于子线程的执行耗时。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取程序开始执行的时间</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">StartTime</span> = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置定时器，2000ms后将执行回调函数</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 打印时间差</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Time cost : &quot;</span> + (<span class="title class_">Date</span>.<span class="title function_">now</span>() - <span class="title class_">StartTime</span>));</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 迟滞子线程的执行</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000000</span>; i++)</span><br><span class="line">&#123; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node Hello.js</span></span><br><span class="line">Time cost : 10600</span><br></pre></td></tr></table></figure>
-
-<p>可以看到实际延时是10600ms，不是2000ms。JavaScript虽然实际上是多线程，但是代码执行顺序却是单线程的。在回调函数被设置之前，JavaScript的解释器会优先保证子线程中的代码被执行完毕。</p>
-<p>当要设置回调函数时，JavaScript解释器（或浏览器内核）会维护一个回调函数队列。这些回调函数并没有立即被设置，而是在等待子线程结束以后才依次从该队列中弹出回调函数并设置之，事件、Ajax亦是如此。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-        <category>编程语言</category>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>计算机科学</tag>
-        <tag>编程语言</tag>
-        <tag>JavaScript进阶</tag>
       </tags>
   </entry>
   <entry>
@@ -7288,183 +7288,6 @@ A--&gt;E((配置文件))
       </tags>
   </entry>
   <entry>
-    <title>jQuery基础</title>
-    <url>/2022/02/12/jQueryGrammar/</url>
-    <content><![CDATA[<img src="/2022/02/12/jQueryGrammar/Title.png" alt="标题" style="width:100%;height:auto;">
-
-<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
-
-<div style="color:goldenrod;">理解本文需要有CSS基础，并且建议最好学过JavaScript。</div>
-</div>
-
-<span id="more"></span>
-
-<h2 id="一、简介与安装"><a href="#一、简介与安装" class="headerlink" title="一、简介与安装"></a><strong>一、简介与安装</strong></h2><p>jQuery是JavaScript的一个库，它提供了比JavaScript更方便快捷的DOM操作，让程序员能够以像写CSS一样写JavaScript，大大减少了代码量，并且提高了可读性。</p>
-<p>jQuery可以在官网直接下载，也可以使用Node.js下载。</p>
-<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install jquery</span></span><br></pre></td></tr></table></figure>
-
-<p>本体在 <code>/node_modules/jquery/dist</code> 文件夹里。文件名中含有 <code>min</code> 字样的 <code>.js</code> 文件是压缩过的jQuery库，它大小更小但是不便于阅读，适合用于网页。不带 <code>min</code> 字样的就是方便程序员阅读的未压缩的版本。</p>
-<p>将你选好的jQuery库引入到HTML文件中。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/jQuery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;Hello.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>其中， <code>Hello.js</code> 是用户自定义的JavaScript，它必须在jQuery之后引入，否则会报错。</p>
-<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a><strong>二、基础语法</strong></h2><h3 id="1-获取标签对象"><a href="#1-获取标签对象" class="headerlink" title="(1) 获取标签对象"></a><strong>(1) 获取标签对象</strong></h3><p>在未引入jQuery的情况下，要获取标签对象需要使用非常长的代码。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;ID&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> j = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#D&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码的第一种获取方式非常长，并且需要根据查找标签的方式更换函数名。第二种获取方式是JavaScript吸收了jQuery的优点以后新添加的特性。但它们都不如jQuery简洁：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];  <span class="comment">//以CSS的方式书写标签对象</span></span><br></pre></td></tr></table></figure>
-
-<p>对没错，你只需要使用 <code>$</code> ，并且在其后的括号中以CSS查找标签的方式书写你要获取的标签即可。需要添加 <code>[0]</code> 是因为只要查找到了标签对象，就会以数组的形式返回结果。</p>
-<h3 id="2-更改标签样式"><a href="#2-更改标签样式" class="headerlink" title="(2) 更改标签样式"></a><strong>(2) 更改标签样式</strong></h3><p>JavaScript更改标签的样式需要使用 <code>.style</code> ，并且更改的时候还要留意需要转换为字符串。而引入jQuery以后，只需要以如下方式书写：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">$(i).<span class="title function_">css</span>(&#123;</span><br><span class="line">    <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">$(<span class="string">&quot;body&quot;</span>).<span class="title function_">css</span>(&#123;</span><br><span class="line">    <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-window-onload"><a href="#3-window-onload" class="headerlink" title="(3) window.onload"></a><strong>(3) <code>window.onload</code></strong></h3><p>在JavaScript中， <code>window.onload</code> 方法只能被定义一次。后定义的方法将覆盖先定义的方法。为了解决这个问题需要使用 <code>window.addEventListener("load", Function)</code> 。引入jQuery后，你只需要一段简短的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码便能实现 <code>window.addEventListener("load", Function)</code> 的功能。你只需要在注释处写上你的代码即可。</p>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>二者的区别</strong></div>
-
-<div style="color:royalblue;">jQuery的这种方法会让函数在DOM加载完后、图片加载完之前被调用，而 <code>addEventListener()</code> 则会让函数在所有资源加载完以后再被调用。</div>
-</div>
-
-<h3 id="4-解决-冲突"><a href="#4-解决-冲突" class="headerlink" title="(4) 解决 $ 冲突"></a><strong>(4) 解决 <code>$</code> 冲突</strong></h3><p>有时候你需要引入的JavaScript脚本不止一个。而后引入的JavaScript中如果将 <code>$</code> 符号用作变量名、函数名或者其他用途，则会造成冲突。为了解决这种冲突，jQuery提供了以其他符号替代 <code>$</code> 的方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//必须在其它所有的代码之前声明</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">RES</span>=jQuery.<span class="title function_">noConflict</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title function_">RES</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="title function_">RES</span>(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="title function_">RES</span>(i).<span class="title function_">css</span>(&#123;</span><br><span class="line">        <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">        <span class="comment">//其余的“CSS”代码</span></span><br><span class="line">        <span class="comment">//······</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//其余的代码</span></span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、核心函数"><a href="#三、核心函数" class="headerlink" title="三、核心函数"></a><strong>三、核心函数</strong></h2><p>看完上述的代码，有JavaScript基础的同学应该已经明白了。jQuery库中定义了一个函数 <code>$()</code> ，它就是jQuery的核心函数。由于JavaScript并不限制变量的类型，因此什么鬼都能往这个函数里传。但只有如下类型的参数会有效：</p>
-<ul>
-<li>函数。jQuery库将会把函数添加到DOM加载完后执行的队列中。</li>
-<li>字符串。<ol>
-<li>字符串为选择器。jQuery库将会解析这个选择器，并返回标签对象数组。</li>
-<li>字符串为HTML代码。jQuery库将会解析HTML代码，并返回这个标签对象。你可以通过这种方式来动态地向网页中插入标签。</li>
-</ol>
-</li>
-<li>DOM标签对象。jQuery库会将这个对象封装为数组并返回。</li>
-</ul>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>jQuery对象</strong></div>
-
-<div style="color:royalblue;">其实说返回数组是不太准确的，准确地说是返回一个jQuery对象。只不过这个对象有数字的索引，是个伪数组。</div>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="title function_">RES</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
-
-<div style="color:royalblue;">可以在浏览器的控制台中看到：</div>
-
-<p><img src="/2022/02/12/jQueryGrammar/1.png" alt="1 1" title="1"></p>
-<div style="color:royalblue;">这里选中了8个 <code>div</code> 标签对象，并且可以通过数字索引来获取其中的对象。</div>
-</div>
-
-<p>jQuery的核心函数 <code>$()</code> 还定义了一些其他的方法。这些方法都必须通过 <code>$</code> 对象来调用。</p>
-<div class="tabs" id="corefunction"><ul class="nav-tabs"><li class="tab active"><a href="#corefunction-1"><code>map()</code></a></li><li class="tab"><a href="#corefunction-2"><code>trim()</code></a></li><li class="tab"><a href="#corefunction-3"><code>isWindow()</code></a></li><li class="tab"><a href="#corefunction-4"><code>isArray()</code></a></li><li class="tab"><a href="#corefunction-5"><code>isFunction()</code></a></li><li class="tab"><a href="#corefunction-6"><code>holdReady()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="corefunction-1"><p>与 <code>each()</code> 方法相似，但它的返回值与函数参数略有不同。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = &#123; <span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">3</span>: <span class="number">114514</span>, <span class="number">4</span>: <span class="number">1919810</span>, <span class="attr">length</span>: <span class="number">5</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> j = $.<span class="title function_">map</span>(i, <span class="keyword">function</span> (<span class="params">Index, Value</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Index</span>, <span class="title class_">Value</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//允许返回值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Index</span> + <span class="string">&quot;&quot;</span> + <span class="title class_">Value</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(j);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<p><img src="/2022/02/12/jQueryGrammar/3.png" alt="3 3" title="3"></p></div><div class="tab-pane" id="corefunction-2"><p>jQuery提供的 <code>trim()</code> 方法可以删除字符串中两端的空格，并返回。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="string">&quot;  114  514   1919   810  &quot;</span>;</span><br><span class="line"><span class="keyword">var</span> j = $.<span class="title function_">trim</span>(i);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;i =&quot;</span>, i);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;j =&quot;</span>, j);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<p><img src="/2022/02/12/jQueryGrammar/4.png" alt="4 4" title="4"></p></div><div class="tab-pane" id="corefunction-3"><p><code>isWindow()</code> 方法用于判断传入的参数是否为 <code>window</code> 对象，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-4"><p><code>isArray()</code> 方法用于判断传入的参数是否为 <code>Array</code> 对象，即真数组，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-5"><p><code>isFunction()</code> 方法用于判断传入的参数是否为函数，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-6"><p><code>holdReady()</code> 方法用于控制 <code>$(document).ready()</code> 里的代码运行。传入 <code>true</code> 后，其中的代码将被挂起，直到某处运行 <code>$.holdReady(false)</code> 。</p></div></div></div>
-
-<h2 id="四、常用方法"><a href="#四、常用方法" class="headerlink" title="四、常用方法"></a><strong>四、常用方法</strong></h2><p>jQuery的设计理念就是更少的代码做更多的事，因此它将一些JavaScript的操作复杂的方法给封装成了简单易用的方法，这些方法定义在jQuery对象下，因此必须使用jQuery对象来调用。</p>
-<div class="tabs" id="usefulfunction"><ul class="nav-tabs"><li class="tab active"><a href="#usefulfunction-1"><code>attr()</code></a></li><li class="tab"><a href="#usefulfunction-2"><code>removeAttr()</code></a></li><li class="tab"><a href="#usefulfunction-3"><code>eq()</code></a></li><li class="tab"><a href="#usefulfunction-4"><code>prop()</code></a></li><li class="tab"><a href="#usefulfunction-5"><code>removeProp()</code></a></li><li class="tab"><a href="#usefulfunction-6"><code>addClass()</code></a></li><li class="tab"><a href="#usefulfunction-7"><code>removeClass()</code></a></li><li class="tab"><a href="#usefulfunction-8"><code>toggleClass()</code></a></li><li class="tab"><a href="#usefulfunction-9"><code>html()</code></a></li><li class="tab"><a href="#usefulfunction-10"><code>text()</code></a></li><li class="tab"><a href="#usefulfunction-11"><code>val()</code></a></li><li class="tab"><a href="#usefulfunction-12"><code>css()</code></a></li><li class="tab"><a href="#usefulfunction-13"><code>siblings()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="usefulfunction-1"><p><code>attr()</code> 方法是JavaScript中 <code>getAttribute()</code> 方法、 <code>setAttribute()</code> 方法的封装。它用于获取或修改jQuery对象中的标签对象的属性结点。</p>
-<p>当只传入一个参数时，jQuery库会将其解析为标签对象的属性结点名，并返回其值。<span style="color:red;">若jQuery对象中有多个标签对象，则只会返回第一个标签对象的属性结点值。若该属性结点未定义则返回 <code>undefined</code> 。</span></p>
-<p>当传入两个参数时，第一个参数被解析为属性结点名，第二个参数被解析为要修改成什么值， <span style="color:red;">并且会修改所有jQuery对象中的标签对象。</span></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>($(<span class="string">&quot;div&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;class&quot;</span>));</span><br><span class="line"><span class="comment">//打印第一个div标签的class属性值</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;Proletarian&quot;</span>);</span><br><span class="line"><span class="comment">//将所有div标签的class属性值修改为Proletarian</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-2"><p>与 <code>attr()</code> 方法相反，它的作用是删除jQuery对象中所有标签对象的指定属性结点。可以使用 <code> </code> （空格）分隔你要删除的属性结点名。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">removeAttr</span>(<span class="string">&quot;class id&quot;</span>);</span><br><span class="line"><span class="comment">//删除所有div标签的class和id属性</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-3"><p>该方法用于获取jQuery对象中的第i个标签对象，并把这个标签对象封装为jQuery对象再返回。 <code>eq()</code> 方法的参数只有一个，该参数是从0开始的索引。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>).<span class="title function_">eq</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> j = $($(<span class="string">&quot;div&quot;</span>)[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-4"><p>要理解 <code>prop()</code> 方法，必须先理属性和属性结点。在JavaScript中，对象（变量）的成员变量叫做属性，而HTML的标签的属性，则被叫做属性结点。也就是说，JavaScript获取的HTML标签对象不仅有属性结点，还有额外的属性。 <code>prop()</code> 方法能修改或新增对象属性，也能修改或新增HTML标签对象的属性结点。</p>
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>二者的区别</strong></div>
-
-<div style="color:royalblue;"><code>prop()</code> 方法的适用范围更广。在获取属性时建议使用 <code>prop()</code> 方法，在返回诸如 <code>checked</code> 等属性结点值时， <code>prop()</code> 方法会返回 <code>true</code> 或者 <code>false</code> ，而<code>attr()</code> 方法会返回 <code>checked</code> 或者 <code>undefined</code> 。</div>
-</div></div><div class="tab-pane" id="usefulfunction-5"><p>与 <code>prop()</code> 方法相反，它的作用是删除jQuery对象中所有标签对象的指定属性。可以使用 <code> </code> （空格）分隔你要删除的属性。</p></div><div class="tab-pane" id="usefulfunction-6"><p><code>addClass()</code> 方法用于添加标签对象的类名。 <code>prop()</code> 方法与 <code>attr()</code> 方法都只能修改或新增类名而不能实现添加，因此如果要添加类名只能使用 <code>addClass()</code> 方法。</p>
-<p>用 <code> </code> （空格）分隔你想要添加的多个类名。</p></div><div class="tab-pane" id="usefulfunction-7"><p>与 <code>addClass()</code> 方法相反， <code>removeClass()</code> 方法用于删除标签对象的类名。</p>
-<p>用 <code> </code> （空格）分隔你想要删除的多个类名。</p></div><div class="tab-pane" id="usefulfunction-8"><p>当标签对象存在 <code>toggleClass()</code> 的参数中的类名时，则删除类名；不存在时则添加类名。</p></div><div class="tab-pane" id="usefulfunction-9"><p><code>html()</code> 方法用于获取或修改标签对象中的文本，相当于获取或修改标签对象的  <code>innerHTML</code> 属性。它可以新增子标签。当不写参数时则返回 <code>innerHTML</code> 属性值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">i.<span class="title function_">html</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码作用为向 <code>&lt;div&gt;</code> 标签中插入 <code>&lt;p&gt;</code> 标签，并且 <code>&lt;p&gt;</code> 标签内的文本为114514。</p></div><div class="tab-pane" id="usefulfunction-10"><p><code>html()</code> 方法用于获取或修改标签对象中的文本，相当于获取或修改标签对象的  <code>innerText</code> 属性。它不能新增子标签，只能修改内部文本。当不写参数时则返回 <code>innerText</code> 属性值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">i.<span class="title function_">html</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码作用为将 <code>&lt;div&gt;</code> 标签中的文本修改为&lt;p&gt;114514&lt;/p&gt;，不会新增 <code>&lt;p&gt;</code> 标签。</p></div><div class="tab-pane" id="usefulfunction-11"><p><code>val()</code> 方法用于获取或修改标签对象的 <code>value</code> 属性。不写参数时将会返回 <code>value</code> 属性值，否则将会把 <code>value</code> 属性值修改为参数值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">i.<span class="title function_">val</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码将 <code>input</code> 标签（即输入框）中的文本设置为&lt;p&gt;114514&lt;&#x2F;p&gt;。</p></div><div class="tab-pane" id="usefulfunction-12"><p>上文已经粗略地提到了 <code>css()</code> 方法的用法。它还能获取jQuery对象中的第一个标签对象的CSS属性值，只需要传入属性名即可。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>).<span class="title function_">eq</span>(<span class="number">5</span>).<span class="title function_">css</span>(<span class="string">&quot;width&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码用于获取第6个 <code>&lt;div&gt;</code> 标签的width属性值。</p></div><div class="tab-pane" id="usefulfunction-13"><p>当不传入参数时， <code>siblings()</code> 方法将会返回当前jQuery对象中标签对象的所有兄弟标签；如果要传入参数，参数的格式应该与CSS的选择器一致，此时将返回符合选择器条件的兄弟元素。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;li.selected&quot;</span>).<span class="title function_">siblings</span>(<span class="string">&quot;.active&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码选中了含有selected类名的 <code>&lt;li&gt;</code> 标签的含有active类名的兄弟标签。</p></div></div></div>
-
-<p>关于更多jQuery的API，详情请参见 <a class="btn" href="https://jquery.cuishifeng.cn/ ">jQuery API 中文文档</a> 。</p>
-<h2 id="五、事件"><a href="#五、事件" class="headerlink" title="五、事件"></a><strong>五、事件</strong></h2><h3 id="1-添加事件"><a href="#1-添加事件" class="headerlink" title="(1) 添加事件"></a><strong>(1) 添加事件</strong></h3><p>当然，jQuery也简化了 <code>addEventListener()</code> 方法。可以直接使用jQuery对象下的 <code>on()</code> 方法来绑定事件，用法与 <code>addEventListener()</code> 方法一致，并且也可以写多个事件，事件之间不会相互覆盖。</p>
-<p>但还有更简洁的方式：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>jQuery为每一个事件都做了相应的方法。上述的代码作用为向id为test的标签添加一个点击事件，点击标签时将弹出信息“Hello, world!”。类似的方法还有 <code>mouseenter()</code> 、 <code>mouseover()</code> 、 <code>mouseleave()</code> 等，此处不再赘述。</p>
-<h3 id="2-删除事件"><a href="#2-删除事件" class="headerlink" title="(2) 删除事件"></a><strong>(2) 删除事件</strong></h3><p>要解除绑定，可以使用 <code>off()</code> 方法。它有三种模式：</p>
-<ul>
-<li>不传入参数。那么将会清除绑定的全部事件。</li>
-<li>传入一个参数。将参数解析为事件类型，清楚该类型绑定的全部事件。</li>
-<li>传入两个参数。将第一个参数解析为事件类型，第二个参数解析为绑定的函数名，清除该事件类型下绑定的该函数。</li>
-</ul>
-<h3 id="3-事件冒泡"><a href="#3-事件冒泡" class="headerlink" title="(3) 事件冒泡"></a><strong>(3) 事件冒泡</strong></h3><p>当你为子标签和父标签都绑定了事件时，尤其是点击这种事件，在你点击子标签后，父子标签的事件往往都会被触发，这种情况一般被称为事件冒泡。为了阻止事件冒泡，可以在编写子标签的函数时以如下方式书写：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">i</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">j</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>默认事件</strong></div>
-
-<div style="color:royalblue;">上述的代码中，第一种方式不仅会打断事件冒泡，还会打断默认事件。默认事件即标签默认会触发的事件，例如 <code>&lt;a&gt;</code> 标签点击后默认会跳转到链接地址，使用第一种方法添加点击事件以后将打断跳转，而第二种方法则不会。如果只想打断默认事件，可以使用如下方式：</div>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">j</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    event.<span class="title function_">preventDefault</span>();   <span class="comment">//仅打断默认事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</div>
-
-<h3 id="4-自动触发"><a href="#4-自动触发" class="headerlink" title="(4) 自动触发"></a><strong>(4) 自动触发</strong></h3><p>如果要自动触发某事件，可以使用 <code>trigger()</code>方法 或者 <code>triggerHandler()</code> 方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">trigger</span>(<span class="string">&quot;click&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">triggerHandler</span>(<span class="string">&quot;click&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码在执行时均会立即触发所有 <code>&lt;div&gt;</code> 标签的点击事件。但区别在于， <code>trigger()</code> 方法会触发事件冒泡与默认事件，而 <code>triggerHandler()</code> 方法不会触发事件冒泡和默认事件。</p>
-<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>特殊的 <code>&lt;a&gt;</code> 标签</strong></div>
-
-<div style="color:goldenrod;">使用 <code>trigger()</code> 方法触发 <code>&lt;a&gt;</code> 标签的点击事件时，不会触发点击超链接跳转的默认事件。这是特殊情况。如果你需要触发跳转的默认事件，请在 <code>&lt;a&gt;</code> 标签内添加子标签，使用 <code>trigger()</code> 方法触发子标签的点击事件。</div>
-</div>
-
-<p>使用 <code>trigger()</code>方法 和 <code>on()</code> 方法进行搭配，就可以实现自定义事件。</p>
-<h3 id="5-命名空间"><a href="#5-命名空间" class="headerlink" title="(5) 命名空间"></a><strong>(5) 命名空间</strong></h3><p>如果想让某一类型的某一个事件能够被单独地使用 <code>trigger()</code> 方法触发，可以使用事件的命名空间。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click.RES&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;RES&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click.Lacia&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Lacia&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">trigger</span>(<span class="string">&quot;click.RES&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码给id为test的标签绑定了两个点击事件。点击时， <code>click.RES</code> 事件与 <code>click.Lacia</code> 事件均会出发。但当DOM加载完毕时， <code>$("#test").trigger("click.RES");</code> 只会触发 <code>click.RES</code> 事件。</p>
-<h3 id="6-事件委托"><a href="#6-事件委托" class="headerlink" title="(6) 事件委托"></a><strong>(6) 事件委托</strong></h3><p>利用事件冒泡的特性，可以将子标签的事件委托给父标签监听。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">delegate</span>(<span class="string">&quot;button&quot;</span>, <span class="string">&quot;click&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码将 <code>&lt;button&gt;</code> 子标签的点击事件委托给id为test的父标签监听。当点击按钮时，控制台中返回的标签将会是 <code>&lt;button&gt;</code> 标签。利用委托，就可以把动态生成的子标签的所有事件全部交给父标签监听，而不必在新增时挨个重新设置子标签的事件。</p>
-<h2 id="六、动画"><a href="#六、动画" class="headerlink" title="六、动画"></a><strong>六、动画</strong></h2><p>由于CSS3已经追加了强大的动画功能，因此使用JavaScript写动画已经不再是最佳选择。但仍有一些动画无可避免地必须使用JavaScript编写。</p>
-<p>jQuery将动画封装成了 <code>animate()</code> 方法。该方法有4个参数：</p>
-<ol>
-<li>第1个参数与CSS或者 <code>css()</code> 方法的写法一致。在这个参数内改变的属性将自带动画效果；</li>
-<li>第2个参数控制动画的时长，需传入 <code>number</code> 型变量，单位是ms。</li>
-<li>第3个参数为动画的执行模式。有 <code>"linear"</code> 、 <code>"swing"</code> 选项。前者为匀速，后者相当于CSS的 <code>ease-in-out</code> 。</li>
-<li>第4个参数为动画结束后执行的函数。</li>
-</ol>
-<p>写在同一个 <code>animate()</code> 方法里的动画会同时执行，而写在不同的 <code>animate()</code> 方法内的动画则会按照调用的先后顺序依次执行，并且 <code>animate()</code> 方法可以链式调用：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码在将 <code>&lt;div&gt;</code> 标签的大小变为100×100像素之后，紧接着会将其大小扩大到500×500。两次动画时长均为0.5s，并且动画之间没有间隔。要想推迟第二个动画的执行，可以使用 <code>delay()</code> 方法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>).<span class="title function_">delay</span>(<span class="number">1000</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
-
-<p><code>delay()</code> 方法的参数为延时时间，单位为ms。上述代码的第二个动画将会在第一个动画结束以后推迟1s执行。</p>
-<p>要想停止动画，可以使用 <code>stop()</code> 方法。该方法接受两个 <code>bool</code> 参数：</p>
-<ol>
-<li>第1个参数控制是否清空当前动画队列；</li>
-<li>第2个参数控制打断动画后，是否变为该动画的完成状态。</li>
-</ol>
-<p>当不传入参数时默认为 <code>false，false</code> ，即打断当前动画但不影响后续动画的执行。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-        <category>编程语言</category>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>计算机科学</tag>
-        <tag>JavaScript库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML5+CSS3基础</title>
     <url>/2022/01/29/WebDevelop/</url>
     <content><![CDATA[<img src="/2022/01/29/WebDevelop/Title.png" alt="标题" style="width:100%;height:auto;">
@@ -7884,6 +7707,183 @@ A--&gt;E((配置文件))
       <tags>
         <tag>计算机科学</tag>
         <tag>网页开发基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery基础</title>
+    <url>/2022/02/12/jQueryGrammar/</url>
+    <content><![CDATA[<img src="/2022/02/12/jQueryGrammar/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有CSS基础，并且建议最好学过JavaScript。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、简介与安装"><a href="#一、简介与安装" class="headerlink" title="一、简介与安装"></a><strong>一、简介与安装</strong></h2><p>jQuery是JavaScript的一个库，它提供了比JavaScript更方便快捷的DOM操作，让程序员能够以像写CSS一样写JavaScript，大大减少了代码量，并且提高了可读性。</p>
+<p>jQuery可以在官网直接下载，也可以使用Node.js下载。</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install jquery</span></span><br></pre></td></tr></table></figure>
+
+<p>本体在 <code>/node_modules/jquery/dist</code> 文件夹里。文件名中含有 <code>min</code> 字样的 <code>.js</code> 文件是压缩过的jQuery库，它大小更小但是不便于阅读，适合用于网页。不带 <code>min</code> 字样的就是方便程序员阅读的未压缩的版本。</p>
+<p>将你选好的jQuery库引入到HTML文件中。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/jQuery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;Hello.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中， <code>Hello.js</code> 是用户自定义的JavaScript，它必须在jQuery之后引入，否则会报错。</p>
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a><strong>二、基础语法</strong></h2><h3 id="1-获取标签对象"><a href="#1-获取标签对象" class="headerlink" title="(1) 获取标签对象"></a><strong>(1) 获取标签对象</strong></h3><p>在未引入jQuery的情况下，要获取标签对象需要使用非常长的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;ID&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> j = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#D&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的第一种获取方式非常长，并且需要根据查找标签的方式更换函数名。第二种获取方式是JavaScript吸收了jQuery的优点以后新添加的特性。但它们都不如jQuery简洁：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];  <span class="comment">//以CSS的方式书写标签对象</span></span><br></pre></td></tr></table></figure>
+
+<p>对没错，你只需要使用 <code>$</code> ，并且在其后的括号中以CSS查找标签的方式书写你要获取的标签即可。需要添加 <code>[0]</code> 是因为只要查找到了标签对象，就会以数组的形式返回结果。</p>
+<h3 id="2-更改标签样式"><a href="#2-更改标签样式" class="headerlink" title="(2) 更改标签样式"></a><strong>(2) 更改标签样式</strong></h3><p>JavaScript更改标签的样式需要使用 <code>.style</code> ，并且更改的时候还要留意需要转换为字符串。而引入jQuery以后，只需要以如下方式书写：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">$(i).<span class="title function_">css</span>(&#123;</span><br><span class="line">    <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">$(<span class="string">&quot;body&quot;</span>).<span class="title function_">css</span>(&#123;</span><br><span class="line">    <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-window-onload"><a href="#3-window-onload" class="headerlink" title="(3) window.onload"></a><strong>(3) <code>window.onload</code></strong></h3><p>在JavaScript中， <code>window.onload</code> 方法只能被定义一次。后定义的方法将覆盖先定义的方法。为了解决这个问题需要使用 <code>window.addEventListener("load", Function)</code> 。引入jQuery后，你只需要一段简短的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码便能实现 <code>window.addEventListener("load", Function)</code> 的功能。你只需要在注释处写上你的代码即可。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>二者的区别</strong></div>
+
+<div style="color:royalblue;">jQuery的这种方法会让函数在DOM加载完后、图片加载完之前被调用，而 <code>addEventListener()</code> 则会让函数在所有资源加载完以后再被调用。</div>
+</div>
+
+<h3 id="4-解决-冲突"><a href="#4-解决-冲突" class="headerlink" title="(4) 解决 $ 冲突"></a><strong>(4) 解决 <code>$</code> 冲突</strong></h3><p>有时候你需要引入的JavaScript脚本不止一个。而后引入的JavaScript中如果将 <code>$</code> 符号用作变量名、函数名或者其他用途，则会造成冲突。为了解决这种冲突，jQuery提供了以其他符号替代 <code>$</code> 的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//必须在其它所有的代码之前声明</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">RES</span>=jQuery.<span class="title function_">noConflict</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title function_">RES</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="title function_">RES</span>(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="title function_">RES</span>(i).<span class="title function_">css</span>(&#123;</span><br><span class="line">        <span class="string">&quot;background-color&quot;</span>: <span class="string">&quot;gray&quot;</span>,</span><br><span class="line">        <span class="comment">//其余的“CSS”代码</span></span><br><span class="line">        <span class="comment">//······</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//其余的代码</span></span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、核心函数"><a href="#三、核心函数" class="headerlink" title="三、核心函数"></a><strong>三、核心函数</strong></h2><p>看完上述的代码，有JavaScript基础的同学应该已经明白了。jQuery库中定义了一个函数 <code>$()</code> ，它就是jQuery的核心函数。由于JavaScript并不限制变量的类型，因此什么鬼都能往这个函数里传。但只有如下类型的参数会有效：</p>
+<ul>
+<li>函数。jQuery库将会把函数添加到DOM加载完后执行的队列中。</li>
+<li>字符串。<ol>
+<li>字符串为选择器。jQuery库将会解析这个选择器，并返回标签对象数组。</li>
+<li>字符串为HTML代码。jQuery库将会解析HTML代码，并返回这个标签对象。你可以通过这种方式来动态地向网页中插入标签。</li>
+</ol>
+</li>
+<li>DOM标签对象。jQuery库会将这个对象封装为数组并返回。</li>
+</ul>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>jQuery对象</strong></div>
+
+<div style="color:royalblue;">其实说返回数组是不太准确的，准确地说是返回一个jQuery对象。只不过这个对象有数字的索引，是个伪数组。</div>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="title function_">RES</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
+
+<div style="color:royalblue;">可以在浏览器的控制台中看到：</div>
+
+<p><img src="/2022/02/12/jQueryGrammar/1.png" alt="1 1" title="1"></p>
+<div style="color:royalblue;">这里选中了8个 <code>div</code> 标签对象，并且可以通过数字索引来获取其中的对象。</div>
+</div>
+
+<p>jQuery的核心函数 <code>$()</code> 还定义了一些其他的方法。这些方法都必须通过 <code>$</code> 对象来调用。</p>
+<div class="tabs" id="corefunction"><ul class="nav-tabs"><li class="tab active"><a href="#corefunction-1"><code>map()</code></a></li><li class="tab"><a href="#corefunction-2"><code>trim()</code></a></li><li class="tab"><a href="#corefunction-3"><code>isWindow()</code></a></li><li class="tab"><a href="#corefunction-4"><code>isArray()</code></a></li><li class="tab"><a href="#corefunction-5"><code>isFunction()</code></a></li><li class="tab"><a href="#corefunction-6"><code>holdReady()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="corefunction-1"><p>与 <code>each()</code> 方法相似，但它的返回值与函数参数略有不同。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = &#123; <span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">3</span>: <span class="number">114514</span>, <span class="number">4</span>: <span class="number">1919810</span>, <span class="attr">length</span>: <span class="number">5</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> j = $.<span class="title function_">map</span>(i, <span class="keyword">function</span> (<span class="params">Index, Value</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Index</span>, <span class="title class_">Value</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//允许返回值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Index</span> + <span class="string">&quot;&quot;</span> + <span class="title class_">Value</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(j);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/02/12/jQueryGrammar/3.png" alt="3 3" title="3"></p></div><div class="tab-pane" id="corefunction-2"><p>jQuery提供的 <code>trim()</code> 方法可以删除字符串中两端的空格，并返回。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="string">&quot;  114  514   1919   810  &quot;</span>;</span><br><span class="line"><span class="keyword">var</span> j = $.<span class="title function_">trim</span>(i);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;i =&quot;</span>, i);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;j =&quot;</span>, j);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<p><img src="/2022/02/12/jQueryGrammar/4.png" alt="4 4" title="4"></p></div><div class="tab-pane" id="corefunction-3"><p><code>isWindow()</code> 方法用于判断传入的参数是否为 <code>window</code> 对象，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-4"><p><code>isArray()</code> 方法用于判断传入的参数是否为 <code>Array</code> 对象，即真数组，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-5"><p><code>isFunction()</code> 方法用于判断传入的参数是否为函数，若是则返回 <code>true</code> ，否则返回 <code>false</code> 。</p></div><div class="tab-pane" id="corefunction-6"><p><code>holdReady()</code> 方法用于控制 <code>$(document).ready()</code> 里的代码运行。传入 <code>true</code> 后，其中的代码将被挂起，直到某处运行 <code>$.holdReady(false)</code> 。</p></div></div></div>
+
+<h2 id="四、常用方法"><a href="#四、常用方法" class="headerlink" title="四、常用方法"></a><strong>四、常用方法</strong></h2><p>jQuery的设计理念就是更少的代码做更多的事，因此它将一些JavaScript的操作复杂的方法给封装成了简单易用的方法，这些方法定义在jQuery对象下，因此必须使用jQuery对象来调用。</p>
+<div class="tabs" id="usefulfunction"><ul class="nav-tabs"><li class="tab active"><a href="#usefulfunction-1"><code>attr()</code></a></li><li class="tab"><a href="#usefulfunction-2"><code>removeAttr()</code></a></li><li class="tab"><a href="#usefulfunction-3"><code>eq()</code></a></li><li class="tab"><a href="#usefulfunction-4"><code>prop()</code></a></li><li class="tab"><a href="#usefulfunction-5"><code>removeProp()</code></a></li><li class="tab"><a href="#usefulfunction-6"><code>addClass()</code></a></li><li class="tab"><a href="#usefulfunction-7"><code>removeClass()</code></a></li><li class="tab"><a href="#usefulfunction-8"><code>toggleClass()</code></a></li><li class="tab"><a href="#usefulfunction-9"><code>html()</code></a></li><li class="tab"><a href="#usefulfunction-10"><code>text()</code></a></li><li class="tab"><a href="#usefulfunction-11"><code>val()</code></a></li><li class="tab"><a href="#usefulfunction-12"><code>css()</code></a></li><li class="tab"><a href="#usefulfunction-13"><code>siblings()</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="usefulfunction-1"><p><code>attr()</code> 方法是JavaScript中 <code>getAttribute()</code> 方法、 <code>setAttribute()</code> 方法的封装。它用于获取或修改jQuery对象中的标签对象的属性结点。</p>
+<p>当只传入一个参数时，jQuery库会将其解析为标签对象的属性结点名，并返回其值。<span style="color:red;">若jQuery对象中有多个标签对象，则只会返回第一个标签对象的属性结点值。若该属性结点未定义则返回 <code>undefined</code> 。</span></p>
+<p>当传入两个参数时，第一个参数被解析为属性结点名，第二个参数被解析为要修改成什么值， <span style="color:red;">并且会修改所有jQuery对象中的标签对象。</span></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>($(<span class="string">&quot;div&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;class&quot;</span>));</span><br><span class="line"><span class="comment">//打印第一个div标签的class属性值</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">attr</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;Proletarian&quot;</span>);</span><br><span class="line"><span class="comment">//将所有div标签的class属性值修改为Proletarian</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-2"><p>与 <code>attr()</code> 方法相反，它的作用是删除jQuery对象中所有标签对象的指定属性结点。可以使用 <code> </code> （空格）分隔你要删除的属性结点名。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">removeAttr</span>(<span class="string">&quot;class id&quot;</span>);</span><br><span class="line"><span class="comment">//删除所有div标签的class和id属性</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-3"><p>该方法用于获取jQuery对象中的第i个标签对象，并把这个标签对象封装为jQuery对象再返回。 <code>eq()</code> 方法的参数只有一个，该参数是从0开始的索引。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>).<span class="title function_">eq</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> j = $($(<span class="string">&quot;div&quot;</span>)[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="usefulfunction-4"><p>要理解 <code>prop()</code> 方法，必须先理属性和属性结点。在JavaScript中，对象（变量）的成员变量叫做属性，而HTML的标签的属性，则被叫做属性结点。也就是说，JavaScript获取的HTML标签对象不仅有属性结点，还有额外的属性。 <code>prop()</code> 方法能修改或新增对象属性，也能修改或新增HTML标签对象的属性结点。</p>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>二者的区别</strong></div>
+
+<div style="color:royalblue;"><code>prop()</code> 方法的适用范围更广。在获取属性时建议使用 <code>prop()</code> 方法，在返回诸如 <code>checked</code> 等属性结点值时， <code>prop()</code> 方法会返回 <code>true</code> 或者 <code>false</code> ，而<code>attr()</code> 方法会返回 <code>checked</code> 或者 <code>undefined</code> 。</div>
+</div></div><div class="tab-pane" id="usefulfunction-5"><p>与 <code>prop()</code> 方法相反，它的作用是删除jQuery对象中所有标签对象的指定属性。可以使用 <code> </code> （空格）分隔你要删除的属性。</p></div><div class="tab-pane" id="usefulfunction-6"><p><code>addClass()</code> 方法用于添加标签对象的类名。 <code>prop()</code> 方法与 <code>attr()</code> 方法都只能修改或新增类名而不能实现添加，因此如果要添加类名只能使用 <code>addClass()</code> 方法。</p>
+<p>用 <code> </code> （空格）分隔你想要添加的多个类名。</p></div><div class="tab-pane" id="usefulfunction-7"><p>与 <code>addClass()</code> 方法相反， <code>removeClass()</code> 方法用于删除标签对象的类名。</p>
+<p>用 <code> </code> （空格）分隔你想要删除的多个类名。</p></div><div class="tab-pane" id="usefulfunction-8"><p>当标签对象存在 <code>toggleClass()</code> 的参数中的类名时，则删除类名；不存在时则添加类名。</p></div><div class="tab-pane" id="usefulfunction-9"><p><code>html()</code> 方法用于获取或修改标签对象中的文本，相当于获取或修改标签对象的  <code>innerHTML</code> 属性。它可以新增子标签。当不写参数时则返回 <code>innerHTML</code> 属性值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">i.<span class="title function_">html</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码作用为向 <code>&lt;div&gt;</code> 标签中插入 <code>&lt;p&gt;</code> 标签，并且 <code>&lt;p&gt;</code> 标签内的文本为114514。</p></div><div class="tab-pane" id="usefulfunction-10"><p><code>html()</code> 方法用于获取或修改标签对象中的文本，相当于获取或修改标签对象的  <code>innerText</code> 属性。它不能新增子标签，只能修改内部文本。当不写参数时则返回 <code>innerText</code> 属性值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">i.<span class="title function_">html</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码作用为将 <code>&lt;div&gt;</code> 标签中的文本修改为&lt;p&gt;114514&lt;/p&gt;，不会新增 <code>&lt;p&gt;</code> 标签。</p></div><div class="tab-pane" id="usefulfunction-11"><p><code>val()</code> 方法用于获取或修改标签对象的 <code>value</code> 属性。不写参数时将会返回 <code>value</code> 属性值，否则将会把 <code>value</code> 属性值修改为参数值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">i.<span class="title function_">val</span>(<span class="string">&quot;&lt;p&gt;114514&lt;/p&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码将 <code>input</code> 标签（即输入框）中的文本设置为&lt;p&gt;114514&lt;&#x2F;p&gt;。</p></div><div class="tab-pane" id="usefulfunction-12"><p>上文已经粗略地提到了 <code>css()</code> 方法的用法。它还能获取jQuery对象中的第一个标签对象的CSS属性值，只需要传入属性名即可。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;div&quot;</span>).<span class="title function_">eq</span>(<span class="number">5</span>).<span class="title function_">css</span>(<span class="string">&quot;width&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码用于获取第6个 <code>&lt;div&gt;</code> 标签的width属性值。</p></div><div class="tab-pane" id="usefulfunction-13"><p>当不传入参数时， <code>siblings()</code> 方法将会返回当前jQuery对象中标签对象的所有兄弟标签；如果要传入参数，参数的格式应该与CSS的选择器一致，此时将返回符合选择器条件的兄弟元素。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i = $(<span class="string">&quot;li.selected&quot;</span>).<span class="title function_">siblings</span>(<span class="string">&quot;.active&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码选中了含有selected类名的 <code>&lt;li&gt;</code> 标签的含有active类名的兄弟标签。</p></div></div></div>
+
+<p>关于更多jQuery的API，详情请参见 <a class="btn" href="https://jquery.cuishifeng.cn/ ">jQuery API 中文文档</a> 。</p>
+<h2 id="五、事件"><a href="#五、事件" class="headerlink" title="五、事件"></a><strong>五、事件</strong></h2><h3 id="1-添加事件"><a href="#1-添加事件" class="headerlink" title="(1) 添加事件"></a><strong>(1) 添加事件</strong></h3><p>当然，jQuery也简化了 <code>addEventListener()</code> 方法。可以直接使用jQuery对象下的 <code>on()</code> 方法来绑定事件，用法与 <code>addEventListener()</code> 方法一致，并且也可以写多个事件，事件之间不会相互覆盖。</p>
+<p>但还有更简洁的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>jQuery为每一个事件都做了相应的方法。上述的代码作用为向id为test的标签添加一个点击事件，点击标签时将弹出信息“Hello, world!”。类似的方法还有 <code>mouseenter()</code> 、 <code>mouseover()</code> 、 <code>mouseleave()</code> 等，此处不再赘述。</p>
+<h3 id="2-删除事件"><a href="#2-删除事件" class="headerlink" title="(2) 删除事件"></a><strong>(2) 删除事件</strong></h3><p>要解除绑定，可以使用 <code>off()</code> 方法。它有三种模式：</p>
+<ul>
+<li>不传入参数。那么将会清除绑定的全部事件。</li>
+<li>传入一个参数。将参数解析为事件类型，清楚该类型绑定的全部事件。</li>
+<li>传入两个参数。将第一个参数解析为事件类型，第二个参数解析为绑定的函数名，清除该事件类型下绑定的该函数。</li>
+</ul>
+<h3 id="3-事件冒泡"><a href="#3-事件冒泡" class="headerlink" title="(3) 事件冒泡"></a><strong>(3) 事件冒泡</strong></h3><p>当你为子标签和父标签都绑定了事件时，尤其是点击这种事件，在你点击子标签后，父子标签的事件往往都会被触发，这种情况一般被称为事件冒泡。为了阻止事件冒泡，可以在编写子标签的函数时以如下方式书写：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">i</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">j</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>默认事件</strong></div>
+
+<div style="color:royalblue;">上述的代码中，第一种方式不仅会打断事件冒泡，还会打断默认事件。默认事件即标签默认会触发的事件，例如 <code>&lt;a&gt;</code> 标签点击后默认会跳转到链接地址，使用第一种方法添加点击事件以后将打断跳转，而第二种方法则不会。如果只想打断默认事件，可以使用如下方式：</div>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">j</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    event.<span class="title function_">preventDefault</span>();   <span class="comment">//仅打断默认事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<h3 id="4-自动触发"><a href="#4-自动触发" class="headerlink" title="(4) 自动触发"></a><strong>(4) 自动触发</strong></h3><p>如果要自动触发某事件，可以使用 <code>trigger()</code>方法 或者 <code>triggerHandler()</code> 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">trigger</span>(<span class="string">&quot;click&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">triggerHandler</span>(<span class="string">&quot;click&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码在执行时均会立即触发所有 <code>&lt;div&gt;</code> 标签的点击事件。但区别在于， <code>trigger()</code> 方法会触发事件冒泡与默认事件，而 <code>triggerHandler()</code> 方法不会触发事件冒泡和默认事件。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>特殊的 <code>&lt;a&gt;</code> 标签</strong></div>
+
+<div style="color:goldenrod;">使用 <code>trigger()</code> 方法触发 <code>&lt;a&gt;</code> 标签的点击事件时，不会触发点击超链接跳转的默认事件。这是特殊情况。如果你需要触发跳转的默认事件，请在 <code>&lt;a&gt;</code> 标签内添加子标签，使用 <code>trigger()</code> 方法触发子标签的点击事件。</div>
+</div>
+
+<p>使用 <code>trigger()</code>方法 和 <code>on()</code> 方法进行搭配，就可以实现自定义事件。</p>
+<h3 id="5-命名空间"><a href="#5-命名空间" class="headerlink" title="(5) 命名空间"></a><strong>(5) 命名空间</strong></h3><p>如果想让某一类型的某一个事件能够被单独地使用 <code>trigger()</code> 方法触发，可以使用事件的命名空间。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click.RES&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;RES&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click.Lacia&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;Lacia&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">trigger</span>(<span class="string">&quot;click.RES&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码给id为test的标签绑定了两个点击事件。点击时， <code>click.RES</code> 事件与 <code>click.Lacia</code> 事件均会出发。但当DOM加载完毕时， <code>$("#test").trigger("click.RES");</code> 只会触发 <code>click.RES</code> 事件。</p>
+<h3 id="6-事件委托"><a href="#6-事件委托" class="headerlink" title="(6) 事件委托"></a><strong>(6) 事件委托</strong></h3><p>利用事件冒泡的特性，可以将子标签的事件委托给父标签监听。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>).<span class="title function_">delegate</span>(<span class="string">&quot;button&quot;</span>, <span class="string">&quot;click&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码将 <code>&lt;button&gt;</code> 子标签的点击事件委托给id为test的父标签监听。当点击按钮时，控制台中返回的标签将会是 <code>&lt;button&gt;</code> 标签。利用委托，就可以把动态生成的子标签的所有事件全部交给父标签监听，而不必在新增时挨个重新设置子标签的事件。</p>
+<h2 id="六、动画"><a href="#六、动画" class="headerlink" title="六、动画"></a><strong>六、动画</strong></h2><p>由于CSS3已经追加了强大的动画功能，因此使用JavaScript写动画已经不再是最佳选择。但仍有一些动画无可避免地必须使用JavaScript编写。</p>
+<p>jQuery将动画封装成了 <code>animate()</code> 方法。该方法有4个参数：</p>
+<ol>
+<li>第1个参数与CSS或者 <code>css()</code> 方法的写法一致。在这个参数内改变的属性将自带动画效果；</li>
+<li>第2个参数控制动画的时长，需传入 <code>number</code> 型变量，单位是ms。</li>
+<li>第3个参数为动画的执行模式。有 <code>"linear"</code> 、 <code>"swing"</code> 选项。前者为匀速，后者相当于CSS的 <code>ease-in-out</code> 。</li>
+<li>第4个参数为动画结束后执行的函数。</li>
+</ol>
+<p>写在同一个 <code>animate()</code> 方法里的动画会同时执行，而写在不同的 <code>animate()</code> 方法内的动画则会按照调用的先后顺序依次执行，并且 <code>animate()</code> 方法可以链式调用：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码在将 <code>&lt;div&gt;</code> 标签的大小变为100×100像素之后，紧接着会将其大小扩大到500×500。两次动画时长均为0.5s，并且动画之间没有间隔。要想推迟第二个动画的执行，可以使用 <code>delay()</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;100px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>).<span class="title function_">delay</span>(<span class="number">1000</span>).<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;500px&quot;</span>,</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>delay()</code> 方法的参数为延时时间，单位为ms。上述代码的第二个动画将会在第一个动画结束以后推迟1s执行。</p>
+<p>要想停止动画，可以使用 <code>stop()</code> 方法。该方法接受两个 <code>bool</code> 参数：</p>
+<ol>
+<li>第1个参数控制是否清空当前动画队列；</li>
+<li>第2个参数控制打断动画后，是否变为该动画的完成状态。</li>
+</ol>
+<p>当不传入参数时默认为 <code>false，false</code> ，即打断当前动画但不影响后续动画的执行。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>编程语言</category>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>计算机科学</tag>
+        <tag>JavaScript库</tag>
       </tags>
   </entry>
 </search>

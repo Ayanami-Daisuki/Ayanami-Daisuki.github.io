@@ -1,10 +1,18 @@
-/* 禁止右键菜单 */
+/* 全局禁止右键菜单 */
 const ForbidContextMenu = (Event) =>
 {
     Event.preventDefault();
     Event.stopPropagation();
 };
 window.addEventListener("contextmenu", ForbidContextMenu);
+
+
+/* 全局禁止拖动元素 */
+window.addEventListener("dragstart", (Event) =>
+{
+    Event.preventDefault();
+    Event.stopPropagation();
+});
 
 
 /* 右下角斯卡蒂 */
@@ -20,7 +28,7 @@ Skadi.addEventListener("click", () =>
         Index += 25;
         if (Now <= 0) clearInterval(temp);
         document.documentElement.scrollTop = Now;
-    }, 10);
+    }, 20);
 });
 
 
@@ -28,12 +36,6 @@ Skadi.addEventListener("click", () =>
 const SkadiWebp = document.createElement("img");
 SkadiWebp.className = "SkadiWebp";
 SkadiWebp.style.display = "none";
-SkadiWebp.addEventListener("dragstart", (Event) =>
-{
-    Event.preventDefault();
-    Event.stopPropagation();
-    return false;
-});
 
 /* 请稍等 */
 const PleaseWaitForSkadi = document.createElement("h1");
@@ -72,7 +74,30 @@ List.id = "List";
 
 
 /* 菜单列表选项 */
+
 let ListElement = document.createElement("li");
+ListElement.className = "ListElement";
+ListElement.innerText = "禁用点击特效";
+ListElement.style.borderBottom = "1px solid black"
+let ClickEffectEnable = true;
+ListElement.addEventListener("click", function ()
+{
+    if (ClickEffectEnable)
+    {
+        ClickEffectEnable = false;
+        this.innerText = "启用点击特效";
+        window.removeEventListener("mousedown", GlobalClickEffect);
+    }
+    else
+    {
+        ClickEffectEnable = true;
+        this.innerText = "禁用点击特效";
+        window.addEventListener("mousedown", GlobalClickEffect);
+    }
+});
+List.appendChild(ListElement);
+
+ListElement = document.createElement("li");
 ListElement.className = "ListElement";
 ListElement.innerText = "召唤斯卡蒂";
 let SkadiIsShown = false;
@@ -180,7 +205,6 @@ window.addEventListener("load", () =>
     {
         Menu.style.opacity = "0";
         setTimeout(() => { Menu.style.display = "none"; }, 250);
-
     });
     window.removeEventListener("contextmenu", ForbidContextMenu);
 });

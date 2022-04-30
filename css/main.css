@@ -3250,3 +3250,40 @@ pre {
 #BackToTop {
   margin-bottom: 20px;
 }
+
+#ClickEffect {
+  position: fixed;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  justify-items: center;
+  background-color: transparent;
+  border: solid 1px dodgerblue;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 2px deepskyblue, 0 0 5px 2px deepskyblue inset;
+  width: 0;
+  height: 0;
+  transition-property: opacity;
+  transition-timing-function: linear;
+  transition-duration: 0.5s;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.Dot {
+  position: inherit;
+  top: 50%;
+  left: 50%;
+  color: dodgerblue;
+  box-shadow: 0;
+  transition: all 1s ease;
+  user-select: none;
+}
+
+.Stick {
+  height: 1px;
+  position: inherit;
+  background-image: linear-gradient(to right, transparent, transparent, transparent, deepskyblue, dodgerblue, transparent);
+  z-index: 1000;
+  user-select: none;
+  transition: opacity 0.15s linear;
+}
