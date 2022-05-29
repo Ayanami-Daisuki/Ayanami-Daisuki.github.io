@@ -309,7 +309,7 @@ pre {
   margin-bottom: 20px;
 }
 
-#ClickEffect {
+.ClickEffect {
   position: fixed;
   transform: translateX(-50%) translateY(-50%);
   display: flex;
@@ -335,6 +335,7 @@ pre {
   box-shadow: 0;
   transition: all 1s ease;
   user-select: none;
+  pointer-events: none;
 }
 
 .Stick {
@@ -344,4 +345,5 @@ pre {
   z-index: 1000;
   user-select: none;
   transition: opacity 0.15s linear;
+  pointer-events: none;
 }

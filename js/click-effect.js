@@ -1,5 +1,4 @@
-const GlobalClickEffect = (Event) =>
-{
+const GlobalClickEffect = (Event) => {
     const Dot = [];
     const DotExpandDirection = [];
     for (let i = 0; i < 10; i++)
@@ -18,12 +17,12 @@ const GlobalClickEffect = (Event) =>
         Stick[i].style.opacity = "0";
         Stick[i].className = "Stick";
         Stick[i].innerHTML = "&nbsp;";
-        Stick[i].style.width = `${Math.random() * 150 + 50}px`
+        Stick[i].style.width = `${Math.random() * 150 + 50}px`;
         StickDirection.push(Math.random() * 360);
         Stick[i].style.transform = `translateX(-50%) rotateZ(${StickDirection[i]}deg)`;
     }
     const ClickEffect = document.createElement("span");
-    ClickEffect.id = "ClickEffect";
+    ClickEffect.className = "ClickEffect";
     ClickEffect.style.left = Event.clientX + "px";
     ClickEffect.style.top = Event.clientY + "px";
     for (let i = 0; i < 10; i++)
@@ -31,20 +30,17 @@ const GlobalClickEffect = (Event) =>
     for (let i = 0; i < 20; i++)
         ClickEffect.appendChild(Stick[i]);
     document.body.appendChild(ClickEffect);
-    setTimeout(() =>
-    {
+    setTimeout(() => {
         for (let i = 0; i < 20; i++)
             Stick[i].style.opacity = "1";
     }, 50);
-    setTimeout(() =>
-    {
+    setTimeout(() => {
         for (let i = 0; i < 20; i++)
             Stick[i].style.opacity = "0";
     }, 350);
     let FirstTime = true;
     let Size = 5;
-    let temp = setInterval(() =>
-    {
+    let temp = setInterval(() => {
         ClickEffect.style.width = Size + "px";
         ClickEffect.style.height = Size + "px";
         for (let i = 0; i < 10; i++)
@@ -55,8 +51,7 @@ const GlobalClickEffect = (Event) =>
         {
             FirstTime = false;
             ClickEffect.style.opacity = "0";
-            setTimeout(() =>
-            {
+            setTimeout(() => {
                 clearInterval(temp);
                 document.body.removeChild(ClickEffect);
             }, 500);
@@ -66,11 +61,10 @@ const GlobalClickEffect = (Event) =>
         else
             Size += 2;
     }, 20);
-}
+};
 
 
 
-window.addEventListener("load", () =>
-{
+window.addEventListener("load", () => {
     window.addEventListener("mousedown", GlobalClickEffect);
-})
+});
