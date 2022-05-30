@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <script type="text/javascript" src="/js/force-autoplay.js"></script>
+  <script type="text/javascript" src="/js/contextmenu.js"></script>
+  <script type="text/javascript" src="/js/click-effect.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-center-atom.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/05/29/LuaWithC/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/05/29/LuaWithC/","path":"2022/05/29/LuaWithC/","title":"Lua与C语言交互"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Lua与C语言交互 | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <meta name="msvalidate.01" content="2DC98D673CEA63668E0E0390B0D5A92E" />
+  <meta name="google-site-verification" content="1oFThEwTKR5SObaIdOL2PxGLwX-rE5ClaZKSAdhq3LY" />
+  <meta name="google-site-verification" content="a7h6HxqLG_MHyjCraHg6yzJYNk3na2UIjP7AcWOrg_E" />
+  <meta name="baidu-site-verification" content="code-PFGV5jFemX" />
+  <meta name="baidu-site-verification" content="code-Z4QAODNN82" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">23</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/js/aplayer.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">一、环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Visual-Studio-Code"><span class="nav-text">(1) Visual Studio Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Visual-Studio"><span class="nav-text">(2) Visual Studio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86"><span class="nav-text">二、基础部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0"><span class="nav-text">(1) 命令行参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%AC%AC%E4%B8%80%E4%B8%AAC%E8%B0%83%E7%94%A8Lua%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-text">(2) 第一个C调用Lua的程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-text">(3) 错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-text">(4) 获取函数返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BALua%E8%A1%A8"><span class="nav-text">(5) 创建Lua表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-C%E8%B0%83%E7%94%A8Lua%E8%B0%83%E7%94%A8C%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">(6) C调用Lua调用C的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">(7) 面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HIE%E7%B1%BB"><span class="nav-text">1. HIE类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%BC%96%E5%86%99NewHIE-%E5%87%BD%E6%95%B0"><span class="nav-text">2. 编写NewHIE()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%B0%81%E8%A3%85%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">3. 封装成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BAHIE%E7%B1%BB%E7%9A%84%E5%85%83%E8%A1%A8"><span class="nav-text">4. 创建HIE类的元表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E4%B8%BB%E5%87%BD%E6%95%B0"><span class="nav-text">5. 主函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">6. 执行结果</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/lib/@creativecommons/vocabulary/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/05/29/LuaWithC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Lua与C语言交互 | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Lua与C语言交互
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-29 14:42:25" itemprop="dateCreated datePublished" datetime="2022-05-29T14:42:25+08:00">2022-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-30 22:43:37" itemprop="dateModified" datetime="2022-05-30T22:43:37+08:00">2022-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E4%BA%A4%E5%8F%89%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">交叉语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E4%BA%A4%E5%8F%89%E8%AF%AD%E8%A8%80/Lua-C/" itemprop="url" rel="index"><span itemprop="name">Lua+C</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>16k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/05/29/LuaWithC/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有C/C++与Lua的基础，并且本文默认读者有良好的计算机组成原理（尤其是堆栈分析）基础。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、环境配置"><a href="#一、环境配置" class="headerlink" title="一、环境配置"></a><strong>一、环境配置</strong></h2><p>快速与C&#x2F;C++交互是Lua的特色，不能不品尝。但是配置C调用Lua的环境又很麻烦，此处就顺带记录一下我配置环境时使用的方法。</p>
+<h3 id="1-Visual-Studio-Code"><a href="#1-Visual-Studio-Code" class="headerlink" title="(1) Visual Studio Code"></a><strong>(1) Visual Studio Code</strong></h3><p>VS Code本身是一个编辑器而不是IDE ，因此其环境配置相对麻烦。首先使用VS Code编写C ，就一定需要gcc或者clang的某个Windows实现版本。不论是MinGW还是TDM-GCC还是LLVM都可以。因此这一部分也适用于Vim或者其他非集成开发环境下的环境配置。</p>
+<p>首先需要在 <a class="btn" target="_blank" rel="noopener" href="http://luabinaries.sourceforge.net/ ">官方文档</a> 处下载Lua的库文件。</p>
+<p><img src="/2022/05/29/LuaWithC/1.png" alt="1" title="1"></p>
+<p>官方的下载地址将会跳转到SourceForge网站。请注意选择的目录应当是Windows Libraries（Windows库文件）和Dynamic（动态编译）。图中展示的文件名是以 “lua-版本号_平台_编译器_lib.zip” 格式命名的。其中，dllw6指的是使用MinGW编译的dll，dll16、dll15、dll14指的是使用微软的C&#x2F;C++编译器编译的dll。具体详情可以搜索 <a class="btn" target="_blank" rel="noopener" href="https://cn.bing.com/search?q=MSVC%E7%BC%96%E8%AF%91%E5%99%A8 ">MSVC编译器</a> 。如果还是不明白，选择第二个（下载量最多的那个）就行了。</p>
+<p>解压后，将<code>include</code>文件夹<span style="color:red;">内</span>的所有文件放到：</p>
+<ul>
+<li>MinGW &#x2F; TDM-GCC安装目录的<code>x86_64-w64-mingw32/include</code>目录下</li>
+<li>LLVM安装目录的<code>lib/clang/14.0.0/include</code>目录下。其中14.0.0是版本号，可能会因为LLVM的版本不同而有所改变。</li>
+</ul>
+<p>然后是一个 <code>.dll</code>文件和一个 <code>.lib</code>文件。MinGW &#x2F; TDM-GCC需要 <code>.dll</code>文件，LLVM需要 <code>.lib</code>文件。将需要的文件放到你要编写C语言的文件目录下。然后编写如下代码进行测试：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lauxlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lua.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lualib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    lua_State *Lua = luaL_newstate();       <span class="comment">// 创建新 Lua 环境</span></span><br><span class="line">    lua_close(Lua);                         <span class="comment">// 关闭 Lua 环境</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译命令需要特殊指定：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">gcc Hello.c -o Hello.exe -llua54</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">clang Hello.c -o Hello.exe -llua54</span></span><br></pre></td></tr></table></figure>
+
+<p>其中<code>-l</code>命令是指定额外的动态链接库。gcc默认动态链接库的后缀是 <code>.dll</code>而clang则默认为 <code>.lib</code> 。尝试执行编译后的文件，将会输出：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">./Hello.exe</span></span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>即说明环境配置成功。由于需要手敲命令行，这种编译方式显得繁琐。若不想手敲命令行，那就得使用重火力——Visual Studio 。</p>
+<h3 id="2-Visual-Studio"><a href="#2-Visual-Studio" class="headerlink" title="(2) Visual Studio"></a><strong>(2) Visual Studio</strong></h3><p>Visual Studio的环境配置那就相对简单了许多。首先创建一个C++控制台程序的工程。还是按照上述方法下载好Lua的库文件，然后<span style="color:red;">保存到</span>你喜欢的目录下。然后打开工程的属性页面：</p>
+<p><img src="/2022/05/29/LuaWithC/2.png" alt="2" title="2"></p>
+<p>在C&#x2F;C++ –&gt; 常规 –&gt; 附加包含目录 下添加 <code>.h</code>头文件所在目录。</p>
+<p><img src="/2022/05/29/LuaWithC/3.png" alt="3" title="3"></p>
+<p>在 链接器 –&gt; 常规 –&gt; 附加库目录 下添加 <code>.dll</code> 和 <code>.lib</code>文件所在目录。</p>
+<p><img src="/2022/05/29/LuaWithC/4.png" alt="4" title="4"></p>
+<p>在 链接器 –&gt; 输入 –&gt; 附加依赖项 下添加 <code>.lib</code>文件的<span style="color:red;">完整文件名</span>。</p>
+<p><img src="/2022/05/29/LuaWithC/5.png" alt="5" title="5"></p>
+<p>然后就可以编写C调用Lua的代码了。</p>
+<h2 id="二、基础部分"><a href="#二、基础部分" class="headerlink" title="二、基础部分"></a><strong>二、基础部分</strong></h2><p>为什么是C而不是C++？因为Lua是用标准C语言实现的，其为C&#x2F;C++提供的头文件也是标准C语言实现的。用C++去兼容C语言，不如直接使用原生的C语言。</p>
+<h3 id="1-命令行参数"><a href="#1-命令行参数" class="headerlink" title="(1) 命令行参数"></a><strong>(1) 命令行参数</strong></h3><p>在讲C调用Lua之前，应该先了解Lua的<code>arg</code>表。<code>arg</code>表是Lua环境下的一个数组形式的表，它存储了从命令行传入的参数。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 直接打印参数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;arg[0] = %s, arg[1] = %s, arg[2] = %s.&quot;</span>, <span class="built_in">arg</span>[<span class="number">0</span>], <span class="built_in">arg</span>[<span class="number">1</span>], <span class="built_in">arg</span>[<span class="number">2</span>]));</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 将参数视为可变长度参数，用表进行封装</span></span><br><span class="line"><span class="keyword">local</span> a = &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;a[0] = %s, a[1] = %s, a[2] = %s.&quot;</span>, a[<span class="number">0</span>], a[<span class="number">1</span>], a[<span class="number">2</span>]));</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">lua Hello.lua 114 514</span></span><br><span class="line">arg[0] = Hello.lua, arg[1] = 114, arg[2] = 514.</span><br><span class="line">a[0] = nil, a[1] = 114, a[2] = 514.</span><br></pre></td></tr></table></figure>
+
+<p><del>你终于还是漏出了马脚啊！</del>可以看出<code>arg</code>表的索引为0的值代表了这个文件的名称。虽然C调用的Lua代码中由于缺失解释器而导致不能使用<code>arg</code>表，但用表封装可变长度参数的方法依然可行。接下来就到了痛苦的时刻了。</p>
+<h3 id="2-第一个C调用Lua的程序"><a href="#2-第一个C调用Lua的程序" class="headerlink" title="(2) 第一个C调用Lua的程序"></a><strong>(2) 第一个C调用Lua的程序</strong></h3><p>搞不清楚C调用Lua的原理，就没法上手写C调用Lua的代码。</p>
+<p>C调用Lua的基本原理，就是先用C为Lua环境分配一个堆空间，这个堆将作为Lua的栈模拟Lua的运行环境。调用Lua文件的基本思路，就是先把Lua文件中的代码作为一个函数入栈，再把参数入栈，然后调用函数时将会自动出栈参数，函数结束时返回的值会自动入栈。这一点与C语言调用函数类似（除了将函数本身入栈以外）。</p>
+<p>Lua库文件提供的头文件中，分别声明了原生的C语言的API和使用上述API封装的一些常用函数，后者位于辅助库内，辅助库内的函数前缀均为<code>luaL</code> 。要加载Lua代码，有两种辅助库的函数可供选择：<code>luaL_loadbuffer()</code>和<code>luaL_loadfile()</code> 。前者是直接加载字符串形式的代码，后者是加载 <code>.lua</code>文件。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>luaL_loadfile()</code></td>
+<td align="center"><code>lua_State*</code> ，字符串形式的代码，<br>代码长度，这段代码的名称（调试用）</td>
+<td align="center">从指定的字符数组中加载代码，命名后压入栈中</td>
+</tr>
+<tr>
+<td align="center"><code>luaL_loadbuffer()</code></td>
+<td align="center"><code>lua_State*</code> ，文件路径</td>
+<td align="center">从指定的路径下加载文件中的Lua代码到栈中</td>
+</tr>
+</tbody></table>
+<p>要将数据压入栈，得使用原生库的一些函数。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>lua_pushboolean()</code></td>
+<td align="center"><code>lua_State*</code> ，<code>int</code></td>
+<td align="center">将一个布尔值压入栈中</td>
+</tr>
+<tr>
+<td align="center"><code>lua_pushnil()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">将一个<code>nil</code>压入栈中</td>
+</tr>
+<tr>
+<td align="center"><code>lua_pushstring()</code></td>
+<td align="center"><code>lua_State*</code> ，<code>const char*</code></td>
+<td align="center">将一个以<code>\0</code>结尾的字符串压入栈中</td>
+</tr>
+<tr>
+<td align="center"><code>lua_pushnumber()</code></td>
+<td align="center"><code>lua_State*</code> ，<code>lua_Number</code></td>
+<td align="center">将一个Lua中的<code>number</code>型变量压入栈中</td>
+</tr>
+</tbody></table>
+<p><del>我真的搞不懂为什么写C&#x2F;C++的这帮人这么喜欢<code>typedef</code> 。</del>Lua库文件中将<code>lua_Number</code>声明为了<code>double</code>类型的别名。还记得Lua中的<code>number</code>类型占用8个字节吗？C语言中的<code>double</code>类型也占8个字节，且这二者都是浮点数。</p>
+<p>另外，在C中调用Lua，若要使用Lua的库函数，需要显式声明要用哪个库。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>luaopen_base()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明要使用基础库</td>
+</tr>
+<tr>
+<td align="center"><code>luaopen_coroutine()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明要使用<code>coroutine</code>库</td>
+</tr>
+<tr>
+<td align="center"><code>luaopen_io()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明要使用<code>io</code>库</td>
+</tr>
+<tr>
+<td align="center"><code>luaopen_math()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明要使用<code>math</code>库</td>
+</tr>
+<tr>
+<td align="center"><code>luaopen_string()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明要使用<code>string</code>库</td>
+</tr>
+<tr>
+<td align="center"><code>luaopen_table()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明要使用<code>table</code>库</td>
+</tr>
+<tr>
+<td align="center"><code>luaL_openlibs()</code></td>
+<td align="center"><code>lua_State*</code></td>
+<td align="center">显式声明使用Lua自带的所有库</td>
+</tr>
+</tbody></table>
+<p>讲了这么多API ，不动手写写代码是没法掌握如何运用的。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lauxlib.h&gt;</span>                    <span class="comment">// Lua 的三个库</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lua.h&gt;</span>                        <span class="comment">// Lua 的三个库</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lualib.h&gt;</span>                     <span class="comment">// Lua 的三个库</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> Buffer[<span class="number">256</span>] = &#123;<span class="string">&#x27;0&#x27;</span>&#125;;           <span class="comment">// 声明缓冲区，暂存从控制台输入的字符</span></span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>;                          <span class="comment">// 计数变量</span></span><br><span class="line">    lua_State *Lua = luaL_newstate();   <span class="comment">// 新建 Lua 环境</span></span><br><span class="line"></span><br><span class="line">    luaL_openlibs(Lua);                 <span class="comment">// 声明要加载所有的 Lua库</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[%d]: &quot;</span>, i);</span><br><span class="line">        fgets(Buffer, <span class="number">256</span>, <span class="built_in">stdin</span>);      <span class="comment">// 从控制台读取输入</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将输入的命令作为函数压入 Lua 栈中</span></span><br><span class="line">        luaL_loadbuffer(Lua, Buffer, <span class="built_in">strlen</span>(Buffer), <span class="string">&quot;Line&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行调用命令，调用结束后会把函数出栈</span></span><br><span class="line">        lua_call(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    lua_close(Lua);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">gcc Hello.c -o Hello.exe -llua54</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">./Hello.exe</span></span><br><span class="line">[1]: a=114514;b=1919810;</span><br><span class="line">[2]: print(string.format(&quot;a = %d, b = %d.&quot;,a,b));</span><br><span class="line">a = 114514, b = 1919810.</span><br><span class="line">[3]:</span><br></pre></td></tr></table></figure>
+
+<p>上述代码实现了一个简陋的交互式开发的Lua控制台。原生的交互式要比上述代码复杂得多，且更加精妙。另外，由于API众多，本文将不会逐个详解，并有可能完全省略一些函数的使用方法。因此，按需阅读 <a class="btn" target="_blank" rel="noopener" href="http://www.lua.org/manual/5.4/">Lua官方文档</a> 是必要的。</p>
+<h3 id="3-错误处理"><a href="#3-错误处理" class="headerlink" title="(3) 错误处理"></a><strong>(3) 错误处理</strong></h3><p>上一小节的代码中并未进行错误处理，一旦Lua代码有问题，整个程序将会因抛出异常而退出。<code>luaL_loadbuffer()</code>这类函数是有返回值的。如果加载成功则返回0 ，否则返回错误代号，并将错误信息压入栈中。因此追加错误处理的版本应该是：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lauxlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lua.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lualib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> Buffer[<span class="number">256</span>] = &#123;<span class="string">&#x27;0&#x27;</span>&#125;;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>, ReturnValue = <span class="number">0</span>;</span><br><span class="line">    lua_State *Lua = luaL_newstate();</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span> <span class="title function_">ErrorCheck</span><span class="params">(lua_State * Lua, <span class="type">int</span> ReturnValue)</span>;      <span class="comment">// 声明错误处理函数</span></span><br><span class="line"></span><br><span class="line">    luaL_openlibs(Lua);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[%d]: &quot;</span>, i);</span><br><span class="line">        fgets(Buffer, <span class="number">256</span>, <span class="built_in">stdin</span>);</span><br><span class="line"></span><br><span class="line">        ReturnValue = luaL_loadbuffer(Lua, Buffer, <span class="built_in">strlen</span>(Buffer), <span class="string">&quot;Line&quot;</span>);</span><br><span class="line">        ErrorCheck(Lua, ReturnValue);           <span class="comment">//错误处理</span></span><br><span class="line"></span><br><span class="line">        ReturnValue = lua_pcall(Lua, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        ErrorCheck(Lua, ReturnValue);           <span class="comment">//错误处理</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    lua_close(Lua);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ErrorCheck</span><span class="params">(lua_State *Lua, <span class="type">int</span> ReturnValue)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ReturnValue == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;[Error Code]: %d\n&quot;</span>, ReturnValue);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (lua_isstring(Lua, <span class="number">-1</span>))      <span class="comment">// 检查栈顶是否为字符串</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 将 Lua 栈中的错误信息转换为 C 中的字符串</span></span><br><span class="line">        <span class="type">const</span> <span class="type">char</span> *ErrorMessage = lua_tostring(Lua, <span class="number">-1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[Error Info]: %s\n&quot;</span>, ErrorMessage);</span><br><span class="line">        lua_pop(Lua, <span class="number">1</span>);            <span class="comment">// 将错误信息出栈</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应当注意的是，将Lua栈中将某个值转换为C中的数据后，该值并不会出栈。对于默认至于栈顶的错误信息，读取之后需要手动出栈。在执行完代码后清空使用的栈是个好习惯，因为C分配给Lua的栈是有限的。</p>
+<h3 id="4-获取函数返回值"><a href="#4-获取函数返回值" class="headerlink" title="(4) 获取函数返回值"></a><strong>(4) 获取函数返回值</strong></h3><p>有时载入的Lua代码中定义了函数，但是执行载入的代码只是执行了一次定义函数的过程，并没有调用函数本身。要想在C中调用Lua的函数，必须将函数定义为全局变量。下述代码为Lua代码：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pow = <span class="function"><span class="keyword">function</span><span class="params">(x, y)</span></span></span><br><span class="line">    <span class="keyword">return</span> x ^ y;</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在C中调用上述Lua函数的代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lauxlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lua.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lualib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> ReturnValue = <span class="number">0</span>;</span><br><span class="line">    lua_State *Lua = luaL_newstate();</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span> <span class="title function_">ErrorCheck</span><span class="params">(lua_State * Lua, <span class="type">int</span> ReturnValue)</span>;</span><br><span class="line"></span><br><span class="line">    luaL_openlibs(Lua);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 载入代码</span></span><br><span class="line">    ReturnValue = luaL_loadfile(Lua, <span class="string">&quot;./Main.lua&quot;</span>);</span><br><span class="line">    ErrorCheck(Lua, ReturnValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行代码，也就是执行定义函数的过程</span></span><br><span class="line">    ReturnValue = lua_pcall(Lua, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    ErrorCheck(Lua, ReturnValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到名为 Pow 的函数，并将其压入栈中</span></span><br><span class="line">    lua_getglobal(Lua, <span class="string">&quot;Pow&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 压入参数</span></span><br><span class="line">    lua_pushnumber(Lua, <span class="number">11.4</span>);</span><br><span class="line">    lua_pushnumber(Lua, <span class="number">5.14</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行调用，参数有两个，返回值有一个</span></span><br><span class="line">    ReturnValue = lua_pcall(Lua, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    ErrorCheck(Lua, ReturnValue);</span><br><span class="line">    <span class="keyword">if</span> (ReturnValue == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 检查栈顶是否为 number 型变量</span></span><br><span class="line">        <span class="keyword">if</span> (lua_isnumber(Lua, <span class="number">-1</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Result is %.2lf&quot;</span>, lua_tonumber(Lua, <span class="number">-1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    lua_close(Lua);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ErrorCheck</span><span class="params">(lua_State *Lua, <span class="type">int</span> ReturnValue)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ReturnValue == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;[Error Code]: %d\n&quot;</span>, ReturnValue);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (lua_isstring(Lua, <span class="number">-1</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">const</span> <span class="type">char</span> *ErrorMessage = lua_tostring(Lua, <span class="number">-1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[Error Info]: %s\n&quot;</span>, ErrorMessage);</span><br><span class="line">        lua_pop(Lua, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">gcc Hello.c -o Hello.exe -llua54</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">./Hello.exe</span></span><br><span class="line">Result is 270701.67</span><br></pre></td></tr></table></figure>
+
+<p>上述代码在执行了 <code>.lua</code>中的代码之后，使用<code>lua_getglobal()</code>函数将<code>Pow()</code>函数放到压入栈顶，再压入两个参数后，调用该函数并得到返回值。</p>
+<h3 id="5-创建Lua表"><a href="#5-创建Lua表" class="headerlink" title="(5) 创建Lua表"></a><strong>(5) 创建Lua表</strong></h3><p>由于创建表的操作与 “分包” 的操作有重叠之处，此处就一并讲解。加载Lua代码时，往往会载入许多Lua代码，甚至是不同模块的Lua代码。这些代码在本模块内或许可以正常工作，但是一旦一起载入至同一环境下，就很有可能出现命名空间污染的情况。因此， 程序员应当在全局表 <code>_G</code>下创建若干表，将载入的不同Lua代码分配到不同的表下。</p>
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>表的环境</strong></div>
+
+<div style="color:goldenrod;">在上文中提到过，C调用Lua代码时需要显式声明要使用Lua的库。若将Lua代码加载到全局表的子表下，则不管是否显式声明使用Lua的库，均不能使用Lua库中的函数。要解决这个问题，需要为子表设置元表，元表的 <code>__index</code>属性值，应为全局表 <code>_G</code>本身。</div>
+</div>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">lua_getglobal(Lua, <span class="string">&quot;_G&quot;</span>);               <span class="comment">// _G</span></span><br><span class="line">lua_pushstring(Lua, <span class="string">&quot;Hello&quot;</span>);           <span class="comment">// _G ; &quot;Hello&quot;</span></span><br><span class="line">lua_newtable(Lua);                      <span class="comment">// _G ; &quot;Hello&quot; ; Hello 表</span></span><br><span class="line">lua_newtable(Lua);                      <span class="comment">// _G ; &quot;Hello&quot; ; Hello 表 ; 元表</span></span><br><span class="line">lua_pushstring(Lua, <span class="string">&quot;__index&quot;</span>);         <span class="comment">// _G ; &quot;Hello&quot; ; Hello 表 ; 元表 ; &quot;__index&quot;</span></span><br><span class="line">lua_getglobal(Lua, <span class="string">&quot;_G&quot;</span>);               <span class="comment">// _G ; &quot;Hello&quot; ; Hello 表 ; 元表 ; &quot;__index&quot; ; _G</span></span><br><span class="line">lua_rawset(Lua, <span class="number">-3</span>);                    <span class="comment">// _G ; &quot;Hello&quot; ; Hello 表 ; 元表</span></span><br><span class="line">lua_setmetatable(Lua, <span class="number">-2</span>);              <span class="comment">// _G ; &quot;Hello&quot; ; Hello 表</span></span><br><span class="line">lua_rawset(Lua, <span class="number">-3</span>);                    <span class="comment">// _G</span></span><br><span class="line">lua_pop(Lua, <span class="number">1</span>);                        <span class="comment">// 空栈</span></span><br><span class="line">luaL_loadfile(Lua, <span class="string">&quot;./Main.lua&quot;</span>);       <span class="comment">// 代码块</span></span><br><span class="line">lua_getglobal(Lua, <span class="string">&quot;Hello&quot;</span>);            <span class="comment">// 代码块 ; Hello 表</span></span><br><span class="line">lua_setupvalue(Lua, <span class="number">-2</span>, <span class="number">1</span>);             <span class="comment">// 代码块</span></span><br><span class="line">lua_call(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p><del>什么栈分析地狱</del>上述代码的注释模拟了Lua栈在执行完该行代码以后的部分栈内容。左侧为栈底，右侧为栈顶。</p>
+<ul>
+<li><code>lua_rawset()</code>函数用于为指定的表设置键值对。其中，参数指定的表在栈中的位置（若为负数则从栈底向栈顶数），此时的栈顶元素应当为值，栈顶元素下的第一个元素应当为键。设置完毕后，将键与值出栈；</li>
+<li><code>lua_setmetatable()</code>函数用于设置指定表的元表。其中，参数指定的是表在栈中的位置，此时的栈顶元素应当为元表。设置完毕后，将元表出栈；</li>
+<li><code>lua_setupvalue()</code>函数则用于设置代码块的运行环境。其中，参数指定的是代码块在栈中的位置和要设置为第几个运行环境，此时的栈顶元素应当为一个表。设置完毕后，将表出栈。</li>
+</ul>
+<p><del>我已经尽量做到生动形象并且简洁了。</del></p>
+<p>将上述的代码打包为函数，并测试能代码否正常工作：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Lua 代码，文件名为 Main.lua</span></span><br><span class="line">Hello = <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, This is Hello() !&quot;</span>);</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C 语言的代码，尝试将 Main.lua 中的代码载入 Hello 表中</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">LoadFile</span><span class="params">(lua_State *Lua, <span class="type">const</span> <span class="type">char</span> *FilePath, <span class="type">const</span> <span class="type">char</span> *PackageName)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">    <span class="comment">// 省略部分代码</span></span><br><span class="line">    <span class="comment">// ······</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 测试代码，载入完毕后将会尝试执行它</span></span><br><span class="line">    <span class="type">char</span> TestCode[] = <span class="string">&quot;Hello.Hello();&quot;</span>;</span><br><span class="line"></span><br><span class="line">    lua_State *Lua = luaL_newstate();</span><br><span class="line">    luaL_openlibs(Lua);</span><br><span class="line"></span><br><span class="line">    LoadFile(Lua, <span class="string">&quot;./Main.lua&quot;</span>, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试载入是否成功</span></span><br><span class="line">    luaL_loadbuffer(Lua, TestCode, <span class="built_in">strlen</span>(TestCode), <span class="string">&quot;Test&quot;</span>);</span><br><span class="line">    lua_call(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    lua_close(Lua);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">gcc Hello.c -o Hello.exe -llua54</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">./Hello.exe</span></span><br><span class="line">Hello, This is Hello() !</span><br></pre></td></tr></table></figure>
+
+<p><del>在经历了地狱般的栈分析后</del>代码调用成功了。</p>
+<h3 id="6-C调用Lua调用C的函数"><a href="#6-C调用Lua调用C的函数" class="headerlink" title="(6) C调用Lua调用C的函数"></a><strong>(6) C调用Lua调用C的函数</strong></h3><p>有时在编写C调用Lua的代码时，希望让Lua调用C的函数（可以用于替换默认的Lua代码中的函数，从而变更Lua代码的行为）。Lua库文件中提供了一个函数用于让Lua调用C的函数—— <code>lua_pushcclosure()</code> 。该函数的参数列表如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">lua_pushcclosure</span><span class="params">(lua_State*, lua_CFunction, <span class="type">int</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>int</code>型变量指的是这个函数将会有多少个运行环境。<code>lua_CFunction</code>为别名，其原型是一个指向了函数的指针。被指向的函数结构应当如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">a</span><span class="params">(lua_State*)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中返回值<code>int</code>类型的变量代表执行成功（1）还是执行失败（0）。即，要使用<code>lua_pushcclosure()</code>函数，只需要在C中构造一个形如上方代码的函数即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待潜入 Lua 栈的代码</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">PowToPlus</span><span class="params">(lua_State *Lua)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">double</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果栈顶（包含）与这个函数（不包含）之间的元素个数不为2，则返回错误代码 -1</span></span><br><span class="line">    <span class="keyword">if</span> (lua_gettop(Lua) != <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果栈顶的两个元素中存在不为 number 类型的变量</span></span><br><span class="line">    <span class="keyword">if</span> (!lua_isnumber(Lua, <span class="number">-1</span>) || !lua_isnumber(Lua, <span class="number">-2</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取两个栈顶元素值</span></span><br><span class="line">    x = lua_tonumber(Lua, <span class="number">-1</span>);</span><br><span class="line">    y = lua_tonumber(Lua, <span class="number">-2</span>);</span><br><span class="line"></span><br><span class="line">    lua_pop(Lua, <span class="number">2</span>);        <span class="comment">// 弹出栈顶的两个元素</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向栈中压入 x+y</span></span><br><span class="line">    lua_pushnumber(Lua, x + y);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 调用 Hello() 函数的 Lua 代码</span></span><br><span class="line">    <span class="type">char</span> TestCode[] = <span class="string">&quot;Hello(114,514);&quot;</span>;</span><br><span class="line"></span><br><span class="line">    lua_State *Lua = luaL_newstate();</span><br><span class="line">    luaL_openlibs(Lua);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 载入 Main.lua 代码</span></span><br><span class="line">    luaL_loadfile(Lua, <span class="string">&quot;./Main.lua&quot;</span>);</span><br><span class="line">    lua_call(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将全局表中的 &quot;Pow&quot; 命名分配给压入栈的 C 函数</span></span><br><span class="line">    lua_getglobal(Lua, <span class="string">&quot;_G&quot;</span>);</span><br><span class="line">    lua_pushstring(Lua, <span class="string">&quot;Pow&quot;</span>);</span><br><span class="line">    lua_pushcclosure(Lua, PowToPlus, <span class="number">0</span>);</span><br><span class="line">    lua_rawset(Lua, <span class="number">-3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 尝试调用 Hello()</span></span><br><span class="line">    luaL_loadbuffer(Lua, TestCode, <span class="built_in">strlen</span>(TestCode), <span class="string">&quot;Test&quot;</span>);</span><br><span class="line">    lua_call(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    lua_close(Lua);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，位于<code>Main.lua</code>的代码如下：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 这个函数将被改变</span></span><br><span class="line">Pow = <span class="function"><span class="keyword">function</span><span class="params">(x, y)</span></span></span><br><span class="line">    <span class="keyword">return</span> x ^ y;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 这个函数保持不变，但调用的结果将会大幅改变</span></span><br><span class="line">Hello = <span class="function"><span class="keyword">function</span><span class="params">(x, y)</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;Result is %.2f.&quot;</span>, Pow(x, y)));</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">gcc Hello.c -o Hello.exe -llua54</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">./Hello.exe</span></span><br><span class="line">Result is 628.00.</span><br></pre></td></tr></table></figure>
+
+<p>Lua函数中原本执行次方运算的函数被成功替换为了执行加法的函数。</p>
+<h3 id="7-面向对象"><a href="#7-面向对象" class="headerlink" title="(7) 面向对象"></a><strong>(7) 面向对象</strong></h3><p>由于C++的面向对象比较原汁原味，所以这一节将会使用C++与Lua交互。不用担心，本节将以C with class的理念来使用C++，尽可能减少使用C++特有的代码。Lua中面向对象依赖于元表，因此主要的算法思想为：</p>
+<ol>
+<li>将类的成员函数封装为符合<code>lua_CFunction</code>格式的一般函数，并将其注册在元表的 <code>__index</code>表中。再将该元表放在一个随时可取的 “位置” （直接定义在全局表 <code>_G</code>下并不是最佳方案，因为有可能造成命名空间污染）。</li>
+<li>创建实例对象时，在Lua栈上分配该类大小的空间，并对该空间进行初始化。将该对象的元表设置为上一步的元表。</li>
+<li>调用成员函数时，将实例对象的指针（若有参数则参数也一并）压入Lua栈，再找到上文定义的表并调用其中定义的函数。</li>
+</ol>
+<p>Lua库文件非常贴心地提供了能<del>轻松</del>实现上述算法思想的API。我成功调试完下述C++代码花了我6个多小时（绝望）。下文的栈分析将被省略，读者应当尝试<del>体会地狱</del>自行分析。</p>
+<h4 id="1-HIE类"><a href="#1-HIE类" class="headerlink" title="1. HIE类"></a><strong>1. <code>HIE</code>类</strong></h4><p>下述代码实现了一个简单的类。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HIE</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">char</span>* name;                         <span class="comment">// 姓名</span></span><br><span class="line">        <span class="type">char</span>* type;                         <span class="comment">// 型号</span></span><br><span class="line">        <span class="type">int</span> age;                            <span class="comment">// 年龄</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">static</span> <span class="type">int</span> ID;                      <span class="comment">// 通过该变量的地址，唯一标识该类</span></span><br><span class="line">        <span class="built_in">HIE</span>();                              <span class="comment">// 构造函数</span></span><br><span class="line">        ~<span class="built_in">HIE</span>();                             <span class="comment">// 析构函数</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>;                        <span class="comment">// 初始化</span></span><br><span class="line">        <span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">Name</span><span class="params">()</span></span>;                 <span class="comment">// 获取对象姓名</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">Name</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* NewName)</span></span>;     <span class="comment">// 设置对象姓名</span></span><br><span class="line">        <span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">Type</span><span class="params">()</span></span>;                 <span class="comment">// 获取对象型号</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">Type</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* NewType)</span></span>;     <span class="comment">// 设置对象型号</span></span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">Age</span><span class="params">()</span></span>;                          <span class="comment">// 获取对象年龄</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">Age</span><span class="params">(<span class="type">int</span> NewAge)</span></span>;               <span class="comment">// 设置对象年龄</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">SelfIntroduction</span><span class="params">()</span></span>;            <span class="comment">// 成员函数，自我介绍，打印该对象的姓名，型号与年龄</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> HIE::ID = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">HIE::<span class="built_in">HIE</span>()</span><br><span class="line">&#123;</span><br><span class="line">    name = <span class="literal">NULL</span>;</span><br><span class="line">    type = <span class="literal">NULL</span>;</span><br><span class="line">    age = <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HIE::~<span class="built_in">HIE</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (name != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(name);</span><br><span class="line">    <span class="keyword">if</span> (type != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(type);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">HIE::Name</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HIE::Name</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* NewName)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> length = <span class="built_in">strlen</span>(NewName) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (name != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(name);</span><br><span class="line">    name = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>) * length);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; length - <span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        name[i] = NewName[i];</span><br><span class="line">    &#125;</span><br><span class="line">    name[length - <span class="number">1</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">HIE::Type</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HIE::Type</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* NewType)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> length = <span class="built_in">strlen</span>(NewType) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (type != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">free</span>(type);</span><br><span class="line">    type = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>) * length);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; length - <span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        type[i] = NewType[i];</span><br><span class="line">    &#125;</span><br><span class="line">    type[length - <span class="number">1</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">HIE::Age</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HIE::Age</span><span class="params">(<span class="type">int</span> NewAge)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    age = NewAge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HIE::SelfIntroduction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Name: %s, Type: %s, Age: %d\n&quot;</span>, name, type, age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-编写NewHIE-函数"><a href="#2-编写NewHIE-函数" class="headerlink" title="2. 编写NewHIE()函数"></a><strong>2. 编写<code>NewHIE()</code>函数</strong></h4><p><code>NewHIE()</code>函数是在Lua代码中的名字。它在C++中的原型是一个可以被<code>lua_CFunction</code>指针指向的函数。其代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Lua_New</span><span class="params">(lua_State* Lua)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 若参数个数不为 3 个则执行失败</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">lua_gettop</span>(Lua) != <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 若参数顺序（左为栈底，右为栈顶）不为 “整数，字符串，字符串” 则执行失败</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">lua_isinteger</span>(Lua, <span class="number">-1</span>) || !<span class="built_in">lua_isstring</span>(Lua, <span class="number">-2</span>) || !<span class="built_in">lua_isstring</span>(Lua, <span class="number">-2</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取参数</span></span><br><span class="line">    <span class="type">int</span> age = <span class="built_in">lua_tointeger</span>(Lua, <span class="number">-1</span>);</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* type = <span class="built_in">lua_tostring</span>(Lua, <span class="number">-2</span>);</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* name = <span class="built_in">lua_tostring</span>(Lua, <span class="number">-3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在栈中新分配一块内存用于存放实例对象</span></span><br><span class="line">    <span class="type">void</span>* temp = <span class="built_in">lua_newuserdata</span>(Lua, <span class="built_in">sizeof</span>(HIE));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 下述写法是 C 语言 struct （结构体）的写法，C++中也能使用</span></span><br><span class="line">    <span class="comment">// 但更加标准的 C++ 的写法应该是：</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     *  #include &lt;new&gt;      // 需要头文件</span></span><br><span class="line"><span class="comment">     *  ······</span></span><br><span class="line"><span class="comment">     *  HIE* Target = new(temp)HIE();</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    HIE* Target = (HIE*)temp;       <span class="comment">// 利用 Lua 栈上分配的空间创建类</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 由于强制类型转换而没有调用构造函数，需要弥补</span></span><br><span class="line">    Target-&gt;<span class="built_in">init</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 给成员变量赋值</span></span><br><span class="line">    Target-&gt;<span class="built_in">Name</span>(name);</span><br><span class="line">    Target-&gt;<span class="built_in">Type</span>(type);</span><br><span class="line">    Target-&gt;<span class="built_in">Age</span>(age);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 下文将会讲述该函数与变量 LUA_REGISTRYINDEX</span></span><br><span class="line">    <span class="built_in">lua_rawgetp</span>(Lua, LUA_REGISTRYINDEX, &amp;HIE::ID);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 为在 Lua 栈上的 HIE 类实例对象设置元表</span></span><br><span class="line">    <span class="built_in">lua_setmetatable</span>(Lua, <span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>lua_rawgetp()</code>函数与<code>lua_rawget()</code>函数类似，也是从在Lua栈里的表中获取给定键的值。但前者的键被特定为了指针。它的参数分别为：Lua栈、要取出值的表在Lua栈中的索引、指针。它的返回值将被压入Lua栈，其值为该指针键对应的值。此处该函数取出的值为在Lua中为<code>HIE</code>类准备好的元表，该元表的 <code>__index</code>表中存放着<code>HIE</code>类的封装的成员函数。关于这个元表是如何注册的，下文将详述。</p>
+<p>因为成员变量<code>HIE::ID</code>是该类特有的，且为<code>static</code>的，因此该静态成员变量的地址在整个程序运行时是唯一的，因此可以确保<code>HIE::ID</code>的地址必定唯一且不会污染命名空间。对于C语言，为<code>struct</code>创建一个全局静态变量即可。</p>
+<p><code>LUA_REGISTRYINDEX</code>变量是Lua库中所规定的变量。它永远指向同一个表在Lua栈中的位置，且该表与<code>LUA_REGISTRYINDEX</code>变量均由Lua维护。从该常量的名字也可以看出，它所指向的表是专门用于注册函数、元表等值的。当然用户可以将元表注册在全局表 <code>_G</code>下，但是当用户要取出这个元表时，就不得不通过<code>lua_getglobal(Lua, "_G");</code>来获取全局表，再从全局表中取出元表。虽然不是很麻烦，但C++代码本来就够长了，再在各种细节上变长一点，后面的维护可怎么办啊（绝望）。</p>
+<h4 id="3-封装成员函数"><a href="#3-封装成员函数" class="headerlink" title="3. 封装成员函数"></a><strong>3. 封装成员函数</strong></h4><p>此处只封装<code>SelfIntroduction()</code>成员函数作为示例。其他成员函数的封装同理。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Lua_SI</span><span class="params">(lua_State* Lua)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 若参数个数不为 1 ，则执行失败</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">lua_gettop</span>(Lua) != <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 若栈顶元素不为 userdata 类型，则执行失败</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">lua_isuserdata</span>(Lua, <span class="number">-1</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 取出 userdata 并强制类型转换为 HIE*</span></span><br><span class="line">    HIE* Target = (HIE*)<span class="built_in">lua_touserdata</span>(Lua, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行 SelfIntroduction() 函数</span></span><br><span class="line">    Target-&gt;<span class="built_in">SelfIntroduction</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>lua_touserdata()</code>函数将会取出指定位置的<code>userdata</code>型变量。此处将会分为两种情况：</p>
+<ul>
+<li>该<code>userdata</code>型变量是在Lua栈上分配的。即该<code>userdata</code>型变量不是指针，那么就返回一个指向该变量地址的指针。</li>
+<li>该<code>userdata</code>型变量是 “light userdata” ，即该变量是一个指向了其他地方的指针，那么就返回这个指针的值。</li>
+</ul>
+<p>以下为官方文档对该函数的解释：</p>
+<blockquote>
+<p>If the value at the given index is a full userdata, returns its memory-block address. If the value is a light userdata, returns its value (a pointer). Otherwise, returns NULL.</p>
+</blockquote>
+<p>因此可以不在Lua栈上分配整个类的空间，尤其是这个类非常庞大的时候。可以先在C&#x2F;C++的堆上为该类分配空间，然后再仅仅将指向该空间的指针入栈作为返回值即可。执行结果一般不会有什么改变。但在C&#x2F;C++堆上分配的空间，自然是由C&#x2F;C++来维护，也就是用户来维护。当Lua环境被关闭时，在Lua栈上分配的空间将被自动回收，但在C&#x2F;C++堆上分配的空间，却只能由用户手动回收。</p>
+<h4 id="4-创建HIE类的元表"><a href="#4-创建HIE类的元表" class="headerlink" title="4. 创建HIE类的元表"></a><strong>4. 创建<code>HIE</code>类的元表</strong></h4><p>下述代码将在Lua栈创建之后就被Lua环境调用。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Lua_CreateMetatable</span><span class="params">(lua_State* Lua)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 将 NewHIE() 函数注册到全局表上</span></span><br><span class="line">    <span class="built_in">lua_getglobal</span>(Lua, <span class="string">&quot;_G&quot;</span>);</span><br><span class="line">    <span class="built_in">lua_pushstring</span>(Lua, <span class="string">&quot;NewHIE&quot;</span>);</span><br><span class="line">    <span class="built_in">lua_pushcclosure</span>(Lua, Lua_New, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">lua_rawset</span>(Lua, <span class="number">-3</span>);</span><br><span class="line">    <span class="built_in">lua_pop</span>(Lua, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建元表</span></span><br><span class="line">    <span class="built_in">lua_newtable</span>(Lua);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 准备 __index 表</span></span><br><span class="line">    <span class="built_in">lua_pushstring</span>(Lua, <span class="string">&quot;__index&quot;</span>);</span><br><span class="line">    <span class="built_in">lua_newtable</span>(Lua);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将函数 SelfIntroduction() 注册到 __index 表中</span></span><br><span class="line">    <span class="built_in">lua_pushstring</span>(Lua, <span class="string">&quot;SelfIntroduction&quot;</span>);</span><br><span class="line">    <span class="built_in">lua_pushcclosure</span>(Lua, Lua_SI, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">lua_rawset</span>(Lua, <span class="number">-3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册 __index 表到元表中</span></span><br><span class="line">    <span class="built_in">lua_rawset</span>(Lua, <span class="number">-3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将元表注册到上文所述的表中</span></span><br><span class="line">    <span class="built_in">lua_rawsetp</span>(Lua, LUA_REGISTRYINDEX, &amp;HIE::ID);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-主函数"><a href="#5-主函数" class="headerlink" title="5. 主函数"></a><strong>5. 主函数</strong></h4><p>C++的主函数就简单许多了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lua_State* Lua = <span class="built_in">luaL_newstate</span>();</span><br><span class="line">    <span class="built_in">luaL_openlibs</span>(Lua);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行 Lua_CreateMetatable() 函数</span></span><br><span class="line">    <span class="built_in">lua_pushcclosure</span>(Lua, Lua_CreateMetatable, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">lua_call</span>(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 载入 Main.lua 文件并执行</span></span><br><span class="line">    <span class="built_in">luaL_loadfile</span>(Lua, <span class="string">&quot;./Main.lua&quot;</span>);</span><br><span class="line">    <span class="built_in">lua_call</span>(Lua, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">lua_close</span>(Lua);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下述代码为<code>Main.lua</code>中的Lua代码：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NewHIE() 函数与 SelfIntroduction() 函数都将在 C++ 中注册</span></span><br><span class="line"><span class="keyword">local</span> Lacia = NewHIE(<span class="string">&quot;Lacia&quot;</span>, <span class="string">&quot;Type-005&quot;</span>, <span class="number">17</span>);</span><br><span class="line">Lacia:SelfIntroduction();</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-执行结果"><a href="#6-执行结果" class="headerlink" title="6. 执行结果"></a><strong>6. 执行结果</strong></h4><p>上述代码的执行结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">g++ Hello.cpp -o Hello.exe -llua54</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">./Hello.exe</span></span><br><span class="line">Name: Lacia, Type: Type-005, Age: 17</span><br></pre></td></tr></table></figure>
+
+<p>上述代码成功地使用Lua调用了C++为Lua准备的构造函数与成员函数。</p>
+<p>需要注意的是，在Lua中并不推荐使用面向对象。因为使用 “轻” 的<code>userdata</code>会带来堆内存管理的问题，而使用一般的<code>userdata</code>则会带来更大的空间开销——使用<code>lua_newuserdata()</code>函数分配的空间将至少达到70个字节以上（5.3版本，5.4不知道有没有优化），这对于实例对象较多的大型代码相当不友好。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/05/29/LuaWithC/" title="Lua与C语言交互">https://ayanami-daisuki.github.io/2022/05/29/LuaWithC/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%BA%A4%E4%BA%92/" rel="tag"><i class="fa fa-tag"></i> 编程语言交互</a>
+              <a href="/tags/Lua%E4%B8%8EC%E4%BA%A4%E4%BA%92/" rel="tag"><i class="fa fa-tag"></i> Lua与C交互</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/24/LuaGrammar/" rel="prev" title="Lua基础">
+                  <i class="fa fa-chevron-left"></i> Lua基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">347k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:16</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"/lib/mermaid/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
