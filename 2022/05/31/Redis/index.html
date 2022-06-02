@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <script type="text/javascript" src="/js/force-autoplay.js"></script>
+  <script type="text/javascript" src="/js/contextmenu.js"></script>
+  <script type="text/javascript" src="/js/click-effect.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-center-atom.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/05/31/Redis/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/05/31/Redis/","path":"2022/05/31/Redis/","title":"Redis数据库"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Redis数据库 | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <meta name="msvalidate.01" content="2DC98D673CEA63668E0E0390B0D5A92E" />
+  <meta name="google-site-verification" content="1oFThEwTKR5SObaIdOL2PxGLwX-rE5ClaZKSAdhq3LY" />
+  <meta name="google-site-verification" content="a7h6HxqLG_MHyjCraHg6yzJYNk3na2UIjP7AcWOrg_E" />
+  <meta name="baidu-site-verification" content="code-PFGV5jFemX" />
+  <meta name="baidu-site-verification" content="code-Z4QAODNN82" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/js/aplayer.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">二、数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-string"><span class="nav-text">(1) string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-list"><span class="nav-text">(2) list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-set"><span class="nav-text">(3) set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-hash"><span class="nav-text">(4) hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-zset"><span class="nav-text">(5) zset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Bitmaps"><span class="nav-text">(6) Bitmaps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">三、基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BA%8B%E5%8A%A1"><span class="nav-text">四、事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">五、配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%81%E8%AE%B8%E7%9A%84IP"><span class="nav-text">(1) 允许的IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E4%B8%8E%E7%AB%AF%E5%8F%A3"><span class="nav-text">(2) 保护模式与端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9A%82%E5%AD%98%E8%AF%B7%E6%B1%82%E6%95%B0%E9%87%8F%E4%B8%8E%E8%B6%85%E6%97%B6"><span class="nav-text">(3) 暂存请求数量与超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E9%87%8F"><span class="nav-text">(4) 守护进程与数据库数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%BB%98%E8%AE%A4%E7%94%A8%E6%88%B7%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">(5) 默认用户的密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E6%95%B0"><span class="nav-text">(6) 最大连接数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-RDB%E4%BF%9D%E5%AD%98%E9%A2%91%E7%8E%87"><span class="nav-text">(7) RDB保存频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-AOF"><span class="nav-text">(8) AOF</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/lib/@creativecommons/vocabulary/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/05/31/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Redis数据库 | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis数据库
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-31 13:56:51" itemprop="dateCreated datePublished" datetime="2022-05-31T13:56:51+08:00">2022-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-02 14:43:59" itemprop="dateModified" datetime="2022-06-02T14:43:59+08:00">2022-06-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%BA%93/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/05/31/Redis/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有数据库基础与数据结构基础。</div>
+
+<span id="more"></span>
+</div>
+
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h2><p>Redis数据库属于NoSQL数据库。NoSQL数据库与传统的关系型数据库差别很大，这种新型数据库是为了解决传统数据库高并发性能瓶颈而设计的。关于NoSQL数据库的详情，请参见 <a class="btn" target="_blank" rel="noopener" href="https://baike.baidu.com/item/NoSQL/8828247 ">百度百科</a> 。Redis数据库是单线程（对于单个客户端）、多I&#x2F;O任务的。单线程意味着它将不受多线程同步锁的困扰，每一个命令都是原子性的；多I&#x2F;O任务是指Redis的线程可以同时接受多个命令，并将这些命令全都放入执行队列，等待处理线程处理。</p>
+<p>Redis官方现在已经不支持在Windows操作系统上安装Redis数据库服务器，要么使用WSL安装Redis数据库服务器，要么使用第三方打包的适用于Windows的Redis数据库服务器。关于Redis的安装请参考网络上的其它文章，此处不做赘述。</p>
+<p>本文将使用WSL的Kali分发版安装Redis数据库服务器。安装完成后，执行如下命令以启动Redis数据库服务：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">sudo service redis-server start</span></span><br></pre></td></tr></table></figure>
+
+<p>执行如下命令以进入Redis命令行：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+<p>可以看出Redis数据库的默认端口是6379。</p>
+<h2 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a><strong>二、数据类型</strong></h2><p>Redis数据库中不存在表的概念，其数据存储形式类似于字典或映射，即以键值对的方式存储，键唯一而值任意。键只能是<code>string</code>类型，但值的类型不一定是<code>string</code>类型。在Redis数据库中每一种数据类型的操作命令都不一样。</p>
+<h3 id="1-string"><a href="#1-string" class="headerlink" title="(1) string"></a><strong>(1) <code>string</code></strong></h3><p><code>string</code>类型是Redis中最基础的数据类型，其底层实现是自动扩容的顺序表。Redis数据库可以存储任意的字符串，例如图片、视频，甚至是应用程序（只要能序列化为字符串）。Redis数据库存储的字符串是二进制安全的，该类型可以放心使用。</p>
+<p><code>string</code>类型的<span style="color:red;">值</span>的大小不能超过512M，这是Redis数据库的规定。</p>
+<p>对于<code>string</code>类型的值，可以使用的命令有：</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令名</th>
+<th align="center">参数</th>
+<th align="center">作用</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>set</code></td>
+<td align="center">键，值</td>
+<td align="center">修改或插入新值</td>
+<td align="center"><code>"OK"</code></td>
+</tr>
+<tr>
+<td align="center"><code>get</code></td>
+<td align="center">键</td>
+<td align="center">查询键对应的值</td>
+<td align="center">值</td>
+</tr>
+<tr>
+<td align="center"><code>setnx</code></td>
+<td align="center">键，值</td>
+<td align="center">当键不存在时插入键值并返回1，否则返回0</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>mset</code></td>
+<td align="center">多个键值对</td>
+<td align="center">一次性设置多个键值对</td>
+<td align="center"><code>"OK"</code></td>
+</tr>
+<tr>
+<td align="center"><code>mget</code></td>
+<td align="center">多个键</td>
+<td align="center">查询每个键对应的值</td>
+<td align="center">多个值</td>
+</tr>
+<tr>
+<td align="center"><code>msetnx</code></td>
+<td align="center">多个键值对</td>
+<td align="center">当键<span style="color:red;">均</span>不存在时插入键值对并返回1，否则返回0</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>setex</code></td>
+<td align="center">键，值，时间</td>
+<td align="center">在设置键值对时以秒为单位设置键值对有效时间</td>
+<td align="center"><code>"OK"</code></td>
+</tr>
+<tr>
+<td align="center"><code>getset</code></td>
+<td align="center">键，新值</td>
+<td align="center">返回旧值后，以新值替换之</td>
+<td align="center">旧值</td>
+</tr>
+<tr>
+<td align="center"><code>append</code></td>
+<td align="center">键，值</td>
+<td align="center">将指定的值追加到原值末尾</td>
+<td align="center">新值的长度</td>
+</tr>
+<tr>
+<td align="center"><code>strlen</code></td>
+<td align="center">键</td>
+<td align="center">获取值的长度</td>
+<td align="center">值的长度</td>
+</tr>
+<tr>
+<td align="center"><code>incr</code></td>
+<td align="center">键</td>
+<td align="center">存储数字的值+1</td>
+<td align="center">自增后的值</td>
+</tr>
+<tr>
+<td align="center"><code>decr</code></td>
+<td align="center">键</td>
+<td align="center">存储数字的值-1</td>
+<td align="center">自减后的值</td>
+</tr>
+<tr>
+<td align="center"><code>incrby</code></td>
+<td align="center">键，n</td>
+<td align="center">存储数字的值+n</td>
+<td align="center">增加后的值</td>
+</tr>
+<tr>
+<td align="center"><code>decrby</code></td>
+<td align="center">键，n</td>
+<td align="center">存储数字的值-n</td>
+<td align="center">减少后的值</td>
+</tr>
+<tr>
+<td align="center"><code>getrange</code></td>
+<td align="center">键，起始索引，结束索引</td>
+<td align="center">返回从起始索引（包含）到结束索引（包含）的子串</td>
+<td align="center">子串</td>
+</tr>
+<tr>
+<td align="center"><code>setrange</code></td>
+<td align="center">键，起始索引，子串</td>
+<td align="center">从起始索引（包含）开始，以子串替换原值</td>
+<td align="center">新值的长度</td>
+</tr>
+</tbody></table>
+<p>Redis每个命令都是原子性的，对多个键值对的操作只要其中有一个失败，那么整条命令就会失败。</p>
+<h3 id="2-list"><a href="#2-list" class="headerlink" title="(2) list"></a><strong>(2) <code>list</code></strong></h3><p><code>list</code>类型即列表类型，其底层实现是首尾相连的双向链表，存储值的类型为一小块顺序表，该顺序表中存放真正的值（ <code>string</code>类型）。当向键对应的值不存在时，若执行插入则会新建一个<code>list</code> ；当弹出<code>list</code>中最后一个元素时，相应的键也将失效。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令名</th>
+<th align="center">参数</th>
+<th align="center">作用</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>lpush</code></td>
+<td align="center">键，多个值</td>
+<td align="center">向列表最左侧依次插入多个值</td>
+<td align="center">插入后列表长度</td>
+</tr>
+<tr>
+<td align="center"><code>rpush</code></td>
+<td align="center">键，多个值</td>
+<td align="center">向列表最右侧依次插入多个值</td>
+<td align="center">插入后列表长度</td>
+</tr>
+<tr>
+<td align="center"><code>lpop</code></td>
+<td align="center">键</td>
+<td align="center">弹出最左侧的值</td>
+<td align="center">弹出的值</td>
+</tr>
+<tr>
+<td align="center"><code>rpop</code></td>
+<td align="center">键</td>
+<td align="center">弹出最右侧的值</td>
+<td align="center">弹出的值</td>
+</tr>
+<tr>
+<td align="center"><code>rpoplpush</code></td>
+<td align="center">键X，键Y</td>
+<td align="center">弹出键X最右侧的值，并插入键Y最左侧</td>
+<td align="center">弹出的值</td>
+</tr>
+<tr>
+<td align="center"><code>lindex</code></td>
+<td align="center">键，索引</td>
+<td align="center">查询索引对应的值</td>
+<td align="center">值</td>
+</tr>
+<tr>
+<td align="center"><code>lrange</code></td>
+<td align="center">键，起始索引，结束索引</td>
+<td align="center">查询从起始索引（包含）到结束索引（包含）的所有元素</td>
+<td align="center">多个元素</td>
+</tr>
+<tr>
+<td align="center"><code>llen</code></td>
+<td align="center">键</td>
+<td align="center">获取列表长度</td>
+<td align="center">列表长度</td>
+</tr>
+<tr>
+<td align="center"><code>linsert 键 before</code></td>
+<td align="center">指定值，新值</td>
+<td align="center">在从左数第一个指定值之前插入新值</td>
+<td align="center">插入后列表长度</td>
+</tr>
+<tr>
+<td align="center"><code>linsert 键 after</code></td>
+<td align="center">指定值，新值</td>
+<td align="center">在从左数第一个指定值之后插入新值</td>
+<td align="center">插入后列表长度</td>
+</tr>
+<tr>
+<td align="center"><code>lrem</code></td>
+<td align="center">键，n，值</td>
+<td align="center">从左往右删除与指定值相等的n个值</td>
+<td align="center">删除后列表长度</td>
+</tr>
+<tr>
+<td align="center"><code>lset</code></td>
+<td align="center">键，索引，值</td>
+<td align="center">将指定索引的值替换为新值</td>
+<td align="center"><code>"OK"</code></td>
+</tr>
+</tbody></table>
+<h3 id="3-set"><a href="#3-set" class="headerlink" title="(3) set"></a><strong>(3) <code>set</code></strong></h3><p><code>set</code>类型即集合，它具有自动排除重复元素的功能。在Redis中<code>set</code>类型的底层实现为哈希表。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令名</th>
+<th align="center">参数</th>
+<th align="center">作用</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>sadd</code></td>
+<td align="center">键，多个值</td>
+<td align="center">将值插入集合中，已存在的值将被忽略</td>
+<td align="center">集合中元素个数</td>
+</tr>
+<tr>
+<td align="center"><code>smembers</code></td>
+<td align="center">键</td>
+<td align="center">取出集合中所有值</td>
+<td align="center">多个值</td>
+</tr>
+<tr>
+<td align="center"><code>sismember</code></td>
+<td align="center">键，指定值</td>
+<td align="center">查询集合中是否存在指定值</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>scard</code></td>
+<td align="center">键</td>
+<td align="center">查询集合中的元素个数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>srem</code></td>
+<td align="center">键，值</td>
+<td align="center">从集合中删除值，删除成功则返回1，否则返回0</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>spop</code></td>
+<td align="center">键</td>
+<td align="center">从集合中随机删除一个值</td>
+<td align="center">被删除的值</td>
+</tr>
+<tr>
+<td align="center"><code>srandmember</code></td>
+<td align="center">键，n</td>
+<td align="center">从集合中随机取出n个值但不删除</td>
+<td align="center">多个值</td>
+</tr>
+<tr>
+<td align="center"><code>smove</code></td>
+<td align="center">键X，键Y，值</td>
+<td align="center">从集合X中删除值并将该值插入集合Y中并返回1，失败则返回0</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>sinter</code></td>
+<td align="center">键X，键Y</td>
+<td align="center">求集合X与集合Y的交集</td>
+<td align="center">多个值</td>
+</tr>
+<tr>
+<td align="center"><code>sunion</code></td>
+<td align="center">键X，键Y</td>
+<td align="center">求集合X与集合Y的并集</td>
+<td align="center">多个值</td>
+</tr>
+<tr>
+<td align="center"><code>sdiff</code></td>
+<td align="center">键X，键Y</td>
+<td align="center">求集合X与集合Y的差集</td>
+<td align="center">多个值</td>
+</tr>
+</tbody></table>
+<h3 id="4-hash"><a href="#4-hash" class="headerlink" title="(4) hash"></a><strong>(4) <code>hash</code></strong></h3><p><code>hash</code>类型就是哈希表，其键为<code>string</code>类型，值为若干键值对。当其中存储的键值对较少时，将采用小块顺序表存储，键值对较多时就会使用真正的哈希表。由于存在两种键，因此下表中位于值中的键将以 “索引” 来代替。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令名</th>
+<th align="center">参数</th>
+<th align="center">作用</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>hset</code></td>
+<td align="center">键，若干键值对</td>
+<td align="center">向哈希表中插入键值对，并返回插入成功的个数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>hget</code></td>
+<td align="center">键，索引</td>
+<td align="center">查询哈希表中的索引值</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>hmset</code></td>
+<td align="center">键，若干键值对</td>
+<td align="center">向哈希表中插入键值对，有一个失败则全体失败</td>
+<td align="center"><code>"OK"</code></td>
+</tr>
+<tr>
+<td align="center"><code>hexists</code></td>
+<td align="center">键，索引</td>
+<td align="center">查询哈希表中是否存在该索引</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>hkeys</code></td>
+<td align="center">键</td>
+<td align="center">查询哈希表中的所有索引</td>
+<td align="center">多个索引</td>
+</tr>
+<tr>
+<td align="center"><code>hvals</code></td>
+<td align="center">键</td>
+<td align="center">查询哈希表中的所有值</td>
+<td align="center">多个值</td>
+</tr>
+<tr>
+<td align="center"><code>hincrby</code></td>
+<td align="center">键，索引，n</td>
+<td align="center">让哈希表中指定索引的值+n</td>
+<td align="center">增加后的值</td>
+</tr>
+<tr>
+<td align="center"><code>hsetnx</code></td>
+<td align="center">键，键值对</td>
+<td align="center">当索引不存在时，向哈希表中插入键值对并返回1，否则返回0</td>
+<td align="center"><code>integer</code></td>
+</tr>
+</tbody></table>
+<h3 id="5-zset"><a href="#5-zset" class="headerlink" title="(5) zset"></a><strong>(5) <code>zset</code></strong></h3><p><code>zset</code>类型即有序集合。其存储的元素附带了一个可以指定的评分。元素的值唯一而评分可以重复，并且元素会根据评分的大小自动从低到高排序。其底层实现是哈希表和跳跃表。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令名</th>
+<th align="center">参数</th>
+<th align="center">作用</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>zadd</code></td>
+<td align="center">键，若干评分和值对</td>
+<td align="center">向有序集合中插入元素，并返回成功个数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>zrange</code></td>
+<td align="center">键，起始索引，结束索引</td>
+<td align="center">查询从起始索引（包含）到结束索引（包含）的元素</td>
+<td align="center">若干值</td>
+</tr>
+<tr>
+<td align="center"><code>zrangebyscore</code></td>
+<td align="center">键，起始评分，结束评分</td>
+<td align="center">查询从起始评分（包含）到结束评分（包含）之间的元素</td>
+<td align="center">若干值</td>
+</tr>
+<tr>
+<td align="center"><code>zrevrange</code></td>
+<td align="center">键，起始索引，结束索引</td>
+<td align="center">逆序查询从起始索引（包含）到结束索引（包含）的元素</td>
+<td align="center">若干值</td>
+</tr>
+<tr>
+<td align="center"><code>zrevrangebyscore</code></td>
+<td align="center">键，起始评分，结束评分</td>
+<td align="center">逆序查询从起始评分（包含）到结束评分（包含）之间的元素</td>
+<td align="center">若干值</td>
+</tr>
+<tr>
+<td align="center"><code>zincrby</code></td>
+<td align="center">键，n，值</td>
+<td align="center">有序集合中的值的评分+n</td>
+<td align="center">增加后的值</td>
+</tr>
+<tr>
+<td align="center"><code>zrem</code></td>
+<td align="center">键，值</td>
+<td align="center">删除有序集合中的指定值</td>
+<td align="center">被删除的值</td>
+</tr>
+<tr>
+<td align="center"><code>zcount</code></td>
+<td align="center">键，起始评分，结束评分</td>
+<td align="center">查询从起始评分（包含）到结束评分（包含）之间的元素个数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>zrank</code></td>
+<td align="center">键，值</td>
+<td align="center">查询有序集合中值的索引</td>
+<td align="center"><code>integer</code></td>
+</tr>
+</tbody></table>
+<h3 id="6-Bitmaps"><a href="#6-Bitmaps" class="headerlink" title="(6) Bitmaps"></a><strong>(6) <code>Bitmaps</code></strong></h3><p><code>bitmaps</code>类型即二进制。该类型存储的值是一系列的二进制，其底层实现是字符串（使用<code>type</code>命令查看类型会返回<code>string</code> ）。这个数据类型是目前的新版Redis新增的一种数据类型。</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令名</th>
+<th align="center">参数</th>
+<th align="center">作用</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>setbit</code></td>
+<td align="center">键，偏移量，0&#x2F;1</td>
+<td align="center">设置指定偏移量上的值，返回原值</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>getbit</code></td>
+<td align="center">键，偏移量</td>
+<td align="center">获取指定偏移量上的值，未设置的位默认为0</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>bitcount</code></td>
+<td align="center">键，起始索引，结束索引</td>
+<td align="center">查询从起始索引（包含）<span style="color:red">字节</span>到结束索引（包含）<span style="color:red">字节</span>中1的个数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>bitop and</code></td>
+<td align="center">键A，键X，键Y</td>
+<td align="center">将键X与键Y的二进制按位与，结果存放在键A中，返回结果的字节数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>bitop or</code></td>
+<td align="center">键A，键X，键Y</td>
+<td align="center">将键X与键Y的二进制按位或，结果存放在键A中，返回结果的字节数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>bitop not</code></td>
+<td align="center">键A，键X</td>
+<td align="center">将键X的二进制按位非，结果存放在键A中，返回结果的字节数</td>
+<td align="center"><code>integer</code></td>
+</tr>
+</tbody></table>
+<h2 id="三、基本操作"><a href="#三、基本操作" class="headerlink" title="三、基本操作"></a><strong>三、基本操作</strong></h2><p>下面的命令列出了一些其它常用的命令：</p>
+<div class="tabs" id="commands"><ul class="nav-tabs"><li class="tab active"><a href="#commands-1"><code>keys</code></a></li><li class="tab"><a href="#commands-2"><code>exsits</code></a></li><li class="tab"><a href="#commands-3"><code>type</code></a></li><li class="tab"><a href="#commands-4"><code>del</code></a></li><li class="tab"><a href="#commands-5"><code>unlink</code></a></li><li class="tab"><a href="#commands-6"><code>expire</code>与<code>ttl</code></a></li><li class="tab"><a href="#commands-7">发布与订阅</a></li><li class="tab"><a href="#commands-8">杂项</a></li></ul><div class="tab-content"><div class="tab-pane active" id="commands-1"><p><code>keys</code>命令用于查询当前数据库中的所有键。其匹配规则类似于传统SQL的<code>LIKE</code>关键字，还有点正则表达式的色彩。</p>
+<ul>
+<li>一般字符：精确匹配该字符</li>
+<li><code>*</code> ：匹配任意长度的任意字符</li>
+<li><code>?</code> ： 匹配单个任意字符</li>
+<li><code>[a-z]</code> ：匹配所有从 “a” 到 “z” 的单个字符</li>
+<li><code>[^a]</code> ：匹配除了 “a” 以外的所有字符</li>
+<li><code>\</code> ：取消正则表达式中的关键字</li>
+</ul>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;Method&quot;</span><br><span class="line">2) &quot;Kouka&quot;</span><br><span class="line">3) &quot;Lacia&quot;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; keys L*</span><br><span class="line">1) &quot;Lacia&quot;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; keys L?cia</span><br><span class="line">1) &quot;Lacia&quot;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; keys ?[^a]????</span><br><span class="line">1) &quot;Method&quot;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，Redis官方并不推荐在生产环境下使用<code>keys</code>命令。以下文本摘录自 <a class="btn" target="_blank" rel="noopener" href="https://redis.io/commands/keys/ ">官方文档</a> 。</p>
+<blockquote>
+<p><strong>Warning</strong>: consider <code>KEYS</code> as a command that should only be used in production environments with extreme care. It may ruin performance when it is executed against large databases. This command is intended for debugging and special operations, such as changing your keyspace layout. Don’t use <code>KEYS</code> in your regular application code. If you’re looking for a way to find keys in a subset of your keyspace, consider using <code>SCAN</code> or <code>sets</code>.</p>
+</blockquote></div><div class="tab-pane" id="commands-2"><p><code>exsits</code>命令用于确认数据库中是否存在某个键。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; exists 114514</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; exists Lacia</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="commands-3"><p><code>type</code>命令用于查询某个键的值是何种类型。若不存在某个键，则返回值将为<code>none</code> 。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; type Lacia</span><br><span class="line">string</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="commands-4"><p><code>del</code>命令用于根据键来删除一个键值对。该命令是同步阻塞的，在删除完键值对之前都不会返回成功信息。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set 114 514</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; keys 114</span><br><span class="line">1) &quot;114&quot;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; del 114</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; keys 114</span><br><span class="line">(empty array)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="commands-5"><p><code>unlink</code>命令也用于根据键来删除键值对，但该命令是异步非阻塞的。Redis数据库在接收到该命令后，将会把删除任务放进任务队列，然后立即返回成功信息。此时键值对可能还未被删除，当任务队列轮到删除操作执行时，才真正开始删除键值对。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set 1919 810</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; unlink 1919</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; keys 1919</span><br><span class="line">(empty array)</span><br></pre></td></tr></table></figure>
+
+<p>对于低并发且值占用空间少的开发环境而言，<code>unlink</code>可以被视为是即时删除。但不能忽视该命令在高并发环境下的延时删除特性。</p></div><div class="tab-pane" id="commands-6"><p><code>expire</code>命令用于设置键值对的过期时间（默认以秒位单位）。<code>ttl</code>命令用于查看键值对所剩的有效时间，正数为剩余多少秒，<code>-1</code>为永不过期，<code>-2</code>为已过期（即该键不存在）。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set 114 514</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ttl 114</span><br><span class="line">(integer) -1</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; expire 114 5</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ttl 114</span><br><span class="line">(integer) 3</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ttl 114</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ttl 114</span><br><span class="line">(integer) -2</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="commands-7"><p>Redis数据库还支持消息的发布与订阅，相关的命令是<code>publish</code>和<code>subscribe</code> 。</p>
+<p>以下命令订阅了 “114” 频道。频道名可以含有字母。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; subscribe 114</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line">1) &quot;subscribe&quot;</span><br><span class="line">2) &quot;114&quot;</span><br><span class="line">3) (integer) 1</span><br></pre></td></tr></table></figure>
+
+<p>订阅频道是阻塞的，除非显式终止订阅，否则终端将一直挂起以等待消息发布。以下命令向 “114” 频道发布消息：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; publish 114 &quot;Hello, world!&quot;</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<p>订阅了消息的终端将会显示：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; subscribe 114</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line">1) &quot;subscribe&quot;</span><br><span class="line">2) &quot;114&quot;</span><br><span class="line">3) (integer) 1</span><br><span class="line">1) &quot;message&quot;</span><br><span class="line">2) &quot;114&quot;</span><br><span class="line">3) &quot;Hello, world!&quot;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="commands-8"><ul>
+<li><code>select</code>命令用于切换数据库。Redis数据库中默认有16个数据库，编号从0~15。使用<code>select 编号</code> 即可切换数据库。</li>
+<li><code>dbsize</code>命令用于查看当前数据库的键值对个数。</li>
+<li><code>flushdb</code>命令用于清空当前数据库。</li>
+<li><code>flushall</code>命令用于清空所有的数据库。</li>
+</ul></div></div></div>
+
+<h2 id="四、事务"><a href="#四、事务" class="headerlink" title="四、事务"></a><strong>四、事务</strong></h2><p>对于数据库的操作，有时程序员希望当一系列操作中只要有一个出错，那么所有的操作均不会生效，这就需要用到事务。但Redis的事务和MySQL的事务有些不同。要想使用事务，就需要键入<code>multi</code>命令。使用<code>multi</code>命令后，接下来键入的所有命令都将依次放入等待队列，直到键入<code>exec</code>命令或<code>discard</code>命令。前者将开始执行事务，后者则会抛弃事务。</p>
+<p>Redis事务中的错误分为两种情况：</p>
+<ul>
+<li>“编译时错误” ：命令语法不正确（例如缺少参数）</li>
+<li>“运行时错误” ：命令语法正确但执行时出错（例如对字符串值进行<code>incr</code>命令）</li>
+</ul>
+<p>第一种错误将会导致整个事务无法执行，而第二种错误将只会让执行时出错那一条命令执行失败，而剩余的命令将正确执行。</p>
+<p>Redis数据库因为其针对高并发做了特化，因此其事务的锁是乐观锁。在使用<code>multi</code>命令前，键入<code>watch 多个键</code> 命令即可为事务加乐观锁。若在开始执行事务前这些键的值改变过，那么事务将不会执行。在事务队列中加入<code>unwatch</code>命令即可取消事务的乐观锁。</p>
+<h2 id="五、配置文件"><a href="#五、配置文件" class="headerlink" title="五、配置文件"></a><strong>五、配置文件</strong></h2><p>Redis数据库服务器启动时会使用配置文件。通过系统服务启动Redis数据库服务器，则会使用默认配置文件。使用<code>redis-server</code>命令则可以指定配置文件。如果是使用<code>apt</code>命令安装的Redis，那么默认的配置文件的绝对路径应该是<code>/etc/redis/redis.conf</code> ，该文件仅具有超级权限的命令可以访问。默认的配置文件中有大量的注释信息，该文件长达1880行，本文就只叙述重要的部分。</p>
+<h3 id="1-允许的IP"><a href="#1-允许的IP" class="headerlink" title="(1) 允许的IP"></a><strong>(1) 允许的IP</strong></h3><p><img src="/2022/05/31/Redis/1.png" alt="1" title="1"></p>
+<p>这一部分是关于网络的配置信息。根据注释信息，<code>bind</code>关键字限制了能访问Redis数据库服务器的IP地址，默认设置是<code>127.0.0.1 ::1</code> 。如果不写任何<code>bind</code>关键字，则Redis数据库服务器将允许来自任意IP地址的访问，这将非常危险。</p>
+<h3 id="2-保护模式与端口"><a href="#2-保护模式与端口" class="headerlink" title="(2) 保护模式与端口"></a><strong>(2) 保护模式与端口</strong></h3><p><img src="/2022/05/31/Redis/2.png" alt="2" title="2"></p>
+<p>如果开启<code>protected-mode</code>模式，并且满足两个条件：</p>
+<ul>
+<li>服务器没有使用<code>bind</code>指定允许的IP地址</li>
+<li>没有设置密码</li>
+</ul>
+<p>则Redis数据库服务器将只接受本机IP的访问。默认情况下<code>protected-mode</code>模式是开启的，端口号为6379。若端口号被指定为0，则Redis数据库服务器将不会侦听TCP套接字的端口。</p>
+<h3 id="3-暂存请求数量与超时"><a href="#3-暂存请求数量与超时" class="headerlink" title="(3) 暂存请求数量与超时"></a><strong>(3) 暂存请求数量与超时</strong></h3><p><img src="/2022/05/31/Redis/3.png" alt="3" title="3"></p>
+<p><code>tcp-backlog</code>选项设置了Redis数据库服务器所能接受的最大暂存请求数量。当服务器能处理的连接数量已满时，会将新的连接请求放进暂存请求的队列中，等待有剩余资源后再处理队列中的请求。若队列已满，则拒绝所有新的请求。在高并发环境下，为了避免客户端等待时间过长，应当适量提高该值。由于Linux系统的<code>/proc/sys/net/core/somaxconn</code>文件也限制了Linux系统所能存放暂存请求队列的空间（默认似乎是4096，单位不明），因此当并发数较高时应该将二者的值一并提高。</p>
+<p><code>timeout</code>选项设置了当连接静默多少秒后自动关闭连接。若为0则连接永远不会被关闭。</p>
+<h3 id="4-守护进程与数据库数量"><a href="#4-守护进程与数据库数量" class="headerlink" title="(4) 守护进程与数据库数量"></a><strong>(4) 守护进程与数据库数量</strong></h3><p><img src="/2022/05/31/Redis/4.png" alt="4" title="4"></p>
+<p><code>daemonize</code>选项被启用后，Redis数据库服务器进程将以守护进程的模式启动。</p>
+<p><img src="/2022/05/31/Redis/5.png" alt="5" title="5"></p>
+<p><code>databases</code>选项设置了Redis数据库服务器默认有多少个数据库。使用<code>select</code>命令可以选择使用哪个数据库。</p>
+<h3 id="5-默认用户的密码"><a href="#5-默认用户的密码" class="headerlink" title="(5) 默认用户的密码"></a><strong>(5) 默认用户的密码</strong></h3><p><img src="/2022/05/31/Redis/6.png" alt="6" title="6"></p>
+<p><code>requirepass</code>选项被注释掉了。该选项指定了以默认身份访问Redis数据库时所需的密码。设置了该选项并重启Redis数据库服务器后，使用<code>redis-cli</code>命令连接到Redis数据库服务器后，无法执行任何操作，必须先使用<code>auth 密码</code> 命令并通过认证才能执行其他命令。</p>
+<h3 id="6-最大连接数"><a href="#6-最大连接数" class="headerlink" title="(6) 最大连接数"></a><strong>(6) 最大连接数</strong></h3><p><img src="/2022/05/31/Redis/7.png" alt="7" title="7"></p>
+<p><code>maxclients</code>选项被注释掉了。默认的最大同时连接数量是10000。</p>
+<h3 id="7-RDB保存频率"><a href="#7-RDB保存频率" class="headerlink" title="(7) RDB保存频率"></a><strong>(7) RDB保存频率</strong></h3><p><img src="/2022/05/31/Redis/8.png" alt="8" title="8"></p>
+<p>Redis数据库会将修改（添加或改写）的数据全都放在内存中，因此若服务器关闭则数据会丢失。为了持久化保存数据，Redis的默认行为是RDB，即将数据以文件形式保存在硬盘中，并且采用缓存写的方式保存。当符合一定条件时，数据才会从内存写入硬盘。</p>
+<p>其中<code>save</code>选项控制了保存的条件。第一个参数是保存的间隔秒数，第二个参数是修改了的键的个数。多个<code>save</code>选项可以共存。</p>
+<p>需要注意的是<code>save</code>选项是阻塞式的。</p>
+<h3 id="8-AOF"><a href="#8-AOF" class="headerlink" title="(8) AOF"></a><strong>(8) AOF</strong></h3><p>AOF即Append Only File，它也是Redis支持的持久化方式的一种。该技术是记录从服务器开始运行后的所有增加与改写操作，以日志的方式追加写入硬盘中。当服务器再次开启时，会先执行一次AOF文件中保存的所有指令。AOF是默认关闭的。</p>
+<p><img src="/2022/05/31/Redis/9.png" alt="9" title="9"></p>
+<p><code>appendonly</code>选项控制了是否开启AOF，若AOF与RDB同时开启，则Redis数据库启动时会使用AOF文件而不是RDB文件。<code>appendfilename</code>选项控制了AOF的文件名，该文件默认存放在<code>/etc/redis/</code>目录下。</p>
+<p><img src="/2022/05/31/Redis/10.png" alt="10" title="10"></p>
+<p><code>appendfsync</code>决定了AOF的日志写入策略。always代表每写一次就同步一次，everysec代表每秒同步一次，no代表将不主动同步，将同步时机交给操作系统决定。由于I&#x2F;O带来的开销较高，若每写一次就同步一次，在高并发环境下就会造成效率低下。</p>
+<div class="note success"><div style="color:green;font-size:1.5em;"><strong>基础知识到此为止</strong></div>
+
+<div style="color:green;">本文忽略了一些命令的细节选项与很多配置文件选项，并且对主从、集群只字未提。读者若有需要，可以自行搜索学习。</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/05/31/Redis/" title="Redis数据库">https://ayanami-daisuki.github.io/2022/05/31/Redis/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/29/LuaWithC/" rel="prev" title="Lua与C语言交互">
+                  <i class="fa fa-chevron-left"></i> Lua与C语言交互
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">355k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:23</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"/lib/mermaid/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
