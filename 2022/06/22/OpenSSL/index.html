@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script type="text/javascript" src="/js/logo.js"></script>
+  <script type="text/javascript" src="/js/force-autoplay.js"></script>
+  <script type="text/javascript" src="/js/contextmenu.js"></script>
+  <script type="text/javascript" src="/js/click-effect.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#007FFF"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
+  <link rel="mask-icon" href="/img/favicon.png" color="#007FFF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-center-atom.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ayanami-daisuki.github.io","root":"/","images":"/img","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#FFFFFF","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://ayanami-daisuki.github.io/2022/06/22/OpenSSL/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ayanami-daisuki.github.io/2022/06/22/OpenSSL/","path":"2022/06/22/OpenSSL/","title":"OpenSSL 入门级API"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OpenSSL 入门级API | 形而上的坏死，形而下的凋亡</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <meta name="msvalidate.01" content="2DC98D673CEA63668E0E0390B0D5A92E" />
+  <meta name="google-site-verification" content="1oFThEwTKR5SObaIdOL2PxGLwX-rE5ClaZKSAdhq3LY" />
+  <meta name="google-site-verification" content="a7h6HxqLG_MHyjCraHg6yzJYNk3na2UIjP7AcWOrg_E" />
+  <meta name="baidu-site-verification" content="code-PFGV5jFemX" />
+  <meta name="baidu-site-verification" content="code-Z4QAODNN82" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">形而上的坏死，形而下的凋亡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">共和国工科生的博客</p>
+      <img class="custom-logo-image" src="/img/logo.png" alt="形而上的坏死，形而下的凋亡">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">25</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/css/aplayer.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/js/aplayer.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%93%88%E5%B8%8C%EF%BC%88Hash%EF%BC%89"><span class="nav-text">二、哈希（Hash）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-MD5"><span class="nav-text">(1) MD5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SHA%E7%B3%BB%E5%88%97"><span class="nav-text">(2) SHA系列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E2%80%94%E2%80%94RSA"><span class="nav-text">三、非对称加密——RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5%E5%AF%B9"><span class="nav-text">(1) 生成密钥对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B0%86%E5%AF%86%E9%92%A5%E5%AF%B9%E5%86%99%E5%85%A5%E7%A3%81%E7%9B%98"><span class="nav-text">(2) 将密钥对写入磁盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8F%90%E5%8F%96%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-text">(3) 提取公钥私钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86"><span class="nav-text">(4) 加密与解密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%AD%BE%E5%90%8D%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="nav-text">(5) 签名与验证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-RSA-sign"><span class="nav-text">1. RSA_sign()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-RSA-verify"><span class="nav-text">2. RSA_verify</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%8E%B7%E5%8F%96%E5%AF%86%E9%92%A5%E9%95%BF%E5%BA%A6"><span class="nav-text">(6) 获取密钥长度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E2%80%94%E2%80%94AES"><span class="nav-text">四、对称加密——AES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AF%86%E9%92%A5"><span class="nav-text">(1) 初始化密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CBC%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86"><span class="nav-text">(2) CBC加密与解密</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="共和国工科生"
+      src="/img/avatar.png">
+  <p class="site-author-name" itemprop="name">共和国工科生</p>
+  <div class="site-description" itemprop="description">二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ayanami-Daisuki" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ayanami-Daisuki" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/RepublicEngineeringStudent" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;RepublicEngineeringStudent" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/engineeringstudent@qq.com" title="E-Mail → engineeringstudent@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/lib/@creativecommons/vocabulary/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      学习资料
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://docs.microsoft.com/zh-cn/dotnet/" title="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;" rel="noopener" target="_blank">.NET</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scisharp.github.io/SciSharp/" title="https:&#x2F;&#x2F;scisharp.github.io&#x2F;SciSharp&#x2F;" rel="noopener" target="_blank">SciSharp</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jquery.cuishifeng.cn/" title="https:&#x2F;&#x2F;jquery.cuishifeng.cn&#x2F;" rel="noopener" target="_blank">jQuery</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://v3.cn.vuejs.org/api/" title="https:&#x2F;&#x2F;v3.cn.vuejs.org&#x2F;api&#x2F;" rel="noopener" target="_blank">VUE</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.electronjs.org/docs/latest/api/app" title="https:&#x2F;&#x2F;www.electronjs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;app" rel="noopener" target="_blank">Electron</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ayanami-daisuki.github.io/2022/06/22/OpenSSL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.png">
+      <meta itemprop="name" content="共和国工科生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="二次元，多语言许可(中/あ/Eng)，程序员，社科趣味，东四区作息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="OpenSSL 入门级API | 形而上的坏死，形而下的凋亡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenSSL 入门级API
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-22 09:31:55" itemprop="dateCreated datePublished" datetime="2022-06-22T09:31:55+08:00">2022-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-23 18:45:45" itemprop="dateModified" datetime="2022-06-23T18:45:45+08:00">2022-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2022/06/22/OpenSSL/Title.png" alt="标题" style="width:100%;height:auto;">
+
+<div class="note warning"><div style="color:goldenrod;font-size:1.5em;"><strong>前置条件</strong></div>
+
+<div style="color:goldenrod;">理解本文需要有C/C++基础，并且本文默认读者有良好的密码学基础。</div>
+</div>
+
+<span id="more"></span>
+
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h2><p>OpennSSL是一个用于加密的开源库，其源码大多由C编写。OpenSSL的官网只提供源代码下载，用户需要自行编译。一些第三方网站会提供已编译的库，例如 <a class="btn" target="_blank" rel="noopener" href="https://slproweb.com/products/Win32OpenSSL.html ">Win32/64 OpenSSL</a> 。Linux的版本就请自行寻找。</p>
+<p>请注意，下载的OpenSSL版本应当为1.1.1，3.0.3版本的OpenSSL相比1.1.1版本更加上层且难懂，原有的API几乎都废弃了。</p>
+<p>安装完毕以后需要在Visual Studio中的 <code>项目属性 -&gt; VC++ 目录 -&gt; 包含目录</code> 下添加OpenSSL的<code>include</code>文件夹，在 <code>项目属性 -&gt; VC++ 目录 -&gt; 库目录</code> 下添加OpenSSL的<code>lib</code>文件夹，在 <code>项目属性 -&gt; 链接器 -&gt; 输入 -&gt; 附加依赖项</code> 下添加<code>libssl.lib</code>和<code>libcrypto.lib</code> 。</p>
+<h2 id="二、哈希（Hash）"><a href="#二、哈希（Hash）" class="headerlink" title="二、哈希（Hash）"></a><strong>二、哈希（Hash）</strong></h2><p>哈希函数常用于生成消息摘要以防止攻击者篡改传输的信息内容。在OpenSSL中，常用的哈希函数被定义在了如下两个头文件中：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;openssl/md5.h&gt;</span>                     <span class="comment">// MD5 算法</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;openssl/sha.h&gt;</span>                     <span class="comment">// SHA 系列算法</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-MD5"><a href="#1-MD5" class="headerlink" title="(1) MD5"></a><strong>(1) MD5</strong></h3><p>目前不推荐使用MD5作为哈希函数，因为已经证实了MD5算法不安全。但还是可以学学OpenSSL中与MD5相关的API。OpenSSL为MD5定义了一个结构体<code>MD5_CTX</code> ，以下函数都可以看作该结构体的 “成员函数” 。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>MD5_Init()</code></td>
+<td align="center"><code>MD5_CTX*</code></td>
+<td align="center">初始化<code>MD5_CTX</code>变量</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>MD5_Update()</code></td>
+<td align="center"><code>MD5_CTX*</code> , <code>const void*</code> , <code>size_t</code></td>
+<td align="center">添加要计算哈希的数据</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>MD5_Final()</code></td>
+<td align="center"><code>unsigned char*</code> , <code>MD5_CTX*</code></td>
+<td align="center">计算哈希值</td>
+<td align="center"><code>int</code></td>
+</tr>
+</tbody></table>
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong><code>size_t</code>类型</strong></div>
+
+<div style="color:royalblue;"><code>size_t</code>类型并不是什么崭新的类型，其实它就是<code>long long int</code>的别名，占用64位bit（8字节）。</div>
+</div>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;openssl/md5.h&gt;</span>                                            <span class="comment">// 引入 OpenSSL 的 MD5 算法库</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> Message[] = <span class="string">&quot;1145141919810\0&quot;</span>;                             <span class="comment">// 待 MD5 处理的文本</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> HASH[<span class="number">4096</span>] = &#123; <span class="number">0</span> &#125;;                               <span class="comment">// 缓冲区，用于存放 MD5 消息摘要</span></span><br><span class="line"></span><br><span class="line">    MD5_CTX* Helper = (MD5_CTX*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MD5_CTX));            <span class="comment">// 创建 MD5_CTX 变量</span></span><br><span class="line">    MD5_Init(Helper);                                               <span class="comment">// 初始化</span></span><br><span class="line">    MD5_Update(Helper, Message, <span class="built_in">strlen</span>(Message));                   <span class="comment">// 添加需要哈希的数据</span></span><br><span class="line">    MD5_Update(Helper, <span class="string">&quot;Hello, world\0&quot;</span>, <span class="built_in">strlen</span>(<span class="string">&quot;Hello, world!\0&quot;</span>));<span class="comment">// 添加需要哈希的数据</span></span><br><span class="line">    MD5_Final(HASH, Helper);                                        <span class="comment">// 计算哈希值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;HASH = %s\n&quot;</span>, HASH);                                    <span class="comment">// 查看哈希值</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(Helper);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HASH = 蚶狾keDvg</span><br></pre></td></tr></table></figure>
+
+<p>消息摘要输出乱码是很正常的。如果觉得上述方法略显复杂，则可以直接使用<code>MD5()</code>函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> Message[] = <span class="string">&quot;1145141919810\0&quot;</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span>* Buffer0 = <span class="literal">NULL</span>, Buffer1[<span class="number">4096</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用 MD5 函数</span></span><br><span class="line">Buffer0 = MD5(Message, <span class="built_in">strlen</span>(Message), Buffer1);</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Buffer0 = %s , Buffer1 = %s\n&quot;</span>, Buffer0, Buffer1);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Buffer0 == Buffer1 is %d\n&quot;</span>, Buffer0 == Buffer1);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Buffer0 = 2叧E膴/???, Buffer1 = 2叧E膴/???</span><br><span class="line">Buffer0 == Buffer1 is 1</span><br></pre></td></tr></table></figure>
+
+<p><code>MD5()</code>函数的参数分别为：待哈希的信息、信息的长度、接收哈希值的字符数组，返回值为一个指向接收哈希值的字符数组的指针。</p>
+<p>另外，在<code>md5.h</code>头文件中还定义了一个值<code>MD5_DIGEST_LENGTH</code> ，该值为16，表示MD5消息摘要的长度。</p>
+<h3 id="2-SHA系列"><a href="#2-SHA系列" class="headerlink" title="(2) SHA系列"></a><strong>(2) SHA系列</strong></h3><p>SHA系列算法包含了SHA1、SHA256、SHA512等哈希算法，其消息摘要的长度逐渐递增，安全性也随之增强。下述为SHA1的相关函数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>SHA_Init()</code></td>
+<td align="center"><code>SHA_CTX*</code></td>
+<td align="center">初始化<code>SHA_CTX</code>变量</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>SHA_Update()</code></td>
+<td align="center"><code>SHA_CTX*</code> , <code>const void*</code> , <code>size_t</code></td>
+<td align="center">添加要计算哈希的数据</td>
+<td align="center"><code>int</code></td>
+</tr>
+<tr>
+<td align="center"><code>SHA_Final()</code></td>
+<td align="center"><code>unsigned char*</code> , <code>SHA_CTX*</code></td>
+<td align="center">计算哈希值</td>
+<td align="center"><code>int</code></td>
+</tr>
+</tbody></table>
+<p>SHA1也有直接计算哈希值的函数，其API与MD5的函数基本一致，此处就不再做赘述。SHA256、SHA512的函数与SHA1也基本一致，只需要将<code>SHA_Init()</code>等名称中的<code>SHA</code>更换为<code>SHA256</code>或<code>SHA512</code>即可。</p>
+<p>SHA系列算法的消息摘要长度，也被以类似MD5那样的格式定义了，例如SHA1的消息摘要长度<code>SHA_DIGEST_LENGTH</code>为20。</p>
+<h2 id="三、非对称加密——RSA"><a href="#三、非对称加密——RSA" class="headerlink" title="三、非对称加密——RSA"></a><strong>三、非对称加密——RSA</strong></h2><p>非对称加密安全性高，但效率低，往往用于加密少量的信息。非对称加密的一个典型算法就是RSA。要想使用RSA相关的函数，需要先引入头文件：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;openssl/rsa.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>在该头文件下定义了一个名为<code>RSA</code>的结构体，其中具体定义了什么不需要了解。想得到一个<code>RSA</code>类型的变量，就必须使用<code>RSA_new()</code>函数，该函数没有参数。</p>
+<h3 id="1-生成密钥对"><a href="#1-生成密钥对" class="headerlink" title="(1) 生成密钥对"></a><strong>(1) 生成密钥对</strong></h3><p>密钥对均存放在一个<code>RSA</code>变量中。生成密钥对需要使用<code>RSA_generate_key_ex()</code>函数。其参数如下：</p>
+<ul>
+<li><code>RSA*</code> ：存放密钥对的<code>RSA</code>变量。</li>
+<li><code>int</code> ：密钥对的长度，单位为bit。，通常为1024的整数倍。</li>
+<li><code>BIGNUM*</code> ：一个大数字，通常在五位十进制以内。</li>
+<li><code>BN_GENCB*</code> ：回调函数，一般不会用到，可填<code>NULL</code> 。</li>
+</ul>
+<p><code>BIGNUM</code>类型也是OpenSSL定义的一个结构体，其 “成员函数” 如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">参数</th>
+<th align="center">功能</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>BN_new()</code></td>
+<td align="center">无</td>
+<td align="center">初始化一个<code>BIGNUM</code>型变量</td>
+<td align="center"><code>BIGNUM*</code></td>
+</tr>
+<tr>
+<td align="center"><code>BN_set_word()</code></td>
+<td align="center"><code>BIGNUM*</code> , <code>unsigned int</code></td>
+<td align="center">为<code>BIGNUM</code>型变量赋值</td>
+<td align="center"><code>int</code></td>
+</tr>
+</tbody></table>
+<h3 id="2-将密钥对写入磁盘"><a href="#2-将密钥对写入磁盘" class="headerlink" title="(2) 将密钥对写入磁盘"></a><strong>(2) 将密钥对写入磁盘</strong></h3><p>要想能够长期保存密钥对，就需要将密钥对存储在磁盘中，这些功能都被封装在了<code>openssl/pem.h</code>头文件下。与此相关的函数如下：</p>
+<div class="tabs" id="pem"><ul class="nav-tabs"><li class="tab active"><a href="#pem-1"><code>PEM_write_RSAPublicKey()</code></a></li><li class="tab"><a href="#pem-2"><code>PEM_write_RSAPrivateKey()</code></a></li><li class="tab"><a href="#pem-3"><code>PEM_read_RSAPublicKey()</code></a></li><li class="tab"><a href="#pem-4"><code>PEM_read_RSAPrivateKey()</code></a></li><li class="tab"><a href="#pem-5"><code>BIO</code></a></li></ul><div class="tab-content"><div class="tab-pane active" id="pem-1"><p><code>PEM_write_RSAPublicKey()</code>函数用于将公钥写入磁盘。其参数如下：</p>
+<ul>
+<li><code>FILE*</code> ：待写入的文件的文件描述符。</li>
+<li><code>const RSA*</code> ：存放密钥对的变量地址。</li>
+</ul>
+<p>该函数的返回值为<code>int</code>类型，写成功时返回<code>1</code> ，失败则返回<code>0</code> 。</p></div><div class="tab-pane" id="pem-2"><p><code>PEM_write_RSAPrivateKey()</code>函数用于将私钥写入磁盘。其参数如下：</p>
+<ul>
+<li><code>FILE*</code> ：待写入的文件的文件描述符。</li>
+<li><code>const RSA*</code> ：存放密钥对的变量地址。</li>
+<li><code>const EVP_CIPHER*</code> ：存储私钥时使用的加密算法，可以为<code>NULL</code> 。</li>
+<li><code>unsigned char*</code> ：加密密钥，可以为<code>NULL</code> 。</li>
+<li><code>int</code> ：密钥长度，若不加密则为<code>0</code> 。</li>
+<li><code>pem_password_cb*</code> ：回调函数，可以为<code>NULL</code> 。</li>
+<li><code>void*</code> ：回调函数的参数，可以为<code>NULL</code> 。</li>
+</ul>
+<p>该函数的返回值为<code>int</code>类型，写成功时返回<code>1</code> ，失败则返回<code>0</code> 。</p></div><div class="tab-pane" id="pem-3"><p><code>PEM_read_RSAPublicKey()</code>函数用于从磁盘读取公钥，其参数如下：</p>
+<ul>
+<li><code>FILE*</code> ：文件描述符。</li>
+<li><code>RSA**</code> ：待存储公钥的变量指针的指针。</li>
+<li><code>pem_password_cb*</code> ：回调函数，可以为<code>NULL</code> 。</li>
+<li><code>void*</code> ：回调函数的参数，可以为<code>NULL</code> 。</li>
+</ul>
+<p>该函数的返回值为<code>RSA*</code>类型，读成功时返回密钥变量所在地址 ，失败则返回<code>NULL</code> 。</p></div><div class="tab-pane" id="pem-4"><p><code>PEM_read_RSAPrivateKey()</code>函数用于从磁盘读取私钥，其参数如下：</p>
+<ul>
+<li><code>FILE*</code> ：文件描述符。</li>
+<li><code>RSA**</code> ：待存储私钥的变量指针的指针。</li>
+<li><code>pem_password_cb*</code> ：回调函数，可以为<code>NULL</code> 。</li>
+<li><code>void*</code> ：回调函数的参数，可以为<code>NULL</code> 。</li>
+</ul>
+<p>该函数的返回值为<code>RSA*</code>类型，读成功时返回密钥变量所在地址 ，失败则返回<code>NULL</code> 。</p></div><div class="tab-pane" id="pem-5"><p><code>BIO</code>是OpenSSL中定义的一个结构体。可以认为该结构体及其 “成员函数” 不完全封装了C语言的文件流。使用<code>BIO</code>的方式打开文件与C语言的文件流一致：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BIO* temp = BIO_new_file(<span class="string">&quot;Public.key&quot;</span>, <span class="string">&quot;w&quot;</span>);            <span class="comment">// 以只写方式打开 Public.key 文件</span></span><br><span class="line">BIO_free(temp);                                         <span class="comment">// 关闭文件</span></span><br></pre></td></tr></table></figure>
+
+<p>使用BIO的方式读写密钥对的API与上述函数相差不大，只需要把文件描述符换成<code>BIO*</code>即可。</p>
+<ul>
+<li><code>PEM_write_bio_RSAPublicKey()</code> ：写入公钥</li>
+<li><code>PEM_write_bio_RSAPrivateKey()</code> ：写入私钥</li>
+<li><code>PEM_read_bio_RSAPublicKey()</code> ：读取公钥</li>
+<li><code>PEM_read_bio_RSAPrivateKey()</code> ：读取私钥</li>
+</ul></div></div></div>
+
+<div class="note info"><div style="color:royalblue;font-size:1.5em;"><strong>出现报错？</strong></div>
+
+<div style="color:royalblue;">引用了<code>openssl/pem.h</code>头文件后，使用上述函数还是报错？看看你的错误是否为<code>OPENSSL_Uplink(00007FF9BCC22D50,08): no OPENSSL_Applink</code> ，如果是，那么你只需要在头文件引入处再添加一行<code>#include &lt;openssl/applink.c&gt;</code>即可。报错原因是因为与上述函数相关的动态链接库调用了该文件中的一些函数，而源文件中却未引入该文件。</div>
+</div>
+
+<h3 id="3-提取公钥私钥"><a href="#3-提取公钥私钥" class="headerlink" title="(3) 提取公钥私钥"></a><strong>(3) 提取公钥私钥</strong></h3><p>在OpenSSL中，RSA的公私钥都存放在<code>RSA</code>类型的变量中。<code>RSA</code>类型的变量可以单独存放公钥或私钥，也可以同时存放二者。要想取出公钥或者私钥，可以使用以下函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Keys 为 RSA 型变量，同时存放了公私钥</span></span><br><span class="line">RSA* SK = RSAPrivateKey_dup(Keys);                      <span class="comment">// 取出私钥</span></span><br><span class="line">RSA* PK = RSAPublicKey_dup(Keys);                       <span class="comment">// 取出公钥</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-加密与解密"><a href="#4-加密与解密" class="headerlink" title="(4) 加密与解密"></a><strong>(4) 加密与解密</strong></h3><p>非对称加密既可以用于加密也可以用于签名，因此加解密一共有两种组合：</p>
+<ul>
+<li>私钥加密，公钥解密（签名）</li>
+<li>公钥加密，私钥解密（加密）</li>
+</ul>
+<p>OpenSSL也贴心地为程序员编写了相应的四个函数：</p>
+<ul>
+<li><code>RSA_public_encrypt()</code> ：公钥加密</li>
+<li><code>RSA_public_decrypt()</code> ：公钥解密</li>
+<li><code>RSA_private_encrypt()</code> ：私钥加密</li>
+<li><code>RSA_private_decrypt()</code> ：私钥解密</li>
+</ul>
+<p>这四个函数的参数完全一致，且返回值均为<code>int</code>类型。返回值代表了明文或密文的长度，若返回<code>-1</code>则代表出错。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数类型</th>
+<th align="center">参数意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>int</code></td>
+<td align="center">待加密 &#x2F; 解密数据长度，其值应当小于等于密钥长度-11</td>
+</tr>
+<tr>
+<td align="center"><code>unsigned char*</code></td>
+<td align="center">待加密 &#x2F; 解密的字符串</td>
+</tr>
+<tr>
+<td align="center"><code>unsigned char*</code></td>
+<td align="center">加密 &#x2F; 解密结果</td>
+</tr>
+<tr>
+<td align="center"><code>RSA*</code></td>
+<td align="center">存储公钥或私钥的变量指针</td>
+</tr>
+<tr>
+<td align="center"><code>int</code></td>
+<td align="center">明文填充方案，推荐使用<code>RSA_PKCS1_PADDING</code></td>
+</tr>
+</tbody></table>
+<p>加密后的文本长度会和密钥长度一致。通过<code>RSA_generate_key_ex()</code>函数生成的密钥，其长度由参数规定，单位为bit。因此接收密文的缓冲区所占字节数应当至少为密钥长度÷8。</p>
+<h3 id="5-签名与验证"><a href="#5-签名与验证" class="headerlink" title="(5) 签名与验证"></a><strong>(5) 签名与验证</strong></h3><p>虽然使用上文的加解密函数也能实现签名与验证，但OpenSSL还是提供了直接进行签名与验证的相关函数。</p>
+<h4 id="1-RSA-sign"><a href="#1-RSA-sign" class="headerlink" title="1. RSA_sign()"></a><strong>1. <code>RSA_sign()</code></strong></h4><p><code>RSA_sign()</code>函数用于签名。该函数的参数如下：</p>
+<ul>
+<li><code>int</code> ：签名时使用的哈希算法，可选值如下：<ul>
+<li><code>NID_MD5</code></li>
+<li><code>NID_SHA1</code></li>
+<li><code>NID_SHA224</code></li>
+<li>······</li>
+</ul>
+</li>
+<li><code>const unsigned char*</code> ：要进行签名的数据</li>
+<li><code>unsigned int</code> ：要签名的数据字节数</li>
+<li><code>unsigned char*</code> ：签名之后的数据</li>
+<li><code>unsigned int*</code> ：签名之后数据的长度</li>
+<li><code>RSA*</code> ：私钥</li>
+</ul>
+<p>该函数的返回值为<code>int</code>类型，其值指示签名是否成功。</p>
+<h4 id="2-RSA-verify"><a href="#2-RSA-verify" class="headerlink" title="2. RSA_verify"></a><strong>2. <code>RSA_verify</code></strong></h4><p><code>RSA_verify</code>函数用于验证，该函数的参数如下：</p>
+<ul>
+<li><code>int</code> ：签名时使用的哈希算法，可选值如下：<ul>
+<li><code>NID_MD5</code></li>
+<li><code>NID_SHA1</code></li>
+<li><code>NID_SHA224</code></li>
+<li>······</li>
+</ul>
+</li>
+<li><code>const unsigned char*</code> ：被签名了的数据</li>
+<li><code>unsigned int</code> ：被签名了的数据字节数</li>
+<li><code>const unsigned char*</code> ：签名</li>
+<li><code>unsigned int*</code> ：签名的长度</li>
+<li><code>RSA*</code> ：公钥</li>
+</ul>
+<p>该函数的返回值为<code>int</code>类型，其值指示验证是否通过。</p>
+<h3 id="6-获取密钥长度"><a href="#6-获取密钥长度" class="headerlink" title="(6) 获取密钥长度"></a><strong>(6) 获取密钥长度</strong></h3><p>当不知道密钥长度时（例如从文件中读取密钥时），可以使用<code>RSA_size()</code>函数来获取密钥长度。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BIGNUM* a = BN_new();</span><br><span class="line">RSA* Keys = RSA_new();</span><br><span class="line"></span><br><span class="line">BN_set_word(a, <span class="number">11451</span>);</span><br><span class="line">RSA_generate_key_ex(Keys, <span class="number">4096</span>, a, <span class="literal">NULL</span>);           <span class="comment">// 密钥长度为 4096 bit</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Length of Key is %d.&quot;</span>, RSA_size(Keys));     <span class="comment">// 计算出的长度将以字节为单位</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Length of Key is 512.</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、对称加密——AES"><a href="#四、对称加密——AES" class="headerlink" title="四、对称加密——AES"></a><strong>四、对称加密——AES</strong></h2><p>AES是对称加密中的一种非常经典的算法。对称加密往往是通过位运算来对数据进行加密，因此加密效率相对于非对称加密而言高了不少。在需要传输大量加密数据时常采用对称加密，其密钥协商则是通过非对称加密实现。</p>
+<p>要想使用AES算法加密，需要引入以下头文件：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;openssl/aes.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>由于AES算法采用分组加密，其加密模式大约有5种。</p>
+<ul>
+<li>电子密码本模式（ECB）</li>
+<li>分组链接模式（CBC）</li>
+<li>密文反馈模式（CFB）</li>
+<li>输出反馈模式（OFB）</li>
+<li>计数器模式（CTR）</li>
+</ul>
+<p>关于上述加密模式的具体算法此处不做赘述，需要知道的是OpenSSL实现的AES加密自然包含上述几种加密模式（但计数器模式似乎没有）。</p>
+<h3 id="1-初始化密钥"><a href="#1-初始化密钥" class="headerlink" title="(1) 初始化密钥"></a><strong>(1) 初始化密钥</strong></h3><p><code>AES_set_encrypt_key()</code>函数与<code>AES_set_decrypt_key()</code>函数分别用于封装AES加密密钥与AES的解密密钥。这两个函数的参数完全一致：</p>
+<ul>
+<li><code>const unsigned char*</code> ：密钥</li>
+<li><code>const int</code> ：密钥长度，以bit为单位</li>
+<li><code>AES_KEY*</code> ：被封装的AES密钥</li>
+</ul>
+<p>这两个函数的返回值均为<code>int</code>类型，指示封装是否成功。OpenSSL不支持AES512，最高支持到AES256。</p>
+<h3 id="2-CBC加密与解密"><a href="#2-CBC加密与解密" class="headerlink" title="(2) CBC加密与解密"></a><strong>(2) CBC加密与解密</strong></h3><p>OpenSSL中只定义了一个与CBC模式相关的函数<code>AES_cbc_encrypt()</code> ，该函数既可以用于加密也可以用于解密。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数类型</th>
+<th align="center">参数意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>const unsigned char*</code></td>
+<td align="center">待加密 &#x2F; 解密的数据</td>
+</tr>
+<tr>
+<td align="center"><code>unsigned char*</code></td>
+<td align="center">加密 &#x2F; 解密结果</td>
+</tr>
+<tr>
+<td align="center"><code>size_t</code></td>
+<td align="center">待加密 &#x2F; 解密的数据的字节数（包含<code>\0</code> ），它必须为16的整数倍</td>
+</tr>
+<tr>
+<td align="center"><code>const AES_KEY*</code></td>
+<td align="center">密钥</td>
+</tr>
+<tr>
+<td align="center"><code>unsigned char*</code></td>
+<td align="center">初始化字符串，长度与分组长度相同（<span style="color:red;">该值会被修改</span>）</td>
+</tr>
+<tr>
+<td align="center"><code>const int</code></td>
+<td align="center">指定是加密模式还是解密模式，可选值为<code>AES_ENCRYPT</code>和<code>AES_DECRYPT</code></td>
+</tr>
+</tbody></table>
+<p>如果待加密的数据字节数不是16的整数倍，用户不必自行手动填充，OpenSSL会自动帮用户填充。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>共和国工科生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ayanami-daisuki.github.io/2022/06/22/OpenSSL/" title="OpenSSL 入门级API">https://ayanami-daisuki.github.io/2022/06/22/OpenSSL/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/Ayanami-Daisuki">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://gitee.com/RepublicEngineeringStudent">
+          <span class="icon">
+            <i class="fab fa-google"></i>
+          </span>
+
+          <span class="label">Gitee</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 计算机科学</a>
+              <a href="/tags/C%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> C库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/31/Redis/" rel="prev" title="Redis数据库">
+                  <i class="fa fa-chevron-left"></i> Redis数据库
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-scale-balanced"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共和国工科生</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">362k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:29</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"/lib/mermaid/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
